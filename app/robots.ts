@@ -1,2 +1,3 @@
 import type {MetadataRoute} from 'next';
-export default function robots():MetadataRoute.Robots{return {rules:{userAgent:'*',disallow:'/'}}}
+import {indexable,siteUrl} from '@/lib/site';
+export default function robots():MetadataRoute.Robots{return indexable?{rules:{userAgent:'*',allow:'/'},sitemap:`${siteUrl}/sitemap.xml`,host:siteUrl}:{rules:{userAgent:'*',disallow:'/'}}}

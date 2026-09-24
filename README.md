@@ -13,25 +13,19 @@ Visit http://127.0.0.1:3000. Production check: `npm run build`. Type check: `npm
 
 ## Implemented
 
-- Home with a static, abstract regional constellation, balanced researcher/educator positioning and three research projects.
-- About, Research and three project pages, Teaching, CV, Writing and Contact.
-- Responsive navigation, remembered light/dark theme with system default, visible keyboard focus and reduced-motion support.
-- Web CV and pre-rendered `/cv.pdf` share `content/profile.ts` through `lib/cv-document.tsx`.
-- Thesis JSON-LD on thesis pages. Search indexing deliberately disabled during author review.
-- Writing has an honest empty state. The contact form explicitly reports that delivery is not connected and cannot submit.
+- Home with the thesis-led hero and an interactive regional constellation: hover, focus or tap a region to see the related research, then click or tap again to open it.
+- About, Research and three expanded project pages (question, argument, approach, status, abstract, argument or findings, significance, route into doctoral research, related work), Teaching, CV and Contact.
+- Contact form backed by a Server Action (`app/contact/actions.ts`): validation, honeypot, timing check, per-instance rate limit, Cloudflare Turnstile and delivery through the Resend REST API. See `.env.example`.
+- SEO: per-page descriptions and canonical URLs, OpenGraph/Twitter cards with generated images (`/opengraph-image` and one per research page), `sitemap.xml`, ProfilePage/Person and Thesis JSON-LD, and a dedicated 404 title. Indexing is off unless `ENABLE_INDEXING=true` on production (`lib/site.ts`).
+- Dark theme by default; an explicit light/dark choice is remembered site-wide and synced across tabs.
+- `/cv.pdf` is rendered with @react-pdf using the brand fonts (static Fraunces and Inter TTFs in `assets/fonts`, under the OFL) from the same data as the web CV.
+- Writing is hidden from navigation and sitemap until `content/writing.ts` has a post.
+- Contact links (email, ORCID, LinkedIn) and the portrait appear automatically once they are configured.
 
 ## Content source and privacy
 
-The revised plan supplied by the user is the source, not independently inspected degree documents. Review the drafted first-person copy with Nimra before launch. The current school is anonymised. No pupil information, home address, personal telephone, dates of birth, identifiers, certificates, reference letters or full thesis PDFs are included. No testimonials are included.
+The revised plan supplied by the user is the source, not independently inspected degree documents. The current school is anonymised. No pupil information, home address, personal telephone, dates of birth, identifiers, certificates, reference letters or full thesis PDFs are included. No testimonials are included, and no publications, metrics, awards, quotes or research findings have been invented.
 
-`content/profile.ts` holds identity, qualifications, research and CV data. Longer draft text currently lives in the page components. The MPhil and conference project titles are descriptive pending confirmation. No invented publications, metrics, awards or quotes are used. Only two of the six university module titles have been supplied.
-
-## Next implementation stages
-
-1. Confirm hero wording, exact MPhil/conference titles, project abstracts and methods, full university module list, professional contact address, profile links and headshot. Review all first-person copy.
-2. Introduce Keystatic with MDX collections for projects, teaching, writing and a structured CV. Add content validation and a strict `permissionGranted` gate before any testimonials can render. CMS is **not installed yet**.
-3. Connect server-side contact delivery through Resend with Turnstile validation, honeypot, rate limiting and verified sender/recipient configuration. No scheduling widget.
-4. Add approved essays, final project findings, Person/ProfilePage metadata, production canonical URLs, sitemap and branded OpenGraph cards. Scholar metadata stays dormant until eligible outputs exist.
-5. Run a full accessibility and throttled Lighthouse audit, connect the GitHub repository and Vercel, configure the domain, then deliberately enable indexing after approval of the content.
+All outstanding content, configuration and go-live steps are tracked in [LAUNCH.md](LAUNCH.md). Editorial notes belong there or in the content source, never in rendered pages.
 
 The application is not deployed. No external accounts, messages or domain registrations have been created.

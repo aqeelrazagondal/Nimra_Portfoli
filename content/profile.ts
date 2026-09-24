@@ -18,16 +18,16 @@ export const profileLinks=[
 ].filter(x=>x.href);
 export const education = [
  {title:'MA International Relations',institution:'University of Northampton',dates:'September 2023 – November 2024',result:'Merit',detail:'Awarded 27 November 2024. Dissertation: Deconstructing the Role of Afghanistan in Regional Security Complex Theory.'},
- {title:'MPhil International Relations',institution:'National Defence University, Islamabad',dates:'Spring 2016 – Fall 2017',result:'CGPA 3.53 / 4.00',detail:'Conferred December 2018. Thesis on Russia–Afghanistan relations and regional stability.'},
+ {title:'MPhil International Relations',institution:'National Defence University, Islamabad',dates:'Spring 2016 – Fall 2017',result:'CGPA 3.53 / 4.00',detail:'Conferred December 2018. Thesis on Russia–Afghanistan relations and regional stability; thesis grade A (86%).'},
  {title:'BS International Relations',institution:'Lahore College for Women University',dates:'2011 – 2015',result:'CGPA 3.24 / 4.00',detail:'Four-year degree; conferred May 2016.'},
 ];
 // Only confirmed module titles are listed; add the remaining four here when supplied.
 export const universityModules=['Foreign Policy Analysis','Research Methodology'];
 export const teaching = [
- {title:'Geography & History Teacher · Form Tutor',institution:'Specialist SEMH school, Northamptonshire',dates:'February 2025 – present',detail:'KS3–4 Geography and History in specialist social, emotional and mental health provision. Adapting teaching and resources to individual learning needs.'},
- {title:'Geography & Science Teacher',institution:'Abbeyfield School, Northampton · via Teaching Personnel',dates:'February 2024 – February 2025',detail:'Secondary Geography and Science teaching in England.'},
+ {title:'Geography & History Teacher · Form Tutor',institution:'Specialist SEMH school, Northamptonshire',dates:'February 2025 – present',detail:'KS3–4 Geography and History in specialist social, emotional and mental health provision, adapting teaching and resources to individual learning needs. As form tutor, I provide daily pastoral support, work with the SENCO on adapted provision, liaise with parents and carers, and keep pupil progress records up to date.'},
+ {title:'Geography & Science Teacher',institution:'Abbeyfield School, Northampton · via Teaching Personnel',dates:'February 2024 – February 2025',detail:'Planned and taught secondary Geography and Science lessons, tracked pupil progress and kept assessment records.'},
  {title:'Visiting Faculty · International Relations',institution:'University of Gujrat, Mandi Bahauddin campus',dates:'September 2019 – March 2022',detail:'Taught six undergraduate modules, including Foreign Policy Analysis and Research Methodology. Served as Student Affairs Sub-in-Charge and led the Blood Donation Society.'},
- {title:'Secondary Teacher · Humanities & Social Studies',institution:'Beaconhouse School System, Pakistan',dates:'September 2015 – March 2023',detail:'Humanities and Social Studies teaching. This role overlapped with visiting university teaching.'},
+ {title:'Secondary Teacher · Humanities & Social Studies',institution:'Beaconhouse School System, Pakistan',dates:'September 2015 – March 2023',detail:'Humanities and Social Studies teaching at secondary level, held alongside my visiting faculty role at the University of Gujrat from 2019.'},
 ];
 export type Project={slug:string;title:string;shortTitle:string;year:number;type:string;institution:string;kind:'Thesis'|'CreativeWork';
  teaser:string;summary:string;description:string;status:string;question:string;argument:string;method:string;

@@ -51,3 +51,15 @@ The site's pages moved to `app/(site)/`, whose layout adds the header, footer an
 
 - Create a Keystatic Cloud project connected to this GitHub repo and set `NEXT_PUBLIC_KEYSTATIC_CLOUD_PROJECT` (`team/project`) in Vercel. Invite Nimra.
 - Decide where images live (in the repo, as now, or Keystatic Cloud images) before she uploads many.
+
+## Stage 2A: reading experience (built)
+
+- `lib/articles.ts` loads articles through the Keystatic reader and walks each Markdoc document once. That pass counts words, sets the reading time (230 words a minute) and the excerpt, numbers footnotes (dropping empty ones), gives headings stable ids and reads figure image sizes. It also handles visibility: drafts and scheduled articles only show when `showDrafts` is on.
+- `/writing`: featured card, series shelf, a tag filter kept in `?tag=` (without JavaScript every article is listed), list rows with thumbnails, and "Load more" after 10 articles.
+- `/writing/[slug]`:
+  - top of the page: tags, series label, title and subtitle, author row, share row, and the cover with a caption
+  - body: Markdoc rendered with footnote popovers, image zoom, heading anchors, click-to-load embeds and scrollable tables
+  - end of the article: correction note, notes, references, cite (APA, Harvard, Chicago), tag links, next in series, author card and "More from Nimra"
+  - reading extras: progress bar, auto-hiding header while reading, and a pinned share bar on mobile
+- **Metadata font:** the site's existing monospace stack instead of adding Geist Mono, to stay consistent with the rest of the site and avoid another font download.
+- **Scheduled publishing:** `revalidate = 3600` on the site layout, the Writing pages and the sitemap. `next.config.ts` ships `content/articles` with every route so re-rendering can read it.

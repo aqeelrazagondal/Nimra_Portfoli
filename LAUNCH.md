@@ -13,7 +13,7 @@ Editorial notes live here, never in rendered pages.
 - [ ] Names of the remaining four University of Gujrat modules (`universityModules`).
 - [ ] Professional portrait: add it to `public/` and set `profile.portrait`. The monogram shows until then.
 - [ ] Professional email, ORCID and LinkedIn URLs (environment variables, see `.env.example`).
-- [ ] 1–2 short articles for Writing (an RSCT explainer is the easiest first piece). Adding a post to `content/writing.ts` restores Writing to the navigation and sitemap and allows it to be indexed.
+- [ ] Replace the two placeholder articles in `content/articles/` (lorem ipsum drafts, used to test the design) with real ones, or delete them. Drafts show only locally and on Vercel preview deployments. Writing appears in the navigation and sitemap once an article is set to Published with a publish date that has arrived.
 - [ ] Referee permission before any testimonials are added.
 - [ ] Review all first-person copy, including the new hero line "Afghanistan isn’t a buffer. It’s a driver."
 

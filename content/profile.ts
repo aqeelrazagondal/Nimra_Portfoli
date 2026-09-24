@@ -29,6 +29,15 @@ export const teaching = [
  {title:'Visiting Faculty · International Relations',institution:'University of Gujrat, Mandi Bahauddin campus',dates:'September 2019 – March 2022',detail:'Taught six undergraduate modules, including Foreign Policy Analysis and Research Methodology. Served as Student Affairs Sub-in-Charge and led the Blood Donation Society.'},
  {title:'Secondary Teacher · Humanities & Social Studies',institution:'Beaconhouse School System, Pakistan',dates:'September 2015 – March 2023',detail:'Humanities and Social Studies teaching at secondary level, held alongside my visiting faculty role at the University of Gujrat from 2019.'},
 ];
+// Drawn from Nimra's doctoral research proposal. Kept to themes and questions: the detailed
+// framework (criteria, case comparison, design) stays unpublished until her paper is out.
+export const researchInterests=['Regional Security Complex Theory','Securitization theory','Afghanistan and its neighbourhood','Non-traditional security threats','Transnational terrorism, narcotics and refugee movements','Security governance and state fragility','Regional security cooperation (SCO, Moscow Format, CSTO)','China and Russia in Central and South Asia'];
+export const futureDirections=[
+ {title:'The instigator state',detail:'Developing the idea that a state’s security governance failure can generate and connect security threats across neighbouring regions, rather than keeping those regions apart.'},
+ {title:'A new security region?',detail:'Asking whether shared threats from Afghanistan are drawing Pakistan, Iran, China, Russia and the Central Asian republics into a nascent security region, and what might stop it maturing.'},
+ {title:'Great powers and regional cooperation',detail:'Examining how China and Russia shape inter-regional security cooperation through platforms such as the SCO and the Moscow Format.'},
+ {title:'Beyond Afghanistan',detail:'Testing whether other states that sit between regions could follow a similar path, and under what conditions.'},
+];
 export type Project={slug:string;title:string;shortTitle:string;year:number;type:string;institution:string;kind:'Thesis'|'CreativeWork';
  teaser:string;summary:string;description:string;status:string;question:string;argument:string;method:string;
  abstract:string[];findingsTitle:string;findings:string[];significance:string;phd:string;related:string[]};

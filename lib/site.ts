@@ -13,7 +13,7 @@ export function pageMetadata({title,description,path}:{title?:string;description
 }
 export function jsonLd(data:object){return {__html:JSON.stringify(data).replace(/</g,'\\u003c')}}
 export const person={'@type':'Person','@id':`${siteUrl}/#person`,name:profile.name,url:siteUrl,jobTitle:profile.role,description:profile.description,
- knowsLanguage:profile.languages,knowsAbout:['International Relations','Regional Security Complex Theory','Afghanistan','Regional security','Inclusive education'],
+ knowsLanguage:profile.languages,knowsAbout:['International Relations','Regional Security Complex Theory','Securitization theory','Afghanistan','Regional security','Non-traditional security threats','Inclusive education'],
  alumniOf:[{'@type':'CollegeOrUniversity',name:'University of Northampton'},{'@type':'CollegeOrUniversity',name:'National Defence University, Islamabad'},{'@type':'CollegeOrUniversity',name:'Lahore College for Women University'}],
  address:{'@type':'PostalAddress',addressLocality:'Northampton',addressCountry:'GB'},
  ...(profile.email?{email:`mailto:${profile.email}`}:{}),sameAs:[profile.orcid,profile.linkedin].filter(Boolean)};

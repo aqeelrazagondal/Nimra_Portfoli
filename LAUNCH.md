@@ -6,6 +6,8 @@ Editorial notes live here, never in rendered pages.
 
 - [ ] Confirmed formal MPhil thesis title ("Counter" vs "Contours" in the transcript). The site uses the descriptive title *Russia–Afghanistan relations and regional stability*.
 - [ ] Exact Istanbul conference paper title and original abstract (from proceedings or certificate). The site uses a descriptive title.
+- [ ] Host university of the Istanbul International Social Science Conference (for the CV conference entry).
+- [ ] Check the expanded teaching entries in `content/profile.ts` (form tutor pastoral work, SENCO collaboration and parent liaison under the SEMH school; progress records under Abbeyfield) and the MPhil thesis grade (A, 86%) against her own CV.
 - [ ] Review and approve the drafted research copy in `content/profile.ts`: each project's `abstract`, `significance`, `phd` and `method`, plus the MA "argument in brief" list.
 - [ ] Key findings for the MPhil thesis and the conference paper (`findings: []`). The section stays hidden until they are filled in.
 - [ ] Names of the remaining four University of Gujrat modules (`universityModules`).

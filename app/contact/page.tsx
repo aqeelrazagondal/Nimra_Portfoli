@@ -1,0 +1,3 @@
+import {ContactForm} from '@/components/contact-form';
+export const metadata={title:'Contact'};
+export default function Contact(){return <section className="page-section"><p className="eyebrow">CONTACT</p><h1>A conversation can<br/><em>open a new direction.</em></h1><div className="intro-columns"><div><p className="lead">I welcome conversations about doctoral research, collaboration and speaking.</p><p>My interests span Afghanistan and regional security, International Relations, and research-informed inclusive education.</p><p className="eyebrow space-top">BASED IN</p><p>Northampton, UK</p><p className="muted">A professional email and verified profile links will be added before launch.</p></div><ContactForm/></div></section>}

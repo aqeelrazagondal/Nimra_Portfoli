@@ -66,8 +66,8 @@ export default function Teaching(){
    </div>
   </section>
 
-  <section className="wrap section" aria-label="Reference">
-   <Testimonial label="From a reference" {...testimonials.teaching}/>
+  <section className="wrap section" aria-label="Testimonial">
+   <Testimonial {...testimonials.teaching}/>
   </section>
 
   <section className="wrap section" aria-labelledby="teach-cta">

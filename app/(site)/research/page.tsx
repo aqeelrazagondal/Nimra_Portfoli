@@ -75,8 +75,8 @@ export default function Research(){
    </div>
   </section>
 
-  <section className="wrap section" aria-label="Reference">
-   <Testimonial label="From a reference" {...testimonials.research}/>
+  <section className="wrap section" aria-label="Testimonial">
+   <Testimonial {...testimonials.research}/>
   </section>
 
   <section className="wrap section" aria-labelledby="research-cta">

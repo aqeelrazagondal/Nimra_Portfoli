@@ -131,7 +131,7 @@ export function SignalTrace(){
   <path d="M170 254 H471 V218 H951 V254 H1008 V218 H1175" className="f-none s-live" strokeWidth="2" strokeLinejoin="round"/>
   <line x1="1072" y1="212" x2="1072" y2="224" className="s-hair" strokeWidth="3"/>
   <text x="711" y="241" textAnchor="middle" className="t-mono t-text">Beaconhouse · humanities</text>
-  <text x="1066" y="208" textAnchor="end" className="t-mono t-2">Abbeyfield</text><text x="1082" y="208" textAnchor="start" className="t-mono t-2">SEMH school</text>
+  <text x="1058" y="208" textAnchor="end" className="t-mono t-2">Abbeyfield</text><text x="1090" y="208" textAnchor="start" className="t-mono t-2">SEMH school</text>
   <polygon points="1175,230 1187,236 1175,242" className="f-live"/>
   <path d="M170 326 H612 V290 H624 V326 H769 V290 H781 V326 H1054 V290 H1066 V326 H1178" className="f-none s-gold" strokeWidth="2" strokeLinejoin="round"/>
   <text x="618" y="282" textAnchor="middle" className="t-mono t-2">MPhil thesis</text><text x="775" y="282" textAnchor="middle" className="t-mono t-2">Istanbul paper</text><text x="1060" y="282" textAnchor="middle" className="t-mono t-2">MA dissertation</text>
@@ -171,7 +171,7 @@ const events:{when:string;lane:keyof typeof lanes;text:string}[]=[
  {when:'June 2020',lane:'research',text:'Istanbul conference paper'},
  {when:'Sep 2019 – Mar 2022',lane:'university',text:'Visiting faculty, University of Gujrat'},
  {when:'2018',lane:'research',text:'MPhil thesis'},
- {when:'Spring 2016 – Fall 2017',lane:'study',text:'MPhil International Relations, NDU Islamabad'},
+ {when:'2016 – 2018',lane:'study',text:'MPhil International Relations, NDU Islamabad'},
  {when:'Sep 2015 – Mar 2023',lane:'schools',text:'Beaconhouse School System'},
  {when:'2011 – 2015',lane:'study',text:'BS International Relations, LCWU'},
 ];

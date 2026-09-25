@@ -61,8 +61,8 @@ export function ContactForm(){
    <p className="form-status" role="status" aria-live="polite">{state.status==='error'?state.message:''}</p>
    <div className="form-foot">
     <small>Your details are used only to reply to you.{siteKey?' Protected by an invisible spam check.':''}</small>
-    <button type="submit" className="btn" disabled={pending}>
-     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h7l3-6 2 12 3-6h3"/></svg>
+    <button type="submit" className="btn btn-send" disabled={pending}>
+     <svg viewBox="0 0 22 14" aria-hidden="true" style={{width:22,height:14}}><path d="M1 10h5M16 10h5M6 10 L15 3"/></svg>
      {pending?'Sending…':'Close the circuit · Send'}
     </button>
    </div>

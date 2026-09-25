@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+ <rect width="40" height="40" rx="9" fill="#0B0A12"/>
+ <rect x="8" y="10" width="24" height="20" rx="4" fill="#15121F" stroke="#B9A2FF" stroke-width="1.5"/>
+ <path d="M14 4v6M26 4v6" stroke="#3D3659" stroke-width="1.5"/>
+ <path d="M14 30v6M26 30v6" stroke="#7EE8DF" stroke-width="1.5"/>
+ <text x="20" y="24.5" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="13" fill="#EEEAF6">nz</text>
+</svg>

@@ -4,26 +4,31 @@ import {projects,profile} from '@/content/profile';
 import {HeroBoard} from '@/components/circuit/hero-board';
 import {SignalPath,StrandWire,CtaSwitch,ChipGlyph,BranchGlyph} from '@/components/circuit/figures';
 import {getArticles,formatDate} from '@/lib/articles';
-import {getProfileMedia} from '@/lib/profile-media';
+import {photoSrc} from '@/components/photo';
 import {jsonLd,person,siteUrl} from '@/lib/site';
 
 const Arrow=()=><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>;
 const byYear=[...projects].sort((a,b)=>a.year-b.year);
 const signal=[...byYear.map((p,i)=>({x:141+i*306,label:String(p.year),done:true})),{x:141+byYear.length*306,label:'NEXT',done:false}];
 const cardLabel:Record<string,string>={'MA dissertation':'MA dissertation · Northampton','MPhil thesis':'MPhil thesis · NDU Islamabad','Conference paper':'Conference paper · Istanbul'};
+// Card copy from the home design; falls back to the project's own title and teaser.
+const cardCopy:Record<string,{title:string;text:string}>={
+ 'russia-afghanistan-relations':{title:'Russia, Afghanistan & regional stability',text:'How Russia–Afghanistan relations shape stability across the wider region.'},
+ 'istanbul-conference-2020':{title:'Afghanistan, Turkey & the Global War on Terror',text:'Presented at the Istanbul International Social Science Conference, June 2020.'},
+ 'afghanistan-regional-security':{title:'Deconstructing Afghanistan’s role in RSCT',text:'Challenges the “insulator” label and reads Afghanistan as an instigator of regional security dynamics.'},
+};
 
 export default async function Home(){
- const [{portrait},articles]=await Promise.all([getProfileMedia(),getArticles()]);
- const profilePage={'@context':'https://schema.org','@type':'ProfilePage',url:siteUrl,dateModified:profile.updated,mainEntity:{...person,...(portrait?{image:`${siteUrl}${portrait.src}`}:{})}};
+ const articles=await getArticles();
+ const profilePage={'@context':'https://schema.org','@type':'ProfilePage',url:siteUrl,dateModified:profile.updated,mainEntity:{...person,image:`${siteUrl}${photoSrc('portrait')}`}};
  const latest=articles.slice(0,3);
  return <>
   <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(profilePage)}/>
 
   <HeroBoard>
    <div className="hero-kicker"><span className="node-dot pulse" aria-hidden/><span className="label">U1 · International Relations × Education</span></div>
-   <h1 className="hero-identity">Nimra Zahid - International Relations Researcher &amp; Educator</h1>
-   <h2 className="display">They called it an insulator.<br/> <em>I{"\u00a0"}study the current.</em></h2>
-   <p className="hero-intro">My research asks what changes when Afghanistan is read not as a buffer between regions, but as a driver of their security.</p>
+   <h1 className="display">They called it an insulator.<br/> <em>I{"\u00a0"}study the current.</em></h1>
+   <p className="hero-intro">I’m Nimra Zahid, an International Relations researcher and educator. My research asks what changes when Afghanistan is read not as a buffer between regions, but as a driver of their security.</p>
    <p className="meta">MA IR · MPhil IR · Educator since 2015 · {profile.location}</p>
    <div className="btn-row"><Link href="/research" className="btn">Follow the current <Arrow/></Link><a href="/cv.pdf" className="btn-ghost" target="_blank" rel="noopener noreferrer">Download CV</a></div>
   </HeroBoard>
@@ -70,15 +75,15 @@ export default async function Home(){
    <div className="projects">
     {byYear.map(p=><Link key={p.slug} href={`/research/${p.slug}`} className={`project${p.type==='MA dissertation'?' current':''}`}>
      <span className="mono muted">{(cardLabel[p.type]??p.type).toUpperCase()}</span>
-     <h3 className="h-item">{p.shortTitle}</h3>
-     <p>{p.teaser}</p>
+     <h3 className="h-item">{cardCopy[p.slug]?.title??p.shortTitle}</h3>
+     <p>{cardCopy[p.slug]?.text??p.teaser}</p>
      <span className="project-link">Project overview →</span>
     </Link>)}
     <div className="project planned">
      <span className="mono muted">DOCTORAL RESEARCH · PLANNED</span>
      <h3 className="h-item">Testing the instigator thesis</h3>
      <p>Taking the argument into a doctoral project on Afghanistan and regional security.</p>
-     <Link href="/contact" className="project-link">Discuss doctoral opportunities →</Link>
+     <Link href="/contact" className="project-link">Discuss supervision →</Link>
     </div>
    </div>
   </section>

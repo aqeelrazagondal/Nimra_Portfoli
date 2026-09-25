@@ -1,0 +1,180 @@
+<!-- Design reference: board "ResearchDetail" from the Circuit design canvas. Inline-styled HTML; {{holes}}, <sc-for>, <sc-if>, <dc-import> are design-tool template syntax (see HANDOFF.md §12). Not production code. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MA dissertation — Nimra Zahid</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&amp;family=Geist:wght@300..600&amp;family=Geist+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0A12}
+a{color:#B9A2FF;text-decoration:none}a:hover{color:#D6C9FF}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:4 16;animation:flow 1.4s linear infinite}
+@media (prefers-reduced-motion: reduce){.flow{animation:none}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 3700px; position: relative; overflow: hidden; display: flex; flex-direction: column; background: #0B0A12; color: #EEEAF6; font-family: 'Geist', sans-serif;">
+
+  <dc-import name="Nav" active="research" hint-size="1440px,88px"></dc-import>
+
+  <section style="box-sizing: border-box; padding: 64px 120px 0; display: flex; flex-direction: column; gap: 28px;">
+    <a href="Research.dc.html" style="display: flex; align-items: center; gap: 8px; height: 44px; width: fit-content; font-size: 15px; color: #A8A1BC; text-decoration: none;">← All research</a>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #A8A1BC;">
+      <span style="color: #7EE8DF;">MA DISSERTATION</span><span>·</span><span>2024</span><span>·</span><span>UNIVERSITY OF NORTHAMPTON</span>
+      <span style="margin-left: 8px; padding: 6px 12px; border-radius: 14px; border: 1px solid rgba(233,199,123,0.5); color: #E9C77B;">MERIT</span>
+    </div>
+    <h1 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 64px; line-height: 1.06; letter-spacing: -0.025em; max-width: 1060px;">Deconstructing the Role of Afghanistan in Regional Security Complex Theory</h1>
+    <p style="margin: 0; font-size: 21px; line-height: 1.6; color: #C9C3D8; max-width: 760px;">I examine Afghanistan as a driver of regional security dynamics, rather than a buffer between neighbouring security complexes.</p>
+  </section>
+
+  <section style="box-sizing: border-box; padding: 88px 120px 0; display: grid; grid-template-columns: minmax(0, 1fr) 340px; column-gap: 100px; align-items: start;">
+    <article style="display: flex; flex-direction: column; gap: 64px; max-width: 760px;">
+
+      <div id="abstract" style="display: flex; flex-direction: column; gap: 18px;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #B9A2FF;">01 · ABSTRACT</span>
+        <div style="padding: 28px 32px; border-radius: 20px; border: 1px dashed #3D3659; font-family: 'Newsreader', serif; font-size: 20px; line-height: 1.65; color: #A8A1BC;">[ABSTRACT · 150–250 words, from the dissertation]</div>
+      </div>
+
+      <div id="question" style="display: flex; flex-direction: column; gap: 18px;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #B9A2FF;">02 · THE QUESTION</span>
+        <p style="margin: 0; font-family: 'Fraunces', serif; font-size: 36px; line-height: 1.25; font-style: italic; font-weight: 300;">How does Afghanistan shape the security relationships of the regions around it?</p>
+      </div>
+
+      <div id="argument" style="display: flex; flex-direction: column; gap: 22px;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #B9A2FF;">03 · THE ARGUMENT</span>
+        <p style="margin: 0; font-family: 'Newsreader', serif; font-size: 21px; line-height: 1.65; color: #D9D4E6;">Regional Security Complex Theory classifies Afghanistan as an “insulator”: a state that sits between complexes and keeps their dynamics apart. My research challenges that classification and explores Afghanistan’s role as an “instigator” of regional security dynamics.</p>
+        <div style="display: grid; grid-template-columns: minmax(0, 1fr) 64px minmax(0, 1fr); align-items: center; padding: 28px; border-radius: 24px; border: 1px solid #2B2640; background: #0E0C16;">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
+            <svg width="220" height="96" viewBox="0 0 220 96" aria-hidden="true" style="display: block;">
+              <path d="M0 48 H70 M150 48 H220" style="fill: none; stroke: #2B2640; stroke-width: 2;"></path>
+              <line x1="74" y1="34" x2="74" y2="62" style="stroke: #F2A9C4; stroke-width: 2;"></line>
+              <line x1="146" y1="34" x2="146" y2="62" style="stroke: #F2A9C4; stroke-width: 2;"></line>
+              <rect x="84" y="28" width="52" height="40" rx="8" style="fill: #15121F; stroke: #8A83A0; stroke-width: 1.5;"></rect>
+              <text x="110" y="52" style="font-family: 'Geist Mono', monospace; font-size: 12px; fill: #EEEAF6; text-anchor: middle;">AFG</text>
+            </svg>
+            <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #F2A9C4;">INSULATOR · BLOCKS</span>
+          </div>
+          <svg width="64" height="24" viewBox="0 0 64 24" aria-hidden="true"><path d="M8 12 H52 M44 5 L52 12 L44 19" style="fill: none; stroke: #8A83A0; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"></path></svg>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
+            <svg width="220" height="96" viewBox="0 0 220 96" aria-hidden="true" style="display: block;">
+              <path d="M0 48 H84 M136 48 H220" style="fill: none; stroke: #2B2640; stroke-width: 2;"></path>
+              <path class="flow" d="M84 48 H0" style="fill: none; stroke: #7EE8DF; stroke-width: 2;"></path>
+              <path class="flow" d="M136 48 H220" style="fill: none; stroke: #7EE8DF; stroke-width: 2;"></path>
+              <circle cx="110" cy="48" r="40" style="fill: rgba(126,232,223,0.07);"></circle>
+              <rect x="84" y="28" width="52" height="40" rx="8" style="fill: #15121F; stroke: #7EE8DF; stroke-width: 1.5;"></rect>
+              <text x="110" y="52" style="font-family: 'Geist Mono', monospace; font-size: 12px; fill: #EEEAF6; text-anchor: middle;">AFG</text>
+            </svg>
+            <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #7EE8DF;">INSTIGATOR · GENERATES</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="approach" style="display: flex; flex-direction: column; gap: 18px;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #B9A2FF;">04 · APPROACH</span>
+        <p style="margin: 0; font-family: 'Newsreader', serif; font-size: 21px; line-height: 1.65; color: #D9D4E6;">Theory-driven analysis using Regional Security Complex Theory (RSCT).</p>
+        <div style="padding: 20px 24px; border-radius: 16px; border: 1px dashed #3D3659; font-size: 16px; color: #A8A1BC;">[Sources, cases and period examined · 2–3 sentences]</div>
+      </div>
+
+      <div id="findings" style="display: flex; flex-direction: column; gap: 18px;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #B9A2FF;">05 · KEY FINDINGS</span>
+        <div style="display: flex; flex-direction: column;">
+          <div style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 16px; padding: 22px 0; border-top: 1px solid #221E33;">
+            <span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #7EE8DF;">F1</span>
+            <span style="font-size: 18px; line-height: 1.55; color: #A8A1BC;">[Finding one, in one sentence]</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 16px; padding: 22px 0; border-top: 1px solid #221E33;">
+            <span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #7EE8DF;">F2</span>
+            <span style="font-size: 18px; line-height: 1.55; color: #A8A1BC;">[Finding two, in one sentence]</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 16px; padding: 22px 0; border-top: 1px solid #221E33; border-bottom: 1px solid #221E33;">
+            <span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #7EE8DF;">F3</span>
+            <span style="font-size: 18px; line-height: 1.55; color: #A8A1BC;">[Finding three, in one sentence]</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="next" style="display: flex; flex-direction: column; gap: 18px;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #B9A2FF;">06 · WHY IT MATTERS &amp; WHAT COMES NEXT</span>
+        <div style="padding: 20px 24px; border-radius: 16px; border: 1px dashed #3D3659; font-size: 16px; color: #A8A1BC;">[Why the reclassification matters, and how it leads into the doctoral project · 2–3 sentences]</div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 14px; padding: 20px 24px; border-radius: 16px; background: #13111D; font-size: 15px; line-height: 1.55; color: #C9C3D8;">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0; fill: none; stroke: #B9A2FF; stroke-width: 1.6;"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+        This page is a research overview. The full dissertation is not published here; I’m happy to discuss it.
+      </div>
+    </article>
+
+    <aside style="display: flex; flex-direction: column; gap: 24px;">
+      <nav aria-label="On this page" style="display: flex; flex-direction: column; padding: 24px; border-radius: 20px; border: 1px solid #221E33;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #8A83A0; padding-bottom: 10px;">ON THIS PAGE</span>
+        <a href="#abstract" style="display: flex; align-items: center; gap: 10px; height: 40px; font-size: 15px; color: #EEEAF6; text-decoration: none;"><span style="width: 6px; height: 6px; border-radius: 3px; background: #7EE8DF;"></span>Abstract</a>
+        <a href="#question" style="display: flex; align-items: center; gap: 10px; height: 40px; padding-left: 16px; font-size: 15px; color: #A8A1BC; text-decoration: none;">The question</a>
+        <a href="#argument" style="display: flex; align-items: center; gap: 10px; height: 40px; padding-left: 16px; font-size: 15px; color: #A8A1BC; text-decoration: none;">The argument</a>
+        <a href="#approach" style="display: flex; align-items: center; gap: 10px; height: 40px; padding-left: 16px; font-size: 15px; color: #A8A1BC; text-decoration: none;">Approach</a>
+        <a href="#findings" style="display: flex; align-items: center; gap: 10px; height: 40px; padding-left: 16px; font-size: 15px; color: #A8A1BC; text-decoration: none;">Key findings</a>
+        <a href="#next" style="display: flex; align-items: center; gap: 10px; height: 40px; padding-left: 16px; font-size: 15px; color: #A8A1BC; text-decoration: none;">What comes next</a>
+      </nav>
+
+      <div style="display: flex; flex-direction: column; gap: 16px; padding: 24px; border-radius: 20px; border: 1px solid #2B2640; background: #13111D;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #8A83A0;">CITE THIS</span>
+        <div role="group" aria-label="Citation style" style="display: flex; gap: 6px;">
+          <button type="button" style="height: 36px; padding: 0 14px; border-radius: 18px; border: 1px solid rgba(185,162,255,0.45); background: rgba(185,162,255,0.14); color: #EEEAF6; font-family: 'Geist Mono', monospace; font-size: 12px; cursor: pointer;">APA</button>
+          <button type="button" style="height: 36px; padding: 0 14px; border-radius: 18px; border: 1px solid #2B2640; background: transparent; color: #A8A1BC; font-family: 'Geist Mono', monospace; font-size: 12px; cursor: pointer;">Harvard</button>
+          <button type="button" style="height: 36px; padding: 0 14px; border-radius: 18px; border: 1px solid #2B2640; background: transparent; color: #A8A1BC; font-family: 'Geist Mono', monospace; font-size: 12px; cursor: pointer;">BibTeX</button>
+        </div>
+        <p style="margin: 0; font-family: 'Newsreader', serif; font-size: 16px; line-height: 1.55; color: #D9D4E6;">Zahid, N. (2024). <em>Deconstructing the role of Afghanistan in Regional Security Complex Theory</em> [Master’s dissertation, University of Northampton].</p>
+        <button type="button" style="height: 44px; border-radius: 22px; border: 1px solid #3D3659; background: transparent; color: #EEEAF6; font-family: 'Geist', sans-serif; font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="fill: none; stroke: #EEEAF6; stroke-width: 1.6;"><rect x="8" y="8" width="12" height="12" rx="2"></rect><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path></svg>
+          Copy citation
+        </button>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px; padding: 24px; border-radius: 20px; border: 1px solid #221E33;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #8A83A0;">SPECIFICATION</span>
+        <div style="display: flex; justify-content: space-between; font-size: 15px;"><span style="color: #A8A1BC;">Degree</span><span>MA International Relations</span></div>
+        <div style="display: flex; justify-content: space-between; font-size: 15px;"><span style="color: #A8A1BC;">Result</span><span>Merit</span></div>
+        <div style="display: flex; justify-content: space-between; font-size: 15px;"><span style="color: #A8A1BC;">Theory</span><span>RSCT</span></div>
+        <div style="display: flex; justify-content: space-between; font-size: 15px;"><span style="color: #A8A1BC;">Year</span><span>2024</span></div>
+      </div>
+    </aside>
+  </section>
+
+  <section style="box-sizing: border-box; padding: 120px 120px 0; display: flex; flex-direction: column; gap: 28px;">
+    <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.16em; color: #B9A2FF;">CONNECTED WORK</span>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px;">
+      <a href="ResearchDetail.dc.html" style="display: flex; flex-direction: column; gap: 10px; padding: 32px; border-radius: 24px; border: 1px solid #2B2640; background: #13111D; color: #EEEAF6; text-decoration: none;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #A8A1BC;">← EARLIER · MPHIL THESIS · 2018</span>
+        <span style="font-family: 'Fraunces', serif; font-size: 28px; line-height: 1.15;">Russia–Afghanistan relations and regional stability</span>
+      </a>
+      <a href="Article.dc.html" style="display: flex; flex-direction: column; gap: 10px; padding: 32px; border-radius: 24px; border: 1px solid #2B2640; background: #13111D; color: #EEEAF6; text-decoration: none;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #A8A1BC;">PLAIN-LANGUAGE VERSION · ESSAY</span>
+        <span style="font-family: 'Fraunces', serif; font-size: 28px; line-height: 1.15;">Why Afghanistan is not a buffer →</span>
+      </a>
+    </div>
+  </section>
+
+  <section style="box-sizing: border-box; padding: 120px 120px 160px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 48px 56px; border-radius: 32px; border: 1px solid #2B2640; background: #110F1A;">
+      <span style="font-family: 'Fraunces', serif; font-size: 40px; line-height: 1.1;">Questions about this research?</span>
+      <a href="Contact.dc.html" style="display: inline-flex; align-items: center; height: 52px; padding: 0 26px; border-radius: 26px; background: #B9A2FF; color: #120E1E; font-size: 16px; font-weight: 500; text-decoration: none;">Discuss this research</a>
+    </div>
+  </section>
+
+  <div style="margin-top: auto;">
+    <dc-import name="Footer" hint-size="1440px,400px"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3700}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

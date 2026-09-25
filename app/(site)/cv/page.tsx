@@ -1,12 +1,13 @@
 import {cvSections,education,profile,projects,teaching} from '@/content/profile';
 import {SignalTrace,SignalList} from '@/components/circuit/figures';
 import {pageMetadata} from '@/lib/site';
+import {CvNav} from '@/components/cv-nav';
 export const metadata=pageMetadata({title:'Academic CV',description:'Academic CV of Nimra Zahid: MA and MPhil in International Relations, research on Afghanistan and regional security, and over ten years of teaching in Pakistan and England.',path:'/cv'});
 
 const updated=new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(profile.updated));
 const entries=(id:string)=>cvSections.find(s=>s.id===id)?.entries??[];
 const researchRows=[
- ...[...projects].sort((a,b)=>b.year-a.year).map(p=>({when:p.type==='Conference paper'?`June ${p.year}`:String(p.year),code:p.type==='MA dissertation'?'R2 · Dissertation':p.type==='MPhil thesis'?'R1 · Thesis':'P1 · Conference',title:p.title,sub:p.type==='Conference paper'?`${p.institution}, Istanbul Sabahattin Zaim University, Turkey`:p.institution})),
+ ...[...projects].sort((a,b)=>b.year-a.year).map(p=>({when:p.type==='Conference paper'?`June ${p.year}`:String(p.year),code:p.type==='MA dissertation'?'R2 · Dissertation':p.type==='MPhil thesis'?'R1 · Thesis':'P1 · Conference',title:p.kind==='Thesis'?p.title:p.shortTitle,sub:p.type==='Conference paper'?`${p.institution}, Istanbul Sabahattin Zaim University, Turkey`:p.institution})),
 ];
 const sections=[['education','Education','E'],['research','Research & presentations','R'],['teaching','Teaching experience','T'],['leadership','Leadership & service','L'],['skills','Training, skills & languages','S']];
 
@@ -35,19 +36,19 @@ export default function CV(){
   </section>
 
   <section className="wrap section-tight cv-layout">
-   <nav aria-label="CV sections" className="cv-nav no-print"><span className="label label-muted" style={{paddingBottom:10,width:'100%'}}>Sections</span>{sections.map(([id,label])=><a key={id} href={`#${id}`}><i aria-hidden/>{label}</a>)}</nav>
+   <CvNav sections={sections}/>
    <div>
     <section id="education" className="cv-section"><h2><span className="mono">E</span>Education</h2>
      {education.map(e=><article key={e.title} className="cv-entry"><div className="cv-when"><span className="mono">{e.short.toUpperCase()}</span><span className="mono muted">{e.code}</span></div>
       <div className="cv-body"><h3 className="cv-title">{e.title}</h3><span className="inst">{e.institution}, {e.place}</span><p>{e.detail}</p></div></article>)}
     </section>
-    <section id="research" className="cv-section"><h2><span className="mono">R</span>Research &amp; presentations</h2>
+    <section id="research" className="cv-section"><h2><span className="mono" style={{color:'var(--gold)'}}>R</span>Research &amp; presentations</h2>
      {researchRows.map(r=><article key={r.title} className="cv-entry"><div className="cv-when"><span className="mono">{r.when.toUpperCase()}</span><span className="mono muted">{r.code.toUpperCase()}</span></div><div className="cv-body"><h3 className="cv-title">{r.title}</h3><span className="inst">{r.sub}</span></div></article>)}
     </section>
-    <section id="teaching" className="cv-section"><h2><span className="mono">T</span>Teaching experience</h2>
-     {teaching.map(t=><article key={t.title} className="cv-entry"><div className="cv-when"><span className="mono">{t.short.toUpperCase()}</span><span className="mono muted">{t.code}</span></div><div className="cv-body"><h3 className="cv-title">{t.title}</h3><span className="inst">{t.institution}</span><p>{t.detail}</p></div></article>)}
+    <section id="teaching" className="cv-section"><h2><span className="mono" style={{color:'var(--current)'}}>T</span>Teaching experience</h2>
+     {teaching.map(t=><article key={t.title} className="cv-entry"><div className="cv-when"><span className="mono" style={t.code==='T4'?{color:'var(--current)'}:undefined}>{t.short.toUpperCase()}</span><span className="mono muted">{t.code}</span></div><div className="cv-body"><h3 className="cv-title">{t.title}</h3><span className="inst">{t.institution}</span><p>{t.detail}</p></div></article>)}
     </section>
-    {service&&<section id="leadership" className="cv-section"><h2><span className="mono">L</span>Leadership &amp; service</h2>
+    {service&&<section id="leadership" className="cv-section"><h2><span className="mono" style={{color:'var(--rose)'}}>L</span>Leadership &amp; service</h2>
      <article className="cv-entry"><div className="cv-when"><span className="mono">{service.dates}</span><span className="mono muted">L1 · L2</span></div><div className="cv-body"><h3 className="cv-title">Student Affairs Sub-in-Charge · Lead, Blood Donation Society</h3><span className="inst">{service.subtitle}</span><p>{service.detail}</p></div></article>
     </section>}
     <section id="skills" className="cv-section"><h2><span className="mono">S</span>Training, skills &amp; languages</h2>

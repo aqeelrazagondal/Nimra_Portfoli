@@ -105,7 +105,7 @@ export default config({
    path:'content/profile/',
    format:'yaml',
    schema:{
-    portrait:fields.image({label:'Portrait',description:'A head-and-shoulders photo, ideally portrait orientation (about 4:5) and at least 1000px wide. Used on the home page, About page and articles.',directory:'public/images/profile',publicPath:'/images/profile/'}),
+    portrait:fields.image({label:'Portrait',description:'Not currently shown: the site uses the edited photos in public/images/nimra (see components/photo.tsx).',directory:'public/images/profile',publicPath:'/images/profile/'}),
     portraitAlt:fields.text({label:'Portrait description',description:'For screen readers, e.g. “Nimra Zahid smiling, in a library”',defaultValue:'Portrait of Nimra Zahid'}),
     photos:fields.array(fields.object({
      image:fields.image({label:'Photo',directory:'public/images/profile',publicPath:'/images/profile/',validation:{isRequired:true}}),

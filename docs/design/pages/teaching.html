@@ -1,0 +1,245 @@
+<!-- Design reference: board "Teaching" from the Circuit design canvas. Inline-styled HTML; {{holes}}, <sc-for>, <sc-if>, <dc-import> are design-tool template syntax (see HANDOFF.md §12). Not production code. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Teaching — Nimra Zahid</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&amp;family=Geist:wght@300..600&amp;family=Geist+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0A12}
+a{color:#B9A2FF;text-decoration:none}a:hover{color:#D6C9FF}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:4 16;animation:flow 1.6s linear infinite}
+@keyframes glow{0%,100%{opacity:.55}50%{opacity:1}}
+.glow{animation:glow 3s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.flow,.glow{animation:none}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 4400px; position: relative; overflow: hidden; display: flex; flex-direction: column; background: #0B0A12; color: #EEEAF6; font-family: 'Geist', sans-serif;">
+
+  <dc-import name="Nav" active="teaching" hint-size="1440px,88px"></dc-import>
+
+  <section style="box-sizing: border-box; padding: 80px 120px 0; display: grid; grid-template-columns: minmax(0, 1fr) 560px; column-gap: 80px; align-items: center;">
+    <div style="display: flex; flex-direction: column; gap: 28px;">
+      <div style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #7EE8DF;">U4 · Teaching · Inclusion &amp; practice</div>
+      <h1 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 76px; line-height: 1.02; letter-spacing: -0.025em;">Understanding begins <em style="font-style: italic; font-weight: 300; color: #7EE8DF;">with belonging.</em></h1>
+      <p style="margin: 0; font-size: 20px; line-height: 1.6; color: #C9C3D8; max-width: 540px;">Over ten years of teaching across Pakistan and England, from university seminars to specialist secondary education.</p>
+      <div style="display: flex; gap: 12px;">
+        <a href="#experience" style="display: inline-flex; align-items: center; height: 52px; padding: 0 26px; border-radius: 26px; background: #7EE8DF; color: #0B0A12; font-size: 16px; font-weight: 500; text-decoration: none;">Teaching experience</a>
+        <a href="CV.dc.html" style="display: inline-flex; align-items: center; height: 52px; padding: 0 24px; border-radius: 26px; border: 1px solid #3D3659; color: #EEEAF6; font-size: 16px; text-decoration: none;">Full CV</a>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="border-radius: 32px; border: 1px solid #221E33; background-color: #0E0C16; background-image: radial-gradient(#221E33 1px, transparent 1px); background-size: 24px 24px; padding: 20px;">
+        <div style="display: flex; justify-content: space-between; font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #8A83A0; padding: 0 4px 8px;"><span>FIG. 3 · PARALLEL CIRCUIT</span><span>5 BRANCHES · ALL LIT</span></div>
+        <svg width="520" height="420" viewBox="0 0 560 460" role="img" aria-label="A parallel circuit: one source feeds five branches, each with its own resistor and a lit lamp." style="display: block; width: 100%; height: auto;">
+          <path d="M60 60 H500 M60 400 H500" style="fill: none; stroke: #2B2640; stroke-width: 2;"></path>
+          <path class="flow" d="M60 60 H500" style="fill: none; stroke: #7EE8DF; stroke-width: 2;"></path>
+          <path class="flow" d="M500 400 H60" style="fill: none; stroke: #7EE8DF; stroke-width: 2;"></path>
+          <path d="M60 60 V212 M60 248 V400" style="fill: none; stroke: #2B2640; stroke-width: 2;"></path>
+          <line x1="36" y1="212" x2="84" y2="212" style="stroke: #EEEAF6; stroke-width: 2;"></line>
+          <line x1="46" y1="230" x2="74" y2="230" style="stroke: #EEEAF6; stroke-width: 4;"></line>
+          <line x1="36" y1="248" x2="84" y2="248" style="stroke: #EEEAF6; stroke-width: 2;"></line>
+          <text x="98" y="236" style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 1.5px; fill: #C9C3D8;">LESSON</text>
+
+          <path d="M180 60 V110 L188 116 L172 128 L188 140 L172 152 L180 158 V214 M180 246 V400" style="fill: none; stroke: #3D3659; stroke-width: 2; stroke-linejoin: round;"></path>
+          <circle class="glow" cx="180" cy="230" r="28" style="fill: rgba(233,199,123,0.16);"></circle>
+          <circle cx="180" cy="230" r="16" style="fill: #15121F; stroke: #E9C77B; stroke-width: 1.8;"></circle>
+          <path d="M169 219 L191 241 M191 219 L169 241" style="stroke: #E9C77B; stroke-width: 1.5;"></path>
+
+          <path d="M260 60 V100 L268 106 L252 118 L268 130 L252 142 L268 154 L252 166 L260 172 V214 M260 246 V400" style="fill: none; stroke: #3D3659; stroke-width: 2; stroke-linejoin: round;"></path>
+          <circle class="glow" cx="260" cy="230" r="28" style="fill: rgba(233,199,123,0.16);"></circle>
+          <circle cx="260" cy="230" r="16" style="fill: #15121F; stroke: #E9C77B; stroke-width: 1.8;"></circle>
+          <path d="M249 219 L271 241 M271 219 L249 241" style="stroke: #E9C77B; stroke-width: 1.5;"></path>
+
+          <path d="M340 60 V120 L348 126 L332 138 L340 144 V214 M340 246 V400" style="fill: none; stroke: #3D3659; stroke-width: 2; stroke-linejoin: round;"></path>
+          <circle class="glow" cx="340" cy="230" r="28" style="fill: rgba(233,199,123,0.16);"></circle>
+          <circle cx="340" cy="230" r="16" style="fill: #15121F; stroke: #E9C77B; stroke-width: 1.8;"></circle>
+          <path d="M329 219 L351 241 M351 219 L329 241" style="stroke: #E9C77B; stroke-width: 1.5;"></path>
+
+          <path d="M420 60 V96 L428 102 L412 114 L428 126 L412 138 L428 150 L412 162 L428 174 L420 180 V214 M420 246 V400" style="fill: none; stroke: #3D3659; stroke-width: 2; stroke-linejoin: round;"></path>
+          <circle class="glow" cx="420" cy="230" r="28" style="fill: rgba(233,199,123,0.16);"></circle>
+          <circle cx="420" cy="230" r="16" style="fill: #15121F; stroke: #E9C77B; stroke-width: 1.8;"></circle>
+          <path d="M409 219 L431 241 M431 219 L409 241" style="stroke: #E9C77B; stroke-width: 1.5;"></path>
+
+          <path d="M500 60 V114 L508 120 L492 132 L508 144 L500 150 V214 M500 246 V400" style="fill: none; stroke: #3D3659; stroke-width: 2; stroke-linejoin: round;"></path>
+          <circle class="glow" cx="500" cy="230" r="28" style="fill: rgba(233,199,123,0.16);"></circle>
+          <circle cx="500" cy="230" r="16" style="fill: #15121F; stroke: #E9C77B; stroke-width: 1.8;"></circle>
+          <path d="M489 219 L511 241 M511 219 L489 241" style="stroke: #E9C77B; stroke-width: 1.5;"></path>
+
+          <circle cx="180" cy="60" r="4" style="fill: #7EE8DF;"></circle><circle cx="260" cy="60" r="4" style="fill: #7EE8DF;"></circle><circle cx="340" cy="60" r="4" style="fill: #7EE8DF;"></circle><circle cx="420" cy="60" r="4" style="fill: #7EE8DF;"></circle>
+          <circle cx="180" cy="400" r="4" style="fill: #7EE8DF;"></circle><circle cx="260" cy="400" r="4" style="fill: #7EE8DF;"></circle><circle cx="340" cy="400" r="4" style="fill: #7EE8DF;"></circle><circle cx="420" cy="400" r="4" style="fill: #7EE8DF;"></circle>
+          <text x="340" y="440" style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 1.5px; fill: #8A83A0; text-anchor: middle;">EACH LEARNER · OWN PATH · OWN PACE</text>
+        </svg>
+      </div>
+      <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #A8A1BC;">Parallel, not series: every learner has their own path to the current, so one branch dimming never switches off the rest.</p>
+    </div>
+  </section>
+
+  <section style="box-sizing: border-box; padding: 160px 120px 0; display: grid; grid-template-columns: 400px minmax(0, 1fr); column-gap: 96px;">
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <div style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #7EE8DF;">J1 · Philosophy</div>
+      <h2 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 48px; line-height: 1.1; letter-spacing: -0.02em;">My approach to the classroom.</h2>
+      <figure style="margin: 16px 0 0; display: flex; flex-direction: column; gap: 12px;">
+        <div style="position: relative; width: 400px; height: 500px; border-radius: 32px 32px 120px 32px; overflow: hidden; border: 1px solid #2B2640; background: #13111D;">
+          <img src="/images/nimra/p2-teaching-C-recommended.webp" alt="Nimra Zahid seated on a green park bench under autumn trees" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 30%;">
+          <span style="position: absolute; left: 18px; top: 18px; display: flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 14px; background: rgba(11,10,18,0.72); font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #EEEAF6;"><span style="width: 8px; height: 8px; border-radius: 4px; background: #E9C77B;"></span>T · EVERY BRANCH LIT</span>
+        </div>
+        <figcaption style="font-size: 14px; line-height: 1.5; color: #A8A1BC;">Teaching since 2015, across Pakistan and England.</figcaption>
+      </figure>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 20px; font-family: 'Newsreader', serif; font-size: 21px; line-height: 1.65; color: #D9D4E6; max-width: 680px;">
+      <p style="margin: 0;">I see teaching as making knowledge accessible without losing its complexity. Whether I am introducing a theory of international relations or helping a class understand a geographical connection, I begin with what learners already know and the support they need to take the next step.</p>
+      <p style="margin: 0;">Adapting to individual needs means thinking carefully about resources, pace and the ways learners can show their understanding. Assessment is most useful when it provides evidence for what to do next, rather than simply a judgement of what has already happened.</p>
+      <p style="margin: 0;">My work in specialist social, emotional and mental health provision has strengthened my attention to wellbeing as a foundation for learning. Predictability, trust and an inclusive classroom are central to that approach.</p>
+      <p style="margin: 0; font-style: italic; color: #EEEAF6;">I am interested in how research can inform these everyday decisions, and how reflection on practice can generate better questions.</p>
+    </div>
+  </section>
+
+  <section id="experience" style="box-sizing: border-box; padding: 160px 120px 0; display: flex; flex-direction: column; gap: 48px;">
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <div style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #7EE8DF;">J2 · Teaching experience</div>
+      <h2 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 52px; line-height: 1.08; letter-spacing: -0.02em;">Four roles, two countries.</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: 220px 48px minmax(0, 1fr); row-gap: 0;">
+
+      <div style="padding: 8px 0 56px; display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #7EE8DF;">FEB 2025 – NOW</span>
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">T4 · NORTHAMPTONSHIRE</span>
+      </div>
+      <div style="position: relative; display: flex; justify-content: center;">
+        <span style="position: absolute; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, #7EE8DF, #2B2640);"></span>
+        <span style="position: relative; margin-top: 8px; width: 18px; height: 18px; border-radius: 9px; background: #0B0A12; border: 2px solid #7EE8DF; box-sizing: border-box;"></span>
+      </div>
+      <div style="padding: 0 0 56px 24px; display: flex; flex-direction: column; gap: 12px;">
+        <span style="font-family: 'Fraunces', serif; font-size: 30px; line-height: 1.15;">Geography &amp; History Teacher · Form Tutor</span>
+        <span style="font-size: 16px; color: #A8A1BC;">Specialist SEMH school, Northamptonshire</span>
+        <ul style="margin: 4px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 17px; line-height: 1.6; color: #D9D4E6;">
+          <li>Teach Geography and History across Key Stages 3–4, adapting lessons to pupils’ emotional and learning needs.</li>
+          <li>Form Tutor for a designated group: pastoral care, wellbeing and daily routines.</li>
+          <li>Work with the SENCO and pastoral colleagues; maintain progress records and contribute to termly reviews.</li>
+          <li>Regular parent liaison on each pupil’s day: engagement, behaviour, achievements and concerns.</li>
+        </ul>
+      </div>
+
+      <div style="padding: 8px 0 56px; display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A8A1BC;">FEB 2024 – FEB 2025</span>
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">T3 · NORTHAMPTON</span>
+      </div>
+      <div style="position: relative; display: flex; justify-content: center;">
+        <span style="position: absolute; top: 0; bottom: 0; width: 2px; background: #2B2640;"></span>
+        <span style="position: relative; margin-top: 8px; width: 18px; height: 18px; border-radius: 9px; background: #0B0A12; border: 2px solid #3D3659; box-sizing: border-box;"></span>
+      </div>
+      <div style="padding: 0 0 56px 24px; display: flex; flex-direction: column; gap: 12px;">
+        <span style="font-family: 'Fraunces', serif; font-size: 30px; line-height: 1.15;">Geography &amp; Science Teacher</span>
+        <span style="font-size: 16px; color: #A8A1BC;">Abbeyfield School, Northampton · via Teaching Personnel</span>
+        <ul style="margin: 4px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 17px; line-height: 1.6; color: #D9D4E6;">
+          <li>Planned and delivered secondary Geography and Science, adapting resources to pupils’ needs.</li>
+          <li>Assessed work and used progress information to shape subsequent teaching.</li>
+        </ul>
+      </div>
+
+      <div style="padding: 8px 0 56px; display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A8A1BC;">SEP 2019 – MAR 2022</span>
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">T2 · MANDI BAHAUDDIN</span>
+      </div>
+      <div style="position: relative; display: flex; justify-content: center;">
+        <span style="position: absolute; top: 0; bottom: 0; width: 2px; background: #2B2640;"></span>
+        <span style="position: relative; margin-top: 8px; width: 18px; height: 18px; border-radius: 9px; background: #0B0A12; border: 2px solid #F2A9C4; box-sizing: border-box;"></span>
+      </div>
+      <div style="padding: 0 0 56px 24px; display: flex; flex-direction: column; gap: 12px;">
+        <span style="font-family: 'Fraunces', serif; font-size: 30px; line-height: 1.15;">Visiting Faculty · International Relations</span>
+        <span style="font-size: 16px; color: #A8A1BC;">University of Gujrat, Mandi Bahauddin campus</span>
+        <ul style="margin: 4px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 17px; line-height: 1.6; color: #D9D4E6;">
+          <li>Taught six undergraduate modules through lectures and seminars.</li>
+          <li>Student Affairs Sub-in-Charge: student welfare, departmental liaison and student-facing policy.</li>
+          <li>Led the Blood Donation Society, connecting students with the wider university community.</li>
+        </ul>
+      </div>
+
+      <div style="padding: 8px 0 0; display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A8A1BC;">SEP 2015 – MAR 2023</span>
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">T1 · MANDI BAHAUDDIN</span>
+      </div>
+      <div style="position: relative; display: flex; justify-content: center;">
+        <span style="position: absolute; top: 0; height: 26px; width: 2px; background: #2B2640;"></span>
+        <span style="position: relative; margin-top: 8px; width: 18px; height: 18px; border-radius: 9px; background: #0B0A12; border: 2px solid #3D3659; box-sizing: border-box;"></span>
+      </div>
+      <div style="padding: 0 0 0 24px; display: flex; flex-direction: column; gap: 12px;">
+        <span style="font-family: 'Fraunces', serif; font-size: 30px; line-height: 1.15;">Secondary Teacher · Humanities &amp; Social Studies</span>
+        <span style="font-size: 16px; color: #A8A1BC;">Beaconhouse School System, Pakistan · held alongside the university role, 2019–22</span>
+        <ul style="margin: 4px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 17px; line-height: 1.6; color: #D9D4E6;">
+          <li>Delivered secondary humanities and social studies across multiple campuses.</li>
+          <li>Prepared student reports and contributed to curriculum planning.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="box-sizing: border-box; padding: 160px 120px 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px;">
+    <div style="display: flex; flex-direction: column; gap: 20px; padding: 40px; border-radius: 28px; border: 1px solid #2B2640; background: #13111D;">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #F2A9C4;">J3 · UNIVERSITY TEACHING · UNIVERSITY OF GUJRAT</span>
+      <span style="font-family: 'Fraunces', serif; font-size: 34px; line-height: 1.12;">Six undergraduate modules.</span>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+        <span style="display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 16px; border-radius: 14px; border: 1px solid #2B2640; font-size: 15px;"><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #F2A9C4;">M1</span>International Relations</span>
+        <span style="display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 16px; border-radius: 14px; border: 1px solid #2B2640; font-size: 15px;"><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #F2A9C4;">M2</span>Foreign Policy Analysis</span>
+        <span style="display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 16px; border-radius: 14px; border: 1px solid #2B2640; font-size: 15px;"><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #F2A9C4;">M3</span>Research Methodology</span>
+        <span style="display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 16px; border-radius: 14px; border: 1px dashed #3D3659; font-size: 15px; color: #A8A1BC;"><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">M4</span>[Module title]</span>
+        <span style="display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 16px; border-radius: 14px; border: 1px dashed #3D3659; font-size: 15px; color: #A8A1BC;"><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">M5</span>[Module title]</span>
+        <span style="display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 16px; border-radius: 14px; border: 1px dashed #3D3659; font-size: 15px; color: #A8A1BC;"><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">M6</span>[Module title]</span>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 20px; padding: 40px; border-radius: 28px; border: 1px solid #2B2640; background: #13111D;">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #7EE8DF;">J4 · SPECIALISMS</span>
+      <span style="font-family: 'Fraunces', serif; font-size: 34px; line-height: 1.12;">Inclusive, pastoral, planned.</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <span style="font-size: 15px; padding: 10px 16px; border-radius: 20px; border: 1px solid #2B2640;">KS3–4 Geography &amp; History</span>
+        <span style="font-size: 15px; padding: 10px 16px; border-radius: 20px; border: 1px solid #2B2640;">Adapting learning for SEMH needs</span>
+        <span style="font-size: 15px; padding: 10px 16px; border-radius: 20px; border: 1px solid #2B2640;">Curriculum &amp; resource design</span>
+        <span style="font-size: 15px; padding: 10px 16px; border-radius: 20px; border: 1px solid #2B2640;">Exam preparation</span>
+        <span style="font-size: 15px; padding: 10px 16px; border-radius: 20px; border: 1px solid #2B2640;">Progress monitoring</span>
+        <span style="font-size: 15px; padding: 10px 16px; border-radius: 20px; border: 1px solid #2B2640;">Parent communication</span>
+        <span style="font-size: 15px; padding: 10px 16px; border-radius: 20px; border: 1px solid #2B2640;">Work with SENCO &amp; pastoral teams</span>
+        <span style="font-size: 15px; padding: 10px 16px; border-radius: 20px; border: 1px solid #2B2640;">Research-methods teaching</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="box-sizing: border-box; padding: 120px 120px 0;">
+    <figure style="margin: 0; display: grid; grid-template-columns: 80px minmax(0, 1fr); gap: 32px; padding: 56px; border-radius: 32px; border: 1px dashed #3D3659;">
+      <svg width="56" height="56" viewBox="0 0 56 56" aria-hidden="true" style="fill: none; stroke: #E9C77B; stroke-width: 1.6;"><circle cx="28" cy="28" r="26"></circle><path d="M18 34c0-6 3-10 8-12M30 34c0-6 3-10 8-12"></path></svg>
+      <div style="display: flex; flex-direction: column; gap: 18px;">
+        <blockquote style="margin: 0; font-family: 'Fraunces', serif; font-size: 32px; line-height: 1.3; font-style: italic; font-weight: 300; color: #A8A1BC;">[Short referee quote on reflective practice, used with written permission]</blockquote>
+        <figcaption style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #8A83A0;">[REFEREE NAME] · [ROLE, INSTITUTION]</figcaption>
+      </div>
+    </figure>
+  </section>
+
+  <section style="box-sizing: border-box; padding: 120px 120px 160px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 48px 56px; border-radius: 32px; border: 1px solid #2B2640; background: #110F1A;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-family: 'Fraunces', serif; font-size: 40px; line-height: 1.1;">Research that starts in the classroom.</span>
+        <span style="font-size: 17px; color: #C9C3D8;">Interested in research-informed practice in SEMH education? Let’s talk.</span>
+      </div>
+      <a href="Contact.dc.html" style="display: inline-flex; align-items: center; height: 52px; padding: 0 26px; border-radius: 26px; background: #7EE8DF; color: #0B0A12; font-size: 16px; font-weight: 500; text-decoration: none;">Start a conversation</a>
+    </div>
+  </section>
+
+  <div style="margin-top: auto;">
+    <dc-import name="Footer" hint-size="1440px,400px"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

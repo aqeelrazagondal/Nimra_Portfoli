@@ -3,6 +3,7 @@ import Link from 'next/link';
 import {projects} from '@/content/profile';
 import {ContrastFigure} from '@/components/circuit/figures';
 import {CitePanel} from '@/components/circuit/cite-panel';
+import {CvNav} from '@/components/cv-nav';
 import {projectCitations} from '@/lib/cite';
 import {pageMetadata,jsonLd,person,siteUrl} from '@/lib/site';
 export function generateStaticParams(){return projects.map(p=>({slug:p.slug}))}
@@ -35,17 +36,17 @@ export default async function Project({params}:{params:Promise<{slug:string}>}){
     {p.method&&<section id="approach" className="detail-block"><span className="label">{n('approach')} · Approach</span><p className="reading">{p.method}</p></section>}
     {p.findings.length>0&&<section id="findings" className="detail-block"><span className="label">{n('findings')} · {p.findingsTitle}</span><div className="findings rule-list">{p.findings.map((f,i)=><div key={f.slice(0,24)} className="finding"><span className="mono">F{i+1}</span><span>{f}</span></div>)}</div></section>}
     <section id="next" className="detail-block"><span className="label">{n('next')} · Why it matters &amp; what comes next</span><div className="reading"><p>{p.significance}</p><p>{p.phd}</p></div></section>
-    <p className="lock-note"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>This page is a research overview. The full {p.kind==='Thesis'?p.type.toLowerCase():'paper'} is not published here; I’m happy to discuss it.</p>
+    <p className="lock-note"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>This page is a research overview. The full {p.kind==='Thesis'?p.type:'paper'} is not published here; I’m happy to discuss it.</p>
    </div>
    <aside className="detail-aside" aria-label="About this project">
-    <nav aria-label="On this page" className="toc"><span className="label label-muted" style={{paddingBottom:10}}>On this page</span>{sections.map(([id,label],i)=><a key={id} href={`#${id}`}><i aria-hidden style={i===0?{background:'var(--current)'}:undefined}/>{label}</a>)}</nav>
+    <CvNav sections={sections} label="On this page" title="On this page" className="toc"/>
     <CitePanel citations={projectCitations(p)}/>
-    <dl className="spec"><span className="label label-muted">Specification</span>
+    <div className="spec"><span className="label label-muted">Specification</span><dl>
      <div><dt>Type</dt><dd>{p.type}</dd></div>
      {result[p.type]&&<div><dt>Result</dt><dd>{result[p.type]}</dd></div>}
      <div><dt>Institution</dt><dd>{p.institution}</dd></div>
      <div><dt>Year</dt><dd>{p.year}</dd></div>
-    </dl>
+    </dl></div>
    </aside>
   </div>
 

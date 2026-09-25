@@ -4,10 +4,11 @@ import {ReadingsFigure} from '@/components/circuit/figures';
 import {pageMetadata} from '@/lib/site';
 export const metadata=pageMetadata({title:'Research',description:'Research by Nimra Zahid on Afghanistan and Regional Security Complex Theory: an MA dissertation, an MPhil thesis on Russia–Afghanistan relations and a conference paper on Turkey and the Global War on Terror.',path:'/research'});
 
-const outputMeta:Record<string,{kind:string;chip?:string;line:string}>={
- 'afghanistan-regional-security':{kind:'MA dissertation',line:'University of Northampton · RSCT · Theory-driven analysis'},
- 'istanbul-conference-2020':{kind:'Conference paper',chip:'Presented',line:'Istanbul International Social Science Conference · Istanbul Sabahattin Zaim University · June 2020'},
- 'russia-afghanistan-relations':{kind:'MPhil thesis',line:'National Defence University, Islamabad'},
+// Output rows as in the research design (no grades).
+const outputMeta:Record<string,{kind:string;chip?:string;line:string;title?:string;text:string;accent?:boolean}>={
+ 'afghanistan-regional-security':{kind:'MA dissertation',accent:true,line:'University of Northampton · RSCT · Theory-driven analysis',text:'Challenges Afghanistan’s classification as an insulator and examines it as a driver of regional security dynamics.'},
+ 'istanbul-conference-2020':{kind:'Conference paper',chip:'Presented',title:'Afghanistan, Turkey & the Global War on Terror',line:'Istanbul International Social Science Conference · Istanbul Sabahattin Zaim University · June 2020',text:'Research on the Global War on Terror and the roles of Afghanistan and Turkey in regional security.'},
+ 'russia-afghanistan-relations':{kind:'MPhil thesis',line:'National Defence University, Islamabad',text:'Examines Russia–Afghanistan relations and their implications for regional stability: the foundation of my continuing work.'},
 };
 
 export default function Research(){
@@ -46,10 +47,10 @@ export default function Research(){
   <section className="wrap section" aria-labelledby="outputs-title">
    <div className="section-head"><div className="stack"><span className="label designator live">J1 · Outputs</span><h2 id="outputs-title" className="h-section">Three projects on one trace.</h2></div></div>
    <div className="rule-list">
-    {outputs.map(p=>{const m=outputMeta[p.slug];return <article key={p.slug} className="output">
-     <div className="stack" style={{gap:10}}><span className="year">{p.year}</span><span className="mono muted">{(m?.kind??p.type).toUpperCase()}</span></div>
-     <div className="body"><h3 className="h-item"><Link href={`/research/${p.slug}`}>{p.title}</Link></h3><p>{p.summary}</p>{m&&<span className="meta">{m.line.toUpperCase()}</span>}</div>
-     <div className="side">{m?.chip&&<span className="chip-result">{m.chip.toUpperCase()}</span>}<Link href={`/research/${p.slug}`} className="link-arrow" aria-label={`Read overview: ${p.shortTitle}`}>Read overview <span aria-hidden>→</span></Link></div>
+    {outputs.map(p=>{const m=outputMeta[p.slug];return <article key={p.slug} className={`output${m?.accent?' accent':''}`}>
+     <div className="stack" style={{gap:6}}><span className="year">{p.year}</span><span className="mono muted">{(m?.kind??p.type).toUpperCase()}</span></div>
+     <div className="body"><h3 className="h-item"><Link href={`/research/${p.slug}`}>{m?.title??p.title}</Link></h3><p>{m?.text??p.summary}</p>{m&&<span className="meta">{m.line.toUpperCase()}</span>}</div>
+     <div className="side">{m?.chip&&<span className="chip-neutral">{m.chip.toUpperCase()}</span>}<Link href={`/research/${p.slug}`} className="output-link" aria-label={`Read overview: ${p.shortTitle}`}>Read overview →</Link></div>
     </article>})}
    </div>
   </section>
@@ -62,12 +63,12 @@ export default function Research(){
 
   <section className="wrap section interests" aria-label="Emerging interests and talks">
    <div className="card">
-    <span className="label">J2 · Emerging interests</span>
+    <span className="label label-live">J2 · Emerging interests</span>
     <h2 className="h-card">Research-informed, inclusive education.</h2>
     <p className="text-2" style={{fontSize:17,lineHeight:1.65}}>I am also interested in the relationship between research and practice in specialist social, emotional and mental health (SEMH) education, building on my experience in the classroom.</p>
     <Link href="/teaching" className="link-arrow" style={{marginTop:'auto'}}>Explore my teaching practice <span aria-hidden>→</span></Link>
    </div>
-   <div style={{border:'1px solid var(--hairline)'}}>
+   <div className="card">
     <span className="label">J3 · Talks</span>
     <div className="talk"><span className="meta">JUNE 2020 · ISTANBUL, TURKEY</span><span className="h-item" style={{fontSize:22}}>Istanbul International Social Science Conference</span><span className="text-2" style={{fontSize:15}}>Paper presentation · Afghanistan, Turkey and regional security</span></div>
    </div>

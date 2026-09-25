@@ -22,7 +22,7 @@ export default async function Home(){
 
   <HeroBoard>
    <div className="hero-kicker"><span className="node-dot pulse" aria-hidden/><span className="label">U1 · International Relations × Education</span></div>
-   <h1 className="display">They called it an insulator. <em>I study the current.</em></h1>
+   <h1 className="display">They called it an insulator.<br/> <em>I{"\u00a0"}study the current.</em></h1>
    <p className="hero-intro">I’m <strong>Nimra Zahid</strong>, an International Relations researcher and educator. My research asks what changes when Afghanistan is read not as a buffer between regions, but as a driver of their security.</p>
    <p className="meta">MA IR (Merit) · MPhil IR · Educator since 2015 · {profile.location}</p>
    <div className="btn-row"><Link href="/research" className="btn">Follow the current <Arrow/></Link><a href="/cv.pdf" className="btn-ghost">Download CV</a></div>

@@ -3,10 +3,12 @@ import { Fraunces, Geist, Geist_Mono, Newsreader } from 'next/font/google';
 import {profile} from '@/content/profile';
 import {siteUrl,indexable,pageMetadata} from '@/lib/site';
 // The Circuit type system: Fraunces (display), Geist (interface), Geist Mono (labels, designators), Newsreader (long-form).
-const display=Fraunces({subsets:['latin'],variable:'--font-display',display:'swap',style:['normal','italic'],axes:['opsz']});
+// No optical-size axis: it roughly doubles the font files for little visible gain at these sizes.
+const display=Fraunces({subsets:['latin'],variable:'--font-display',display:'swap',style:['normal','italic']});
 const body=Geist({subsets:['latin'],variable:'--font-body',display:'swap'});
 const mono=Geist_Mono({subsets:['latin'],variable:'--font-mono',display:'swap'});
-const reading=Newsreader({subsets:['latin'],variable:'--font-reading',display:'swap',style:['normal','italic'],axes:['opsz']});
+// Long-form only (About, research, articles): not preloaded, so it never competes with the hero.
+const reading=Newsreader({subsets:['latin'],variable:'--font-reading',display:'swap',style:['normal','italic'],preload:false});
 export const metadata:Metadata={...pageMetadata({description:profile.description,path:'/'}),metadataBase:new URL(siteUrl),title:{default:`${profile.name} | Researcher & Educator`,template:`%s | ${profile.name}`},authors:[{name:profile.name}],creator:profile.name,robots:indexable?{index:true,follow:true}:{index:false,follow:false}};
 // Dark is the default whatever the OS setting; components/shell.tsx updates this when the reader switches theme.
 export const viewport:Viewport={themeColor:'#0b0a12'};

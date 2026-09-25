@@ -20,6 +20,8 @@ Editorial notes live here, never in rendered pages.
 - [ ] A short referee quote on reflective practice for the Teaching page (The Circuit design has a slot for it), only with written permission.
 - [ ] Replace the draft sample articles: “Why Afghanistan is not a buffer” uses the design’s draft text minus the “[Your strongest example]” paragraph; “Afghanistan’s neighbours, re-wired” is still lorem ipsum.
 
+- [ ] One concrete “Approach” sentence (sources, period, method) for the MPhil thesis and the Istanbul paper (`method` in `content/profile.ts`). The section is hidden on those pages until then.
+
 ## Configuration
 
 - [ ] Set `NEXT_PUBLIC_SITE_URL` to the production domain.

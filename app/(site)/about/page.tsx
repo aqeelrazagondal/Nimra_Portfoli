@@ -10,7 +10,7 @@ export const metadata=pageMetadata({title:'About',description:'About Nimra Zahid
 const route=[
  {when:'2011 – 2015',place:'Lahore',text:'BS International Relations, Lahore College for Women University.'},
  {when:'2015 – 2023',place:'Mandi Bahauddin',text:'Secondary teaching at Beaconhouse; visiting faculty in IR at the University of Gujrat, 2019–22.'},
- {when:'2016 – 2018',place:'Islamabad',text:'MPhil International Relations, National Defence University.'},
+ {when:'2016 – 2017',place:'Islamabad',text:'MPhil International Relations, National Defence University (conferred 2018).'},
  {when:'June 2020',place:'Istanbul',text:'Conference paper on Afghanistan, Turkey and the Global War on Terror.'},
  {when:'2023 – now',place:'Northampton',text:'MA International Relations (Merit); teaching in Northamptonshire schools.',now:true},
 ];

@@ -1,5 +1,5 @@
 import {cvSections,education,profile,projects,teaching} from '@/content/profile';
-import {SignalTrace} from '@/components/circuit/figures';
+import {SignalTrace,SignalList} from '@/components/circuit/figures';
 import {pageMetadata} from '@/lib/site';
 export const metadata=pageMetadata({title:'Academic CV',description:'Academic CV of Nimra Zahid: MA and MPhil in International Relations, research on Afghanistan and regional security, and over ten years of teaching in Pakistan and England.',path:'/cv'});
 
@@ -29,6 +29,7 @@ export default function CV(){
      <div className="signal-legend" aria-hidden><span><i style={{background:'var(--lilac)'}}/>Study</span><span><i style={{background:'var(--rose)'}}/>University teaching</span><span><i style={{background:'var(--current)'}}/>School teaching</span><span><i style={{background:'var(--gold)'}}/>Research outputs</span></div>
     </div>
     <div className="signal-scroll" tabIndex={0} role="region" aria-label="Signal trace, scrollable"><SignalTrace/></div>
+    <SignalList/>
     <figcaption style={{textAlign:'left',fontStyle:'normal'}}>Each lane is a signal, high while active. The overlaps are real: school and university teaching ran in parallel from 2019 to 2022.</figcaption>
    </figure>
   </section>

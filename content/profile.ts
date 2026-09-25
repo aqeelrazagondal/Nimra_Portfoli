@@ -5,9 +5,10 @@ export const profile = {
  role:'International Relations researcher & educator',
  description:'Nimra Zahid is an International Relations researcher and educator in Northampton, UK, studying Afghanistan’s role in regional security in South and Central Asia.',
  languages:['English','Urdu','Punjabi'],
- email:process.env.NEXT_PUBLIC_CONTACT_EMAIL||'',
+ // Public contact details. Environment variables override these defaults (see .env.example).
+ email:process.env.NEXT_PUBLIC_CONTACT_EMAIL||'nimrazahidranjha@gmail.com',
  orcid:process.env.NEXT_PUBLIC_ORCID_URL||'',
- linkedin:process.env.NEXT_PUBLIC_LINKEDIN_URL||'',
+ linkedin:process.env.NEXT_PUBLIC_LINKEDIN_URL||'https://www.linkedin.com/in/nimra-zahid-aa1a1520b/',
  // Portrait and photos are managed in Keystatic (Profile photos); see lib/profile-media.ts.
 };
 export const profileLinks=[

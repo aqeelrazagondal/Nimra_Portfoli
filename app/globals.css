@@ -719,3 +719,4 @@ html[data-reading] .nav-bar{position:sticky}
   a{color:inherit}
 }
 .spec{margin:0}
+.footer-col a,.contact-facts a{overflow-wrap:anywhere}

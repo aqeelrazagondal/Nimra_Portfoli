@@ -3,9 +3,8 @@ import Link from 'next/link';
 import {notFound} from 'next/navigation';
 import {articleTags} from '@/keystatic.config';
 import {ArticleFeed} from '@/components/article/feed';
-import {Portrait} from '@/components/portrait';
+import {Avatar} from '@/components/photo';
 import {formatDate,getArticles,summary} from '@/lib/articles';
-import {getProfileMedia,showPhotoHints} from '@/lib/profile-media';
 import {pageMetadata} from '@/lib/site';
 export const metadata=pageMetadata({title:'Writing',description:'Essays by Nimra Zahid on regional security, Afghanistan and inclusive education.',path:'/writing'});
 // Re-render hourly so scheduled articles appear on their publish date without a redeploy.
@@ -13,7 +12,7 @@ export const revalidate=3600;
 
 // Returns 404 until the first article is published.
 export default async function Writing(){
- const [all,{portrait}]=await Promise.all([getArticles(),getProfileMedia()]);if(!all.length)notFound();
+ const all=await getArticles();if(!all.length)notFound();
  const featured=all.find(a=>a.featured)??all[0];
  const tags=articleTags.filter(t=>all.some(a=>a.tags.includes(t)));
  const series=[...new Set(all.map(a=>a.series).filter(Boolean))].map(name=>({name,parts:all.filter(a=>a.series===name).sort((a,b)=>(a.seriesPart??0)-(b.seriesPart??0))}));
@@ -31,7 +30,7 @@ export default async function Writing(){
      <span className="label">Featured{featured.tags[0]?` · ${featured.tags[0]}`:''}{featured.seriesPart?` · Series part ${featured.seriesPart}`:''}{featured.draft?' · Draft':''}</span>
      <h2 className="h-card" style={{fontSize:'clamp(1.9rem,3.2vw,2.75rem)'}}>{featured.title}</h2>
      <p>{featured.subtitle}</p>
-     <span className="byline"><Portrait photo={portrait} variant="avatar" hint={showPhotoHints}/><span className="meta">NIMRA ZAHID · {featured.readingTime} MIN READ · <time dateTime={featured.publishedAt}>{formatDate(featured.publishedAt).toUpperCase()}</time></span></span>
+     <span className="byline"><Avatar size={32}/><span className="meta">NIMRA ZAHID · {featured.readingTime} MIN READ · <time dateTime={featured.publishedAt}>{formatDate(featured.publishedAt).toUpperCase()}</time></span></span>
     </div>
    </Link>
   </section>

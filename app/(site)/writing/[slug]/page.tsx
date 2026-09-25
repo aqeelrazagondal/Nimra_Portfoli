@@ -8,8 +8,7 @@ import {formatDate,getArticle,getArticles,related,seriesNeighbours} from '@/lib/
 import {citations} from '@/lib/cite';
 import {profile} from '@/content/profile';
 import {pageMetadata,siteUrl} from '@/lib/site';
-import {Portrait} from '@/components/portrait';
-import {getProfileMedia,showPhotoHints} from '@/lib/profile-media';
+import {Avatar} from '@/components/photo';
 
 export const revalidate=3600;
 export async function generateStaticParams(){return (await getArticles()).map(a=>({slug:a.slug}))}
@@ -23,12 +22,12 @@ const today=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/London'}).form
 
 export default async function ArticlePage({params}:{params:Promise<{slug:string}>}){
  const {slug}=await params;const a=await getArticle(slug);if(!a)notFound();
- const all=await getArticles();const {portrait}=await getProfileMedia();const {previous,next,total}=seriesNeighbours(a,all);
+ const all=await getArticles();const {previous,next,total}=seriesNeighbours(a,all);
  const more=related(a,all,[next?.slug,previous?.slug].filter(Boolean) as string[]);
  const url=`${siteUrl}/writing/${a.slug}`;
  const cite=a.citeable?citations({title:a.title,publishedAt:a.publishedAt,url,accessed:today()}):null;
  const byline=<div className="author-row">
-  <div className="author"><Portrait photo={portrait} variant="avatar" hint={showPhotoHints}/>
+  <div className="author"><Avatar size={48}/>
    <div><p className="author-name"><Link href="/about">{profile.name}</Link></p>
     <p className="meta">{a.readingTime} min read · <time dateTime={a.publishedAt}>{formatDate(a.publishedAt)}</time>{a.updatedAt&&<> · Updated <time dateTime={a.updatedAt}>{formatDate(a.updatedAt)}</time></>}</p></div></div>
   <ShareBar url={url} title={a.title} citations={cite} variant="compact"/>
@@ -58,7 +57,7 @@ export default async function ArticlePage({params}:{params:Promise<{slug:string}
    <div className="end-tags">{a.tags.map(t=><Link key={t} className="pill" href={`/writing?tag=${encodeURIComponent(t)}`}>{t}</Link>)}</div>
    <ShareBar url={url} title={a.title} citations={null} variant="row"/>
    <section className="author-card card" aria-label="About the author">
-    <Portrait photo={portrait} variant="avatar-lg" hint={showPhotoHints}/>
+    <Avatar size={72}/>
     <div><h2>Written by {profile.name}</h2><p>International Relations researcher and educator. I study how Afghanistan shapes the security of the regions around it.</p><Link href="/about" className="link-arrow">About me <span aria-hidden>→</span></Link></div>
    </section>
   </div>

@@ -17,11 +17,11 @@ export function Footnote({n,note}:{n:number;note:string}){
 }
 
 // Click to view an article image full screen.
-export function ZoomImage({src,alt,width,height,sizes,priority}:{src:string;alt:string;width:number;height:number;sizes:string;priority?:boolean}){
+export function ZoomImage({src,alt,width,height,sizes,priority,blurDataURL}:{src:string;alt:string;width:number;height:number;sizes:string;priority?:boolean;blurDataURL?:string}){
  const dialog=useRef<HTMLDialogElement>(null);
  return <>
   <button type="button" className="zoom" onClick={()=>dialog.current?.showModal()} aria-label={`Enlarge image: ${alt}`}>
-   <Image src={src} alt={alt} width={width} height={height} sizes={sizes} priority={priority}/><span className="zoom-hint" aria-hidden><Maximize2 size={16}/></span>
+   <Image src={src} alt={alt} width={width} height={height} sizes={sizes} priority={priority} placeholder={blurDataURL?'blur':'empty'} blurDataURL={blurDataURL}/><span className="zoom-hint" aria-hidden><Maximize2 size={16}/></span>
   </button>
   <dialog ref={dialog} className="lightbox" onClick={()=>dialog.current?.close()} aria-label={alt}>
    <Image src={src} alt={alt} width={width} height={height} sizes="100vw"/>
@@ -72,6 +72,7 @@ export function CiteButton({citations,className='share-button',compact=false}:{c
 // Share actions: compact icons beside the byline, a labelled row at the end, a pinned bar on mobile.
 export function ShareBar({url,title,citations,variant}:{url:string;title:string;citations:{style:string;text:string}[]|null;variant:'row'|'dock'|'compact'}){
  const [copied,setCopied]=useCopied();const [canShare,setCanShare]=useState(false);
+ // eslint-disable-next-line react-hooks/set-state-in-effect -- Browser capability is unavailable during SSR; synchronize after hydration.
  useEffect(()=>setCanShare(typeof navigator.share==='function'),[]);
  const e=encodeURIComponent;
  const links=[['LinkedIn',`https://www.linkedin.com/sharing/share-offsite/?url=${e(url)}`],['X',`https://x.com/intent/post?url=${e(url)}&text=${e(title)}`],['WhatsApp',`https://wa.me/?text=${e(`${title} ${url}`)}`]];

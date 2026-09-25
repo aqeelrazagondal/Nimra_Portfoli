@@ -1,0 +1,174 @@
+<!-- Design reference: board "Contact" from the Circuit design canvas. Inline-styled HTML; {{holes}}, <sc-for>, <sc-if>, <dc-import> are design-tool template syntax (see HANDOFF.md §12). Not production code. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Contact — Nimra Zahid</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&amp;family=Geist:wght@300..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0A12}
+a{color:#B9A2FF;text-decoration:none}a:hover{color:#D6C9FF}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:4 16;animation:flow 1.2s linear infinite}
+@media (prefers-reduced-motion: reduce){.flow{animation:none}}
+input:focus,textarea:focus,select:focus{outline:2px solid #7EE8DF;outline-offset:2px}
+</style>
+</helmet>
+<div style="width: 1440px; height: 2500px; position: relative; overflow: hidden; display: flex; flex-direction: column; background: #0B0A12; color: #EEEAF6; font-family: 'Geist', sans-serif;">
+
+  <dc-import name="Nav" active="contact" hint-size="1440px,88px"></dc-import>
+
+  <section style="box-sizing: border-box; padding: 88px 120px 0; display: flex; flex-direction: column; gap: 24px;">
+    <div style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #B9A2FF;">U7 · Contact</div>
+    <h1 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 88px; line-height: 1; letter-spacing: -0.03em;">Complete the <em style="font-style: italic; font-weight: 300; color: #B9A2FF;">circuit.</em></h1>
+  </section>
+
+  <section style="box-sizing: border-box; padding: 72px 120px 0; display: grid; grid-template-columns: 420px minmax(0, 1fr); column-gap: 96px; align-items: start;">
+    <div style="display: flex; flex-direction: column; gap: 40px;">
+      <div style="position: relative; width: 420px; height: 440px; border-radius: 32px 120px 32px 32px; overflow: hidden; border: 1px solid #2B2640; background: #13111D;">
+        <img src="/images/nimra/p3-research-C-recommended.webp" alt="Nimra Zahid seated on stone steps in a modern city square" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%;">
+        <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 140px; background: linear-gradient(180deg, rgba(11,10,18,0), rgba(11,10,18,0.8));"></div>
+        <div style="position: absolute; left: 22px; bottom: 20px; display: flex; align-items: center; gap: 8px; font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #EEEAF6;"><span style="width: 8px; height: 8px; border-radius: 4px; background: #7EE8DF;"></span>S1 · WAITING FOR YOUR SIGNAL</div>
+      </div>
+      <p style="margin: 0; font-size: 21px; line-height: 1.6; color: #D9D4E6;">I welcome conversations about doctoral research, collaboration and speaking. My interests span Afghanistan and regional security, International Relations, and research-informed inclusive education.</p>
+      <div style="display: flex; flex-direction: column;">
+        <div style="display: flex; flex-direction: column; gap: 6px; padding: 20px 0; border-top: 1px solid #221E33;">
+          <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #8A83A0;">EMAIL</span>
+          <a href="Contact.dc.html" style="font-size: 18px; color: #EEEAF6; text-decoration: none;">[PROFESSIONAL EMAIL]</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px; padding: 20px 0; border-top: 1px solid #221E33;">
+          <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #8A83A0;">BASED IN</span>
+          <span style="font-size: 18px;">Northampton, United Kingdom</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 12px; padding: 20px 0; border-top: 1px solid #221E33; border-bottom: 1px solid #221E33;">
+          <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #8A83A0;">ELSEWHERE</span>
+          <div style="display: flex; gap: 10px;">
+            <a href="Contact.dc.html" aria-label="ORCID profile" style="display: flex; align-items: center; gap: 10px; height: 48px; padding: 0 18px; border-radius: 24px; border: 1px solid #2B2640; color: #EEEAF6; font-size: 15px; text-decoration: none;"><span style="width: 8px; height: 8px; border-radius: 4px; background: #7EE8DF;"></span>ORCID</a>
+            <a href="Contact.dc.html" aria-label="LinkedIn profile" style="display: flex; align-items: center; gap: 10px; height: 48px; padding: 0 18px; border-radius: 24px; border: 1px solid #2B2640; color: #EEEAF6; font-size: 15px; text-decoration: none;"><span style="width: 8px; height: 8px; border-radius: 4px; background: #B9A2FF;"></span>LinkedIn</a>
+            <a href="Contact.dc.html" aria-label="Google Scholar profile" style="display: flex; align-items: center; gap: 10px; height: 48px; padding: 0 18px; border-radius: 24px; border: 1px dashed #3D3659; color: #A8A1BC; font-size: 15px; text-decoration: none;"><span style="width: 8px; height: 8px; border-radius: 4px; border: 1px solid #8A83A0; box-sizing: border-box;"></span>Scholar · later</a>
+          </div>
+        </div>
+      </div>
+      <a href="CV.dc.html" style="display: flex; align-items: center; gap: 10px; height: 44px; font-size: 16px; color: #EEEAF6; text-decoration: none;">Prefer to read first? View my CV <span style="color: #7EE8DF;">→</span></a>
+    </div>
+
+    <div style="display: flex; flex-direction: column; border-radius: 32px; border: 1px solid {{panelBorder}}; background: #13111D; overflow: hidden;">
+      <div style="padding: 28px 36px 8px; display: flex; flex-direction: column; gap: 10px;">
+        <svg width="620" height="64" viewBox="0 0 620 64" aria-hidden="true" style="display: block; width: 100%; height: auto;">
+          <path d="M0 40 H250" style="fill: none; stroke: #2B2640; stroke-width: 2;"></path>
+          <path class="flow" d="M0 40 H250" style="fill: none; stroke: #7EE8DF; stroke-width: 2;"></path>
+          <circle cx="254" cy="40" r="5" style="fill: #13111D; stroke: #7EE8DF; stroke-width: 2;"></circle>
+          <line x1="258" y1="{{leverY1}}" x2="{{leverX2}}" y2="{{leverY2}}" style="stroke: #EEEAF6; stroke-width: 2.5; stroke-linecap: round;"></line>
+          <circle cx="366" cy="40" r="5" style="fill: #13111D; stroke: {{rightColor}}; stroke-width: 2;"></circle>
+          <path d="M370 40 H620" style="fill: none; stroke: #2B2640; stroke-width: 2;"></path>
+          <path class="flow" d="M370 40 H620" style="fill: none; stroke: #7EE8DF; stroke-width: 2; opacity: {{rightFlow}};"></path>
+        </svg>
+        <div style="display: flex; justify-content: space-between; font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #8A83A0;">
+          <span>S1 · {{switchLabel}}</span><span>YOUR MESSAGE CLOSES THE LOOP</span>
+        </div>
+      </div>
+
+      <sc-if value="{{notSent}}" hint-placeholder-val="{{ true }}">
+        <form style="padding: 24px 36px 40px; display: flex; flex-direction: column; gap: 24px;">
+          <fieldset style="margin: 0; padding: 0; border: none; display: flex; flex-direction: column; gap: 12px;">
+            <legend style="padding: 0 0 12px; font-size: 15px; color: #EEEAF6;">What is this about?</legend>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+              <sc-for list="{{types}}" as="t" hint-placeholder-count="4">
+                <button type="button" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="height: 44px; padding: 0 18px; border-radius: 22px; border: 1px solid {{t.border}}; background: {{t.bg}}; color: {{t.color}}; font-family: 'Geist', sans-serif; font-size: 15px; cursor: pointer;">{{t.label}}</button>
+              </sc-for>
+            </div>
+          </fieldset>
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;">
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <label for="c-name" style="font-size: 15px;">Your name</label>
+              <input id="c-name" type="text" autocomplete="name" style="height: 52px; box-sizing: border-box; padding: 0 16px; border-radius: 14px; border: 1px solid #3D3659; background: #0B0A12; color: #EEEAF6; font-family: 'Geist', sans-serif; font-size: 16px;">
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <label for="c-email" style="font-size: 15px;">Email address</label>
+              <input id="c-email" type="email" autocomplete="email" style="height: 52px; box-sizing: border-box; padding: 0 16px; border-radius: 14px; border: 1px solid #3D3659; background: #0B0A12; color: #EEEAF6; font-family: 'Geist', sans-serif; font-size: 16px;">
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <label for="c-org" style="font-size: 15px;">Organisation <span style="color: #A8A1BC;">(optional)</span></label>
+            <input id="c-org" type="text" autocomplete="organization" style="height: 52px; box-sizing: border-box; padding: 0 16px; border-radius: 14px; border: 1px solid #3D3659; background: #0B0A12; color: #EEEAF6; font-family: 'Geist', sans-serif; font-size: 16px;">
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <label for="c-msg" style="font-size: 15px;">Message</label>
+            <textarea id="c-msg" rows="6" placeholder="{{placeholder}}" style="box-sizing: border-box; padding: 14px 16px; border-radius: 14px; border: 1px solid #3D3659; background: #0B0A12; color: #EEEAF6; font-family: 'Geist', sans-serif; font-size: 16px; line-height: 1.6; resize: vertical;"></textarea>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 24px;">
+            <span style="font-size: 13px; line-height: 1.5; color: #A8A1BC; max-width: 340px;">Your details are used only to reply to you. Protected by an invisible spam check.</span>
+            <button type="button" onClick="{{send}}" style="display: flex; align-items: center; gap: 12px; height: 56px; padding: 0 28px; border-radius: 28px; border: none; background: #B9A2FF; color: #120E1E; font-family: 'Geist', sans-serif; font-size: 16px; font-weight: 500; cursor: pointer;">
+              <svg width="22" height="14" viewBox="0 0 22 14" aria-hidden="true" style="fill: none; stroke: #120E1E; stroke-width: 1.8; stroke-linecap: round;"><path d="M1 10h5M16 10h5M6 10 L15 3"></path></svg>
+              Close the circuit · Send
+            </button>
+          </div>
+        </form>
+      </sc-if>
+
+      <sc-if value="{{sent}}" hint-placeholder-val="{{ false }}">
+        <div role="status" style="padding: 56px 36px 64px; display: flex; flex-direction: column; align-items: flex-start; gap: 18px;">
+          <span style="width: 56px; height: 56px; border-radius: 28px; border: 2px solid #7EE8DF; display: flex; align-items: center; justify-content: center;">
+            <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" style="fill: none; stroke: #7EE8DF; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;"><path d="M5 12l5 5 9-10"></path></svg>
+          </span>
+          <span style="font-family: 'Fraunces', serif; font-size: 44px; line-height: 1.1;">Circuit complete.</span>
+          <span style="font-size: 18px; line-height: 1.6; color: #C9C3D8; max-width: 520px;">Thank you. Your message has reached me, and I’ll reply by email.</span>
+          <button type="button" onClick="{{reset}}" style="height: 48px; padding: 0 22px; border-radius: 24px; border: 1px solid #3D3659; background: transparent; color: #EEEAF6; font-family: 'Geist', sans-serif; font-size: 15px; cursor: pointer;">Send another message</button>
+        </div>
+      </sc-if>
+    </div>
+  </section>
+
+  <div style="margin-top: auto; padding-top: 160px;">
+    <dc-import name="Footer" hint-size="1440px,400px"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"showSent":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":2500}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const sent = st.sent !== undefined ? st.sent : !!this.props.showSent;
+    const active = st.type || 'Research & collaboration';
+    const names = ['Research & collaboration', 'Doctoral opportunities', 'Speaking', 'Other'];
+    const hints = {
+      'Research & collaboration': 'Tell me about the project and where our interests meet…',
+      'Doctoral opportunities': 'Your institution, the project or supervision area, and any deadlines…',
+      'Speaking': 'The event, audience, date and topic you have in mind…',
+      'Other': 'How can I help?'
+    };
+    const types = names.map((n) => {
+      const on = n === active;
+      return {
+        label: n,
+        pressed: on ? 'true' : 'false',
+        bg: on ? 'rgba(185,162,255,0.16)' : 'transparent',
+        border: on ? 'rgba(185,162,255,0.5)' : '#2B2640',
+        color: on ? '#EEEAF6' : '#A8A1BC',
+        pick: () => this.setState({ type: n })
+      };
+    });
+    return {
+      types,
+      sent,
+      notSent: !sent,
+      placeholder: hints[active],
+      switchLabel: sent ? 'CLOSED' : 'OPEN',
+      leverY1: sent ? 40 : 38,
+      leverX2: sent ? 362 : 346,
+      leverY2: sent ? 40 : 8,
+      rightColor: sent ? '#7EE8DF' : '#3D3659',
+      rightFlow: sent ? 1 : 0,
+      panelBorder: sent ? 'rgba(126,232,223,0.45)' : '#2B2640',
+      send: () => this.setState({ sent: true }),
+      reset: () => this.setState({ sent: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

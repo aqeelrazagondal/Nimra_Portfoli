@@ -19,8 +19,10 @@ export function ContactForm(){
  const [type,setType]=useState(enquiryTypes[0]);const [started,setStarted]=useState('');const [again,setAgain]=useState(false);
  const form=useRef<HTMLFormElement>(null);const widget=useRef<HTMLDivElement>(null);const widgetId=useRef<string|null>(null);
  function renderTurnstile(){if(!siteKey||!window.turnstile||!widget.current||widgetId.current)return;widgetId.current=window.turnstile.render(widget.current,{sitekey:siteKey,theme:document.documentElement.dataset.theme==='dark'?'dark':'light'})}
+ // eslint-disable-next-line react-hooks/set-state-in-effect -- Initialize the browser-side spam timing field and Turnstile on mount.
  useEffect(()=>{setStarted(String(Date.now()));renderTurnstile();return ()=>{if(widgetId.current)window.turnstile?.remove(widgetId.current);widgetId.current=null}},[]);
  // Turnstile tokens are single-use, so refresh the widget after every attempt.
+ // eslint-disable-next-line react-hooks/set-state-in-effect -- Synchronize the server action result with the form and Turnstile widget.
  useEffect(()=>{if(state.status==='idle')return;if(widgetId.current)window.turnstile?.reset(widgetId.current);setAgain(false);
   if(state.status==='success'){form.current?.reset();setType(enquiryTypes[0])}
   // Move focus to the first invalid field so the error is announced and easy to fix.

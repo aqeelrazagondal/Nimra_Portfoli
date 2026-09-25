@@ -1,3 +1,5 @@
+> Historical implementation notes. Superseded by [Writing with Keystatic](../writing-keystatic.md): production now uses GitHub mode, drafts are never public, and publishing triggers static builds. Do not follow the Cloud setup or scheduling instructions below.
+
 # Phase 2 · Step 1: article format and Keystatic test
 
 Result of step 1 of the Phase 2 plan: decide the article body format, and test Keystatic on this site's Next.js version before committing to Option A.

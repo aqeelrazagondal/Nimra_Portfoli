@@ -9,8 +9,8 @@ function Heading({id,level,children}:{id:string;level:number;children:React.Reac
 }
 const Table=({children}:{children:React.ReactNode})=><div className="table-wrap" tabIndex={0} role="region" aria-label="Table"><table>{children}</table></div>;
 const sizes:Record<string,string>={normal:'(max-width: 760px) 100vw, 680px',wide:'(max-width: 1060px) 100vw, 1000px',full:'100vw'};
-function Figure({src,alt,caption,credit,width='normal',w,h}:{src:string;alt:string;caption?:string;credit?:string;width?:string;w:number;h:number}){
- return <figure className={`figure ${width}`}><ZoomImage src={src} alt={alt} width={w} height={h} sizes={sizes[width]??sizes.normal}/>{(caption||credit)&&<figcaption>{caption}{credit&&<span className="credit"> {caption?'· ':''}{credit}</span>}</figcaption>}</figure>;
+function Figure({src,alt,caption,credit,width='normal',w,h,blur}:{src:string;alt:string;caption?:string;credit?:string;width?:string;w:number;h:number;blur?:string}){
+ return <figure className={`figure ${width}`}><ZoomImage src={src} alt={alt} width={w} height={h} sizes={sizes[width]??sizes.normal} blurDataURL={blur}/>{(caption||credit)&&<figcaption>{caption}{credit&&<span className="credit"> {caption?'· ':''}{credit}</span>}</figcaption>}</figure>;
 }
 const PullQuote=({quote}:{quote:string})=><aside className="pull-quote"><p>{quote}</p></aside>;
 const Callout=({tone,children}:{tone?:string;children:React.ReactNode})=><aside className={`callout ${tone==='key'?'key':'note'}`}>{children}</aside>;

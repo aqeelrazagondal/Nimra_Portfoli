@@ -2,7 +2,6 @@ import {cache} from 'react';
 import {createReader} from '@keystatic/core/reader';
 import keystaticConfig from '@/keystatic.config';
 import {imageSize} from '@/lib/image-size';
-import {showDrafts} from '@/lib/articles';
 
 export type Photo={src:string;alt:string;width:number;height:number;caption:string};
 const reader=createReader(process.cwd(),keystaticConfig);
@@ -16,4 +15,4 @@ export const getProfileMedia=cache(async():Promise<{portrait:Photo|null;photos:P
  return {portrait,photos};
 });
 // On local and preview builds, empty photo slots say where to add a photo.
-export const showPhotoHints=showDrafts;
+export const showPhotoHints=false;

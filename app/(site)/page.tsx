@@ -95,7 +95,7 @@ export default async function Home(){
       <h3 className="h-row">{a.title}</h3>
       <p>{a.subtitle||a.excerpt}</p>
      </div>
-     <Image src={a.cover.src} alt="" width={a.cover.width} height={a.cover.height} sizes="176px"/>
+     <Image src={a.cover.src} alt="" width={a.cover.width} height={a.cover.height} sizes="176px" placeholder="blur" blurDataURL={a.cover.blurDataURL}/>
     </Link>)}
    </div>
   </section>}

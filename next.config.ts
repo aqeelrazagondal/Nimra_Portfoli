@@ -1,6 +1,7 @@
 import type {NextConfig} from 'next';
 const nextConfig:NextConfig={
- // Articles and profile photos are read from the repo at render time (hourly revalidation), so ship them with every route.
- outputFileTracingIncludes:{'/**':['./content/articles/**/*','./content/profile/**/*']},
+ async headers(){return ['/keystatic/:path*','/api/keystatic/:path*'].map(source=>({source,headers:[{key:'X-Robots-Tag',value:'noindex, nofollow'}]}))},
+ // Keep repository content available to server-side readers and image generation.
+ outputFileTracingIncludes:{'/**':['./content/articles/**/*','./content/profile/**/*','./public/images/articles/**/*']},
 };
 export default nextConfig;

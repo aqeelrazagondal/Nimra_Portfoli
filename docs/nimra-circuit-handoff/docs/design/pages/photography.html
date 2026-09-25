@@ -1,0 +1,114 @@
+<!-- Design reference: board "Photography" from the Circuit design canvas. Inline-styled HTML; {{holes}}, <sc-for>, <sc-if>, <dc-import> are design-tool template syntax (see HANDOFF.md §12). Not production code. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Photography — Nimra Zahid</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&amp;family=Geist:wght@300..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0A12}
+</style>
+</helmet>
+<div style="width: 1440px; height: 2300px; box-sizing: border-box; padding: 96px 120px; display: flex; flex-direction: column; gap: 88px; background: #0B0A12; color: #EEEAF6; font-family: 'Geist', sans-serif;">
+
+  <section style="display: grid; grid-template-columns: minmax(0, 1fr) 480px; column-gap: 80px; align-items: end;">
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.16em; color: #B9A2FF;">DESIGN SYSTEM · G · PHOTOGRAPHY</span>
+      <h1 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 76px; line-height: 1.02; letter-spacing: -0.025em;">Three portraits, <em style="font-style: italic; font-weight: 300; color: #B9A2FF;">one voice.</em></h1>
+      <p style="margin: 0; font-size: 19px; line-height: 1.6; color: #C9C3D8; max-width: 620px;">Natural light, a calm grade and softened backgrounds, so each photo sits on the dark board without fighting the circuit.</p>
+    </div>
+    <div style="display: flex; flex-direction: column;">
+      <div style="display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 14px 0; border-top: 1px solid #221E33;"><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #7EE8DF;">01</span><span style="font-size: 15px; line-height: 1.5; color: #D9D4E6;">Shadows tinted towards Ink #0B0A12; saturation −7%.</span></div>
+      <div style="display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 14px 0; border-top: 1px solid #221E33;"><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #7EE8DF;">02</span><span style="font-size: 15px; line-height: 1.5; color: #D9D4E6;">Background softened; passers-by and signage blurred.</span></div>
+      <div style="display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 14px 0; border-top: 1px solid #221E33; border-bottom: 1px solid #221E33;"><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #7EE8DF;">03</span><span style="font-size: 15px; line-height: 1.5; color: #D9D4E6;">4:5 WebP, soft vignette, skin left natural.</span></div>
+    </div>
+  </section>
+
+  <section style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px;">
+    <figure style="margin: 0; display: flex; flex-direction: column; gap: 18px;">
+      <div style="position: relative; width: 100%; height: 480px; border-radius: 40px 40px 40px 120px; overflow: hidden; border: 1px solid #2B2640;">
+        <img src="/images/nimra/p1-portrait-C-recommended.webp" alt="Nimra Zahid seated on a park bench in a brown jacket" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%;">
+        <span style="position: absolute; right: 16px; top: 16px; padding: 5px 10px; border-radius: 12px; background: rgba(11,10,18,0.72); font-family: 'Geist Mono', monospace; font-size: 12px; color: #EEEAF6;">P1</span>
+      </div>
+      <figcaption style="display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-family: 'Fraunces', serif; font-size: 26px;">Portrait</span>
+        <span style="font-size: 15px; line-height: 1.55; color: #C9C3D8;">About page, home, article author, link previews. Warm and direct.</span>
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">nimra-portrait.webp · focus 50% 28%</span>
+      </figcaption>
+    </figure>
+    <figure style="margin: 0; display: flex; flex-direction: column; gap: 18px;">
+      <div style="position: relative; width: 100%; height: 480px; border-radius: 32px 32px 120px 32px; overflow: hidden; border: 1px solid #2B2640;">
+        <img src="/images/nimra/p2-teaching-C-recommended.webp" alt="Nimra Zahid seated on a green park bench under autumn trees" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 30%;">
+        <span style="position: absolute; right: 16px; top: 16px; padding: 5px 10px; border-radius: 12px; background: rgba(11,10,18,0.72); font-family: 'Geist Mono', monospace; font-size: 12px; color: #EEEAF6;">P2</span>
+      </div>
+      <figcaption style="display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-family: 'Fraunces', serif; font-size: 26px;">Teaching</span>
+        <span style="font-size: 15px; line-height: 1.55; color: #C9C3D8;">Teaching page, beside the philosophy. Calm, green, belonging.</span>
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">nimra-teaching.webp · focus 55% 30%</span>
+      </figcaption>
+    </figure>
+    <figure style="margin: 0; display: flex; flex-direction: column; gap: 18px;">
+      <div style="position: relative; width: 100%; height: 480px; border-radius: 32px 120px 32px 32px; overflow: hidden; border: 1px solid #2B2640;">
+        <img src="/images/nimra/p3-research-C-recommended.webp" alt="Nimra Zahid seated on stone steps in a modern city square" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%;">
+        <span style="position: absolute; right: 16px; top: 16px; padding: 5px 10px; border-radius: 12px; background: rgba(11,10,18,0.72); font-family: 'Geist Mono', monospace; font-size: 12px; color: #EEEAF6;">P3</span>
+      </div>
+      <figcaption style="display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-family: 'Fraunces', serif; font-size: 26px;">Research &amp; contact</span>
+        <span style="font-size: 15px; line-height: 1.55; color: #C9C3D8;">Contact page and speaking kit. Composed and thoughtful.</span>
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">nimra-research.webp · focus 50% 22%</span>
+      </figcaption>
+    </figure>
+  </section>
+
+  <section style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px;">
+    <div style="display: flex; flex-direction: column; gap: 24px; padding: 36px; border-radius: 28px; border: 1px solid #221E33;">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #8A83A0;">AVATAR · nimra-avatar.webp</span>
+      <div style="display: flex; align-items: flex-end; gap: 28px;">
+        <img src="/images/nimra/nimra-avatar.webp" alt="Nimra Zahid" style="width: 112px; height: 112px; border-radius: 56px; object-fit: cover; border: 2px solid #7EE8DF;">
+        <img src="/images/nimra/nimra-avatar.webp" alt="Nimra Zahid" style="width: 72px; height: 72px; border-radius: 36px; object-fit: cover; border: 1px solid #2B2640;">
+        <img src="/images/nimra/nimra-avatar.webp" alt="Nimra Zahid" style="width: 48px; height: 48px; border-radius: 24px; object-fit: cover; border: 1px solid #2B2640;">
+        <img src="/images/nimra/nimra-avatar.webp" alt="Nimra Zahid" style="width: 32px; height: 32px; border-radius: 16px; object-fit: cover; border: 1px solid #2B2640;">
+      </div>
+      <span style="font-size: 15px; line-height: 1.55; color: #C9C3D8;">112 profile · 72 author card · 48 article byline · 32 list rows. The live ring (Current) is used only for the profile.</span>
+    </div>
+    <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 28px; align-items: center; padding: 36px; border-radius: 28px; background: #FAF7F2; color: #1E1A2B;">
+      <div style="position: relative; width: 200px; height: 250px; border-radius: 24px 24px 24px 72px; overflow: hidden; border: 1px solid #E4DDD2;">
+        <img src="/images/nimra/p1-portrait-C-recommended.webp" alt="Nimra Zahid" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%;">
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #5E5870;">LIGHT READING MODE</span>
+        <span style="font-family: 'Fraunces', serif; font-size: 28px; line-height: 1.15;">The same grade holds on Paper.</span>
+        <span style="font-size: 15px; line-height: 1.55; color: #5E5870;">Border switches to #E4DDD2; no overlays or gradients on light.</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px;">
+    <div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; border-radius: 20px; border: 1px solid #221E33;">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #7EE8DF;">FRAMES</span>
+      <span style="font-size: 15px; line-height: 1.55; color: #D9D4E6;">One large corner radius (120px) per frame, a different corner on each page, so photos feel like components on the board.</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; border-radius: 20px; border: 1px solid #221E33;">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #7EE8DF;">LABELS</span>
+      <span style="font-size: 15px; line-height: 1.55; color: #D9D4E6;">Mono chips sit on a 72% Ink plate, never straight on the photo, so they stay readable.</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; border-radius: 20px; border: 1px solid #221E33;">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #7EE8DF;">EXPORT</span>
+      <span style="font-size: 15px; line-height: 1.55; color: #D9D4E6;">WebP, 1280px long edge, about 100–160 KB. Serve with next/image at 480px, 960px and 1280px.</span>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

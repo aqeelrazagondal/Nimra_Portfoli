@@ -1,0 +1,150 @@
+<!-- Design reference: board "Writing" from the Circuit design canvas. Inline-styled HTML; {{holes}}, <sc-for>, <sc-if>, <dc-import> are design-tool template syntax (see HANDOFF.md §12). Not production code. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Writing — Nimra Zahid</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&amp;family=Geist:wght@300..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0A12}
+a{color:#B9A2FF;text-decoration:none}a:hover{color:#D6C9FF}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:4 16;animation:flow 1.8s linear infinite}
+@media (prefers-reduced-motion: reduce){.flow{animation:none}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 2700px; position: relative; overflow: hidden; display: flex; flex-direction: column; background: #0B0A12; color: #EEEAF6; font-family: 'Geist', sans-serif;">
+
+  <dc-import name="Nav" active="writing" hint-size="1440px,88px"></dc-import>
+
+  <section style="box-sizing: border-box; padding: 88px 120px 0; display: grid; grid-template-columns: minmax(0, 1fr) 440px; column-gap: 80px; align-items: end;">
+    <div style="display: flex; flex-direction: column; gap: 24px;">
+      <div style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #B9A2FF;">U6 · Writing · Notes &amp; perspectives</div>
+      <h1 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 84px; line-height: 1; letter-spacing: -0.03em;">Notes from <em style="font-style: italic; font-weight: 300; color: #B9A2FF;">the circuit.</em></h1>
+      <p style="margin: 0; font-size: 20px; line-height: 1.6; color: #C9C3D8; max-width: 600px;">Accessible essays on regional security, Afghanistan and inclusive education.</p>
+    </div>
+    <form style="display: flex; flex-direction: column; gap: 12px; padding: 28px; border-radius: 24px; border: 1px solid #2B2640; background: #13111D;">
+      <label for="sub-email" style="font-size: 16px; color: #EEEAF6;">Get new essays by email</label>
+      <div style="display: flex; gap: 8px;">
+        <input id="sub-email" type="email" placeholder="you@university.ac.uk" style="flex-grow: 1; min-width: 0; height: 48px; box-sizing: border-box; padding: 0 16px; border-radius: 24px; border: 1px solid #3D3659; background: #0B0A12; color: #EEEAF6; font-family: 'Geist', sans-serif; font-size: 15px;">
+        <button type="button" style="height: 48px; padding: 0 20px; border-radius: 24px; border: none; background: #B9A2FF; color: #120E1E; font-family: 'Geist', sans-serif; font-size: 15px; font-weight: 500; cursor: pointer;">Subscribe</button>
+      </div>
+      <span style="font-size: 13px; color: #A8A1BC;">No spam. One email per new essay. Or follow the RSS feed.</span>
+    </form>
+  </section>
+
+  <section style="box-sizing: border-box; padding: 64px 120px 0;">
+    <div role="group" aria-label="Filter by topic" style="display: flex; flex-wrap: wrap; gap: 8px; padding-bottom: 28px; border-bottom: 1px solid #221E33;">
+      <sc-for list="{{tags}}" as="t" hint-placeholder-count="6">
+        <button type="button" onClick="{{t.pick}}" aria-pressed="{{t.pressed}}" style="height: 44px; padding: 0 18px; border-radius: 22px; border: 1px solid {{t.border}}; background: {{t.bg}}; color: {{t.color}}; font-family: 'Geist', sans-serif; font-size: 15px; cursor: pointer;">{{t.label}}</button>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="box-sizing: border-box; padding: 56px 120px 0;">
+    <a href="Article.dc.html" style="display: grid; grid-template-columns: 640px minmax(0, 1fr); gap: 56px; align-items: center; color: #EEEAF6; text-decoration: none;">
+      <svg width="640" height="400" viewBox="0 0 640 400" role="img" aria-label="Cover art: a circuit chip sending current outward." style="display: block; border-radius: 28px; background: #13111D;">
+        <g style="stroke: #221E33; stroke-width: 1;">
+          <line x1="0" y1="80" x2="640" y2="80"></line><line x1="0" y1="160" x2="640" y2="160"></line><line x1="0" y1="240" x2="640" y2="240"></line><line x1="0" y1="320" x2="640" y2="320"></line>
+          <line x1="128" y1="0" x2="128" y2="400"></line><line x1="256" y1="0" x2="256" y2="400"></line><line x1="384" y1="0" x2="384" y2="400"></line><line x1="512" y1="0" x2="512" y2="400"></line>
+        </g>
+        <circle cx="320" cy="200" r="150" style="fill: rgba(126,232,223,0.06);"></circle>
+        <path d="M270 200 H160 L120 160 H0 M370 200 H480 L520 240 H640 M320 160 V90 L350 60 V0 M320 240 V310 L290 340 V400" style="fill: none; stroke: #2B2640; stroke-width: 2;"></path>
+        <path class="flow" d="M270 200 H160 L120 160 H0" style="fill: none; stroke: #7EE8DF; stroke-width: 2;"></path>
+        <path class="flow" d="M370 200 H480 L520 240 H640" style="fill: none; stroke: #7EE8DF; stroke-width: 2;"></path>
+        <path class="flow" d="M320 160 V90 L350 60 V0" style="fill: none; stroke: #B9A2FF; stroke-width: 2;"></path>
+        <path class="flow" d="M320 240 V310 L290 340 V400" style="fill: none; stroke: #B9A2FF; stroke-width: 2;"></path>
+        <rect x="270" y="160" width="100" height="80" rx="12" style="fill: #15121F; stroke: #7EE8DF; stroke-width: 1.5;"></rect>
+        <text x="320" y="205" style="font-family: 'Geist Mono', monospace; font-size: 13px; letter-spacing: 2px; fill: #EEEAF6; text-anchor: middle;">AFG</text>
+      </svg>
+      <div style="display: flex; flex-direction: column; gap: 18px;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #7EE8DF;">FEATURED · RSCT · SERIES PART 1</span>
+        <span style="font-family: 'Fraunces', serif; font-size: 48px; line-height: 1.08; letter-spacing: -0.02em;">Why Afghanistan is not a buffer</span>
+        <span style="font-size: 19px; line-height: 1.6; color: #C9C3D8;">A plain-language guide to Regional Security Complex Theory, and the classification my research sets out to challenge.</span>
+        <span style="display: flex; align-items: center; gap: 12px; font-size: 14px; color: #A8A1BC;">
+          <img src="/images/nimra/nimra-avatar.webp" alt="Nimra Zahid" style="width: 32px; height: 32px; flex-shrink: 0; border-radius: 16px; object-fit: cover; border: 1px solid #2B2640;">
+          Nimra Zahid · 7 min read · [PUBLISH DATE]
+        </span>
+      </div>
+    </a>
+  </section>
+
+  <section style="box-sizing: border-box; padding: 80px 120px 0; display: grid; grid-template-columns: minmax(0, 1fr) 340px; column-gap: 80px; align-items: start;">
+    <div style="display: flex; flex-direction: column;">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #8A83A0; padding-bottom: 12px;">LATEST</span>
+      <a href="Article.dc.html" style="display: grid; grid-template-columns: minmax(0, 1fr) 144px; gap: 40px; align-items: center; padding: 32px 0; border-top: 1px solid #221E33; color: #EEEAF6; text-decoration: none;">
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #A8A1BC;">RSCT · 7 MIN READ · [PUBLISH DATE]</span>
+          <span style="font-family: 'Fraunces', serif; font-size: 30px; line-height: 1.15;">Why Afghanistan is not a buffer</span>
+          <span style="font-size: 17px; line-height: 1.6; color: #C9C3D8;">A plain-language guide to Regional Security Complex Theory, and the classification my research sets out to challenge.</span>
+        </div>
+        <svg width="144" height="144" viewBox="0 0 144 144" aria-hidden="true" style="display: block; border-radius: 16px; background: #13111D;"><path d="M0 72 H50 M94 72 H144" style="fill: none; stroke: #7EE8DF; stroke-width: 1.5;"></path><rect x="50" y="54" width="44" height="36" rx="6" style="fill: #15121F; stroke: #B9A2FF; stroke-width: 1.2;"></rect></svg>
+      </a>
+      <a href="Article.dc.html" style="display: grid; grid-template-columns: minmax(0, 1fr) 144px; gap: 40px; align-items: center; padding: 32px 0; border-top: 1px solid #221E33; color: #EEEAF6; text-decoration: none;">
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #A8A1BC;">REGIONAL SECURITY · SERIES PART 2 · DRAFT</span>
+          <span style="font-family: 'Fraunces', serif; font-size: 30px; line-height: 1.15;">Afghanistan’s neighbours, re-wired</span>
+          <span style="font-size: 17px; line-height: 1.6; color: #C9C3D8;">Commentary on how security dynamics travel outward from Afghanistan into the regions around it.</span>
+        </div>
+        <svg width="144" height="144" viewBox="0 0 144 144" aria-hidden="true" style="display: block; border-radius: 16px; background: #13111D;"><path d="M72 72 L30 30 M72 72 L114 30 M72 72 L30 114 M72 72 L114 114" style="fill: none; stroke: #3D3659; stroke-width: 1.5;"></path><circle cx="72" cy="72" r="9" style="fill: #15121F; stroke: #7EE8DF; stroke-width: 1.5;"></circle><circle cx="30" cy="30" r="4" style="fill: #B9A2FF;"></circle><circle cx="114" cy="30" r="4" style="fill: #B9A2FF;"></circle><circle cx="30" cy="114" r="4" style="fill: #B9A2FF;"></circle><circle cx="114" cy="114" r="4" style="fill: #B9A2FF;"></circle></svg>
+      </a>
+      <a href="Article.dc.html" style="display: grid; grid-template-columns: minmax(0, 1fr) 144px; gap: 40px; align-items: center; padding: 32px 0; border-top: 1px solid #221E33; border-bottom: 1px solid #221E33; color: #EEEAF6; text-decoration: none;">
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #A8A1BC;">TEACHING · REFLECTION · DRAFT</span>
+          <span style="font-family: 'Fraunces', serif; font-size: 30px; line-height: 1.15;">Teaching geopolitics with care</span>
+          <span style="font-size: 17px; line-height: 1.6; color: #C9C3D8;">What specialist SEMH classrooms have taught me about explaining a complicated world.</span>
+        </div>
+        <svg width="144" height="144" viewBox="0 0 144 144" aria-hidden="true" style="display: block; border-radius: 16px; background: #13111D;"><path d="M20 36 H124 M20 108 H124 M44 36 V108 M72 36 V108 M100 36 V108" style="fill: none; stroke: #3D3659; stroke-width: 1.5;"></path><circle cx="44" cy="72" r="7" style="fill: #15121F; stroke: #E9C77B; stroke-width: 1.5;"></circle><circle cx="72" cy="72" r="7" style="fill: #15121F; stroke: #E9C77B; stroke-width: 1.5;"></circle><circle cx="100" cy="72" r="7" style="fill: #15121F; stroke: #E9C77B; stroke-width: 1.5;"></circle></svg>
+      </a>
+      <button type="button" style="margin-top: 32px; align-self: center; height: 48px; padding: 0 28px; border-radius: 24px; border: 1px solid #3D3659; background: transparent; color: #EEEAF6; font-family: 'Geist', sans-serif; font-size: 15px; cursor: pointer;">Load more</button>
+    </div>
+
+    <aside style="display: flex; flex-direction: column; gap: 24px;">
+      <div style="display: flex; flex-direction: column; gap: 16px; padding: 28px; border-radius: 24px; border: 1px solid #2B2640; background: #13111D;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #B9A2FF;">SERIES</span>
+        <span style="font-family: 'Fraunces', serif; font-size: 26px; line-height: 1.2;">Understanding Afghanistan’s neighbourhood</span>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <span style="display: flex; align-items: center; gap: 10px; font-size: 15px;"><span style="width: 10px; height: 10px; border-radius: 5px; background: #7EE8DF;"></span>Part 1 · Why Afghanistan is not a buffer</span>
+          <span style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: #A8A1BC;"><span style="width: 10px; height: 10px; border-radius: 5px; border: 1.5px solid #3D3659; box-sizing: border-box;"></span>Part 2 · Neighbours, re-wired</span>
+          <span style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: #A8A1BC;"><span style="width: 10px; height: 10px; border-radius: 5px; border: 1.5px solid #3D3659; box-sizing: border-box;"></span>Part 3 · [Title]</span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; padding: 28px; border-radius: 24px; border: 1px solid #221E33;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #8A83A0;">ABOUT THE AUTHOR</span>
+        <span style="font-size: 16px; line-height: 1.6; color: #C9C3D8;">Nimra Zahid is an International Relations researcher and educator in Northampton, UK.</span>
+        <a href="About.dc.html" style="display: flex; align-items: center; height: 44px; font-size: 15px; color: #B9A2FF; text-decoration: none;">More about me →</a>
+      </div>
+    </aside>
+  </section>
+
+  <div style="margin-top: auto; padding-top: 160px;">
+    <dc-import name="Footer" hint-size="1440px,400px"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2700}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const active = (this.state && this.state.tag) || 'All';
+    const names = ['All', 'Afghanistan', 'Regional security', 'RSCT', 'Teaching', 'Reflections'];
+    const tags = names.map((n) => {
+      const on = n === active;
+      return {
+        label: n,
+        pressed: on ? 'true' : 'false',
+        bg: on ? 'rgba(185,162,255,0.16)' : 'transparent',
+        border: on ? 'rgba(185,162,255,0.45)' : '#2B2640',
+        color: on ? '#EEEAF6' : '#A8A1BC',
+        pick: () => this.setState({ tag: n })
+      };
+    });
+    return { tags };
+  }
+}
+</script>
+</body>
+</html>

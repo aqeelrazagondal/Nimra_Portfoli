@@ -1,0 +1,404 @@
+<!-- Design reference: board "Main" from the Circuit design canvas. Inline-styled HTML; {{holes}}, <sc-for>, <sc-if>, <dc-import> are design-tool template syntax (see HANDOFF.md §12). Not production code. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Home — Nimra Zahid</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&amp;family=Geist:wght@300..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0A12}
+a{color:#B9A2FF;text-decoration:none}a:hover{color:#D6C9FF}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:4 16;animation:flow 1.4s linear infinite}
+.flow-slow{stroke-dasharray:3 17;animation:flow 2.8s linear infinite}
+@keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
+.pulse{animation:pulse 2.4s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.flow,.flow-slow,.pulse{animation:none}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 4600px; position: relative; overflow: hidden; display: flex; flex-direction: column; background: #0B0A12; color: #EEEAF6; font-family: 'Geist', sans-serif;">
+
+  <dc-import name="Nav" active="home" hint-size="1440px,88px"></dc-import>
+
+  <div aria-hidden="true" style="position: absolute; left: 72px; top: 1150px; width: 1px; height: 2700px; background: #221E33;"></div>
+  <div aria-hidden="true" style="position: absolute; left: 72px; top: 1150px; width: 1px; height: 900px; background: linear-gradient(180deg, {{current}}, rgba(126,232,223,0));"></div>
+
+  <section style="box-sizing: border-box; padding: 72px 120px 88px; display: grid; grid-template-columns: 520px 640px; column-gap: 40px; align-items: center;">
+    <div style="display: flex; flex-direction: column; gap: 28px;">
+      <div style="display: flex; align-items: center; gap: 10px; font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #A8A1BC;">
+        <span class="pulse" style="width: 8px; height: 8px; border-radius: 4px; background: {{current}};"></span>
+        U1 · International Relations × Education
+      </div>
+      <h1 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 76px; line-height: 1.02; letter-spacing: -0.025em;">They called it an insulator. <em style="font-style: italic; font-weight: 300; color: #B9A2FF;">I study the current.</em></h1>
+      <p style="margin: 0; font-size: 19px; line-height: 1.6; color: #C9C3D8; max-width: 500px;">I’m Nimra Zahid, an International Relations researcher and educator. My research asks what changes when Afghanistan is read not as a buffer between regions, but as a driver of their security.</p>
+      <div style="font-family: 'Geist Mono', monospace; font-size: 12px; line-height: 1.8; letter-spacing: 0.06em; color: #A8A1BC;">MA IR (Merit) · MPhil IR · Educator since 2015 · Northampton, UK</div>
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <a href="Research.dc.html" style="display: inline-flex; align-items: center; gap: 12px; height: 52px; padding: 0 26px; border-radius: 26px; background: #B9A2FF; color: #120E1E; font-size: 16px; font-weight: 500; text-decoration: none;">
+          Follow the current
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="fill: none; stroke: #120E1E; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+        </a>
+        <a href="CV.dc.html" style="display: inline-flex; align-items: center; gap: 10px; height: 52px; padding: 0 24px; border-radius: 26px; border: 1px solid #3D3659; color: #EEEAF6; font-size: 16px; text-decoration: none;">Download CV</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; padding-top: 8px; border-top: 1px solid #221E33;">
+        <div style="padding-top: 16px; font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #8A83A0;">Read Afghanistan as</div>
+        <div role="group" aria-label="Read Afghanistan as" style="display: flex; gap: 6px; padding: 5px; border-radius: 28px; border: 1px solid #2B2640; background: #110F1A; width: fit-content;">
+          <button type="button" onClick="{{setIns}}" aria-pressed="{{insPressed}}" style="height: 44px; padding: 0 20px; border-radius: 22px; border: 1px solid {{insBorder}}; background: {{insBg}}; color: {{insColor}}; font-family: 'Geist', sans-serif; font-size: 15px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" style="fill: none; stroke: {{insColor}}; stroke-width: 1.6;"><path d="M1 8h4M11 8h4M6 3v10M10 3v10"></path></svg>
+            Insulator
+          </button>
+          <button type="button" onClick="{{setInst}}" aria-pressed="{{instPressed}}" style="height: 44px; padding: 0 20px; border-radius: 22px; border: 1px solid {{instBorder}}; background: {{instBg}}; color: {{instColor}}; font-family: 'Geist', sans-serif; font-size: 15px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" style="fill: none; stroke: {{instColor}}; stroke-width: 1.6; stroke-linecap: round;"><path d="M1 8h14M11 4l4 4-4 4"></path></svg>
+            Instigator
+          </button>
+        </div>
+        <div style="font-size: 14px; line-height: 1.6; color: #A8A1BC; max-width: 470px;">{{caption}}</div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="width: 640px; height: 640px; border-radius: 32px; border: 1px solid #221E33; background-color: #0E0C16; background-image: radial-gradient(#221E33 1px, transparent 1px); background-size: 24px 24px; position: relative; overflow: hidden;">
+        <div style="position: absolute; left: 24px; top: 20px; display: flex; align-items: center; gap: 8px; font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #A8A1BC;">
+          <span class="pulse" style="width: 6px; height: 6px; border-radius: 3px; background: {{readoutDot}};"></span>
+          STATE · {{chipState}}
+        </div>
+        <div style="position: absolute; right: 24px; top: 20px; font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #8A83A0;">FIG. 1</div>
+        <svg width="640" height="640" viewBox="0 0 640 640" role="img" aria-label="Abstract circuit diagram. Afghanistan is a chip at the centre, connected to Russia, Central Asia, South Asia and the Gulf. Positions are not geographic boundaries." style="display: block;">
+          <defs>
+            <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0" style="stop-color: #7EE8DF; stop-opacity: 0.22;"></stop>
+              <stop offset="0.55" style="stop-color: #B9A2FF; stop-opacity: 0.08;"></stop>
+              <stop offset="1" style="stop-color: #0E0C16; stop-opacity: 0;"></stop>
+            </radialGradient>
+          </defs>
+          <circle cx="320" cy="320" r="220" style="fill: url(#halo); opacity: {{haloOpacity}}; transition: opacity 0.6s;"></circle>
+
+          <path d="M348 254 V204 L376 176 V150" style="fill: none; stroke: #221E33; stroke-width: 2;"></path>
+          <circle cx="376" cy="146" r="4" style="fill: none; stroke: #2B2640; stroke-width: 1.5;"></circle>
+          <path d="M320 386 V448 L292 476 V548" style="fill: none; stroke: #221E33; stroke-width: 2;"></path>
+          <circle cx="292" cy="552" r="4" style="fill: none; stroke: #2B2640; stroke-width: 1.5;"></circle>
+          <path d="M230 292 H178 L150 264" style="fill: none; stroke: #221E33; stroke-width: 2;"></path>
+          <circle cx="147" cy="261" r="4" style="fill: none; stroke: #2B2640; stroke-width: 1.5;"></circle>
+
+          <path d="M292 254 V170 L262 140 V92" style="fill: none; stroke: #2B2640; stroke-width: 2;"></path>
+          <path d="M410 292 H468 L528 232 V160" style="fill: none; stroke: #2B2640; stroke-width: 2;"></path>
+          <path d="M410 348 H480 L540 408 V486" style="fill: none; stroke: #2B2640; stroke-width: 2;"></path>
+          <path d="M230 348 H166 L108 406 V478" style="fill: none; stroke: #2B2640; stroke-width: 2;"></path>
+
+          <path class="flow" d="M292 254 V170 L262 140 V92" style="fill: none; stroke: {{current}}; stroke-width: 2; stroke-linecap: round; opacity: {{flowOpacity}}; transition: opacity 0.6s;"></path>
+          <path class="flow" d="M410 292 H468 L528 232 V160" style="fill: none; stroke: {{current}}; stroke-width: 2; stroke-linecap: round; opacity: {{flowOpacity}}; transition: opacity 0.6s;"></path>
+          <path class="flow" d="M410 348 H480 L540 408 V486" style="fill: none; stroke: {{current}}; stroke-width: 2; stroke-linecap: round; opacity: {{flowOpacity}}; transition: opacity 0.6s;"></path>
+          <path class="flow" d="M230 348 H166 L108 406 V478" style="fill: none; stroke: {{current}}; stroke-width: 2; stroke-linecap: round; opacity: {{flowOpacity}}; transition: opacity 0.6s;"></path>
+
+          <g style="opacity: {{barrierOpacity}}; transition: opacity 0.6s;">
+            <rect x="280" y="218" width="24" height="12" style="fill: #0E0C16;"></rect>
+            <line x1="280" y1="219" x2="304" y2="219" style="stroke: #F2A9C4; stroke-width: 2;"></line>
+            <line x1="280" y1="229" x2="304" y2="229" style="stroke: #F2A9C4; stroke-width: 2;"></line>
+            <rect x="434" y="280" width="12" height="24" style="fill: #0E0C16;"></rect>
+            <line x1="435" y1="280" x2="435" y2="304" style="stroke: #F2A9C4; stroke-width: 2;"></line>
+            <line x1="445" y1="280" x2="445" y2="304" style="stroke: #F2A9C4; stroke-width: 2;"></line>
+            <rect x="434" y="336" width="12" height="24" style="fill: #0E0C16;"></rect>
+            <line x1="435" y1="336" x2="435" y2="360" style="stroke: #F2A9C4; stroke-width: 2;"></line>
+            <line x1="445" y1="336" x2="445" y2="360" style="stroke: #F2A9C4; stroke-width: 2;"></line>
+            <rect x="194" y="336" width="12" height="24" style="fill: #0E0C16;"></rect>
+            <line x1="195" y1="336" x2="195" y2="360" style="stroke: #F2A9C4; stroke-width: 2;"></line>
+            <line x1="205" y1="336" x2="205" y2="360" style="stroke: #F2A9C4; stroke-width: 2;"></line>
+          </g>
+
+          <g style="stroke: #3D3659; stroke-width: 2;">
+            <line x1="264" y1="254" x2="264" y2="264"></line>
+            <line x1="292" y1="254" x2="292" y2="264"></line>
+            <line x1="320" y1="254" x2="320" y2="264"></line>
+            <line x1="348" y1="254" x2="348" y2="264"></line>
+            <line x1="376" y1="254" x2="376" y2="264"></line>
+            <line x1="264" y1="376" x2="264" y2="386"></line>
+            <line x1="292" y1="376" x2="292" y2="386"></line>
+            <line x1="320" y1="376" x2="320" y2="386"></line>
+            <line x1="348" y1="376" x2="348" y2="386"></line>
+            <line x1="376" y1="376" x2="376" y2="386"></line>
+            <line x1="230" y1="292" x2="240" y2="292"></line>
+            <line x1="230" y1="320" x2="240" y2="320"></line>
+            <line x1="230" y1="348" x2="240" y2="348"></line>
+            <line x1="400" y1="292" x2="410" y2="292"></line>
+            <line x1="400" y1="320" x2="410" y2="320"></line>
+            <line x1="400" y1="348" x2="410" y2="348"></line>
+          </g>
+          <rect x="240" y="264" width="160" height="112" rx="12" style="fill: #15121F; stroke: {{chipStroke}}; stroke-width: 1.5; transition: stroke 0.6s;"></rect>
+          <rect x="252" y="276" width="136" height="88" rx="6" style="fill: none; stroke: #2B2640; stroke-width: 1;"></rect>
+          <circle cx="262" cy="286" r="3" style="fill: #3D3659;"></circle>
+          <text x="240" y="246" style="font-family: 'Geist Mono', monospace; font-size: 12px; fill: #8A83A0;">U1</text>
+          <text x="320" y="318" style="font-family: 'Geist Mono', monospace; font-size: 13px; letter-spacing: 2.4px; fill: #EEEAF6; text-anchor: middle;">AFGHANISTAN</text>
+          <text x="320" y="342" style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 1.6px; fill: {{chipStroke}}; text-anchor: middle;">{{chipState}}</text>
+
+          <circle cx="262" cy="80" r="12" style="fill: #0E0C16; stroke: {{padStroke}}; stroke-width: 1.5;"></circle>
+          <circle cx="262" cy="80" r="5" style="fill: {{padInner}}; transition: fill 0.6s;"></circle>
+          <text x="262" y="50" style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 2px; fill: #C9C3D8; text-anchor: middle;">RUSSIA</text>
+
+          <circle cx="528" cy="148" r="12" style="fill: #0E0C16; stroke: {{padStroke}}; stroke-width: 1.5;"></circle>
+          <circle cx="528" cy="148" r="5" style="fill: {{padInner}}; transition: fill 0.6s;"></circle>
+          <text x="528" y="118" style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 2px; fill: #C9C3D8; text-anchor: middle;">CENTRAL ASIA</text>
+
+          <circle cx="540" cy="498" r="12" style="fill: #0E0C16; stroke: {{padStroke}}; stroke-width: 1.5;"></circle>
+          <circle cx="540" cy="498" r="5" style="fill: {{padInner}}; transition: fill 0.6s;"></circle>
+          <text x="540" y="538" style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 2px; fill: #C9C3D8; text-anchor: middle;">SOUTH ASIA</text>
+
+          <circle cx="108" cy="490" r="12" style="fill: #0E0C16; stroke: {{padStroke}}; stroke-width: 1.5;"></circle>
+          <circle cx="108" cy="490" r="5" style="fill: {{padInner}}; transition: fill 0.6s;"></circle>
+          <text x="108" y="530" style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 2px; fill: #C9C3D8; text-anchor: middle;">THE GULF</text>
+        </svg>
+      </div>
+      <div style="display: flex; justify-content: space-between; font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #8A83A0;">
+        <span>{{readout}}</span>
+        <span>Abstract diagram · not geographic boundaries</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="box-sizing: border-box; padding: 0 120px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px;">
+    <div style="display: flex; flex-direction: column; gap: 8px; padding: 28px 32px; border-radius: 20px; border: 1px solid #221E33; background: #110F1A;">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #8A83A0;">READOUT 01</span>
+      <span style="font-family: 'Fraunces', serif; font-size: 52px; line-height: 1.05; color: #B9A2FF;">10+</span>
+      <span style="font-size: 15px; color: #C9C3D8;">years in education</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; padding: 28px 32px; border-radius: 20px; border: 1px solid #221E33; background: #110F1A;">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #8A83A0;">READOUT 02</span>
+      <span style="font-family: 'Fraunces', serif; font-size: 52px; line-height: 1.05; color: #B9A2FF;">2</span>
+      <span style="font-size: 15px; color: #C9C3D8;">countries taught in</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; padding: 28px 32px; border-radius: 20px; border: 1px solid #221E33; background: #110F1A;">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #8A83A0;">READOUT 03</span>
+      <span style="font-family: 'Fraunces', serif; font-size: 52px; line-height: 1.05; color: #B9A2FF;">3</span>
+      <span style="font-size: 15px; color: #C9C3D8;">degrees in International Relations</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; padding: 28px 32px; border-radius: 20px; border: 1px solid #221E33; background: #110F1A;">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #8A83A0;">READOUT 04</span>
+      <span style="font-family: 'Fraunces', serif; font-size: 52px; line-height: 1.05; color: #B9A2FF;">6</span>
+      <span style="font-size: 15px; color: #C9C3D8;">undergraduate modules taught</span>
+    </div>
+  </section>
+
+  <section style="box-sizing: border-box; padding: 160px 120px 0; display: flex; flex-direction: column; gap: 48px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <div style="position: relative; font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #B9A2FF;">
+          <span aria-hidden="true" style="position: absolute; left: -48px; top: 7px; width: 40px; height: 1px; background: #3D3659;"></span>
+          <span aria-hidden="true" style="position: absolute; left: -52px; top: 3px; width: 9px; height: 9px; border-radius: 5px; background: {{current}};"></span>
+          J1 · Two strands, one circuit
+        </div>
+        <h2 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 52px; line-height: 1.08; letter-spacing: -0.02em; max-width: 760px;">Research and teaching run on the same current.</h2>
+      </div>
+      <a href="About.dc.html" style="display: flex; align-items: center; gap: 10px; height: 44px; font-size: 16px; color: #EEEAF6; text-decoration: none;">A little more about me <span style="color: #7EE8DF;">→</span></a>
+    </div>
+    <div style="display: grid; grid-template-columns: minmax(0, 1fr) 140px minmax(0, 1fr); align-items: stretch;">
+      <div style="display: flex; flex-direction: column; gap: 20px; padding: 40px; border-radius: 28px; border: 1px solid #2B2640; background: #13111D;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true" style="fill: none; stroke: #B9A2FF; stroke-width: 1.5;"><rect x="8" y="10" width="20" height="16" rx="3"></rect><path d="M13 4v6M23 4v6M13 26v6M23 26v6M2 18h6M28 18h6"></path></svg>
+          <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #A8A1BC;">R1 · RESEARCH</span>
+        </div>
+        <h3 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 36px; line-height: 1.1;">Regional security &amp; Afghanistan</h3>
+        <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #C9C3D8;">I ask why Afghanistan should be understood as an instigator, not simply an insulator, in its regional security complex.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span style="font-family: 'Geist Mono', monospace; font-size: 12px; padding: 6px 12px; border-radius: 14px; border: 1px solid #2B2640; color: #C9C3D8;">RSCT</span>
+          <span style="font-family: 'Geist Mono', monospace; font-size: 12px; padding: 6px 12px; border-radius: 14px; border: 1px solid #2B2640; color: #C9C3D8;">South &amp; Central Asia</span>
+          <span style="font-family: 'Geist Mono', monospace; font-size: 12px; padding: 6px 12px; border-radius: 14px; border: 1px solid #2B2640; color: #C9C3D8;">Qualitative case study</span>
+        </div>
+        <a href="Research.dc.html" style="margin-top: auto; display: flex; align-items: center; justify-content: space-between; height: 48px; border-top: 1px solid #221E33; padding-top: 16px; font-size: 16px; color: #B9A2FF; text-decoration: none;">Explore the argument <span>→</span></a>
+      </div>
+      <svg width="140" height="100%" viewBox="0 0 140 400" preserveAspectRatio="none" aria-hidden="true" style="display: block; height: 100%;">
+        <line x1="0" y1="200" x2="140" y2="200" style="stroke: #2B2640; stroke-width: 2;"></line>
+        <line class="flow-slow" x1="0" y1="200" x2="140" y2="200" style="stroke: {{current}}; stroke-width: 2;"></line>
+      </svg>
+      <div style="display: flex; flex-direction: column; gap: 20px; padding: 40px; border-radius: 28px; border: 1px solid #2B2640; background: #13111D;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true" style="fill: none; stroke: #7EE8DF; stroke-width: 1.5;"><path d="M4 18h6M26 18h6M10 10v16M26 10v16M10 10h16M10 26h16"></path><circle cx="18" cy="18" r="3"></circle></svg>
+          <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #A8A1BC;">T1 · TEACHING</span>
+        </div>
+        <h3 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 36px; line-height: 1.1;">Teaching, inclusion &amp; possibility</h3>
+        <p style="margin: 0; font-size: 17px; line-height: 1.65; color: #C9C3D8;">Over ten years teaching across Pakistan and England, from undergraduate International Relations to specialist SEMH provision.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span style="font-family: 'Geist Mono', monospace; font-size: 12px; padding: 6px 12px; border-radius: 14px; border: 1px solid #2B2640; color: #C9C3D8;">KS3–4 Geography &amp; History</span>
+          <span style="font-family: 'Geist Mono', monospace; font-size: 12px; padding: 6px 12px; border-radius: 14px; border: 1px solid #2B2640; color: #C9C3D8;">SEMH</span>
+          <span style="font-family: 'Geist Mono', monospace; font-size: 12px; padding: 6px 12px; border-radius: 14px; border: 1px solid #2B2640; color: #C9C3D8;">Undergraduate IR</span>
+        </div>
+        <a href="Teaching.dc.html" style="margin-top: auto; display: flex; align-items: center; justify-content: space-between; height: 48px; border-top: 1px solid #221E33; padding-top: 16px; font-size: 16px; color: #7EE8DF; text-decoration: none;">My approach to teaching <span>→</span></a>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: center; font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #8A83A0;">SHARED TERMINAL · CONTEXT: HOW RELATIONSHIPS SHAPE WHAT WE SEE AND LEARN</div>
+  </section>
+
+  <section style="box-sizing: border-box; padding: 160px 120px 0; display: flex; flex-direction: column; gap: 40px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end;">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <div style="position: relative; font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #B9A2FF;">
+          <span aria-hidden="true" style="position: absolute; left: -48px; top: 7px; width: 40px; height: 1px; background: #3D3659;"></span>
+          <span aria-hidden="true" style="position: absolute; left: -52px; top: 3px; width: 9px; height: 9px; border-radius: 5px; background: #3D3659;"></span>
+          J2 · Signal path
+        </div>
+        <h2 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 52px; line-height: 1.08; letter-spacing: -0.02em;">From insulator to <em style="font-style: italic; color: #B9A2FF;">instigator.</em></h2>
+        <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #C9C3D8;">Each project carries the same question a step further.</p>
+      </div>
+      <a href="Research.dc.html" style="display: flex; align-items: center; gap: 10px; height: 44px; font-size: 16px; color: #EEEAF6; text-decoration: none;">View all research <span style="color: #7EE8DF;">→</span></a>
+    </div>
+    <svg width="1200" height="72" viewBox="0 0 1200 72" aria-hidden="true" style="display: block;">
+      <path d="M0 48 H753" style="fill: none; stroke: #2B2640; stroke-width: 2;"></path>
+      <path class="flow" d="M0 48 H753" style="fill: none; stroke: {{current}}; stroke-width: 2;"></path>
+      <path d="M753 48 H1200" style="fill: none; stroke: #3D3659; stroke-width: 2; stroke-dasharray: 6 8;"></path>
+      <text x="141" y="18" style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 1.5px; fill: #A8A1BC; text-anchor: middle;">2018</text>
+      <text x="447" y="18" style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 1.5px; fill: #A8A1BC; text-anchor: middle;">2020</text>
+      <text x="753" y="18" style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 1.5px; fill: #A8A1BC; text-anchor: middle;">2024</text>
+      <text x="1059" y="18" style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 1.5px; fill: #A8A1BC; text-anchor: middle;">NEXT</text>
+      <circle cx="141" cy="48" r="11" style="fill: #0B0A12; stroke: {{current}}; stroke-width: 1.5;"></circle>
+      <circle cx="141" cy="48" r="4" style="fill: {{current}};"></circle>
+      <circle cx="447" cy="48" r="11" style="fill: #0B0A12; stroke: {{current}}; stroke-width: 1.5;"></circle>
+      <circle cx="447" cy="48" r="4" style="fill: {{current}};"></circle>
+      <circle cx="753" cy="48" r="11" style="fill: #0B0A12; stroke: {{current}}; stroke-width: 1.5;"></circle>
+      <circle cx="753" cy="48" r="4" style="fill: {{current}};"></circle>
+      <circle cx="1059" cy="48" r="11" style="fill: #0B0A12; stroke: #8A83A0; stroke-width: 1.5; stroke-dasharray: 3 3;"></circle>
+    </svg>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px;">
+      <a href="ResearchDetail.dc.html" style="display: flex; flex-direction: column; gap: 12px; min-height: 300px; box-sizing: border-box; padding: 28px; border-radius: 20px; border: 1px solid #2B2640; background: #13111D; color: #EEEAF6; text-decoration: none;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #A8A1BC;">MPHIL THESIS · NDU ISLAMABAD</span>
+        <span style="font-family: 'Fraunces', serif; font-size: 25px; line-height: 1.2;">Russia, Afghanistan &amp; regional stability</span>
+        <span style="font-size: 15px; line-height: 1.6; color: #C9C3D8;">How Russia–Afghanistan relations shape stability across the wider region.</span>
+        <span style="margin-top: auto; font-size: 15px; color: #B9A2FF;">Project overview →</span>
+      </a>
+      <a href="ResearchDetail.dc.html" style="display: flex; flex-direction: column; gap: 12px; min-height: 300px; box-sizing: border-box; padding: 28px; border-radius: 20px; border: 1px solid #2B2640; background: #13111D; color: #EEEAF6; text-decoration: none;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #A8A1BC;">CONFERENCE PAPER · ISTANBUL</span>
+        <span style="font-family: 'Fraunces', serif; font-size: 25px; line-height: 1.2;">Afghanistan, Turkey &amp; the Global War on Terror</span>
+        <span style="font-size: 15px; line-height: 1.6; color: #C9C3D8;">Presented at the Istanbul International Social Science Conference, June 2020.</span>
+        <span style="margin-top: auto; font-size: 15px; color: #B9A2FF;">Project overview →</span>
+      </a>
+      <a href="ResearchDetail.dc.html" style="display: flex; flex-direction: column; gap: 12px; min-height: 300px; box-sizing: border-box; padding: 28px; border-radius: 20px; border: 1px solid rgba(126,232,223,0.35); background: #13111D; color: #EEEAF6; text-decoration: none;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #7EE8DF;">MA DISSERTATION · MERIT</span>
+        <span style="font-family: 'Fraunces', serif; font-size: 25px; line-height: 1.2;">Deconstructing Afghanistan’s role in RSCT</span>
+        <span style="font-size: 15px; line-height: 1.6; color: #C9C3D8;">Challenges the “insulator” label and reads Afghanistan as an instigator of regional security dynamics.</span>
+        <span style="margin-top: auto; font-size: 15px; color: #7EE8DF;">Project overview →</span>
+      </a>
+      <div style="display: flex; flex-direction: column; gap: 12px; min-height: 300px; box-sizing: border-box; padding: 28px; border-radius: 20px; border: 1px dashed #3D3659; color: #EEEAF6;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #A8A1BC;">DOCTORAL RESEARCH · PLANNED</span>
+        <span style="font-family: 'Fraunces', serif; font-size: 25px; line-height: 1.2;">Testing the instigator thesis</span>
+        <span style="font-size: 15px; line-height: 1.6; color: #C9C3D8;">Taking the argument into a doctoral project on Afghanistan and regional security.</span>
+        <a href="Contact.dc.html" style="margin-top: auto; font-size: 15px; color: #B9A2FF; text-decoration: none;">Discuss supervision →</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="box-sizing: border-box; padding: 160px 120px 0; display: flex; flex-direction: column; gap: 24px;">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 16px;">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <div style="position: relative; font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #B9A2FF;">
+          <span aria-hidden="true" style="position: absolute; left: -48px; top: 7px; width: 40px; height: 1px; background: #3D3659;"></span>
+          <span aria-hidden="true" style="position: absolute; left: -52px; top: 3px; width: 9px; height: 9px; border-radius: 5px; background: #3D3659;"></span>
+          J3 · Latest writing
+        </div>
+        <h2 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 52px; line-height: 1.08; letter-spacing: -0.02em;">Notes from the circuit.</h2>
+      </div>
+      <a href="Writing.dc.html" style="display: flex; align-items: center; gap: 10px; height: 44px; font-size: 16px; color: #EEEAF6; text-decoration: none;">All writing <span style="color: #7EE8DF;">→</span></a>
+    </div>
+    <a href="Article.dc.html" style="display: grid; grid-template-columns: minmax(0, 1fr) 176px; gap: 48px; align-items: center; padding: 32px 0; border-top: 1px solid #221E33; color: #EEEAF6; text-decoration: none;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #A8A1BC;">RSCT · 7 MIN READ · [PUBLISH DATE]</span>
+        <span style="font-family: 'Fraunces', serif; font-size: 32px; line-height: 1.15;">Why Afghanistan is not a buffer</span>
+        <span style="font-size: 17px; line-height: 1.6; color: #C9C3D8;">A plain-language guide to Regional Security Complex Theory, and the classification my research sets out to challenge.</span>
+      </div>
+      <svg width="176" height="120" viewBox="0 0 176 120" aria-hidden="true" style="display: block; border-radius: 16px; background: #13111D;">
+        <path d="M0 60 H60 L76 44 H100 L116 60 H176" style="fill: none; stroke: #3D3659; stroke-width: 1.5;"></path>
+        <path class="flow-slow" d="M0 60 H60 L76 44 H100 L116 60 H176" style="fill: none; stroke: #7EE8DF; stroke-width: 1.5;"></path>
+        <rect x="70" y="30" width="36" height="28" rx="5" style="fill: #15121F; stroke: #B9A2FF; stroke-width: 1.2;"></rect>
+      </svg>
+    </a>
+    <a href="Writing.dc.html" style="display: grid; grid-template-columns: minmax(0, 1fr) 176px; gap: 48px; align-items: center; padding: 32px 0; border-top: 1px solid #221E33; color: #EEEAF6; text-decoration: none;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #A8A1BC;">REGIONAL SECURITY · DRAFT</span>
+        <span style="font-family: 'Fraunces', serif; font-size: 32px; line-height: 1.15;">Afghanistan’s neighbours, re-wired</span>
+        <span style="font-size: 17px; line-height: 1.6; color: #C9C3D8;">Commentary on how security dynamics travel outward from Afghanistan into the regions around it.</span>
+      </div>
+      <svg width="176" height="120" viewBox="0 0 176 120" aria-hidden="true" style="display: block; border-radius: 16px; background: #13111D;">
+        <path d="M88 60 L40 28 M88 60 L140 30 M88 60 L48 96 M88 60 L136 94" style="fill: none; stroke: #3D3659; stroke-width: 1.5;"></path>
+        <circle cx="88" cy="60" r="8" style="fill: #15121F; stroke: #7EE8DF; stroke-width: 1.5;"></circle>
+        <circle cx="40" cy="28" r="4" style="fill: #B9A2FF;"></circle>
+        <circle cx="140" cy="30" r="4" style="fill: #B9A2FF;"></circle>
+        <circle cx="48" cy="96" r="4" style="fill: #B9A2FF;"></circle>
+        <circle cx="136" cy="94" r="4" style="fill: #B9A2FF;"></circle>
+      </svg>
+    </a>
+    <a href="Writing.dc.html" style="display: grid; grid-template-columns: minmax(0, 1fr) 176px; gap: 48px; align-items: center; padding: 32px 0; border-top: 1px solid #221E33; border-bottom: 1px solid #221E33; color: #EEEAF6; text-decoration: none;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #A8A1BC;">TEACHING · DRAFT</span>
+        <span style="font-family: 'Fraunces', serif; font-size: 32px; line-height: 1.15;">Teaching geopolitics with care</span>
+        <span style="font-size: 17px; line-height: 1.6; color: #C9C3D8;">What specialist SEMH classrooms have taught me about explaining a complicated world.</span>
+      </div>
+      <svg width="176" height="120" viewBox="0 0 176 120" aria-hidden="true" style="display: block; border-radius: 16px; background: #13111D;">
+        <path d="M24 30 H152 M24 90 H152 M48 30 V90 M88 30 V90 M128 30 V90" style="fill: none; stroke: #3D3659; stroke-width: 1.5;"></path>
+        <circle cx="48" cy="60" r="7" style="fill: #15121F; stroke: #E9C77B; stroke-width: 1.5;"></circle>
+        <circle cx="88" cy="60" r="7" style="fill: #15121F; stroke: #E9C77B; stroke-width: 1.5;"></circle>
+        <circle cx="128" cy="60" r="7" style="fill: #15121F; stroke: #E9C77B; stroke-width: 1.5;"></circle>
+      </svg>
+    </a>
+  </section>
+
+  <section style="box-sizing: border-box; padding: 160px 120px 160px;">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 28px; padding: 72px 72px 80px; border-radius: 36px; border: 1px solid #2B2640; background: #110F1A; text-align: center;">
+      <svg width="560" height="72" viewBox="0 0 560 72" aria-hidden="true" style="display: block;">
+        <path d="M0 44 H220" style="fill: none; stroke: #2B2640; stroke-width: 2;"></path>
+        <path class="flow" d="M0 44 H220" style="fill: none; stroke: {{current}}; stroke-width: 2;"></path>
+        <circle cx="224" cy="44" r="5" style="fill: #0B0A12; stroke: {{current}}; stroke-width: 2;"></circle>
+        <line x1="228" y1="42" x2="318" y2="12" style="stroke: #EEEAF6; stroke-width: 2; stroke-linecap: round;"></line>
+        <circle cx="336" cy="44" r="5" style="fill: #0B0A12; stroke: #3D3659; stroke-width: 2;"></circle>
+        <path d="M340 44 H560" style="fill: none; stroke: #2B2640; stroke-width: 2;"></path>
+        <text x="280" y="66" style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 2px; fill: #8A83A0; text-anchor: middle;">SWITCH OPEN · AWAITING YOU</text>
+      </svg>
+      <h2 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 68px; line-height: 1.05; letter-spacing: -0.02em;">Complete the <em style="font-style: italic; color: #B9A2FF;">circuit.</em></h2>
+      <p style="margin: 0; font-size: 19px; line-height: 1.6; color: #C9C3D8; max-width: 560px;">Open to doctoral research opportunities, collaboration and speaking.</p>
+      <div style="display: flex; gap: 12px;">
+        <a href="Contact.dc.html" style="display: inline-flex; align-items: center; gap: 12px; height: 52px; padding: 0 26px; border-radius: 26px; background: #B9A2FF; color: #120E1E; font-size: 16px; font-weight: 500; text-decoration: none;">Start a conversation</a>
+        <a href="CV.dc.html" style="display: inline-flex; align-items: center; height: 52px; padding: 0 24px; border-radius: 26px; border: 1px solid #3D3659; color: #EEEAF6; font-size: 16px; text-decoration: none;">View CV</a>
+      </div>
+    </div>
+  </section>
+
+  <div style="margin-top: auto;">
+    <dc-import name="Footer" hint-size="1440px,400px"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"startMode":{"editor":"enum","options":["instigator","insulator"],"default":"instigator"},"current":{"editor":"color","options":["#7EE8DF","#F2A9C4","#E9C77B"],"default":"#7EE8DF"},"$preview":{"width":1440,"height":4600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const mode = (this.state && this.state.mode) || this.props.startMode || 'instigator';
+    const inst = mode === 'instigator';
+    const cur = this.props.current ?? '#7EE8DF';
+    const onBg = 'rgba(185,162,255,0.16)';
+    return {
+      current: cur,
+      flowOpacity: inst ? 1 : 0,
+      barrierOpacity: inst ? 0 : 1,
+      haloOpacity: inst ? 1 : 0,
+      chipStroke: inst ? cur : '#8A83A0',
+      padStroke: inst ? cur : '#3D3659',
+      padInner: inst ? cur : '#2B2640',
+      readoutDot: inst ? cur : '#F2A9C4',
+      chipState: inst ? 'INSTIGATOR' : 'INSULATOR',
+      readout: inst ? 'Current flowing outward from U1' : 'Current stopped at the border of U1',
+      caption: inst
+        ? 'My reading: Afghanistan generates security dynamics that travel outward into the complexes around it.'
+        : 'The RSCT reading (Buzan & Wæver, 2003): Afghanistan sits between complexes and absorbs, rather than transmits, their dynamics.',
+      insPressed: inst ? 'false' : 'true',
+      instPressed: inst ? 'true' : 'false',
+      insBg: inst ? 'transparent' : onBg,
+      insColor: inst ? '#A8A1BC' : '#EEEAF6',
+      insBorder: inst ? 'transparent' : 'rgba(185,162,255,0.45)',
+      instBg: inst ? onBg : 'transparent',
+      instColor: inst ? '#EEEAF6' : '#A8A1BC',
+      instBorder: inst ? 'rgba(185,162,255,0.45)' : 'transparent',
+      setIns: () => this.setState({ mode: 'insulator' }),
+      setInst: () => this.setState({ mode: 'instigator' })
+    };
+  }
+}
+</script>
+</body>
+</html>

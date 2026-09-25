@@ -20,7 +20,7 @@ const ogImage={url:'/opengraph-image',width:1200,height:630,alt:`${profile.name}
 export function pageMetadata({title,description,path,siteImage=true}:{title?:string;description:string;path:string;siteImage?:boolean}):Metadata{
  const full=title?`${title} | ${profile.name}`:defaultTitle;
  const images=siteImage?{images:[ogImage]}:{};
- return {title,description,alternates:{canonical:path},openGraph:{title:full,description,url:path,siteName:profile.name,locale:'en_GB',type:'website',...images},twitter:{card:'summary_large_image',title:full,description,...images}};
+ return {title,description,alternates:{canonical:path,types:{'application/rss+xml':'/rss.xml'}},openGraph:{title:full,description,url:path,siteName:profile.name,locale:'en_GB',type:'website',...images},twitter:{card:'summary_large_image',title:full,description,...images}};
 }
 export function jsonLd(data:object){return {__html:JSON.stringify(data).replace(/</g,'\\u003c')}}
 export const person={'@type':'Person','@id':`${siteUrl}/#person`,name:profile.name,url:siteUrl,jobTitle:profile.role,description:profile.description,

@@ -1,1 +1,39 @@
-{"name":"nimra-portfolio","version":"0.1.0","private":true,"scripts":{"dev":"next dev --hostname 127.0.0.1","build":"next build","start":"next start --hostname 127.0.0.1","typecheck":"tsc --noEmit"},"dependencies":{"@keystatic/core":"^0.6.9","@keystatic/next":"^5.0.5","@markdoc/markdoc":"^0.4.0","@react-pdf/renderer":"^4.9.0","lucide-react":"^1.48.0","next":"^16.3.6","react":"^19.3.0","react-dom":"^19.3.0"},"devDependencies":{"@playwright/test":"^1.63.0","@types/node":"^26.6.2","@types/react":"^19.3.0","@types/react-dom":"^19.3.0","typescript":"^7.0.2"}}
+{
+  "name": "nimra-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "dev:github": "NEXT_PUBLIC_KEYSTATIC_GITHUB_SETUP=true next dev --hostname 127.0.0.1",
+    "prebuild": "node scripts/sanitize-article-images.mjs",
+    "images:clean": "node scripts/sanitize-article-images.mjs",
+    "lint": "eslint .",
+    "test:images": "node --test tests/article-images.test.mjs",
+    "test:writing": "playwright test"
+  },
+  "dependencies": {
+    "@keystatic/core": "^0.6.9",
+    "@keystatic/next": "^5.0.5",
+    "@markdoc/markdoc": "^0.4.0",
+    "@react-pdf/renderer": "^4.9.0",
+    "lucide-react": "^1.48.0",
+    "next": "^16.3.6",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "sharp": "^0.35.4"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@typescript/native": "npm:typescript@^7.0.2",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.6",
+    "typescript": "npm:@typescript/typescript6@^6.0.2"
+  }
+}

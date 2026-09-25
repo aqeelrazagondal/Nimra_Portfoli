@@ -220,14 +220,13 @@ html[data-reading][data-header-hidden] .nav-bar{transform:translateY(-100%)}
 .hero-copy{display:flex;flex-direction:column;gap:26px}
 .hero-kicker{display:flex;align-items:center;gap:10px}
 .hero-kicker .label{color:var(--muted)}
-.hero-identity{font-family:var(--font-display),Georgia,serif;font-weight:400;font-size:clamp(1.2rem,1.7vw,1.45rem);line-height:1.25;letter-spacing:-.015em;max-width:22em}
 .hero-intro{font-size:clamp(1.02rem,1.3vw,1.19rem);line-height:1.6;color:var(--text-2);max-width:500px}
 .reading-switch{display:flex;flex-direction:column;gap:12px;padding-top:24px;border-top:1px solid var(--hairline)}
 .segmented{display:flex;gap:6px;padding:5px;border-radius:28px;border:1px solid var(--trace);background:var(--panel);width:fit-content}
 .segmented button{height:44px;padding:0 20px;border-radius:22px;border:1px solid transparent;background:transparent;color:var(--muted);font-size:15px;display:flex;align-items:center;gap:8px}
 .segmented button:hover{color:var(--text)}
 .segmented button[aria-pressed=true]{color:var(--text);background:var(--lilac-soft);border-color:var(--lilac-line)}
-.segmented button:focus-visible{outline:3px solid var(--current);outline-offset:3px}
+.segmented button:focus-visible{outline:2px solid var(--current);outline-offset:2px}
 .segmented svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round}
 .switch-caption{font-size:14px;line-height:1.6;color:var(--muted);max-width:470px;min-height:3.2em}
 .board-fig{display:flex;flex-direction:column;gap:14px}

@@ -4,6 +4,8 @@ Editorial notes live here, never in rendered pages.
 
 ## Content needed from Nimra
 
+- [ ] **Two sample articles are published (Sep 2026, owner's decision) so Writing shows on the live site.** Replace them from `/keystatic`. “Afghanistan’s neighbours, re-wired” is lorem ipsum with a “Placeholder text.” summary; replace it or set it back to Draft. “Why Afghanistan is not a buffer” uses the design’s sample text and a generated gradient cover.
+
 - [x] MPhil dates: 2016 – 2018 everywhere (web and PDF).
 - [ ] Confirm the About methods list (now: qualitative case study, theory-driven analysis (RSCT), practitioner reflection, SPSS, research ethics · NIH training).
 - [x] Research page “Future directions” rewritten from her research proposal (concepts and questions only; criteria, evidence and design stay unpublished).
@@ -20,11 +22,9 @@ Editorial notes live here, never in rendered pages.
 - [x] Edited photos added in `public/images/nimra/` (Circuit v2 handoff): About portrait, Teaching, Contact, Bruges on About, round avatar on articles.
 - [ ] Optional: photos from conferences, talks or teaching (never showing pupils) in Keystatic → **Profile photos** → In pictures, shown on About.
 - [x] Email and LinkedIn added (defaults in `content/profile.ts`). ORCID still to add.
-- [ ] Replace the two placeholder articles in `content/articles/` (lorem ipsum drafts, used to test the design) with real ones, or delete them. Drafts show only locally and on Vercel preview deployments. Writing appears in the navigation and sitemap once an article is set to Published with a publish date that has arrived.
 - [x] Referee quotes added from the Sep 2026 reference letters (Anna Jordan on Teaching; Dr Edgar B. A. Tembo on Research), short and verbatim, without the school name, contact details or grades. Worth letting both referees know their words appear on the site.
 - [ ] Review all first-person copy, including the Circuit hero line "They called it an insulator. I study the current."
 
-- [ ] Replace the draft sample articles: “Why Afghanistan is not a buffer” uses the design’s draft text minus the “[Your strongest example]” paragraph; “Afghanistan’s neighbours, re-wired” is still lorem ipsum.
 
 - [ ] One concrete “Approach” sentence (sources, period, method) for the MPhil thesis and the Istanbul paper (`method` in `content/profile.ts`). The section is hidden on those pages until then.
 

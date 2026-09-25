@@ -24,6 +24,7 @@ export function ChipLogo({className='brand-chip'}:{className?:string}){
 
 function ThemeToggle(){
  const [dark,setDark]=useState(false);
+ // eslint-disable-next-line react-hooks/set-state-in-effect -- Synchronize the pre-hydration theme with the browser and other tabs.
  useEffect(()=>{const current=document.documentElement.dataset.theme==='dark'?'dark':'light';applyTheme(current);setDark(current==='dark');
   // Keep other open tabs in step with a theme change.
   function sync(e:StorageEvent){if(e.key==='theme'){const t=e.newValue==='dark'?'dark':'light';applyTheme(t);setDark(t==='dark')}}
@@ -37,6 +38,7 @@ function ThemeToggle(){
 
 export function Header({writing}:{writing:boolean}){
  const path=usePathname();const [open,setOpen]=useState(false);
+ // eslint-disable-next-line react-hooks/set-state-in-effect -- Close the mobile overlay when the Next router changes pages.
  useEffect(()=>setOpen(false),[path]);
  useEffect(()=>{if(!open)return;const close=(e:KeyboardEvent)=>{if(e.key==='Escape')setOpen(false)};addEventListener('keydown',close);return ()=>removeEventListener('keydown',close)},[open]);
  if(isArticle(path))return <header className="nav-bar"><div className="wrap nav-inner">
@@ -66,7 +68,7 @@ const updated=new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'long',year:'
 // The year comes from the server so it can't differ from the browser's clock.
 export function Footer({writing,year}:{writing:boolean;year:number}){
  const path=usePathname();
- if(isArticle(path))return <footer className="wrap"><div className="footer-min"><span>© {year} <span translate="no">Nimra Zahid</span></span><Link href="/writing">All writing</Link></div></footer>;
+ if(isArticle(path))return <footer className="wrap"><div className="footer-min"><span>© {year} <span translate="no">Nimra Zahid</span></span><a href="/rss.xml">RSS</a><Link href="/writing">All writing</Link></div></footer>;
  return <footer className="site-footer wrap">
   <svg className="footer-trace" viewBox="0 0 1200 40" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
    <path d="M0 20 H520 L540 8 H660 L680 20 H1200" className="f-none s-idle" strokeWidth="1" vectorEffect="non-scaling-stroke"/>
@@ -80,7 +82,7 @@ export function Footer({writing,year}:{writing:boolean;year:number}){
     {profileLinks.length?profileLinks.map(x=><a key={x.label} href={x.href} {...(x.label==='Email'?{}:{rel:'me noopener noreferrer',target:'_blank'})}>{x.label==='Email'?x.text:x.text}</a>)
      :<Link href="/contact">Send a message</Link>}
    </div>
-   <div className="footer-col"><span className="label label-muted">Documents</span><a href="/cv.pdf" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a><Link href="/cv">CV online</Link><span className="f-item">Degree verification on request</span></div>
+   <div className="footer-col"><span className="label label-muted">Documents</span><a href="/cv.pdf" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a><Link href="/cv">CV online</Link><a href="/rss.xml">Writing RSS</a><span className="f-item">Degree verification on request</span></div>
   </div>
   <div className="footer-bottom"><span>© {year} <span translate="no">Nimra Zahid</span></span><span>Last updated <time dateTime={profile.updated}>{updated}</time></span><span className="footer-status"><i aria-hidden/>Circuit closed</span></div>
  </footer>;

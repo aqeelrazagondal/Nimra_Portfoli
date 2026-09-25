@@ -3,12 +3,12 @@ import Link from 'next/link';
 import {notFound} from 'next/navigation';
 import {articleTags} from '@/keystatic.config';
 import {ArticleFeed} from '@/components/article/feed';
-import {Avatar} from '@/components/photo';
+import {AuthorPhoto} from '@/components/article/author-photo';
 import {formatDate,getArticles,summary} from '@/lib/articles';
 import {pageMetadata} from '@/lib/site';
 export const metadata=pageMetadata({title:'Writing',description:'Essays by Nimra Zahid on regional security, Afghanistan and inclusive education.',path:'/writing'});
-// Re-render hourly so scheduled articles appear on their publish date without a redeploy.
-export const revalidate=3600;
+export const dynamic='force-static';
+export const revalidate=false;
 
 // Returns 404 until the first article is published.
 export default async function Writing(){
@@ -25,12 +25,12 @@ export default async function Writing(){
 
   <section className="wrap section-tight" aria-label="Featured essay">
    <Link href={`/writing/${featured.slug}`} className="featured-card">
-    <Image src={featured.cover.src} alt={featured.cover.alt} width={featured.cover.width} height={featured.cover.height} sizes="(max-width: 760px) 100vw, 640px" loading="eager" fetchPriority="high"/>
+    <Image src={featured.cover.src} alt={featured.cover.alt} width={featured.cover.width} height={featured.cover.height} sizes="(max-width: 760px) 100vw, 640px" placeholder="blur" blurDataURL={featured.cover.blurDataURL} priority/>
     <div className="stack">
      <span className="label">Featured{featured.tags[0]?` · ${featured.tags[0]}`:''}{featured.seriesPart?` · Series part ${featured.seriesPart}`:''}{featured.draft?' · Draft':''}</span>
      <h2 className="h-card" style={{fontSize:'clamp(1.9rem,3.2vw,2.75rem)'}}>{featured.title}</h2>
      <p>{featured.subtitle}</p>
-     <span className="byline"><Avatar size={32}/><span className="meta">NIMRA ZAHID · {featured.readingTime} MIN READ · <time dateTime={featured.publishedAt}>{formatDate(featured.publishedAt).toUpperCase()}</time></span></span>
+     <span className="byline"><AuthorPhoto/><span className="meta">NIMRA ZAHID · {featured.readingTime} MIN READ · <time dateTime={featured.publishedAt}>{formatDate(featured.publishedAt).toUpperCase()}</time></span></span>
     </div>
    </Link>
   </section>

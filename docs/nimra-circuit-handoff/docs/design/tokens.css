@@ -1,0 +1,118 @@
+/* The Circuit — design tokens for nimra-portfolio
+   Dark is the signature theme; light is the reading/print theme.
+   Theme switch: <html data-theme="dark|light">, default follows prefers-color-scheme,
+   user choice persisted in localStorage("theme"). */
+
+:root,
+:root[data-theme="dark"] {
+  /* Surfaces */
+  --ink: #0B0A12;            /* page background */
+  --board: #0E0C16;          /* figure / diagram panels */
+  --surface: #13111D;        /* cards */
+  --surface-2: #1B1828;      /* tooltips, raised */
+  --hairline: #221E33;       /* dividers */
+  --trace: #2B2640;          /* idle circuit lines, card borders */
+  --trace-strong: #3D3659;   /* input borders, secondary button borders */
+
+  /* Text (contrast measured on --ink) */
+  --text: #EEEAF6;           /* ≈17:1 */
+  --text-body: #D9D4E6;      /* long-form body */
+  --text-soft: #C9C3D8;      /* secondary copy */
+  --text-muted: #A8A1BC;     /* ≈8:1  meta */
+  --text-faint: #8A83A0;     /* ≈5.4:1 mono labels — never lower */
+
+  /* Accents */
+  --lilac: #B9A2FF;          /* primary, links, primary button bg (text on it: --on-lilac) */
+  --on-lilac: #120E1E;
+  --current: #7EE8DF;        /* live current, focus ring, "active" */
+  --rose: #F2A9C4;           /* insulator / barrier state */
+  --gold: #E9C77B;           /* results: Merit, CGPA, grades; lamps */
+
+  /* Photo frame */
+  --photo-border: #2B2640;
+  --photo-label-plate: rgba(11, 10, 18, 0.72);
+}
+
+:root[data-theme="light"] {
+  --ink: #FAF7F2;            /* paper */
+  --board: #F2EDE5;
+  --surface: #FFFFFF;
+  --surface-2: #FFFFFF;
+  --hairline: #E4DDD2;
+  --trace: #D9D1C4;
+  --trace-strong: #C9C1D6;
+
+  --text: #1E1A2B;           /* ≈16:1 */
+  --text-body: #2C2739;
+  --text-soft: #4A4458;
+  --text-muted: #5E5870;     /* ≈6.3:1 */
+  --text-faint: #6B6480;
+
+  --lilac: #5A3990;          /* plum, ≈8:1 */
+  --on-lilac: #FFFFFF;
+  --current: #1D7472;        /* teal, ≈5.2:1 */
+  --rose: #A8446B;         /* ≈5.3:1 */
+  --gold: #8A6412;
+
+  --photo-border: #E4DDD2;
+  --photo-label-plate: rgba(250, 247, 242, 0.85);
+}
+
+/* No data-theme set yet (first visit): follow the OS. Apply the same variables as
+   [data-theme="light"] inside @media (prefers-color-scheme: light) { :root:not([data-theme]) { … } }.
+   Generate both blocks from one source so they never drift. */
+
+:root {
+  /* Type families (load via next/font) */
+  --font-display: "Fraunces", Georgia, serif;           /* opsz 9–144, wght 300–600, italic */
+  --font-read: "Newsreader", Georgia, serif;            /* long-form: About story, philosophy, abstracts, articles */
+  --font-ui: "Geist", system-ui, sans-serif;            /* UI + short body */
+  --font-mono: "Geist Mono", ui-monospace, monospace;   /* designators, metadata, labels */
+
+  /* Type scale (desktop / mobile) */
+  --fs-hero: clamp(46px, 5.3vw, 76px);   /* line-height 1.02, tracking -0.025em */
+  --fs-h1-page: clamp(40px, 5.8vw, 84px);/* page titles, 1.0 */
+  --fs-h2: clamp(34px, 3.6vw, 52px);     /* 1.08, -0.02em */
+  --fs-h3: clamp(24px, 2.5vw, 36px);     /* 1.1 */
+  --fs-lead: clamp(17px, 1.4vw, 21px);   /* 1.6 */
+  --fs-read: clamp(19px, 1.45vw, 21px);  /* Newsreader, 1.65–1.68, measure 680px */
+  --fs-body: 17px;                       /* 1.65 */
+  --fs-ui: 15px;
+  --fs-meta: 13px;
+  --fs-label: 12px;                      /* mono, uppercase, +0.12–0.16em — the MINIMUM size anywhere */
+
+  /* Spacing (8pt) */
+  --gutter: 120px;          /* desktop page padding; 24px mobile */
+  --section-gap: 160px;     /* desktop; 96px mobile */
+  --content-max: 1200px;
+
+  /* Radii */
+  --r-chip: 14px;
+  --r-card: 20px;
+  --r-panel: 28px;
+  --r-band: 36px;
+  --r-pill: 999px;
+  --r-photo-accent: 120px;  /* the ONE large corner on photo frames */
+
+  /* Motion */
+  --flow-dash: 4 16;        /* stroke-dasharray for live traces */
+  --flow-speed: 1.4s;       /* linear infinite, dashoffset → -40 */
+  --state-fade: 0.6s;       /* insulator ↔ instigator */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* Interaction */
+  --tap-min: 44px;
+  --focus-ring: 2px solid var(--current);
+  --focus-offset: 2px;
+}
+
+@keyframes flow { to { stroke-dashoffset: -40; } }
+.trace-live { stroke-dasharray: var(--flow-dash); animation: flow var(--flow-speed) linear infinite; }
+@keyframes pulse { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }
+.pulse { animation: pulse 2.4s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .trace-live, .pulse { animation: none; }
+}
+
+:focus-visible { outline: var(--focus-ring); outline-offset: var(--focus-offset); }

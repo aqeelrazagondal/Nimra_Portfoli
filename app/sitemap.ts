@@ -2,7 +2,8 @@ import type {MetadataRoute} from 'next';
 import {profile,projects} from '@/content/profile';
 import {getPublishedArticles} from '@/lib/articles';
 import {siteUrl} from '@/lib/site';
-export const revalidate=3600;
+export const dynamic='force-static';
+export const revalidate=false;
 export default async function sitemap():Promise<MetadataRoute.Sitemap>{
  const articles=await getPublishedArticles();
  const pages=['','/about','/research','/cv','/teaching','/contact',...projects.map(p=>`/research/${p.slug}`)];

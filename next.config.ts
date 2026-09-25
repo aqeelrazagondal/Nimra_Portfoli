@@ -31,12 +31,13 @@ const security=[
 const nextConfig:NextConfig={
  // "Last updated" on the footer, CV and PDF follows the deploy date.
  env:{NEXT_PUBLIC_BUILD_DATE:new Date().toISOString().slice(0,10)},
- // Articles and profile photos are read from the repo at render time (hourly revalidation), so ship them with every route.
- outputFileTracingIncludes:{'/**':['./content/articles/**/*','./content/profile/**/*']},
+ // Articles and their images are read from the repo at build time, so ship them with every route.
+ outputFileTracingIncludes:{'/**':['./content/articles/**/*','./content/profile/**/*','./public/images/articles/**/*']},
  async headers(){return [
   {source:'/:path*',headers:security},
   // The Keystatic admin talks to its own services, so it is left out of the CSP.
   {source:'/((?!keystatic|api/keystatic).*)',headers:[{key:'Content-Security-Policy',value:csp}]},
+  ...['/keystatic/:path*','/api/keystatic/:path*'].map(source=>({source,headers:[{key:'X-Robots-Tag',value:'noindex, nofollow'}]})),
  ]},
 };
 export default nextConfig;

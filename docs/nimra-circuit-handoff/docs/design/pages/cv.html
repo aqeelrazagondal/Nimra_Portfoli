@@ -1,0 +1,228 @@
+<!-- Design reference: board "CV" from the Circuit design canvas. Inline-styled HTML; {{holes}}, <sc-for>, <sc-if>, <dc-import> are design-tool template syntax (see HANDOFF.md §12). Not production code. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CV — Nimra Zahid</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&amp;family=Geist:wght@300..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0A12}
+a{color:#B9A2FF;text-decoration:none}a:hover{color:#D6C9FF}
+</style>
+</helmet>
+<div style="width: 1440px; height: 4400px; position: relative; overflow: hidden; display: flex; flex-direction: column; background: #0B0A12; color: #EEEAF6; font-family: 'Geist', sans-serif;">
+
+  <dc-import name="Nav" active="cv" hint-size="1440px,88px"></dc-import>
+
+  <section style="box-sizing: border-box; padding: 80px 120px 0; display: flex; justify-content: space-between; align-items: flex-end;">
+    <div style="display: flex; flex-direction: column; gap: 22px;">
+      <div style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #B9A2FF;">U5 · Curriculum vitae · wiring diagram</div>
+      <h1 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 88px; line-height: 1; letter-spacing: -0.03em;">Nimra Zahid</h1>
+      <p style="margin: 0; font-size: 21px; color: #C9C3D8;">International Relations researcher &amp; educator</p>
+      <div style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #A8A1BC;">NORTHAMPTON, UK · [PROFESSIONAL EMAIL] · LAST UPDATED [DATE]</div>
+    </div>
+    <a href="CV.dc.html" style="display: inline-flex; align-items: center; gap: 12px; height: 52px; padding: 0 26px; border-radius: 26px; background: #B9A2FF; color: #120E1E; font-size: 16px; font-weight: 500; text-decoration: none;">
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="fill: none; stroke: #120E1E; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"></path></svg>
+      Download PDF CV
+    </a>
+  </section>
+
+  <section style="box-sizing: border-box; padding: 64px 120px 0;">
+    <div style="display: flex; flex-direction: column; gap: 16px; padding: 28px 28px 24px; border-radius: 28px; border: 1px solid #221E33; background: #0E0C16;">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #B9A2FF;">FIG. 4 · SIGNAL TRACE · 2011 – 2026</span>
+        <div style="display: flex; gap: 20px; font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A1BC;">
+          <span style="display: flex; align-items: center; gap: 8px;"><span style="width: 18px; height: 3px; background: #B9A2FF;"></span>Study</span>
+          <span style="display: flex; align-items: center; gap: 8px;"><span style="width: 18px; height: 3px; background: #F2A9C4;"></span>University teaching</span>
+          <span style="display: flex; align-items: center; gap: 8px;"><span style="width: 18px; height: 3px; background: #7EE8DF;"></span>School teaching</span>
+          <span style="display: flex; align-items: center; gap: 8px;"><span style="width: 18px; height: 3px; background: #E9C77B;"></span>Research outputs</span>
+        </div>
+      </div>
+      <svg width="1144" height="373" viewBox="0 0 1200 392" role="img" aria-label="Timing diagram of study, university teaching, school teaching and research outputs from 2011 to 2026." style="display: block; width: 100%; height: auto;">
+        <g style="stroke: #1B1828; stroke-width: 1;">
+          <line x1="170" y1="40" x2="170" y2="350"></line><line x1="234" y1="40" x2="234" y2="350"></line><line x1="298" y1="40" x2="298" y2="350"></line><line x1="362" y1="40" x2="362" y2="350"></line><line x1="426" y1="40" x2="426" y2="350"></line><line x1="490" y1="40" x2="490" y2="350"></line><line x1="554" y1="40" x2="554" y2="350"></line><line x1="618" y1="40" x2="618" y2="350"></line><line x1="682" y1="40" x2="682" y2="350"></line><line x1="746" y1="40" x2="746" y2="350"></line><line x1="810" y1="40" x2="810" y2="350"></line><line x1="874" y1="40" x2="874" y2="350"></line><line x1="938" y1="40" x2="938" y2="350"></line><line x1="1002" y1="40" x2="1002" y2="350"></line><line x1="1066" y1="40" x2="1066" y2="350"></line><line x1="1130" y1="40" x2="1130" y2="350"></line>
+        </g>
+
+        <text x="0" y="96" style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 1.5px; fill: #C9C3D8;">STUDY</text>
+        <text x="0" y="168" style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 1.5px; fill: #C9C3D8;">UNIVERSITY</text>
+        <text x="0" y="240" style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 1.5px; fill: #C9C3D8;">SCHOOLS</text>
+        <text x="0" y="312" style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 1.5px; fill: #C9C3D8;">RESEARCH</text>
+
+        <rect x="215" y="74" width="243" height="36" style="fill: rgba(185,162,255,0.12);"></rect>
+        <rect x="496" y="74" width="122" height="36" style="fill: rgba(185,162,255,0.12);"></rect>
+        <rect x="983" y="74" width="77" height="36" style="fill: rgba(185,162,255,0.12);"></rect>
+        <path d="M170 110 H215 V74 H458 V110 H496 V74 H618 V110 H983 V74 H1060 V110 H1178" style="fill: none; stroke: #B9A2FF; stroke-width: 2; stroke-linejoin: round;"></path>
+        <text x="336" y="97" style="font-family: 'Geist Mono', monospace; font-size: 12px; fill: #EEEAF6; text-anchor: middle;">BS IR · LCWU</text>
+        <text x="557" y="97" style="font-family: 'Geist Mono', monospace; font-size: 12px; fill: #EEEAF6; text-anchor: middle;">MPhil · NDU</text>
+        <text x="1021" y="97" style="font-family: 'Geist Mono', monospace; font-size: 12px; fill: #EEEAF6; text-anchor: middle;">MA</text>
+
+        <rect x="727" y="146" width="160" height="36" style="fill: rgba(242,169,196,0.12);"></rect>
+        <path d="M170 182 H727 V146 H887 V182 H1178" style="fill: none; stroke: #F2A9C4; stroke-width: 2; stroke-linejoin: round;"></path>
+        <text x="807" y="169" style="font-family: 'Geist Mono', monospace; font-size: 12px; fill: #EEEAF6; text-anchor: middle;">Visiting faculty</text>
+
+        <rect x="471" y="218" width="480" height="36" style="fill: rgba(126,232,223,0.12);"></rect>
+        <rect x="1008" y="218" width="167" height="36" style="fill: rgba(126,232,223,0.12);"></rect>
+        <path d="M170 254 H471 V218 H951 V254 H1008 V218 H1175" style="fill: none; stroke: #7EE8DF; stroke-width: 2; stroke-linejoin: round;"></path>
+        <line x1="1072" y1="212" x2="1072" y2="224" style="stroke: #0E0C16; stroke-width: 3;"></line>
+        <text x="711" y="241" style="font-family: 'Geist Mono', monospace; font-size: 12px; fill: #EEEAF6; text-anchor: middle;">Beaconhouse · humanities</text>
+        <text x="1040" y="208" style="font-family: 'Geist Mono', monospace; font-size: 12px; fill: #C9C3D8; text-anchor: middle;">Abbeyfield</text>
+        <text x="1126" y="208" style="font-family: 'Geist Mono', monospace; font-size: 12px; fill: #C9C3D8; text-anchor: middle;">SEMH school</text>
+        <polygon points="1175,230 1187,236 1175,242" style="fill: #7EE8DF;"></polygon>
+
+        <path d="M170 326 H612 V290 H624 V326 H769 V290 H781 V326 H1054 V290 H1066 V326 H1178" style="fill: none; stroke: #E9C77B; stroke-width: 2; stroke-linejoin: round;"></path>
+        <text x="618" y="282" style="font-family: 'Geist Mono', monospace; font-size: 12px; fill: #C9C3D8; text-anchor: middle;">MPhil thesis</text>
+        <text x="775" y="282" style="font-family: 'Geist Mono', monospace; font-size: 12px; fill: #C9C3D8; text-anchor: middle;">Istanbul paper</text>
+        <text x="1060" y="282" style="font-family: 'Geist Mono', monospace; font-size: 12px; fill: #C9C3D8; text-anchor: middle;">MA dissertation</text>
+
+        <line x1="1175" y1="40" x2="1175" y2="350" style="stroke: #7EE8DF; stroke-width: 1; stroke-dasharray: 3 4;"></line>
+        <text x="1175" y="30" style="font-family: 'Geist Mono', monospace; font-size: 12px; fill: #7EE8DF; text-anchor: middle;">NOW</text>
+
+        <g style="font-family: 'Geist Mono', monospace; font-size: 12px; fill: #8A83A0; text-anchor: middle;">
+          <text x="170" y="378">2011</text><text x="298" y="378">2013</text><text x="426" y="378">2015</text><text x="554" y="378">2017</text><text x="682" y="378">2019</text><text x="810" y="378">2021</text><text x="938" y="378">2023</text><text x="1066" y="378">2025</text>
+        </g>
+      </svg>
+      <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #A8A1BC;">Each lane is a signal, high while active. The overlaps are real: school and university teaching ran in parallel from 2019 to 2022.</p>
+    </div>
+  </section>
+
+  <section style="box-sizing: border-box; padding: 96px 120px 0; display: grid; grid-template-columns: 240px minmax(0, 1fr); column-gap: 80px; align-items: start;">
+    <nav aria-label="CV sections" style="display: flex; flex-direction: column; gap: 2px; padding-top: 4px;">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #8A83A0; padding-bottom: 12px;">SECTIONS</span>
+      <a href="#education" style="display: flex; align-items: center; gap: 10px; height: 44px; font-size: 15px; color: #EEEAF6; text-decoration: none;"><span style="width: 8px; height: 8px; border-radius: 4px; background: #B9A2FF;"></span>Education</a>
+      <a href="#research" style="display: flex; align-items: center; gap: 10px; height: 44px; font-size: 15px; color: #A8A1BC; text-decoration: none;"><span style="width: 8px; height: 8px; border-radius: 4px; border: 1px solid #3D3659; box-sizing: border-box;"></span>Research</a>
+      <a href="#teaching" style="display: flex; align-items: center; gap: 10px; height: 44px; font-size: 15px; color: #A8A1BC; text-decoration: none;"><span style="width: 8px; height: 8px; border-radius: 4px; border: 1px solid #3D3659; box-sizing: border-box;"></span>Teaching experience</a>
+      <a href="#leadership" style="display: flex; align-items: center; gap: 10px; height: 44px; font-size: 15px; color: #A8A1BC; text-decoration: none;"><span style="width: 8px; height: 8px; border-radius: 4px; border: 1px solid #3D3659; box-sizing: border-box;"></span>Leadership &amp; service</a>
+      <a href="#skills" style="display: flex; align-items: center; gap: 10px; height: 44px; font-size: 15px; color: #A8A1BC; text-decoration: none;"><span style="width: 8px; height: 8px; border-radius: 4px; border: 1px solid #3D3659; box-sizing: border-box;"></span>Training, skills &amp; languages</a>
+    </nav>
+
+    <div style="display: flex; flex-direction: column; gap: 80px;">
+
+      <div id="education" style="display: flex; flex-direction: column;">
+        <h2 style="margin: 0 0 8px; display: flex; align-items: baseline; gap: 16px; font-family: 'Fraunces', serif; font-weight: 400; font-size: 40px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #B9A2FF;">E</span>Education</h2>
+        <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 32px; padding: 28px 0; border-top: 1px solid #221E33;">
+          <div style="display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A8A1BC;">SEP 2023 – NOV 2024</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">E3</span></div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="display: flex; align-items: center; gap: 12px; font-family: 'Fraunces', serif; font-size: 26px;">MA International Relations <span style="font-family: 'Geist Mono', monospace; font-size: 12px; padding: 5px 10px; border-radius: 12px; border: 1px solid rgba(233,199,123,0.5); color: #E9C77B;">MERIT</span></span>
+            <span style="font-size: 16px; color: #A8A1BC;">University of Northampton, United Kingdom</span>
+            <span style="font-size: 16px; line-height: 1.6; color: #D9D4E6;">Dissertation: Deconstructing the Role of Afghanistan in Regional Security Complex Theory. 180 credits at Level 7, including a 60-credit Research Methods and Dissertation module.</span>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 32px; padding: 28px 0; border-top: 1px solid #221E33;">
+          <div style="display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A8A1BC;">2016 – 2018</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">E2</span></div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="display: flex; align-items: center; gap: 12px; font-family: 'Fraunces', serif; font-size: 26px;">MPhil International Relations <span style="font-family: 'Geist Mono', monospace; font-size: 12px; padding: 5px 10px; border-radius: 12px; border: 1px solid rgba(233,199,123,0.5); color: #E9C77B;">CGPA 3.53</span></span>
+            <span style="font-size: 16px; color: #A8A1BC;">National Defence University, Islamabad, Pakistan</span>
+            <span style="font-size: 16px; line-height: 1.6; color: #D9D4E6;">Thesis on Russia–Afghanistan relations and their implications for regional stability (Grade A). Coursework in advanced research methodology, international political economy and the foreign policies of great powers.</span>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 32px; padding: 28px 0; border-top: 1px solid #221E33;">
+          <div style="display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A8A1BC;">2011 – 2015</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">E1</span></div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="display: flex; align-items: center; gap: 12px; font-family: 'Fraunces', serif; font-size: 26px;">BS International Relations <span style="font-family: 'Geist Mono', monospace; font-size: 12px; padding: 5px 10px; border-radius: 12px; border: 1px solid rgba(233,199,123,0.5); color: #E9C77B;">CGPA 3.24</span></span>
+            <span style="font-size: 16px; color: #A8A1BC;">Lahore College for Women University, Lahore, Pakistan</span>
+            <span style="font-size: 16px; line-height: 1.6; color: #D9D4E6;">Four-year degree including research methodology, academic writing, conflict and conflict resolution, and international law.</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="research" style="display: flex; flex-direction: column;">
+        <h2 style="margin: 0 0 8px; display: flex; align-items: baseline; gap: 16px; font-family: 'Fraunces', serif; font-weight: 400; font-size: 40px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #E9C77B;">R</span>Research &amp; presentations</h2>
+        <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 32px; padding: 28px 0; border-top: 1px solid #221E33;">
+          <div style="display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A8A1BC;">2024</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">R2 · DISSERTATION</span></div>
+          <div style="display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Fraunces', serif; font-size: 24px;">Deconstructing the Role of Afghanistan in Regional Security Complex Theory</span><span style="font-size: 16px; color: #A8A1BC;">University of Northampton</span></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 32px; padding: 28px 0; border-top: 1px solid #221E33;">
+          <div style="display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A8A1BC;">JUNE 2020</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">P1 · CONFERENCE</span></div>
+          <div style="display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Fraunces', serif; font-size: 24px;">Afghanistan, Turkey &amp; the Global War on Terror</span><span style="font-size: 16px; color: #A8A1BC;">Istanbul International Social Science Conference, Istanbul Sabahattin Zaim University, Turkey</span></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 32px; padding: 28px 0; border-top: 1px solid #221E33;">
+          <div style="display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A8A1BC;">2018</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">R1 · THESIS</span></div>
+          <div style="display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Fraunces', serif; font-size: 24px;">Russia–Afghanistan relations and regional stability</span><span style="font-size: 16px; color: #A8A1BC;">National Defence University, Islamabad</span></div>
+        </div>
+      </div>
+
+      <div id="teaching" style="display: flex; flex-direction: column;">
+        <h2 style="margin: 0 0 8px; display: flex; align-items: baseline; gap: 16px; font-family: 'Fraunces', serif; font-weight: 400; font-size: 40px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #7EE8DF;">T</span>Teaching experience</h2>
+        <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 32px; padding: 28px 0; border-top: 1px solid #221E33;">
+          <div style="display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #7EE8DF;">FEB 2025 – NOW</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">T4</span></div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-family: 'Fraunces', serif; font-size: 24px;">Geography &amp; History Teacher · Form Tutor</span>
+            <span style="font-size: 16px; color: #A8A1BC;">Specialist SEMH school, Northamptonshire</span>
+            <span style="font-size: 16px; line-height: 1.6; color: #D9D4E6;">KS3–4 Geography and History adapted to pupils’ emotional and learning needs; pastoral care as Form Tutor; progress records and termly reviews with the SENCO; regular parent liaison.</span>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 32px; padding: 28px 0; border-top: 1px solid #221E33;">
+          <div style="display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A8A1BC;">FEB 2024 – FEB 2025</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">T3</span></div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-family: 'Fraunces', serif; font-size: 24px;">Geography &amp; Science Teacher</span>
+            <span style="font-size: 16px; color: #A8A1BC;">Abbeyfield School, Northampton · via Teaching Personnel</span>
+            <span style="font-size: 16px; line-height: 1.6; color: #D9D4E6;">Planned and delivered secondary lessons; assessed work and used progress information to shape teaching; supported behaviour and wellbeing with colleagues and parents.</span>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 32px; padding: 28px 0; border-top: 1px solid #221E33;">
+          <div style="display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A8A1BC;">SEP 2019 – MAR 2022</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">T2</span></div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-family: 'Fraunces', serif; font-size: 24px;">Visiting Faculty · International Relations</span>
+            <span style="font-size: 16px; color: #A8A1BC;">University of Gujrat, Mandi Bahauddin campus</span>
+            <span style="font-size: 16px; line-height: 1.6; color: #D9D4E6;">Six undergraduate modules, including International Relations, Foreign Policy Analysis and Research Methodology; course materials, examinations and coursework feedback.</span>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 32px; padding: 28px 0; border-top: 1px solid #221E33;">
+          <div style="display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A8A1BC;">SEP 2015 – MAR 2023</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">T1</span></div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-family: 'Fraunces', serif; font-size: 24px;">Secondary Teacher · Humanities &amp; Social Studies</span>
+            <span style="font-size: 16px; color: #A8A1BC;">Beaconhouse School System, Mandi Bahauddin, Pakistan</span>
+            <span style="font-size: 16px; line-height: 1.6; color: #D9D4E6;">Secondary humanities and social studies across multiple campuses; lesson and assessment planning, student reports and curriculum planning.</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="leadership" style="display: flex; flex-direction: column;">
+        <h2 style="margin: 0 0 8px; display: flex; align-items: baseline; gap: 16px; font-family: 'Fraunces', serif; font-weight: 400; font-size: 40px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #F2A9C4;">L</span>Leadership &amp; service</h2>
+        <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 32px; padding: 28px 0; border-top: 1px solid #221E33;">
+          <div style="display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A8A1BC;">2019 – 2022</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">L1 · L2</span></div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <span style="font-family: 'Fraunces', serif; font-size: 24px;">Student Affairs Sub-in-Charge · Lead, Blood Donation Society</span>
+            <span style="font-size: 16px; color: #A8A1BC;">University of Gujrat, Mandi Bahauddin campus</span>
+            <span style="font-size: 16px; line-height: 1.6; color: #D9D4E6;">Coordinated student welfare, departmental liaison and student-facing policy; recruited volunteers and organised events connecting students with the wider university community.</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="skills" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;">
+        <div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; border-radius: 20px; border: 1px solid #221E33;">
+          <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #8A83A0;">C1 · TRAINING</span>
+          <span style="font-family: 'Fraunces', serif; font-size: 22px; line-height: 1.2;">Protecting Human Research Participants</span>
+          <span style="font-size: 15px; line-height: 1.55; color: #A8A1BC;">US National Institutes of Health (NIH), Office of Extramural Research</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; border-radius: 20px; border: 1px solid #221E33;">
+          <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #8A83A0;">S1 · SKILLS</span>
+          <span style="font-size: 15px; line-height: 1.7; color: #D9D4E6;">Academic writing · research-methods teaching · SPSS · curriculum and resource design · Microsoft Office · Teams · Zoom</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px; padding: 28px; border-radius: 20px; border: 1px solid #221E33;">
+          <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #8A83A0;">S2 · LANGUAGES</span>
+          <span style="font-family: 'Fraunces', serif; font-size: 22px; line-height: 1.4;">English · Urdu · Punjabi</span>
+          <span style="font-size: 15px; line-height: 1.55; color: #A8A1BC;">Degree verification available on request.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="margin-top: auto; padding-top: 160px;">
+    <dc-import name="Footer" hint-size="1440px,400px"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

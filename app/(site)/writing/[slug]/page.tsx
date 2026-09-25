@@ -7,15 +7,16 @@ import {CitePanel} from '@/components/circuit/cite-panel';
 import {formatDate,getArticle,getArticles,related,seriesNeighbours} from '@/lib/articles';
 import {citations} from '@/lib/cite';
 import {profile} from '@/content/profile';
-import {pageMetadata,siteUrl} from '@/lib/site';
-import {Avatar} from '@/components/photo';
+import {pageMetadata,siteUrl,jsonLd} from '@/lib/site';
+import {AuthorPhoto} from '@/components/article/author-photo';
 
-export const revalidate=3600;
+export const dynamic='force-static';
+export const revalidate=false;
 export async function generateStaticParams(){return (await getArticles()).map(a=>({slug:a.slug}))}
 export async function generateMetadata({params}:{params:Promise<{slug:string}>}):Promise<Metadata>{
  const {slug}=await params;const a=await getArticle(slug);if(!a)notFound();
- const meta=pageMetadata({title:a.seoTitle||a.title,description:a.seoDescription||a.subtitle||a.excerpt,path:`/writing/${a.slug}`});
- return {...meta,...(a.canonicalUrl?{alternates:{canonical:a.canonicalUrl}}:{}),openGraph:{...meta.openGraph,type:'article',publishedTime:a.publishedAt,...(a.updatedAt?{modifiedTime:a.updatedAt}:{}),authors:[profile.name],tags:a.tags},
+ const meta=pageMetadata({title:a.seoTitle||a.title,description:a.seoDescription||a.subtitle||a.excerpt,path:`/writing/${a.slug}`,siteImage:false});
+ return {...meta,...(a.canonicalUrl?{alternates:{...meta.alternates,canonical:a.canonicalUrl}}:{}),openGraph:{...meta.openGraph,type:'article',publishedTime:a.publishedAt,...(a.updatedAt?{modifiedTime:a.updatedAt}:{}),authors:[profile.name],tags:a.tags},
   ...(a.draft||a.scheduled?{robots:{index:false,follow:false}}:{})};
 }
 const today=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/London'}).format(new Date());
@@ -27,12 +28,19 @@ export default async function ArticlePage({params}:{params:Promise<{slug:string}
  const url=`${siteUrl}/writing/${a.slug}`;
  const cite=a.citeable?citations({title:a.title,publishedAt:a.publishedAt,url,accessed:today()}):null;
  const byline=<div className="author-row">
-  <div className="author"><Avatar size={48}/>
+  <div className="author"><AuthorPhoto/>
    <div><p className="author-name"><Link href="/about">{profile.name}</Link></p>
     <p className="meta">{a.readingTime} min read · <time dateTime={a.publishedAt}>{formatDate(a.publishedAt)}</time>{a.updatedAt&&<> · Updated <time dateTime={a.updatedAt}>{formatDate(a.updatedAt)}</time></>}</p></div></div>
   <ShareBar url={url} title={a.title} citations={cite} variant="compact"/>
  </div>;
  return <article className="article wrap">
+  <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd({
+   '@context':'https://schema.org','@type':'BlogPosting',headline:a.title,description:a.subtitle,
+   image:`${siteUrl}${a.cover.src}`,datePublished:a.publishedAt,dateModified:a.updatedAt??a.publishedAt,
+   author:{'@type':'Person',name:'Nimra Zahid',url:'https://www.nimrazahid.com/about'},
+   mainEntityOfPage:url,url,
+  })}/>
+
   <ReadingChrome/>
   {(a.draft||a.scheduled)&&<p className="draft-banner" role="note">{a.draft?'Draft: only visible on previews.':`Scheduled for ${formatDate(a.publishedAt)}: only visible on previews until then.`}</p>}
   <header className="article-head">
@@ -42,7 +50,7 @@ export default async function ArticlePage({params}:{params:Promise<{slug:string}
    {byline}
   </header>
   <figure className="figure cover">
-   <ZoomImage src={a.cover.src} alt={a.cover.alt} width={a.cover.width} height={a.cover.height} sizes="(max-width: 1060px) 100vw, 1000px" priority/>
+   <ZoomImage src={a.cover.src} alt={a.cover.alt} width={a.cover.width} height={a.cover.height} sizes="(max-width: 1060px) 100vw, 1000px" blurDataURL={a.cover.blurDataURL} priority/>
    {(a.coverCaption||a.coverCredit)&&<figcaption>{a.coverCaption}{a.coverCredit&&<span className="credit"> {a.coverCaption?'· ':''}{a.coverCredit}</span>}</figcaption>}
   </figure>
   <div className="article-body"><ArticleBody content={a.content}/></div>
@@ -57,7 +65,7 @@ export default async function ArticlePage({params}:{params:Promise<{slug:string}
    <div className="end-tags">{a.tags.map(t=><Link key={t} className="pill" href={`/writing?tag=${encodeURIComponent(t)}`}>{t}</Link>)}</div>
    <ShareBar url={url} title={a.title} citations={null} variant="row"/>
    <section className="author-card card" aria-label="About the author">
-    <Avatar size={72}/>
+    <AuthorPhoto card/>
     <div><h2>Written by {profile.name}</h2><p>International Relations researcher and educator. I study how Afghanistan shapes the security of the regions around it.</p><Link href="/about" className="link-arrow">About me <span aria-hidden>→</span></Link></div>
    </section>
   </div>

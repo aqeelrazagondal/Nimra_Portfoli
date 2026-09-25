@@ -374,12 +374,15 @@ a.project:hover{border-color:var(--lilac-line)}
 .toc{display:flex;flex-direction:column;padding:24px;border-radius:20px;border:1px solid var(--hairline)}
 .toc a{display:flex;align-items:center;gap:10px;min-height:44px;font-size:15px;color:var(--muted)}
 .toc a:hover{color:var(--text)}
-.toc a i{width:6px;height:6px;border-radius:50%;background:var(--trace-strong)}
+.toc a i{width:6px;height:6px;border-radius:50%;background:transparent}
+.toc a[aria-current]{color:var(--text)}
+.toc a[aria-current] i{background:var(--current)}
 .cite-panel{display:flex;flex-direction:column;gap:16px;padding:24px;border-radius:20px}
 .cite-tabs{display:flex;gap:6px;flex-wrap:wrap}
 .cite-tabs button{height:44px;padding:0 16px;border-radius:22px;border:1px solid var(--trace);background:transparent;color:var(--muted);font-family:var(--font-mono),monospace;font-size:12px}
 .cite-tabs button[aria-pressed=true]{border-color:var(--lilac-line);background:var(--lilac-soft);color:var(--text)}
 .cite-text{font-family:var(--font-reading),Georgia,serif;font-size:16px;line-height:1.55;color:var(--body);overflow-wrap:anywhere}
+.cite-text.cite-code{font-family:var(--font-mono),monospace;font-size:12px;line-height:1.6;white-space:pre-wrap}
 .btn-outline{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:22px;border:1px solid var(--trace-strong);background:transparent;color:var(--text);font-size:15px}
 .btn-outline:hover{border-color:var(--lilac)}
 .btn-outline svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6}

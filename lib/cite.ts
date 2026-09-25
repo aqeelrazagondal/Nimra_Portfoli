@@ -17,16 +17,18 @@ export function citations({title,publishedAt,url,accessed}:{title:string;publish
 // Citations for a research output (dissertation, thesis or conference paper), without a URL:
 // the full text isn't published here, so the citation points to the original.
 export function projectCitations(p:{title:string;year:number;type:string;institution:string}){
- const [first,...rest]=profile.name.split(' ');const last=rest.join(' ');const t=end(p.title);
+ const [first,...rest]=profile.name.split(' ');const last=rest.join(' ');
+ const key=`${last.toLowerCase()}${p.year}${(p.title.match(/[A-Za-z]{5,}/)?.[0]??'work').toLowerCase()}`;
+ const bib=(type:string,fields:[string,string][])=>`@${type}{${key},\n${fields.map(([k,v])=>`  ${k} = {${v}}`).join(',\n')}\n}`;
  if(p.type==='Conference paper')return [
   {style:'APA',text:`${last}, ${first[0]}. (${p.year}, June). ${p.title} [Paper presentation]. ${p.institution}, Istanbul, Turkey.`},
   {style:'Harvard',text:`${last}, ${first[0]}. (${p.year}) ‘${p.title}’, paper presented at the ${p.institution}, Istanbul, June.`},
-  {style:'Chicago',text:`${last}, ${first}. “${t}” Paper presented at the ${p.institution}, Istanbul, June ${p.year}.`},
+  {style:'BibTeX',text:bib('inproceedings',[['author',`${last}, ${first}`],['title',p.title],['booktitle',p.institution],['address','Istanbul, Turkey'],['month','jun'],['year',String(p.year)]])},
  ];
- const kind=p.type==='MA dissertation'?{apa:'Master’s dissertation',short:'MA dissertation',chicago:'MA diss.'}:{apa:'MPhil thesis',short:'MPhil thesis',chicago:'MPhil thesis'};
+ const kind=p.type==='MA dissertation'?{apa:'Master’s dissertation',short:'MA dissertation'}:{apa:'MPhil thesis',short:'MPhil thesis'};
  return [
   {style:'APA',text:`${last}, ${first[0]}. (${p.year}). ${p.title} [${kind.apa}, ${p.institution}].`},
   {style:'Harvard',text:`${last}, ${first[0]}. (${p.year}) ${p.title}. ${kind.short}. ${p.institution}.`},
-  {style:'Chicago',text:`${last}, ${first}. “${t}” ${kind.chicago}, ${p.institution}, ${p.year}.`},
+  {style:'BibTeX',text:bib('mastersthesis',[['author',`${last}, ${first}`],['title',p.title],['school',p.institution],['type',kind.short],['year',String(p.year)]])},
  ];
 }

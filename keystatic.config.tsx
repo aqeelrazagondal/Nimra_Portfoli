@@ -1,4 +1,4 @@
-import {config,collection,fields} from '@keystatic/core';
+import {config,collection,fields,singleton} from '@keystatic/core';
 import {block,inline,wrapper} from '@keystatic/core/content-components';
 import {ImagePreview} from '@/components/keystatic-previews';
 
@@ -95,6 +95,23 @@ export default config({
     seoTitle:fields.text({label:'SEO title override'}),
     seoDescription:fields.text({label:'SEO description override',multiline:true}),
     body,
+   },
+  }),
+ },
+ singletons:{
+  // Photos of Nimra used across the site. Empty fields fall back to the "nz" monogram.
+  profile:singleton({
+   label:'Profile photos',
+   path:'content/profile/',
+   format:'yaml',
+   schema:{
+    portrait:fields.image({label:'Portrait',description:'A head-and-shoulders photo, ideally portrait orientation (about 4:5) and at least 1000px wide. Used on the home page, About page and articles.',directory:'public/images/profile',publicPath:'/images/profile/'}),
+    portraitAlt:fields.text({label:'Portrait description',description:'For screen readers, e.g. “Nimra Zahid smiling, in a library”',defaultValue:'Portrait of Nimra Zahid'}),
+    photos:fields.array(fields.object({
+     image:fields.image({label:'Photo',directory:'public/images/profile',publicPath:'/images/profile/',validation:{isRequired:true}}),
+     alt:fields.text({label:'Description',validation:{isRequired:true}}),
+     caption:fields.text({label:'Caption',description:'e.g. Presenting at the Istanbul International Social Science Conference, 2020'}),
+    }),{label:'In pictures',description:'Shown on the About page: conferences, talks, teaching. Never upload photos that show pupils.',itemLabel:p=>p.fields.caption.value||p.fields.alt.value||'Photo'}),
    },
   }),
  },

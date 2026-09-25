@@ -168,3 +168,15 @@ html[data-reading][data-header-hidden] .header{transform:translateY(-100%)}
  .author-card{flex-direction:column;padding:22px}
  .anchor{opacity:.5}
 }
+/* ── Profile photos ── */
+.hero-person{display:flex;align-items:center;gap:18px;margin-top:4px}
+.hero-person .credentials{margin:0}
+.hero-avatar{width:88px;height:88px;font-size:34px}
+.hero-person .avatar{box-shadow:0 0 0 1px var(--border),0 0 0 6px var(--background),0 0 0 7px var(--glow)}
+.photo-slot{outline:1.5px dashed var(--secondary);outline-offset:4px}
+.photo-hint{display:block;max-width:220px;margin-top:18px;font-family:var(--font-body),sans-serif;font-size:13px;font-style:normal;line-height:1.4;text-align:center;color:var(--secondary)}
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
+.photo-grid figure{margin:0}
+.photo-grid img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px}
+.gallery-slot{border-radius:16px;padding:40px 28px;text-align:center;color:var(--secondary);font-size:15px;max-width:640px}
+@media(max-width:760px){.hero-person{gap:14px}.hero-avatar{width:72px;height:72px;font-size:28px}}

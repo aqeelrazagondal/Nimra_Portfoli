@@ -20,7 +20,7 @@ Visit http://127.0.0.1:3000. Production check: `npm run build`. Type check: `npm
 - Dark theme by default; an explicit light/dark choice is remembered site-wide and synced across tabs.
 - `/cv.pdf` is rendered with @react-pdf using the brand fonts (static Fraunces and Inter TTFs in `assets/fonts`, under the OFL) from the same data as the web CV.
 - Writing (`/writing`): articles are written in Keystatic (`/keystatic` locally) and stored as Markdoc in `content/articles/`. Drafts and scheduled articles appear only locally and on Vercel previews (or with `SHOW_DRAFTS=true`); Writing stays out of the navigation and sitemap until one is published. Pages revalidate hourly so scheduled articles go live on their date. See `docs/phase-2/`.
-- Contact links (email, ORCID, LinkedIn) and the portrait appear automatically once they are configured.
+- Contact links (email, ORCID, LinkedIn) appear automatically once configured. Nimra's portrait and “In pictures” photos are uploaded in Keystatic → Profile photos (`content/profile/`, images in `public/images/profile/`); on local and preview builds the empty slots are outlined with a hint.
 
 ## Content source and privacy
 

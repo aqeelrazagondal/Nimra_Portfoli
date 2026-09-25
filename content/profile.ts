@@ -8,8 +8,7 @@ export const profile = {
  email:process.env.NEXT_PUBLIC_CONTACT_EMAIL||'',
  orcid:process.env.NEXT_PUBLIC_ORCID_URL||'',
  linkedin:process.env.NEXT_PUBLIC_LINKEDIN_URL||'',
- // Path under /public, e.g. '/nimra-zahid.jpg'. The monogram is shown until a portrait is supplied.
- portrait:'',
+ // Portrait and photos are managed in Keystatic (Profile photos); see lib/profile-media.ts.
 };
 export const profileLinks=[
  {label:'Email',href:profile.email?`mailto:${profile.email}`:'',text:profile.email},

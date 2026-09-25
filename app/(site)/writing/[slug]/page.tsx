@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
 import type {Metadata} from 'next';
@@ -10,6 +9,8 @@ import {formatDate,getArticle,getArticles,related,seriesNeighbours,summary} from
 import {citations} from '@/lib/cite';
 import {profile} from '@/content/profile';
 import {pageMetadata,siteUrl} from '@/lib/site';
+import {Portrait} from '@/components/portrait';
+import {getProfileMedia,showPhotoHints} from '@/lib/profile-media';
 
 export const revalidate=3600;
 export async function generateStaticParams(){return (await getArticles()).map(a=>({slug:a.slug}))}
@@ -23,12 +24,12 @@ const today=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/London'}).form
 
 export default async function ArticlePage({params}:{params:Promise<{slug:string}>}){
  const {slug}=await params;const a=await getArticle(slug);if(!a)notFound();
- const all=await getArticles();const {previous,next,total}=seriesNeighbours(a,all);
+ const all=await getArticles();const {portrait}=await getProfileMedia();const {previous,next,total}=seriesNeighbours(a,all);
  const more=related(a,all,[next?.slug,previous?.slug].filter(Boolean) as string[]);
  const url=`${siteUrl}/writing/${a.slug}`;
  const cite=a.citeable?citations({title:a.title,publishedAt:a.publishedAt,url,accessed:today()}):null;
  const author=<div className="author-row">
-  {profile.portrait?<Image src={profile.portrait} alt="" width={48} height={48} className="avatar"/>:<span className="avatar monogram-avatar" aria-hidden>nz</span>}
+  <Portrait photo={portrait} variant="avatar" hint={showPhotoHints}/>
   <div><p className="author-name"><Link href="/about">{profile.name}</Link></p><p className="author-tagline">IR researcher & educator</p>
    <p className="meta mono">{a.readingTime} min read · <time dateTime={a.publishedAt}>{formatDate(a.publishedAt)}</time>{a.updatedAt&&<> · Updated <time dateTime={a.updatedAt}>{formatDate(a.updatedAt)}</time></>}</p></div>
  </div>;
@@ -56,7 +57,7 @@ export default async function ArticlePage({params}:{params:Promise<{slug:string}
    <p className="end-tags">{a.tags.map(t=><Link key={t} className="tag" href={`/writing?tag=${encodeURIComponent(t)}`}>{t}</Link>)}</p>
    {next&&<Link className="series-next" href={`/writing/${next.slug}`}><span className="mono">Next in {a.series} · Part {next.seriesPart??''}</span><strong>{next.title}</strong><ArrowRight size={20}/></Link>}
    <section className="author-card" aria-label="About the author">
-    {profile.portrait?<Image src={profile.portrait} alt="" width={72} height={72} className="avatar"/>:<span className="avatar monogram-avatar large" aria-hidden>nz</span>}
+    <Portrait photo={portrait} variant="avatar-lg" hint={showPhotoHints}/>
     <div><p className="eyebrow">WRITTEN BY</p><h2>{profile.name}</h2><p>International Relations researcher and educator in Northampton, UK. I research Afghanistan’s role in regional security and teach in specialist education.</p><Link href="/about" className="text-link">More about me <ArrowUpRight size={16}/></Link></div>
    </section>
    {more.length>0&&<section className="more-from" aria-labelledby="more-title"><h2 id="more-title" className="eyebrow">MORE FROM NIMRA</h2>{more.map(m=><ArticleRow key={m.slug} a={summary(m)}/>)}</section>}

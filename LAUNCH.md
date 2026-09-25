@@ -11,7 +11,7 @@ Editorial notes live here, never in rendered pages.
 - [ ] Review and approve the drafted research copy in `content/profile.ts`: each project's `abstract`, `significance`, `phd` and `method`, plus the MA "argument in brief" list.
 - [ ] Key findings for the MPhil thesis and the conference paper (`findings: []`). The section stays hidden until they are filled in.
 - [ ] Names of the remaining four University of Gujrat modules (`universityModules`).
-- [ ] Professional portrait: add it to `public/` and set `profile.portrait`. The monogram shows until then.
+- [ ] Professional portrait, plus any photos from conferences, talks or teaching (never showing pupils): upload them in Keystatic → **Profile photos**. The portrait appears on the home page, About page and articles; photos appear in an “In pictures” section on About. The monogram shows until a portrait is added.
 - [ ] Professional email, ORCID and LinkedIn URLs (environment variables, see `.env.example`).
 - [ ] Replace the two placeholder articles in `content/articles/` (lorem ipsum drafts, used to test the design) with real ones, or delete them. Drafts show only locally and on Vercel preview deployments. Writing appears in the navigation and sitemap once an article is set to Published with a publish date that has arrived.
 - [ ] Referee permission before any testimonials are added.

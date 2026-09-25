@@ -18,7 +18,7 @@ export function ContactForm(){
  const [state,action,pending]=useActionState<ContactState,FormData>(sendEnquiry,{status:'idle'});
  const [type,setType]=useState(enquiryTypes[0]);const [started,setStarted]=useState('');const [again,setAgain]=useState(false);
  const form=useRef<HTMLFormElement>(null);const widget=useRef<HTMLDivElement>(null);const widgetId=useRef<string|null>(null);
- function renderTurnstile(){if(!siteKey||!window.turnstile||!widget.current||widgetId.current)return;widgetId.current=window.turnstile.render(widget.current,{sitekey:siteKey,theme:document.documentElement.dataset.theme==='light'?'light':'dark'})}
+ function renderTurnstile(){if(!siteKey||!window.turnstile||!widget.current||widgetId.current)return;widgetId.current=window.turnstile.render(widget.current,{sitekey:siteKey,theme:document.documentElement.dataset.theme==='dark'?'dark':'light'})}
  useEffect(()=>{setStarted(String(Date.now()));renderTurnstile();return ()=>{if(widgetId.current)window.turnstile?.remove(widgetId.current);widgetId.current=null}},[]);
  // Turnstile tokens are single-use, so refresh the widget after every attempt.
  useEffect(()=>{if(state.status==='idle')return;if(widgetId.current)window.turnstile?.reset(widgetId.current);setAgain(false);

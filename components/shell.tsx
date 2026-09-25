@@ -23,10 +23,10 @@ export function ChipLogo({className='brand-chip'}:{className?:string}){
 }
 
 function ThemeToggle(){
- const [dark,setDark]=useState(true);
- useEffect(()=>{const current=document.documentElement.dataset.theme==='light'?'light':'dark';applyTheme(current);setDark(current==='dark');
+ const [dark,setDark]=useState(false);
+ useEffect(()=>{const current=document.documentElement.dataset.theme==='dark'?'dark':'light';applyTheme(current);setDark(current==='dark');
   // Keep other open tabs in step with a theme change.
-  function sync(e:StorageEvent){if(e.key==='theme'){const t=e.newValue==='light'?'light':'dark';applyTheme(t);setDark(t==='dark')}}
+  function sync(e:StorageEvent){if(e.key==='theme'){const t=e.newValue==='dark'?'dark':'light';applyTheme(t);setDark(t==='dark')}}
   addEventListener('storage',sync);return ()=>removeEventListener('storage',sync)},[]);
  function toggle(){const next=dark?'light':'dark';setDark(!dark);applyTheme(next);try{localStorage.setItem('theme',next)}catch{}}
  return <button type="button" className="icon-btn" onClick={toggle} aria-label={dark?'Switch to light theme':'Switch to dark theme'}>

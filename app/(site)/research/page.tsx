@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import {futureDirections,projects,researchInterests} from '@/content/profile';
+import {futureDirections,projects,researchInterests,testimonials} from '@/content/profile';
+import {Testimonial} from '@/components/testimonial';
 import {ReadingsFigure} from '@/components/circuit/figures';
 import {pageMetadata} from '@/lib/site';
 export const metadata=pageMetadata({title:'Research',description:'Research by Nimra Zahid on Afghanistan and Regional Security Complex Theory: an MA dissertation, an MPhil thesis on Russia–Afghanistan relations and a conference paper on Turkey and the Global War on Terror.',path:'/research'});
@@ -72,6 +73,10 @@ export default function Research(){
     <span className="label">J3 · Talks</span>
     <div className="talk"><span className="meta">JUNE 2020 · ISTANBUL, TURKEY</span><span className="h-item" style={{fontSize:22}}>Istanbul International Social Science Conference</span><span className="text-2" style={{fontSize:15}}>Paper presentation · Afghanistan, Turkey and regional security</span></div>
    </div>
+  </section>
+
+  <section className="wrap section" aria-label="Reference">
+   <Testimonial label="From a reference" {...testimonials.research}/>
   </section>
 
   <section className="wrap section" aria-labelledby="research-cta">

@@ -1,0 +1,180 @@
+<!-- Design reference: board "About" from the Circuit design canvas. Inline-styled HTML; {{holes}}, <sc-for>, <sc-if>, <dc-import> are design-tool template syntax (see HANDOFF.md §12). Not production code. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>About — Nimra Zahid</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&amp;family=Geist:wght@300..600&amp;family=Geist+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0A12}
+a{color:#B9A2FF;text-decoration:none}a:hover{color:#D6C9FF}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:4 16;animation:flow 1.6s linear infinite}
+@media (prefers-reduced-motion: reduce){.flow{animation:none}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 3600px; position: relative; overflow: hidden; display: flex; flex-direction: column; background: #0B0A12; color: #EEEAF6; font-family: 'Geist', sans-serif;">
+
+  <dc-import name="Nav" active="about" hint-size="1440px,88px"></dc-import>
+
+  <section style="box-sizing: border-box; padding: 88px 120px 0; display: grid; grid-template-columns: 480px minmax(0, 1fr); column-gap: 96px; align-items: start;">
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="width: 480px; height: 600px; box-sizing: border-box; border-radius: 40px 40px 40px 120px; border: 1px solid #2B2640; background-color: #13111D; position: relative; overflow: hidden;">
+        <img src="/images/nimra/p1-portrait-C-recommended.webp" alt="Nimra Zahid, International Relations researcher and educator, seated on a park bench" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%;">
+        <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 180px; background: linear-gradient(180deg, rgba(11,10,18,0), rgba(11,10,18,0.78));"></div>
+        <div style="position: absolute; left: 88px; bottom: 26px; display: flex; align-items: center; gap: 8px; font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #EEEAF6;"><span style="width: 7px; height: 7px; border-radius: 4px; background: #7EE8DF;"></span>NIMRA ZAHID · NORTHAMPTON</div>
+        <span style="position: absolute; right: 20px; top: 18px; padding: 5px 10px; border-radius: 12px; background: rgba(11,10,18,0.7); font-family: 'Geist Mono', monospace; font-size: 12px; color: #EEEAF6;">U2</span>
+        <span style="position: absolute; left: 0; top: 120px; width: 16px; height: 2px; height: 1px; background: #7EE8DF;"></span>
+        <span style="position: absolute; left: 0; top: 180px; width: 16px; height: 2px; height: 1px; background: #7EE8DF;"></span>
+        <span style="position: absolute; right: 0; top: 300px; width: 16px; height: 2px; height: 1px; background: #B9A2FF;"></span>
+      </div>
+      <div style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #8A83A0;">PAKISTAN → ENGLAND · ENGLISH · URDU · PUNJABI</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 28px; padding-top: 12px;">
+      <div style="display: flex; align-items: center; gap: 10px; font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #B9A2FF;">U2 · About</div>
+      <h1 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 68px; line-height: 1.04; letter-spacing: -0.025em;">A researcher’s curiosity. <em style="font-style: italic; font-weight: 300; color: #B9A2FF;">An educator’s perspective.</em></h1>
+      <div style="display: flex; flex-direction: column; gap: 20px; max-width: 640px; font-family: 'Newsreader', serif; font-size: 21px; line-height: 1.65; color: #D9D4E6;">
+        <p style="margin: 0;">My academic and teaching journey connects Lahore, Mandi Bahauddin, Islamabad and Northampton. Across those places, International Relations has given me a way to examine how regions connect, while teaching has kept my attention on how people learn to understand those connections.</p>
+        <p style="margin: 0;">I studied International Relations at Lahore College for Women University and the National Defence University in Islamabad, before completing an MA with Merit at the University of Northampton in 2024.</p>
+        <p style="margin: 0;">Alongside that research, I have taught Humanities and Social Studies in Pakistan, lectured in undergraduate International Relations, and taught Geography, History and Science in England. I now teach in specialist SEMH education in Northamptonshire.</p>
+        <p style="margin: 0; font-style: italic; color: #EEEAF6;">My research and teaching share a concern with context: how relationships shape what we see, what we learn and what becomes possible.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="box-sizing: border-box; padding: 160px 120px 0; display: flex; flex-direction: column; gap: 32px;">
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <div style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #B9A2FF;">J1 · The route so far</div>
+      <h2 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 52px; line-height: 1.08; letter-spacing: -0.02em;">Five places, one line of inquiry.</h2>
+    </div>
+    <svg width="1200" height="80" viewBox="0 0 1200 80" aria-hidden="true" style="display: block;">
+      <path d="M0 48 H200 L220 28 H380 L400 48 H680 L700 28 H860 L880 48 H1200" style="fill: none; stroke: #2B2640; stroke-width: 2;"></path>
+      <path class="flow" d="M0 48 H200 L220 28 H380 L400 48 H680 L700 28 H860 L880 48 H1080" style="fill: none; stroke: #7EE8DF; stroke-width: 2;"></path>
+      <circle cx="120" cy="48" r="11" style="fill: #0B0A12; stroke: #7EE8DF; stroke-width: 1.5;"></circle>
+      <circle cx="120" cy="48" r="4" style="fill: #7EE8DF;"></circle>
+      <circle cx="360" cy="28" r="11" style="fill: #0B0A12; stroke: #7EE8DF; stroke-width: 1.5;"></circle>
+      <circle cx="360" cy="28" r="4" style="fill: #7EE8DF;"></circle>
+      <circle cx="600" cy="48" r="11" style="fill: #0B0A12; stroke: #7EE8DF; stroke-width: 1.5;"></circle>
+      <circle cx="600" cy="48" r="4" style="fill: #7EE8DF;"></circle>
+      <circle cx="840" cy="28" r="11" style="fill: #0B0A12; stroke: #7EE8DF; stroke-width: 1.5;"></circle>
+      <circle cx="840" cy="28" r="4" style="fill: #7EE8DF;"></circle>
+      <circle cx="1080" cy="48" r="13" style="fill: #0B0A12; stroke: #B9A2FF; stroke-width: 2;"></circle>
+      <circle cx="1080" cy="48" r="5" style="fill: #B9A2FF;"></circle>
+    </svg>
+    <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px;">
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #7EE8DF;">2011 – 2015</span>
+        <span style="font-family: 'Fraunces', serif; font-size: 26px; line-height: 1.15;">Lahore</span>
+        <span style="font-size: 15px; line-height: 1.55; color: #C9C3D8;">BS International Relations, Lahore College for Women University.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #7EE8DF;">2015 – 2023</span>
+        <span style="font-family: 'Fraunces', serif; font-size: 26px; line-height: 1.15;">Mandi Bahauddin</span>
+        <span style="font-size: 15px; line-height: 1.55; color: #C9C3D8;">Secondary teaching at Beaconhouse; visiting faculty in IR at the University of Gujrat, 2019–22.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #7EE8DF;">2016 – 2018</span>
+        <span style="font-family: 'Fraunces', serif; font-size: 26px; line-height: 1.15;">Islamabad</span>
+        <span style="font-size: 15px; line-height: 1.55; color: #C9C3D8;">MPhil International Relations, National Defence University.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #7EE8DF;">June 2020</span>
+        <span style="font-family: 'Fraunces', serif; font-size: 26px; line-height: 1.15;">Istanbul</span>
+        <span style="font-size: 15px; line-height: 1.55; color: #C9C3D8;">Conference paper on Afghanistan, Turkey and the Global War on Terror.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #B9A2FF;">2023 – NOW</span>
+        <span style="font-family: 'Fraunces', serif; font-size: 26px; line-height: 1.15;">Northampton</span>
+        <span style="font-size: 15px; line-height: 1.55; color: #C9C3D8;">MA International Relations (Merit); teaching in Northamptonshire schools.</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="box-sizing: border-box; padding: 160px 120px 0; display: grid; grid-template-columns: 360px minmax(0, 1fr); column-gap: 96px;">
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <div style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #B9A2FF;">J2 · Academic record</div>
+      <h2 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 44px; line-height: 1.1; letter-spacing: -0.02em;">Three degrees in International Relations.</h2>
+      <a href="CV.dc.html" style="display: flex; align-items: center; gap: 10px; height: 44px; font-size: 16px; color: #EEEAF6; text-decoration: none;">Full CV <span style="color: #7EE8DF;">→</span></a>
+    </div>
+    <div style="display: flex; flex-direction: column;">
+      <div style="display: grid; grid-template-columns: 180px minmax(0, 1fr) auto; gap: 32px; align-items: center; padding: 28px 0; border-top: 1px solid #221E33;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A8A1BC;">2023 – 2024</span>
+        <span style="display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'Fraunces', serif; font-size: 26px;">MA International Relations</span><span style="font-size: 15px; color: #C9C3D8;">University of Northampton</span></span>
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; padding: 8px 14px; border-radius: 16px; border: 1px solid rgba(233,199,123,0.5); color: #E9C77B;">MERIT</span>
+      </div>
+      <div style="display: grid; grid-template-columns: 180px minmax(0, 1fr) auto; gap: 32px; align-items: center; padding: 28px 0; border-top: 1px solid #221E33;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A8A1BC;">2016 – 2018</span>
+        <span style="display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'Fraunces', serif; font-size: 26px;">MPhil International Relations</span><span style="font-size: 15px; color: #C9C3D8;">National Defence University, Islamabad</span></span>
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; padding: 8px 14px; border-radius: 16px; border: 1px solid rgba(233,199,123,0.5); color: #E9C77B;">CGPA 3.53 / 4.00</span>
+      </div>
+      <div style="display: grid; grid-template-columns: 180px minmax(0, 1fr) auto; gap: 32px; align-items: center; padding: 28px 0; border-top: 1px solid #221E33; border-bottom: 1px solid #221E33;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #A8A1BC;">2011 – 2015</span>
+        <span style="display: flex; flex-direction: column; gap: 6px;"><span style="font-family: 'Fraunces', serif; font-size: 26px;">BS International Relations</span><span style="font-size: 15px; color: #C9C3D8;">Lahore College for Women University</span></span>
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; padding: 8px 14px; border-radius: 16px; border: 1px solid rgba(233,199,123,0.5); color: #E9C77B;">CGPA 3.24 / 4.00</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="box-sizing: border-box; padding: 160px 120px 0; display: flex; flex-direction: column; gap: 40px;">
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <div style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: #B9A2FF;">J3 · Principles</div>
+      <h2 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 52px; line-height: 1.08; letter-spacing: -0.02em;">Knowledge should <em style="font-style: italic; color: #B9A2FF;">conduct.</em></h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px;">
+      <div style="display: flex; flex-direction: column; gap: 14px; padding: 36px; border-radius: 24px; border: 1px solid #2B2640; background: #13111D;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #7EE8DF;">P1</span>
+        <span style="font-family: 'Fraunces', serif; font-size: 28px; line-height: 1.15;">Accessible knowledge</span>
+        <span style="font-size: 16px; line-height: 1.65; color: #C9C3D8;">I aim to connect rigorous ideas with clear explanation, in research and in the classroom.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px; padding: 36px; border-radius: 24px; border: 1px solid #2B2640; background: #13111D;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #7EE8DF;">P2</span>
+        <span style="font-family: 'Fraunces', serif; font-size: 28px; line-height: 1.15;">Inclusion &amp; mentorship</span>
+        <span style="font-size: 16px; line-height: 1.65; color: #C9C3D8;">My teaching is attentive to different learning needs, with wellbeing as a foundation for participation.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px; padding: 36px; border-radius: 24px; border: 1px solid #2B2640; background: #13111D;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #7EE8DF;">P3</span>
+        <span style="font-family: 'Fraunces', serif; font-size: 28px; line-height: 1.15;">Community engagement</span>
+        <span style="font-size: 16px; line-height: 1.65; color: #C9C3D8;">At the University of Gujrat, I coordinated student welfare as Student Affairs Sub-in-Charge and led the Blood Donation Society.</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="box-sizing: border-box; padding: 120px 120px 160px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px;">
+    <div style="display: flex; flex-direction: column; gap: 18px; padding: 36px; border-radius: 24px; border: 1px solid #221E33;">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #8A83A0;">METHODS &amp; TOOLS</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <span style="font-size: 15px; padding: 10px 16px; border-radius: 20px; border: 1px solid #2B2640; color: #EEEAF6;">Qualitative case study</span>
+        <span style="font-size: 15px; padding: 10px 16px; border-radius: 20px; border: 1px solid #2B2640; color: #EEEAF6;">Theory-driven analysis (RSCT)</span>
+        <span style="font-size: 15px; padding: 10px 16px; border-radius: 20px; border: 1px solid #2B2640; color: #EEEAF6;">Practitioner reflection</span>
+        <span style="font-size: 15px; padding: 10px 16px; border-radius: 20px; border: 1px solid #2B2640; color: #EEEAF6;">SPSS</span>
+        <span style="font-size: 15px; padding: 10px 16px; border-radius: 20px; border: 1px solid #2B2640; color: #EEEAF6;">Research ethics · NIH training</span>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 18px; padding: 36px; border-radius: 24px; border: 1px solid #221E33;">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #8A83A0;">LANGUAGES</span>
+      <div style="display: flex; gap: 40px;">
+        <span style="font-family: 'Fraunces', serif; font-size: 28px;">English</span>
+        <span style="font-family: 'Fraunces', serif; font-size: 28px;">Urdu</span>
+        <span style="font-family: 'Fraunces', serif; font-size: 28px;">Punjabi</span>
+      </div>
+    </div>
+  </section>
+
+  <div style="margin-top: auto;">
+    <dc-import name="Footer" hint-size="1440px,400px"></dc-import>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

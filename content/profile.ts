@@ -1,13 +1,14 @@
 // Editorial status lives in LAUNCH.md, never in rendered copy.
 // Empty contact/profile fields are hidden everywhere until they are filled in.
 export const profile = {
- name:'Nimra Zahid', updated:'2026-09-24', location:'Northampton, UK',
+ name:'Nimra Zahid', updated:process.env.NEXT_PUBLIC_BUILD_DATE||new Date().toISOString().slice(0,10), location:'Northampton, UK',
  role:'International Relations researcher & educator',
  description:'Nimra Zahid is an International Relations researcher and educator in Northampton, UK, studying Afghanistan’s role in regional security in South and Central Asia.',
  languages:['English','Urdu','Punjabi'],
- email:process.env.NEXT_PUBLIC_CONTACT_EMAIL||'',
+ // Public contact details. Environment variables override these defaults (see .env.example).
+ email:process.env.NEXT_PUBLIC_CONTACT_EMAIL||'hello@nimrazahid.com',
  orcid:process.env.NEXT_PUBLIC_ORCID_URL||'',
- linkedin:process.env.NEXT_PUBLIC_LINKEDIN_URL||'',
+ linkedin:process.env.NEXT_PUBLIC_LINKEDIN_URL||'https://www.linkedin.com/in/nimra-zahid-aa1a1520b/',
  // Portrait and photos are managed in Keystatic (Profile photos); see lib/profile-media.ts.
 };
 export const profileLinks=[
@@ -16,26 +17,31 @@ export const profileLinks=[
  {label:'LinkedIn',href:profile.linkedin,text:'LinkedIn'},
 ].filter(x=>x.href);
 export const education = [
- {code:'E3',title:'MA International Relations',institution:'University of Northampton',place:'United Kingdom',dates:'September 2023 – November 2024',short:'Sep 2023 – Nov 2024',detail:'Awarded 27 November 2024. Dissertation: Deconstructing the Role of Afghanistan in Regional Security Complex Theory. 180 credits at Level 7, including a 60-credit Research Methods and Dissertation module.'},
- {code:'E2',title:'MPhil International Relations',institution:'National Defence University, Islamabad',place:'Pakistan',dates:'Spring 2016 – Fall 2017',short:'Spring 2016 – Fall 2017',detail:'Conferred December 2018. Thesis on Russia–Afghanistan relations and their implications for regional stability. Coursework in advanced research methodology, international political economy and the foreign policies of great powers.'},
- {code:'E1',title:'BS International Relations',institution:'Lahore College for Women University',place:'Lahore, Pakistan',dates:'2011 – 2015',short:'2011 – 2015',detail:'Four-year degree including research methodology, academic writing, conflict and conflict resolution, and international law; conferred May 2016.'},
+ {code:'E3',title:'MA International Relations',institution:'University of Northampton',place:'United Kingdom',dates:'September 2023 – November 2024',short:'Sep 2023 – Nov 2024',years:'2023 – 2024',detail:'Dissertation: Deconstructing the Role of Afghanistan in Regional Security Complex Theory. 180 credits at Level 7, including a 60-credit Research Methods and Dissertation module.'},
+ {code:'E2',title:'MPhil International Relations',institution:'National Defence University, Islamabad',place:'Pakistan',dates:'2016 – 2018',short:'2016 – 2018',years:'2016 – 2018',detail:'Thesis on Russia–Afghanistan relations and their implications for regional stability. Coursework in advanced research methodology, international political economy and the foreign policies of great powers.'},
+ {code:'E1',title:'BS International Relations',institution:'Lahore College for Women University',place:'Lahore, Pakistan',dates:'2011 – 2015',short:'2011 – 2015',years:'2011 – 2015',detail:'Four-year degree including research methodology, academic writing, conflict and conflict resolution, and international law.'},
 ];
+// Short verbatim quotes from Nimra's reference letters (Sep 2026). Never the school name, contact details or grades.
+export const testimonials={
+ teaching:{quote:'She demonstrates independent critical thinking, regularly reflecting on her teaching practice and considering how evidence, research and professional experience can inform educational decision-making.',name:'Anna Jordan',role:'Deputy Head Teacher, specialist SEMH school, Northamptonshire'},
+ research:{quote:'Her written work demonstrated excellent analytical and critical thinking skills, and she showed a clear ability to engage deeply with academic literature to formulate sophisticated, evidence-based arguments.',name:'Dr Edgar B. A. Tembo',role:'Module tutor, MA International Relations, University of Northampton'},
+};
 // Only confirmed module titles are listed; add the remaining three here when supplied.
 export const universityModules=['International Relations','Foreign Policy Analysis','Research Methodology'];
 export const teaching = [
- {code:'T4',short:'Feb 2025 – now',place:'Northamptonshire',points:['Teach Geography and History across Key Stages 3–4, adapting lessons to pupils’ emotional and learning needs.','Form Tutor for a designated group: pastoral care, wellbeing and daily routines.','Work with the SENCO and pastoral colleagues; maintain progress records and contribute to termly reviews.','Regular parent liaison on each pupil’s day: engagement, behaviour, achievements and concerns.'],title:'Geography & History Teacher · Form Tutor',institution:'Specialist SEMH school, Northamptonshire',dates:'February 2025 – present',detail:'KS3–4 Geography and History in specialist social, emotional and mental health provision, adapting teaching and resources to individual learning needs. As form tutor, I provide daily pastoral support, work with the SENCO on adapted provision, liaise with parents and carers, and keep pupil progress records up to date.'},
- {code:'T3',short:'Feb 2024 – Feb 2025',place:'Northampton',points:['Planned and delivered secondary Geography and Science, adapting resources to pupils’ needs.','Assessed work and used progress information to shape subsequent teaching.'],title:'Geography & Science Teacher',institution:'Abbeyfield School, Northampton · via Teaching Personnel',dates:'February 2024 – February 2025',detail:'Planned and taught secondary Geography and Science lessons, tracked pupil progress and kept assessment records.'},
- {code:'T2',short:'Sep 2019 – Mar 2022',place:'Mandi Bahauddin',points:['Taught six undergraduate modules through lectures and seminars.','Student Affairs Sub-in-Charge: student welfare, departmental liaison and student-facing policy.','Led the Blood Donation Society, connecting students with the wider university community.'],title:'Visiting Faculty · International Relations',institution:'University of Gujrat, Mandi Bahauddin campus',dates:'September 2019 – March 2022',detail:'Taught six undergraduate modules, including International Relations, Foreign Policy Analysis and Research Methodology. Served as Student Affairs Sub-in-Charge and led the Blood Donation Society.'},
- {code:'T1',short:'Sep 2015 – Mar 2023',place:'Mandi Bahauddin',points:['Delivered secondary humanities and social studies across multiple campuses.','Prepared student reports and contributed to curriculum planning.'],title:'Secondary Teacher · Humanities & Social Studies',institution:'Beaconhouse School System, Mandi Bahauddin, Pakistan',dates:'September 2015 – March 2023',detail:'Humanities and Social Studies teaching at secondary level, held alongside my visiting faculty role at the University of Gujrat from 2019.'},
+ {code:'T4',short:'Feb 2025 – now',place:'Northamptonshire',points:['Teach Geography and History across Key Stages 3–4, adapting lessons to pupils’ emotional and learning needs.','Form Tutor for a designated group: pastoral care, wellbeing and daily routines.','Work with the SENCO and pastoral colleagues; maintain progress records and contribute to termly reviews.','Regular parent liaison on each pupil’s day: engagement, behaviour, achievements and concerns.'],title:'Geography & History Teacher · Form Tutor',institution:'Specialist SEMH school, Northamptonshire',dates:'February 2025 – present',detail:'KS3–4 Geography and History adapted to pupils’ emotional and learning needs; pastoral care as Form Tutor; progress records and termly reviews with the SENCO; regular parent liaison.'},
+ {code:'T3',short:'Feb 2024 – Feb 2025',place:'Northampton',points:['Planned and delivered secondary Geography and Science, adapting resources to pupils’ needs.','Assessed work and used progress information to shape subsequent teaching.'],title:'Geography & Science Teacher',institution:'Abbeyfield School, Northampton · via Teaching Personnel',dates:'February 2024 – February 2025',detail:'Planned and delivered secondary lessons; assessed work and used progress information to shape teaching; supported behaviour and wellbeing with colleagues and parents.'},
+ {code:'T2',short:'Sep 2019 – Mar 2022',place:'Mandi Bahauddin',points:['Taught six undergraduate modules through lectures and seminars.','Student Affairs Sub-in-Charge: student welfare, departmental liaison and student-facing policy.','Led the Blood Donation Society, connecting students with the wider university community.'],title:'Visiting Faculty · International Relations',institution:'University of Gujrat, Mandi Bahauddin campus',dates:'September 2019 – March 2022',detail:'Six undergraduate modules, including International Relations, Foreign Policy Analysis and Research Methodology; course materials, examinations and coursework feedback.'},
+ {code:'T1',short:'Sep 2015 – Mar 2023',place:'Mandi Bahauddin',points:['Delivered secondary humanities and social studies across multiple campuses.','Prepared student reports and contributed to curriculum planning.'],title:'Secondary Teacher · Humanities & Social Studies',institution:'Beaconhouse School System, Mandi Bahauddin, Pakistan',teachingInstitution:'Beaconhouse School System, Pakistan · held alongside the university role, 2019–22',dates:'September 2015 – March 2023',detail:'Secondary humanities and social studies across multiple campuses; lesson and assessment planning, student reports and curriculum planning.'},
 ];
-// Drawn from Nimra's doctoral research proposal. Kept to themes and questions: the detailed
-// framework (criteria, case comparison, design) stays unpublished until her paper is out.
+// Drawn from Nimra's doctoral research proposal: concepts and questions only. The criteria,
+// evidence and research design stay unpublished.
 export const researchInterests=['Regional Security Complex Theory','Securitization theory','Afghanistan and its neighbourhood','Non-traditional security threats','Transnational terrorism, narcotics and refugee movements','Security governance and state fragility','Regional security cooperation (SCO, Moscow Format, CSTO)','China and Russia in Central and South Asia'];
 export const futureDirections=[
- {title:'The instigator state',detail:'Developing the idea that a state’s security governance failure can generate and connect security threats across neighbouring regions, rather than keeping those regions apart.'},
- {title:'A new security region?',detail:'Asking whether shared threats from Afghanistan are drawing Pakistan, Iran, China, Russia and the Central Asian republics into a nascent security region, and what might stop it maturing.'},
- {title:'Great powers and regional cooperation',detail:'Examining how China and Russia shape inter-regional security cooperation through platforms such as the SCO and the Moscow Format.'},
- {title:'Beyond Afghanistan',detail:'Testing whether other states that sit between regions could follow a similar path, and under what conditions.'},
+ {title:'From insulator to instigator',detail:'Asking whether Afghanistan has moved from an insulator to an “instigator”: a state whose security governance failure generates, amplifies and exports non-traditional security threats, such as terrorism, narcotics and refugee movements, into the neighbouring regional security complexes.'},
+ {title:'A nascent security complex?',detail:'Asking whether shared threats from Afghanistan are drawing Pakistan, Iran, China, Russia and the Central Asian republics into a nascent regional security complex, whether it could mature into a full one, and what might stand in the way.'},
+ {title:'Great powers and inter-regional cooperation',detail:'Examining whether China and Russia act as socialising agents, and whether cooperation through the SCO’s Regional Anti-Terrorist Structure, the Moscow Format, the QCCM and the CSTO indicates a new security complex.'},
+ {title:'Beyond Afghanistan',detail:'Testing whether the same criteria distinguish Afghanistan from other insulator states, such as Turkey and Myanmar, and under what circumstances an insulator crosses that threshold.'},
 ];
 export type Project={slug:string;title:string;shortTitle:string;year:number;type:string;institution:string;kind:'Thesis'|'CreativeWork';
  teaser:string;summary:string;description:string;status:string;question:string;argument:string;method:string;
@@ -101,11 +107,11 @@ export const projects:Project[] = [
   related:['afghanistan-regional-security','russia-afghanistan-relations']},
 ];
 export const cvSections = [
- {id:'education',title:'Education',entries:education.map(x=>({title:x.title,subtitle:x.institution,dates:x.dates,detail:x.detail}))},
+ {id:'education',title:'Education',entries:education.map(x=>({title:x.title,subtitle:x.institution,dates:x.short,detail:x.detail}))},
  {id:'research',title:'Research',entries:projects.filter(x=>x.kind==='Thesis').map(x=>({title:x.title,subtitle:x.institution,dates:String(x.year),detail:x.summary}))},
  {id:'conferences',title:'Conference presentations',entries:[{title:'Istanbul International Social Science Conference',subtitle:'Istanbul Sabahattin Zaim University, Istanbul, Turkey',dates:'June 2020',detail:'Paper on the Global War on Terror and the roles of Afghanistan and Turkey in regional security.'}]},
- {id:'teaching',title:'Teaching experience',entries:teaching.map(x=>({title:x.title,subtitle:x.institution,dates:x.dates,detail:x.detail}))},
- {id:'service',title:'Leadership & service',entries:[{title:'Student Affairs Sub-in-Charge',subtitle:'University of Gujrat, Mandi Bahauddin campus',dates:'2019 – 2022',detail:'Coordinated student welfare, departmental liaison and student-facing policy; led the Blood Donation Society, recruiting volunteers and organising events with the wider university community.'}]},
+ {id:'teaching',title:'Teaching experience',entries:teaching.map(x=>({title:x.title,subtitle:x.institution,dates:x.short.replace('now','present'),detail:x.detail}))},
+ {id:'service',title:'Leadership & service',entries:[{title:'Student Affairs Sub-in-Charge',subtitle:'University of Gujrat, Mandi Bahauddin campus',dates:'2019 – 2022',detail:'Coordinated student welfare, departmental liaison and student-facing policy; recruited volunteers and organised events connecting students with the wider university community.'}]},
  {id:'training',title:'Training',entries:[{title:'Protecting Human Research Participants',subtitle:'US National Institutes of Health (NIH), Office of Extramural Research',dates:'',detail:'Research ethics training.'}]},
- {id:'skills',title:'Skills & languages',entries:[{title:'Research & teaching',subtitle:'',dates:'',detail:'Regional Security Complex Theory; academic writing; research-methods teaching; SPSS; curriculum and resource design; Microsoft Office, Teams and Zoom.'},{title:'Languages',subtitle:'',dates:'',detail:profile.languages.join(' · ')}]},
+ {id:'skills',title:'Skills & languages',entries:[{title:'Research & teaching',subtitle:'',dates:'',detail:'Academic writing · research-methods teaching · SPSS · curriculum and resource design · Microsoft Office · Teams · Zoom'},{title:'Languages',subtitle:'',dates:'',detail:profile.languages.join(' · ')}]},
 ];

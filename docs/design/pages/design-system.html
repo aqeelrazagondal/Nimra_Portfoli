@@ -1,0 +1,177 @@
+<!-- Design reference: board "DesignSystem" from the Circuit design canvas. Inline-styled HTML; {{holes}}, <sc-for>, <sc-if>, <dc-import> are design-tool template syntax (see HANDOFF.md §12). Not production code. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Circuit — design system</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&amp;family=Geist:wght@300..600&amp;family=Geist+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0A12}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:4 16;animation:flow 1.4s linear infinite}
+@media (prefers-reduced-motion: reduce){.flow{animation:none}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 3500px; box-sizing: border-box; padding: 96px 120px; display: flex; flex-direction: column; gap: 112px; background: #0B0A12; color: #EEEAF6; font-family: 'Geist', sans-serif;">
+
+  <section style="display: grid; grid-template-columns: minmax(0, 1fr) 460px; column-gap: 80px; align-items: end;">
+    <div style="display: flex; flex-direction: column; gap: 22px;">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.16em; color: #B9A2FF;">DESIGN SYSTEM · V1</span>
+      <h1 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 88px; line-height: 1; letter-spacing: -0.03em;">The <em style="font-style: italic; font-weight: 300; color: #B9A2FF;">Circuit.</em></h1>
+      <p style="margin: 0; font-size: 20px; line-height: 1.6; color: #C9C3D8; max-width: 640px;">A site drawn as a circuit board, because the research is about current: RSCT calls Afghanistan an insulator, and Nimra’s work reads it as an instigator.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 16px 0; border-top: 1px solid #221E33;"><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #7EE8DF;">01</span><span style="font-size: 15px; line-height: 1.5; color: #D9D4E6;">Fine lines, soft current. Elegant, never loud sci-fi.</span></div>
+      <div style="display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 16px 0; border-top: 1px solid #221E33;"><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #7EE8DF;">02</span><span style="font-size: 15px; line-height: 1.5; color: #D9D4E6;">The metaphor lives in hero, navigation and figures. Reading stays calm.</span></div>
+      <div style="display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 16px 0; border-top: 1px solid #221E33; border-bottom: 1px solid #221E33;"><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #7EE8DF;">03</span><span style="font-size: 15px; line-height: 1.5; color: #D9D4E6;">Every diagram says something true about the work.</span></div>
+    </div>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 28px;">
+    <h2 style="margin: 0; display: flex; align-items: baseline; gap: 16px; font-family: 'Fraunces', serif; font-weight: 400; font-size: 40px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #B9A2FF;">A</span>Colour</h2>
+    <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;"><span style="height: 96px; border-radius: 16px; background: #0B0A12; border: 1px solid #2B2640;"></span><span style="font-size: 15px;">Ink</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A1BC;">#0B0A12 · page</span></div>
+      <div style="display: flex; flex-direction: column; gap: 10px;"><span style="height: 96px; border-radius: 16px; background: #0E0C16; border: 1px solid #2B2640;"></span><span style="font-size: 15px;">Board</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A1BC;">#0E0C16 · figures</span></div>
+      <div style="display: flex; flex-direction: column; gap: 10px;"><span style="height: 96px; border-radius: 16px; background: #13111D; border: 1px solid #2B2640;"></span><span style="font-size: 15px;">Surface</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A1BC;">#13111D · cards</span></div>
+      <div style="display: flex; flex-direction: column; gap: 10px;"><span style="height: 96px; border-radius: 16px; background: #221E33;"></span><span style="font-size: 15px;">Hairline</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A1BC;">#221E33 · dividers</span></div>
+      <div style="display: flex; flex-direction: column; gap: 10px;"><span style="height: 96px; border-radius: 16px; background: #2B2640;"></span><span style="font-size: 15px;">Trace</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A1BC;">#2B2640 · idle lines</span></div>
+      <div style="display: flex; flex-direction: column; gap: 10px;"><span style="height: 96px; border-radius: 16px; background: #3D3659;"></span><span style="font-size: 15px;">Trace strong</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A1BC;">#3D3659 · borders</span></div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px;"><span style="height: 96px; border-radius: 16px; background: #EEEAF6;"></span><span style="font-size: 15px;">Text</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A1BC;">#EEEAF6 · ≈17:1</span></div>
+      <div style="display: flex; flex-direction: column; gap: 10px;"><span style="height: 96px; border-radius: 16px; background: #A8A1BC;"></span><span style="font-size: 15px;">Text muted</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A1BC;">#A8A1BC · ≈8:1</span></div>
+      <div style="display: flex; flex-direction: column; gap: 10px;"><span style="height: 96px; border-radius: 16px; background: #B9A2FF;"></span><span style="font-size: 15px;">Lilac · primary</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A1BC;">#B9A2FF · ≈9:1</span></div>
+      <div style="display: flex; flex-direction: column; gap: 10px;"><span style="height: 96px; border-radius: 16px; background: #7EE8DF;"></span><span style="font-size: 15px;">Current · live</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A1BC;">#7EE8DF · ≈13:1</span></div>
+      <div style="display: flex; flex-direction: column; gap: 10px;"><span style="height: 96px; border-radius: 16px; background: #F2A9C4;"></span><span style="font-size: 15px;">Rose · insulator</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A1BC;">#F2A9C4 · ≈10:1</span></div>
+      <div style="display: flex; flex-direction: column; gap: 10px;"><span style="height: 96px; border-radius: 16px; background: #E9C77B;"></span><span style="font-size: 15px;">Gold · results</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A1BC;">#E9C77B · ≈12:1</span></div>
+    </div>
+    <div style="display: grid; grid-template-columns: 220px repeat(4, minmax(0, 1fr)); gap: 16px; align-items: center; padding: 20px; border-radius: 20px; background: #FAF7F2; color: #1E1A2B;">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #5E5870;">LIGHT READING MODE</span>
+      <span style="display: flex; align-items: center; gap: 10px; font-size: 14px;"><span style="width: 36px; height: 36px; border-radius: 10px; background: #FAF7F2; border: 1px solid #E4DDD2;"></span>Paper #FAF7F2</span>
+      <span style="display: flex; align-items: center; gap: 10px; font-size: 14px;"><span style="width: 36px; height: 36px; border-radius: 10px; background: #1E1A2B;"></span>Ink #1E1A2B · ≈16:1</span>
+      <span style="display: flex; align-items: center; gap: 10px; font-size: 14px;"><span style="width: 36px; height: 36px; border-radius: 10px; background: #5A3990;"></span>Plum #5A3990 · ≈8:1</span>
+      <span style="display: flex; align-items: center; gap: 10px; font-size: 14px;"><span style="width: 36px; height: 36px; border-radius: 10px; background: #1D7472;"></span>Teal #1D7472 · ≈5:1</span>
+    </div>
+    <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #A8A1BC;">Ratios are against Ink (dark) or Paper (light). State is never shown by colour alone: the insulator also uses its barrier symbol and a text label.</p>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 28px;">
+    <h2 style="margin: 0; display: flex; align-items: baseline; gap: 16px; font-family: 'Fraunces', serif; font-weight: 400; font-size: 40px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #B9A2FF;">B</span>Type</h2>
+    <div style="display: grid; grid-template-columns: 240px minmax(0, 1fr); row-gap: 0;">
+      <div style="padding: 24px 0; border-top: 1px solid #221E33; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 15px;">Fraunces · display</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A1BC;">76 / 1.02 · −0.025em</span></div>
+      <div style="padding: 24px 0; border-top: 1px solid #221E33; font-family: 'Fraunces', serif; font-size: 64px; line-height: 1.02; letter-spacing: -0.025em;">They called it an insulator. <em style="font-style: italic; font-weight: 300; color: #B9A2FF;">I study the current.</em></div>
+      <div style="padding: 24px 0; border-top: 1px solid #221E33; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 15px;">Fraunces · section</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A1BC;">52 / 1.08 · 36 / 1.1</span></div>
+      <div style="padding: 24px 0; border-top: 1px solid #221E33; font-family: 'Fraunces', serif; font-size: 44px; line-height: 1.08;">From insulator to instigator.</div>
+      <div style="padding: 24px 0; border-top: 1px solid #221E33; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 15px;">Newsreader · long-form</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A1BC;">21 / 1.68 · 680px measure</span></div>
+      <div style="padding: 24px 0; border-top: 1px solid #221E33; font-family: 'Newsreader', serif; font-size: 21px; line-height: 1.68; color: #DAD5E6; max-width: 680px;">Between complexes, RSCT identifies insulators: states that sit on the boundary between two or more complexes, absorbing rather than transmitting their dynamics.</div>
+      <div style="padding: 24px 0; border-top: 1px solid #221E33; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 15px;">Geist · interface</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A1BC;">17 / 1.65 · 15 UI</span></div>
+      <div style="padding: 24px 0; border-top: 1px solid #221E33; font-size: 17px; line-height: 1.65; color: #C9C3D8; max-width: 680px;">Over ten years teaching across Pakistan and England, from undergraduate International Relations to specialist SEMH provision.</div>
+      <div style="padding: 24px 0; border-top: 1px solid #221E33; border-bottom: 1px solid #221E33; display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 15px;">Geist Mono · labels</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #A8A1BC;">12 min · +0.14em · caps</span></div>
+      <div style="padding: 24px 0; border-top: 1px solid #221E33; border-bottom: 1px solid #221E33; font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.16em; color: #B9A2FF;">U1 · INTERNATIONAL RELATIONS × EDUCATION · FIG. 1 · STATE · INSTIGATOR</div>
+    </div>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 28px;">
+    <h2 style="margin: 0; display: flex; align-items: baseline; gap: 16px; font-family: 'Fraunces', serif; font-weight: 400; font-size: 40px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #B9A2FF;">C</span>Circuit primitives</h2>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px;">
+      <div style="display: flex; flex-direction: column; gap: 12px; padding: 20px; border-radius: 20px; border: 1px solid #221E33; background: #0E0C16;">
+        <svg width="240" height="100" viewBox="0 0 240 100" aria-hidden="true" style="display: block; width: 100%; height: auto;"><path d="M0 60 H90 L120 30 H240" style="fill: none; stroke: #2B2640; stroke-width: 2;"></path></svg>
+        <span style="font-size: 15px;">Trace · idle</span><span style="font-size: 13px; line-height: 1.5; color: #A8A1BC;">2px, 45° bends only. Connects sections and figures.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; padding: 20px; border-radius: 20px; border: 1px solid #221E33; background: #0E0C16;">
+        <svg width="240" height="100" viewBox="0 0 240 100" aria-hidden="true" style="display: block; width: 100%; height: auto;"><path d="M0 60 H90 L120 30 H240" style="fill: none; stroke: #2B2640; stroke-width: 2;"></path><path class="flow" d="M0 60 H90 L120 30 H240" style="fill: none; stroke: #7EE8DF; stroke-width: 2;"></path></svg>
+        <span style="font-size: 15px;">Trace · live</span><span style="font-size: 13px; line-height: 1.5; color: #A8A1BC;">Dash 4/16, 1.4s linear. Static and lit when motion is reduced.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; padding: 20px; border-radius: 20px; border: 1px solid #221E33; background: #0E0C16;">
+        <svg width="240" height="100" viewBox="0 0 240 100" aria-hidden="true" style="display: block; width: 100%; height: auto;"><circle cx="80" cy="50" r="12" style="fill: #0E0C16; stroke: #3D3659; stroke-width: 1.5;"></circle><circle cx="80" cy="50" r="5" style="fill: #2B2640;"></circle><circle cx="160" cy="50" r="12" style="fill: #0E0C16; stroke: #7EE8DF; stroke-width: 1.5;"></circle><circle cx="160" cy="50" r="5" style="fill: #7EE8DF;"></circle></svg>
+        <span style="font-size: 15px;">Pad · off / on</span><span style="font-size: 13px; line-height: 1.5; color: #A8A1BC;">Regions, timeline points, section markers.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; padding: 20px; border-radius: 20px; border: 1px solid #221E33; background: #0E0C16;">
+        <svg width="240" height="100" viewBox="0 0 240 100" aria-hidden="true" style="display: block; width: 100%; height: auto;"><g style="stroke: #3D3659; stroke-width: 2;"><line x1="100" y1="18" x2="100" y2="26"></line><line x1="120" y1="18" x2="120" y2="26"></line><line x1="140" y1="18" x2="140" y2="26"></line><line x1="100" y1="74" x2="100" y2="82"></line><line x1="120" y1="74" x2="120" y2="82"></line><line x1="140" y1="74" x2="140" y2="82"></line></g><rect x="80" y="26" width="80" height="48" rx="8" style="fill: #15121F; stroke: #7EE8DF; stroke-width: 1.5;"></rect><text x="120" y="55" style="font-family: 'Geist Mono', monospace; font-size: 12px; fill: #EEEAF6; text-anchor: middle;">U1</text></svg>
+        <span style="font-size: 15px;">Chip</span><span style="font-size: 13px; line-height: 1.5; color: #A8A1BC;">Afghanistan only. The one component at the centre of every figure.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; padding: 20px; border-radius: 20px; border: 1px solid #221E33; background: #0E0C16;">
+        <svg width="240" height="100" viewBox="0 0 240 100" aria-hidden="true" style="display: block; width: 100%; height: auto;"><path d="M0 50 H108 M132 50 H240" style="fill: none; stroke: #2B2640; stroke-width: 2;"></path><line x1="112" y1="34" x2="112" y2="66" style="stroke: #F2A9C4; stroke-width: 2;"></line><line x1="128" y1="34" x2="128" y2="66" style="stroke: #F2A9C4; stroke-width: 2;"></line></svg>
+        <span style="font-size: 15px;">Barrier · insulator</span><span style="font-size: 13px; line-height: 1.5; color: #A8A1BC;">Rose double bar. Marks where RSCT says the current stops.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; padding: 20px; border-radius: 20px; border: 1px solid #221E33; background: #0E0C16;">
+        <svg width="240" height="100" viewBox="0 0 240 100" aria-hidden="true" style="display: block; width: 100%; height: auto;"><path d="M0 60 H86 M154 60 H240" style="fill: none; stroke: #2B2640; stroke-width: 2;"></path><circle cx="90" cy="60" r="4" style="fill: #0E0C16; stroke: #7EE8DF; stroke-width: 2;"></circle><line x1="93" y1="58" x2="140" y2="28" style="stroke: #EEEAF6; stroke-width: 2.5; stroke-linecap: round;"></line><circle cx="150" cy="60" r="4" style="fill: #0E0C16; stroke: #3D3659; stroke-width: 2;"></circle></svg>
+        <span style="font-size: 15px;">Switch · open / closed</span><span style="font-size: 13px; line-height: 1.5; color: #A8A1BC;">Contact only. Sending a message closes it.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; padding: 20px; border-radius: 20px; border: 1px solid #221E33; background: #0E0C16;">
+        <svg width="240" height="100" viewBox="0 0 240 100" aria-hidden="true" style="display: block; width: 100%; height: auto;"><path d="M120 0 V32 M120 68 V100" style="fill: none; stroke: #3D3659; stroke-width: 2;"></path><circle cx="120" cy="50" r="26" style="fill: rgba(233,199,123,0.16);"></circle><circle cx="120" cy="50" r="16" style="fill: #15121F; stroke: #E9C77B; stroke-width: 1.8;"></circle><path d="M109 39 L131 61 M131 39 L109 61" style="stroke: #E9C77B; stroke-width: 1.5;"></path></svg>
+        <span style="font-size: 15px;">Lamp · branch</span><span style="font-size: 13px; line-height: 1.5; color: #A8A1BC;">Teaching only. One lit lamp per learner in a parallel circuit.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px; padding: 20px; border-radius: 20px; border: 1px solid #221E33; background: #0E0C16;">
+        <svg width="240" height="100" viewBox="0 0 240 100" aria-hidden="true" style="display: block; width: 100%; height: auto;"><path d="M0 70 H40 V34 H130 V70 H170 V34 H240" style="fill: none; stroke: #B9A2FF; stroke-width: 2; stroke-linejoin: round;"></path><rect x="40" y="34" width="90" height="36" style="fill: rgba(185,162,255,0.12);"></rect><rect x="170" y="34" width="70" height="36" style="fill: rgba(185,162,255,0.12);"></rect></svg>
+        <span style="font-size: 15px;">Signal lane</span><span style="font-size: 13px; line-height: 1.5; color: #A8A1BC;">CV timing diagram. High while a role or degree is active.</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px;">
+    <div style="display: flex; flex-direction: column; gap: 20px; padding: 36px; border-radius: 24px; border: 1px solid #221E33;">
+      <h2 style="margin: 0; display: flex; align-items: baseline; gap: 16px; font-family: 'Fraunces', serif; font-weight: 400; font-size: 32px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #B9A2FF;">D</span>Designators</h2>
+      <div style="display: grid; grid-template-columns: 80px minmax(0, 1fr); row-gap: 12px; font-size: 15px; line-height: 1.5;">
+        <span style="font-family: 'Geist Mono', monospace; color: #7EE8DF;">U1–U7</span><span style="color: #D9D4E6;">Pages: Home, About, Research, Teaching, CV, Writing, Contact</span>
+        <span style="font-family: 'Geist Mono', monospace; color: #7EE8DF;">J1–J4</span><span style="color: #D9D4E6;">Sections within a page, joined by the left-hand trace</span>
+        <span style="font-family: 'Geist Mono', monospace; color: #7EE8DF;">E · R · T · L</span><span style="color: #D9D4E6;">CV entries: education, research, teaching, leadership</span>
+        <span style="font-family: 'Geist Mono', monospace; color: #7EE8DF;">FIG. n</span><span style="color: #D9D4E6;">Diagrams, numbered across the site</span>
+        <span style="font-family: 'Geist Mono', monospace; color: #7EE8DF;">F · M · P</span><span style="color: #D9D4E6;">Findings, modules, principles</span>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 20px; padding: 36px; border-radius: 24px; border: 1px solid #221E33;">
+      <h2 style="margin: 0; display: flex; align-items: baseline; gap: 16px; font-family: 'Fraunces', serif; font-weight: 400; font-size: 32px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #B9A2FF;">E</span>Motion &amp; access</h2>
+      <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 15px; line-height: 1.55; color: #D9D4E6;">
+        <li>Current flows only on traces. Nothing else animates on a loop.</li>
+        <li>State changes fade over 0.6s. Reduced motion: every trace shown lit and still.</li>
+        <li>Text 12px minimum; touch targets 44px minimum.</li>
+        <li>Focus ring: 2px Current, 2px offset, on every control.</li>
+        <li>Every figure has a text description; diagrams are abstract, never maps.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 28px;">
+    <h2 style="margin: 0; display: flex; align-items: baseline; gap: 16px; font-family: 'Fraunces', serif; font-weight: 400; font-size: 40px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #B9A2FF;">F</span>Components</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px;">
+      <div style="display: flex; flex-direction: column; gap: 16px; padding: 28px; border-radius: 20px; border: 1px solid #221E33;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #8A83A0;">BUTTONS</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+          <button type="button" style="height: 52px; padding: 0 24px; border-radius: 26px; border: none; background: #B9A2FF; color: #120E1E; font-family: 'Geist', sans-serif; font-size: 16px; font-weight: 500;">Primary</button>
+          <button type="button" style="height: 52px; padding: 0 24px; border-radius: 26px; border: 1px solid #3D3659; background: transparent; color: #EEEAF6; font-family: 'Geist', sans-serif; font-size: 16px;">Secondary</button>
+          <button type="button" style="height: 52px; padding: 0 24px; border-radius: 26px; border: none; background: #7EE8DF; color: #0B0A12; font-family: 'Geist', sans-serif; font-size: 16px; font-weight: 500;">Teaching</button>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px; padding: 28px; border-radius: 20px; border: 1px solid #221E33;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #8A83A0;">SEGMENTED · CHIPS</span>
+        <div style="display: flex; gap: 6px; padding: 5px; border-radius: 28px; border: 1px solid #2B2640; background: #110F1A; width: fit-content;">
+          <span style="display: flex; align-items: center; height: 44px; padding: 0 18px; border-radius: 22px; color: #A8A1BC; font-size: 15px;">Insulator</span>
+          <span style="display: flex; align-items: center; height: 44px; padding: 0 18px; border-radius: 22px; border: 1px solid rgba(185,162,255,0.45); background: rgba(185,162,255,0.16); font-size: 15px;">Instigator</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <span style="font-family: 'Geist Mono', monospace; font-size: 12px; padding: 6px 12px; border-radius: 14px; border: 1px solid #2B2640; color: #C9C3D8;">RSCT</span>
+          <span style="font-family: 'Geist Mono', monospace; font-size: 12px; padding: 6px 12px; border-radius: 14px; border: 1px solid rgba(233,199,123,0.5); color: #E9C77B;">MERIT</span>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px; padding: 28px; border-radius: 20px; border: 1px solid #221E33;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #8A83A0;">FIELD · FOCUS</span>
+        <label for="ds-field" style="font-size: 15px;">Email address</label>
+        <input id="ds-field" type="email" value="name@university.ac.uk" style="height: 52px; box-sizing: border-box; padding: 0 16px; border-radius: 14px; border: 1px solid #3D3659; background: #0B0A12; color: #EEEAF6; font-family: 'Geist', sans-serif; font-size: 16px; outline: 2px solid #7EE8DF; outline-offset: 2px;">
+      </div>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3500}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -10,7 +10,7 @@ const navLinks=(writing:boolean)=>[['About','/about'],['Research','/research'],[
 const isArticle=(path:string)=>/^\/writing\/[^/]+/.test(path);
 const themeColors={light:'#faf7f2',dark:'#0b0a12'};
 // Keep the browser UI colour (theme-color) in step with the chosen theme, not the OS setting.
-function applyTheme(theme:'light'|'dark'){document.documentElement.dataset.theme=theme;document.querySelector('meta[name="theme-color"]')?.setAttribute('content',themeColors[theme])}
+function applyTheme(theme:'light'|'dark'){document.documentElement.dataset.theme=theme;document.querySelectorAll('meta[name="theme-color"]').forEach(m=>m.setAttribute('content',themeColors[theme]))}
 
 // The mark: a small chip with "nz" on its die, pins above in trace, pins below live.
 export function ChipLogo({className='brand-chip'}:{className?:string}){
@@ -70,13 +70,14 @@ export function Footer({writing,year}:{writing:boolean;year:number}){
  const path=usePathname();
  if(isArticle(path))return <footer className="wrap"><div className="footer-min"><span>© {year} <span translate="no">Nimra Zahid</span></span><a href="/rss.xml">RSS</a><Link href="/writing">All writing</Link></div></footer>;
  return <footer className="site-footer wrap">
-  <svg className="footer-trace" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
+  <svg className="footer-trace" viewBox="0 0 1200 40" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
    <path d="M0 20 H520 L540 8 H660 L680 20 H1200" className="f-none s-idle" strokeWidth="1" vectorEffect="non-scaling-stroke"/>
-   <circle cx="600" cy="8" r="5" className="f-bg s-live" strokeWidth="1.5" vectorEffect="non-scaling-stroke"/>
+   <circle cx="520" cy="20" r="3" className="f-strong"/><circle cx="680" cy="20" r="3" className="f-strong"/>
+   <circle cx="600" cy="8" r="5" className="f-bg s-live" strokeWidth="1.5" vectorEffect="non-scaling-stroke"/><circle cx="600" cy="8" r="2" className="f-live"/>
   </svg>
   <div className="footer-grid">
    <div className="footer-col" style={{gap:14}}><span className="footer-name" translate="no">Nimra Zahid</span><p className="muted" style={{fontSize:15,lineHeight:1.6}}>International Relations researcher and educator. {profile.location}.</p></div>
-   <nav className="footer-col" aria-label="Explore"><span className="label label-muted">Explore</span>{[['Home','/'],...navLinks(writing),['Contact','/contact']].map(([l,h])=><Link key={h} href={h}>{l}</Link>)}</nav>
+   <nav className="footer-col" aria-label="Explore"><span className="label label-muted">Explore</span>{navLinks(writing).filter(([,h])=>h!=='/cv').map(([l,h])=><Link key={h} href={h}>{l}</Link>)}</nav>
    <div className="footer-col"><span className="label label-muted">Elsewhere</span>
     {profileLinks.length?profileLinks.map(x=><a key={x.label} href={x.href} {...(x.label==='Email'?{}:{rel:'me noopener noreferrer',target:'_blank'})}>{x.label==='Email'?x.text:x.text}</a>)
      :<Link href="/contact">Send a message</Link>}

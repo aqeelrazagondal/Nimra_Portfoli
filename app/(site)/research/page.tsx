@@ -4,10 +4,10 @@ import {ReadingsFigure} from '@/components/circuit/figures';
 import {pageMetadata} from '@/lib/site';
 export const metadata=pageMetadata({title:'Research',description:'Research by Nimra Zahid on Afghanistan and Regional Security Complex Theory: an MA dissertation, an MPhil thesis on Russia–Afghanistan relations and a conference paper on Turkey and the Global War on Terror.',path:'/research'});
 
-const outputMeta:Record<string,{kind:string;chip:string;line:string}>={
- 'afghanistan-regional-security':{kind:'MA dissertation',chip:'Merit',line:'University of Northampton · RSCT · Theory-driven analysis'},
+const outputMeta:Record<string,{kind:string;chip?:string;line:string}>={
+ 'afghanistan-regional-security':{kind:'MA dissertation',line:'University of Northampton · RSCT · Theory-driven analysis'},
  'istanbul-conference-2020':{kind:'Conference paper',chip:'Presented',line:'Istanbul International Social Science Conference · Istanbul Sabahattin Zaim University · June 2020'},
- 'russia-afghanistan-relations':{kind:'MPhil thesis',chip:'Thesis · grade A',line:'National Defence University, Islamabad'},
+ 'russia-afghanistan-relations':{kind:'MPhil thesis',line:'National Defence University, Islamabad'},
 };
 
 export default function Research(){
@@ -49,7 +49,7 @@ export default function Research(){
     {outputs.map(p=>{const m=outputMeta[p.slug];return <article key={p.slug} className="output">
      <div className="stack" style={{gap:10}}><span className="year">{p.year}</span><span className="mono muted">{(m?.kind??p.type).toUpperCase()}</span></div>
      <div className="body"><h3 className="h-item"><Link href={`/research/${p.slug}`}>{p.title}</Link></h3><p>{p.summary}</p>{m&&<span className="meta">{m.line.toUpperCase()}</span>}</div>
-     <div className="side">{m&&<span className="chip-result">{m.chip.toUpperCase()}</span>}<Link href={`/research/${p.slug}`} className="link-arrow" aria-label={`Read overview: ${p.shortTitle}`}>Read overview <span aria-hidden>→</span></Link></div>
+     <div className="side">{m?.chip&&<span className="chip-result">{m.chip.toUpperCase()}</span>}<Link href={`/research/${p.slug}`} className="link-arrow" aria-label={`Read overview: ${p.shortTitle}`}>Read overview <span aria-hidden>→</span></Link></div>
     </article>})}
    </div>
   </section>

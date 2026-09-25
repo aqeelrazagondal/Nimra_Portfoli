@@ -76,10 +76,10 @@ export function Footer({writing,year}:{writing:boolean;year:number}){
    <div className="footer-col" style={{gap:14}}><span className="footer-name" translate="no">Nimra Zahid</span><p className="muted" style={{fontSize:15,lineHeight:1.6}}>International Relations researcher and educator. {profile.location}.</p></div>
    <nav className="footer-col" aria-label="Explore"><span className="label label-muted">Explore</span>{[['Home','/'],...navLinks(writing),['Contact','/contact']].map(([l,h])=><Link key={h} href={h}>{l}</Link>)}</nav>
    <div className="footer-col"><span className="label label-muted">Elsewhere</span>
-    {profileLinks.length?profileLinks.map(x=><a key={x.label} href={x.href} {...(x.label==='Email'?{}:{rel:'me noopener',target:'_blank'})}>{x.label==='Email'?x.text:x.text}</a>)
+    {profileLinks.length?profileLinks.map(x=><a key={x.label} href={x.href} {...(x.label==='Email'?{}:{rel:'me noopener noreferrer',target:'_blank'})}>{x.label==='Email'?x.text:x.text}</a>)
      :<Link href="/contact">Send a message</Link>}
    </div>
-   <div className="footer-col"><span className="label label-muted">Documents</span><a href="/cv.pdf">Download CV (PDF)</a><Link href="/cv">CV online</Link><span className="f-item">Degree verification on request</span></div>
+   <div className="footer-col"><span className="label label-muted">Documents</span><a href="/cv.pdf" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a><Link href="/cv">CV online</Link><span className="f-item">Degree verification on request</span></div>
   </div>
   <div className="footer-bottom"><span>© {year} <span translate="no">Nimra Zahid</span></span><span>Last updated <time dateTime={profile.updated}>{updated}</time></span><span className="footer-status"><i aria-hidden/>Circuit closed</span></div>
  </footer>;

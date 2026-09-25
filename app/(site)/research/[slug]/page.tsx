@@ -8,7 +8,7 @@ import {pageMetadata,jsonLd,person,siteUrl} from '@/lib/site';
 export function generateStaticParams(){return projects.map(p=>({slug:p.slug}))}
 export async function generateMetadata({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const p=projects.find(x=>x.slug===slug);if(!p)notFound();const meta=pageMetadata({title:p.shortTitle,description:p.description,path:`/research/${p.slug}`,siteImage:false});return {...meta,openGraph:{...meta.openGraph,type:'article'}}}
 
-const result:Record<string,string>={'MA dissertation':'Merit','MPhil thesis':'Grade A','Conference paper':'Presented'};
+const result:Record<string,string>={'Conference paper':'Presented'};
 
 export default async function Project({params}:{params:Promise<{slug:string}>}){
  const {slug}=await params;const p=projects.find(x=>x.slug===slug);if(!p)notFound();

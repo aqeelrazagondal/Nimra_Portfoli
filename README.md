@@ -1,5 +1,7 @@
 # Nimra Zahid — academic portfolio
 
+Design: **The Circuit** (a site drawn as a circuit board: RSCT calls Afghanistan an insulator; the research reads it as an instigator). Dark “Ink” and light “Paper” themes share one token set in `app/globals.css`; figures live in `components/circuit/`.
+
 First working local version of the revised educator–researcher plan. Built with Next.js App Router, TypeScript, React, semantic CSS tokens and self-hosted Fraunces, Inter and Newsreader through next/font. Intended deployment: Vercel.
 
 ## Run

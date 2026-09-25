@@ -6,16 +6,19 @@ Editorial notes live here, never in rendered pages.
 
 - [ ] Confirmed formal MPhil thesis title ("Counter" vs "Contours" in the transcript). The site uses the descriptive title *Russia–Afghanistan relations and regional stability*.
 - [ ] Exact Istanbul conference paper title and original abstract (from proceedings or certificate). The site uses a descriptive title.
-- [ ] Host university of the Istanbul International Social Science Conference (for the CV conference entry).
+- [x] Host university of the Istanbul International Social Science Conference: Istanbul Sabahattin Zaim University (from The Circuit design).
 - [ ] Check the expanded teaching entries in `content/profile.ts` (form tutor pastoral work, SENCO collaboration and parent liaison under the SEMH school; progress records under Abbeyfield) and the MPhil thesis grade (A, 86%) against her own CV.
 - [ ] Review and approve the drafted research copy in `content/profile.ts`: each project's `abstract`, `significance`, `phd` and `method`, plus the MA "argument in brief" list.
 - [ ] Key findings for the MPhil thesis and the conference paper (`findings: []`). The section stays hidden until they are filled in.
-- [ ] Names of the remaining four University of Gujrat modules (`universityModules`).
+- [ ] Names of the remaining three University of Gujrat modules (`universityModules`). The Teaching page shows the three confirmed ones until then.
 - [ ] Professional portrait, plus any photos from conferences, talks or teaching (never showing pupils): upload them in Keystatic → **Profile photos**. The portrait appears on the home page, About page and articles; photos appear in an “In pictures” section on About. The monogram shows until a portrait is added.
 - [ ] Professional email, ORCID and LinkedIn URLs (environment variables, see `.env.example`).
 - [ ] Replace the two placeholder articles in `content/articles/` (lorem ipsum drafts, used to test the design) with real ones, or delete them. Drafts show only locally and on Vercel preview deployments. Writing appears in the navigation and sitemap once an article is set to Published with a publish date that has arrived.
 - [ ] Referee permission before any testimonials are added.
-- [ ] Review all first-person copy, including the new hero line "Afghanistan isn’t a buffer. It’s a driver."
+- [ ] Review all first-person copy, including the Circuit hero line "They called it an insulator. I study the current."
+
+- [ ] A short referee quote on reflective practice for the Teaching page (The Circuit design has a slot for it), only with written permission.
+- [ ] Replace the draft sample articles: “Why Afghanistan is not a buffer” uses the design’s draft text minus the “[Your strongest example]” paragraph; “Afghanistan’s neighbours, re-wired” is still lorem ipsum.
 
 ## Configuration
 

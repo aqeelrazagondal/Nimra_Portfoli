@@ -25,7 +25,7 @@ export function ZoomImage({src,alt,width,height,sizes,priority}:{src:string;alt:
   </button>
   <dialog ref={dialog} className="lightbox" onClick={()=>dialog.current?.close()} aria-label={alt}>
    <Image src={src} alt={alt} width={width} height={height} sizes="100vw"/>
-   <button type="button" className="icon-button lightbox-close" aria-label="Close image"><X/></button>
+   <button type="button" className="icon-btn lightbox-close" aria-label="Close image"><X/></button>
   </dialog>
  </>;
 }
@@ -57,20 +57,20 @@ export function ReadingChrome(){
 function useCopied(){const [copied,setCopied]=useState('');useEffect(()=>{if(!copied)return;const t=setTimeout(()=>setCopied(''),2000);return ()=>clearTimeout(t)},[copied]);return [copied,setCopied] as const}
 async function copy(text:string){try{await navigator.clipboard.writeText(text);return true}catch{return false}}
 
-export function CiteButton({citations,className='share-button'}:{citations:{style:string;text:string}[];className?:string}){
+export function CiteButton({citations,className='share-button',compact=false}:{citations:{style:string;text:string}[];className?:string;compact?:boolean}){
  const dialog=useRef<HTMLDialogElement>(null);const titleId=useId();const [copied,setCopied]=useCopied();
  return <>
-  <button type="button" className={className} onClick={()=>dialog.current?.showModal()}><Quote size={16}/><span>Cite</span></button>
+  <button type="button" className={className} onClick={()=>dialog.current?.showModal()} aria-label={compact?'Cite this article':undefined}>{compact?'CITE':<><Quote size={16}/><span>Cite</span></>}</button>
   <dialog ref={dialog} className="cite-dialog" aria-labelledby={titleId} onClick={e=>{if(e.target===dialog.current)dialog.current.close()}}>
-   <div className="cite-head"><h2 id={titleId}>Cite this article</h2><button type="button" className="icon-button" aria-label="Close" onClick={()=>dialog.current?.close()}><X/></button></div>
-   {citations.map(c=><div key={c.style} className="cite-row"><p className="mono">{c.style}</p><p className="cite-text">{c.text}</p><button type="button" className="text-link" onClick={async()=>{if(await copy(c.text))setCopied(c.style)}}>{copied===c.style?<><Check size={16}/> Copied</>:'Copy'}</button></div>)}
+   <div className="cite-head"><h2 id={titleId}>Cite this article</h2><button type="button" className="icon-btn" aria-label="Close" onClick={()=>dialog.current?.close()}><X/></button></div>
+   {citations.map(c=><div key={c.style} className="cite-row"><p className="mono">{c.style}</p><p className="cite-text">{c.text}</p><button type="button" className="btn-outline" style={{width:"fit-content"}} onClick={async()=>{if(await copy(c.text))setCopied(c.style)}}>{copied===c.style?<><Check size={16}/> Copied</>:'Copy'}</button></div>)}
    <p role="status" className="sr-only">{copied&&`${copied} citation copied`}</p>
   </dialog>
  </>;
 }
 
-// Share actions: a row on desktop, a pinned bar on mobile.
-export function ShareBar({url,title,citations,variant}:{url:string;title:string;citations:{style:string;text:string}[]|null;variant:'row'|'dock'}){
+// Share actions: compact icons beside the byline, a labelled row at the end, a pinned bar on mobile.
+export function ShareBar({url,title,citations,variant}:{url:string;title:string;citations:{style:string;text:string}[]|null;variant:'row'|'dock'|'compact'}){
  const [copied,setCopied]=useCopied();const [canShare,setCanShare]=useState(false);
  useEffect(()=>setCanShare(typeof navigator.share==='function'),[]);
  const e=encodeURIComponent;
@@ -80,6 +80,12 @@ export function ShareBar({url,title,citations,variant}:{url:string;title:string;
  if(variant==='dock')return <div className="share-dock" role="group" aria-label="Share this article">
   {canShare?<button type="button" className="share-button" onClick={()=>navigator.share({title,url}).catch(()=>{})}><Share2 size={16}/><span>Share</span></button>:<a className="share-button" href={`mailto:?subject=${e(title)}&body=${e(url)}`}><Mail size={16}/><span>Email</span></a>}
   {copyLink}{cite}<span role="status" className="sr-only">{copied&&'Link copied'}</span></div>;
+ if(variant==='compact')return <div className="share-row" role="group" aria-label="Share this article">
+  {canShare?<button type="button" className="share-button" aria-label="Share" onClick={()=>navigator.share({title,url}).catch(()=>{})}><Share2 size={16}/></button>
+   :<a className="share-button" aria-label="Share on LinkedIn" href={links[0][1]} target="_blank" rel="noopener"><Share2 size={16}/></a>}
+  <button type="button" className="share-button" aria-label={copied?'Link copied':'Copy link'} onClick={async()=>{if(await copy(url))setCopied('link')}}>{copied?<Check size={16}/>:<Link2 size={16}/>}</button>
+  {citations&&<CiteButton citations={citations} className="share-button text-mono" compact/>}
+  <span role="status" className="sr-only">{copied&&'Link copied'}</span></div>;
  return <div className="share-row" role="group" aria-label="Share this article">
   {links.map(([label,href])=><a key={label} className="share-button" href={href} target="_blank" rel="noopener">{label==='WhatsApp'?<MessageCircle size={16}/>:<Share2 size={16}/>}<span>{label}</span></a>)}
   <a className="share-button" href={`mailto:?subject=${e(title)}&body=${e(url)}`}><Mail size={16}/><span>Email</span></a>

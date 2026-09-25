@@ -171,7 +171,7 @@ const events:{when:string;lane:keyof typeof lanes;text:string}[]=[
  {when:'June 2020',lane:'research',text:'Istanbul conference paper'},
  {when:'Sep 2019 – Mar 2022',lane:'university',text:'Visiting faculty, University of Gujrat'},
  {when:'2018',lane:'research',text:'MPhil thesis'},
- {when:'Spring 2016 – Fall 2017',lane:'study',text:'MPhil International Relations, NDU Islamabad'},
+ {when:'2016 – 2018',lane:'study',text:'MPhil International Relations, NDU Islamabad'},
  {when:'Sep 2015 – Mar 2023',lane:'schools',text:'Beaconhouse School System'},
  {when:'2011 – 2015',lane:'study',text:'BS International Relations, LCWU'},
 ];

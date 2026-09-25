@@ -1,0 +1,133 @@
+<!-- Design reference: board "MobileArticle" from the Circuit design canvas. Inline-styled HTML; {{holes}}, <sc-for>, <sc-if>, <dc-import> are design-tool template syntax (see HANDOFF.md §12). Not production code. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Article, mobile — Nimra Zahid</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&amp;family=Geist:wght@300..600&amp;family=Geist+Mono:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+@keyframes flow{to{stroke-dashoffset:-40}}
+.flow{stroke-dasharray:5 15;animation:flow 1.8s linear infinite}
+@media (prefers-reduced-motion: reduce){.flow{animation:none}}
+</style>
+</helmet>
+<div style="width: 390px; height: 4100px; position: relative; overflow: hidden; display: flex; flex-direction: column; background: {{bg}}; color: {{text}}; font-family: 'Geist', sans-serif;">
+
+  <div aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 390px; height: 3px; background: {{line}};"></div>
+  <div aria-hidden="true" style="position: absolute; left: 0; top: 0; width: 120px; height: 3px; background: linear-gradient(90deg, {{accent2}}, {{accent}});"></div>
+
+  <header style="height: 60px; box-sizing: border-box; padding: 0 12px 0 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid {{line}};">
+    <a href="MobileHome.dc.html" style="display: flex; align-items: center; gap: 8px; height: 44px; color: {{text}}; text-decoration: none;"><span style="font-family: 'Fraunces', serif; font-size: 18px;">Nimra Zahid</span><span style="color: {{faint}};">/</span><span style="font-size: 14px; color: {{muted}};">Writing</span></a>
+    <button type="button" onClick="{{toggleTheme}}" aria-label="{{themeLabel}}" style="width: 44px; height: 44px; border-radius: 22px; border: 1px solid {{line}}; background: transparent; display: flex; align-items: center; justify-content: center;"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="fill: none; stroke: {{text}}; stroke-width: 1.6;"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg></button>
+  </header>
+
+  <article style="box-sizing: border-box; padding: 32px 24px 0; display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; padding: 6px 10px; border-radius: 12px; border: 1px solid {{line}}; color: {{muted}};">RSCT</span>
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; padding: 6px 10px; color: {{accent}};">PART 1 OF 3</span>
+    </div>
+    <h1 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 500; font-size: 34px; line-height: 1.12; letter-spacing: -0.02em;">Why Afghanistan is not a buffer</h1>
+    <p style="margin: 0; font-size: 18px; line-height: 1.45; color: {{muted}};">A plain-language guide to Regional Security Complex Theory, and the classification my research sets out to challenge.</p>
+    <div style="display: flex; align-items: center; gap: 12px; padding: 16px 0; border-top: 1px solid {{line}}; border-bottom: 1px solid {{line}};">
+      <img src="/images/nimra/nimra-avatar.webp" alt="Nimra Zahid" style="width: 40px; height: 40px; flex-shrink: 0; border-radius: 20px; object-fit: cover; border: 1px solid {{line}};">
+      <span style="display: flex; flex-direction: column; gap: 3px;"><span style="font-size: 15px; font-weight: 500;">Nimra Zahid</span><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: {{muted}};">7 min read · [PUBLISH DATE]</span></span>
+    </div>
+  </article>
+
+  <figure style="margin: 24px 0 0; display: flex; flex-direction: column; gap: 10px;">
+    <svg width="390" height="220" viewBox="0 0 390 220" role="img" aria-label="Cover illustration: a chip labelled Afghanistan with current flowing outward." style="display: block; background: {{surface}};">
+      <path d="M160 110 H90 L60 80 H0 M230 110 H300 L330 140 H390 M195 86 V40 L215 20 V0 M195 134 V180 L175 200 V220" style="fill: none; stroke: {{faint}}; stroke-width: 1.5;"></path>
+      <path class="flow" d="M160 110 H90 L60 80 H0" style="fill: none; stroke: {{accent2}}; stroke-width: 2;"></path>
+      <path class="flow" d="M230 110 H300 L330 140 H390" style="fill: none; stroke: {{accent2}}; stroke-width: 2;"></path>
+      <path class="flow" d="M195 86 V40 L215 20 V0" style="fill: none; stroke: {{accent}}; stroke-width: 2;"></path>
+      <path class="flow" d="M195 134 V180 L175 200 V220" style="fill: none; stroke: {{accent}}; stroke-width: 2;"></path>
+      <rect x="160" y="86" width="70" height="48" rx="8" style="fill: {{bg}}; stroke: {{accent2}}; stroke-width: 1.5;"></rect>
+      <text x="195" y="115" style="font-family: 'Geist Mono', monospace; font-size: 12px; fill: {{text}}; text-anchor: middle;">AFG</text>
+    </svg>
+    <figcaption style="padding: 0 24px; text-align: center; font-size: 13px; color: {{muted}};">An insulator is meant to stop the current.</figcaption>
+  </figure>
+
+  <div style="box-sizing: border-box; padding: 32px 24px 0; display: flex; flex-direction: column; gap: 24px; font-family: 'Newsreader', serif; font-size: 19px; line-height: 1.65; color: {{bodyText}};">
+    <p style="margin: 0;">In 2003, Barry Buzan and Ole Wæver published <em>Regions and Powers</em>, one of the most influential attempts to explain how security works at the level of regions. Their answer is Regional Security Complex Theory, usually shortened to RSCT.</p>
+    <h2 style="margin: 12px 0 0; font-family: 'Geist', sans-serif; font-weight: 600; font-size: 23px; line-height: 1.25; color: {{text}};">What is a security complex?</h2>
+    <p style="margin: 0;">Most threats travel more easily over short distances than long ones. States therefore worry most about their neighbours, and their security concerns become bound up with one another. A regional security complex is a group of states whose security problems cannot sensibly be analysed apart.</p>
+    <h2 style="margin: 12px 0 0; font-family: 'Geist', sans-serif; font-weight: 600; font-size: 23px; line-height: 1.25; color: {{text}};">And what is an insulator?</h2>
+    <p style="margin: 0;">Between complexes, RSCT identifies insulators: <span style="background: {{highlight}}; border-radius: 3px;">states on the boundary between complexes that absorb rather than transmit their dynamics.</span> Afghanistan is one of the theory’s examples, placed between South Asia, the Middle East and Central Asia.<sup style="font-family: 'Geist Mono', monospace; font-size: 12px;"><a href="#m-fn1" style="color: {{accent}}; text-decoration: none; padding: 0 3px;">1</a></sup></p>
+    <div role="note" style="display: flex; flex-direction: column; gap: 6px; padding: 16px; border-radius: 14px; background: {{tooltipBg}}; border: 1px solid {{line}}; font-family: 'Geist', sans-serif;">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: {{accent}};">NOTE 1 · TAP TO OPEN</span>
+      <span style="font-size: 14px; line-height: 1.5; color: {{bodyText}};">Barry Buzan and Ole Wæver, <em>Regions and Powers</em> (Cambridge University Press, 2003).</span>
+    </div>
+    <blockquote style="margin: 8px 0; font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; font-size: 26px; line-height: 1.35; color: {{accent}};">An insulator is supposed to stop the current. Afghanistan, I argue, has often been where the current starts.</blockquote>
+    <h2 style="margin: 12px 0 0; font-family: 'Geist', sans-serif; font-weight: 600; font-size: 23px; line-height: 1.25; color: {{text}};">Why the label matters</h2>
+    <p style="margin: 0;">Labels shape analysis. If Afghanistan is treated as a buffer, what happens inside it looks like a local story. My research asks what changes if we read it instead as an instigator: a source of dynamics that travel outward into the complexes around it.</p>
+    <p style="margin: 0; padding: 16px; border-radius: 12px; border: 1px dashed {{faint}}; font-family: 'Geist', sans-serif; font-size: 15px; color: {{muted}};">[Your strongest example from the dissertation]</p>
+    <h2 style="margin: 12px 0 0; font-family: 'Geist', sans-serif; font-weight: 600; font-size: 23px; line-height: 1.25; color: {{text}};">What comes next</h2>
+    <p style="margin: 0;">This is the question I am taking into doctoral research. In Part 2, I look at how that outward current reaches each of Afghanistan’s neighbours.</p>
+  </div>
+
+  <div style="box-sizing: border-box; padding: 40px 24px 0; display: flex; flex-direction: column; gap: 24px;">
+    <div id="m-fn1" style="display: flex; flex-direction: column; gap: 10px; padding-top: 20px; border-top: 1px solid {{line}};">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: {{muted}};">NOTES &amp; REFERENCES</span>
+      <p style="margin: 0; font-family: 'Newsreader', serif; font-size: 16px; line-height: 1.55; color: {{bodyText}};">1. Barry Buzan and Ole Wæver, <em>Regions and Powers: The Structure of International Security</em> (Cambridge: Cambridge University Press, 2003).</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; padding: 20px; border-radius: 16px; background: {{surface}}; border: 1px solid {{line}};">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: {{muted}};">CITE THIS ARTICLE · APA</span>
+      <p style="margin: 0; font-family: 'Newsreader', serif; font-size: 16px; line-height: 1.5; color: {{bodyText}};">Zahid, N. ([YEAR]). Why Afghanistan is not a buffer. <em>Nimra Zahid</em>. [ARTICLE URL]</p>
+      <button type="button" style="height: 44px; border-radius: 22px; border: 1px solid {{line}}; background: transparent; color: {{text}}; font-family: 'Geist', sans-serif; font-size: 15px;">Copy citation</button>
+    </div>
+    <div style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 14px; padding: 20px 0; border-top: 1px solid {{line}}; border-bottom: 1px solid {{line}};">
+      <img src="/images/nimra/nimra-avatar.webp" alt="Nimra Zahid" style="width: 56px; height: 56px; flex-shrink: 0; border-radius: 28px; object-fit: cover; border: 1px solid {{line}};">
+      <span style="display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 16px; font-weight: 500;">Written by Nimra Zahid</span><span style="font-size: 15px; line-height: 1.55; color: {{muted}};">International Relations researcher and educator, Northampton, UK.</span></span>
+    </div>
+    <form style="display: flex; flex-direction: column; gap: 12px; padding: 24px 20px; border-radius: 18px; background: {{surface}}; border: 1px solid {{line}};">
+      <label for="m-sub" style="font-family: 'Fraunces', serif; font-size: 22px;">Get Part 2 by email</label>
+      <input id="m-sub" type="email" placeholder="you@university.ac.uk" style="height: 48px; box-sizing: border-box; padding: 0 16px; border-radius: 24px; border: 1px solid {{line}}; background: {{bg}}; color: {{text}}; font-family: 'Geist', sans-serif; font-size: 16px;">
+      <button type="button" style="height: 48px; border-radius: 24px; border: none; background: {{btnBg}}; color: {{btnText}}; font-family: 'Geist', sans-serif; font-size: 16px; font-weight: 500;">Subscribe</button>
+    </form>
+    <a href="Writing.dc.html" style="display: flex; flex-direction: column; gap: 8px; padding: 22px 20px; border-radius: 18px; border: 1px solid {{line}}; color: {{text}}; text-decoration: none;">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: {{accent}};">NEXT IN SERIES · PART 2</span>
+      <span style="font-family: 'Fraunces', serif; font-size: 22px; line-height: 1.2;">Afghanistan’s neighbours, re-wired →</span>
+    </a>
+  </div>
+
+  <div style="position: absolute; left: 16px; top: 740px; width: 358px; height: 56px; box-sizing: border-box; padding: 0 8px; border-radius: 28px; background: {{barBg}}; border: 1px solid {{line}}; box-shadow: 0 12px 32px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: space-between;">
+    <button type="button" aria-label="Share" style="width: 44px; height: 44px; border-radius: 22px; border: none; background: transparent; display: flex; align-items: center; justify-content: center;"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="fill: none; stroke: {{text}}; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;"><path d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M16 6l-4-4-4 4M12 2v13"></path></svg></button>
+    <button type="button" aria-label="Copy link" style="width: 44px; height: 44px; border-radius: 22px; border: none; background: transparent; display: flex; align-items: center; justify-content: center;"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="fill: none; stroke: {{text}}; stroke-width: 1.6; stroke-linecap: round;"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"></path></svg></button>
+    <button type="button" style="height: 44px; padding: 0 14px; border-radius: 22px; border: none; background: transparent; color: {{text}}; font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.08em;">CITE</button>
+    <span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: {{muted}}; padding-right: 10px;">5 MIN LEFT</span>
+  </div>
+
+  <footer style="margin-top: auto; box-sizing: border-box; padding: 32px 24px; display: flex; justify-content: space-between; border-top: 1px solid {{line}}; font-family: 'Geist Mono', monospace; font-size: 12px; color: {{muted}};">
+    <span>© 2026 Nimra Zahid</span><a href="Writing.dc.html" style="color: {{muted}}; text-decoration: none;">All writing</a>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["dark","light"],"default":"dark"},"$preview":{"width":390,"height":4100}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const theme = (this.state && this.state.theme) || this.props.theme || 'dark';
+    const dark = theme === 'dark';
+    const t = dark ? {
+      bg: '#0B0A12', surface: '#13111D', text: '#EEEAF6', bodyText: '#DAD5E6', muted: '#A8A1BC', faint: '#3D3659',
+      line: '#221E33', accent: '#B9A2FF', accent2: '#7EE8DF', highlight: 'rgba(185,162,255,0.26)', tooltipBg: '#1B1828',
+      btnBg: '#B9A2FF', btnText: '#120E1E', barBg: 'rgba(27,24,40,0.94)'
+    } : {
+      bg: '#FAF7F2', surface: '#F2EDE5', text: '#1E1A2B', bodyText: '#2C2739', muted: '#5E5870', faint: '#C9C1D6',
+      line: '#E4DDD2', accent: '#5A3990', accent2: '#1D7472', highlight: 'rgba(90,57,144,0.16)', tooltipBg: '#FFFFFF',
+      btnBg: '#5A3990', btnText: '#FFFFFF', barBg: 'rgba(255,255,255,0.95)'
+    };
+    return {
+      ...t,
+      themeLabel: dark ? 'Switch to light reading mode' : 'Switch to dark reading mode',
+      toggleTheme: () => this.setState({ theme: dark ? 'light' : 'dark' })
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!-- Design reference: board "PhotoVariants" from the Circuit design canvas. Inline-styled HTML; {{holes}}, <sc-for>, <sc-if>, <dc-import> are design-tool template syntax (see HANDOFF.md §12). Not production code. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Photo variants — Nimra Zahid</title>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&amp;family=Geist:wght@300..600&amp;family=Geist+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0A12}
+</style>
+</helmet>
+<div style="width: 1440px; height: 3700px; box-sizing: border-box; padding: 96px 120px; display: flex; flex-direction: column; gap: 72px; background: #0B0A12; color: #EEEAF6; font-family: 'Geist', sans-serif;">
+
+  <section style="display: grid; grid-template-columns: minmax(0, 1fr) 460px; column-gap: 80px; align-items: end;">
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+      <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.16em; color: #B9A2FF;">DESIGN SYSTEM · G2 · PHOTO VARIANTS</span>
+      <h1 style="margin: 0; font-family: 'Fraunces', serif; font-weight: 400; font-size: 72px; line-height: 1.02; letter-spacing: -0.025em;">Five photos, <em style="font-style: italic; font-weight: 300; color: #B9A2FF;">four versions each.</em></h1>
+      <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #C9C3D8; max-width: 640px;">Original crop, background replaced for the dark and light themes, and my recommended natural edit. ★ marks the version to use.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+      <span style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px; border: 1px solid #221E33; font-size: 14px; color: #D9D4E6;"><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">A</span>Original crop</span>
+      <span style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px; border: 1px solid #221E33; font-size: 14px; color: #D9D4E6;"><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #B9A2FF;">B·D</span>Background · dark</span>
+      <span style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px; border: 1px solid #221E33; font-size: 14px; color: #D9D4E6;"><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #1D7472; background: #FAF7F2; padding: 2px 6px; border-radius: 6px;">B·L</span>Background · light</span>
+      <span style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 14px; border: 1px solid rgba(126,232,223,0.4); font-size: 14px; color: #D9D4E6;"><span style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #7EE8DF;">C</span>Natural edit · recommended</span>
+    </div>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; border-bottom: 1px solid #221E33;">
+      <span style="display: flex; align-items: baseline; gap: 16px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #B9A2FF;">P1</span><span style="font-family: 'Fraunces', serif; font-size: 32px;">Portrait · park bench</span></span>
+      <span style="font-size: 15px; color: #C9C3D8;">★ C on About · B·D for link previews and speaker kit · B·L for light-mode press</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px;">
+      <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px;"><img src="/images/nimra/p1-portrait-A-original.webp" alt="Portrait, original crop" style="width: 100%; height: 352px; object-fit: cover; border-radius: 20px; border: 1px solid #2B2640;"><figcaption style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">A · ORIGINAL</figcaption></figure>
+      <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px;"><img src="/images/nimra/p1-portrait-B-dark.webp" alt="Portrait on the dark circuit backdrop" style="width: 100%; height: 352px; object-fit: cover; border-radius: 20px; border: 1px solid #2B2640;"><figcaption style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #B9A2FF;">B · DARK BACKDROP</figcaption></figure>
+      <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px; padding: 12px; border-radius: 24px; background: #FAF7F2;"><img src="/images/nimra/p1-portrait-B-light.webp" alt="Portrait on the light paper backdrop" style="width: 100%; height: 328px; object-fit: cover; border-radius: 16px; border: 1px solid #E4DDD2;"><figcaption style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #1D7472;">B · LIGHT BACKDROP</figcaption></figure>
+      <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px;"><img src="/images/nimra/p1-portrait-C-recommended.webp" alt="Portrait, natural edit with soft depth of field" style="width: 100%; height: 352px; object-fit: cover; border-radius: 20px; border: 2px solid #7EE8DF;"><figcaption style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #7EE8DF;">★ C · RECOMMENDED</figcaption></figure>
+    </div>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; border-bottom: 1px solid #221E33;">
+      <span style="display: flex; align-items: baseline; gap: 16px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #B9A2FF;">P2</span><span style="font-family: 'Fraunces', serif; font-size: 32px;">Teaching · green bench</span></span>
+      <span style="font-size: 15px; color: #C9C3D8;">★ C on Teaching · the bench is part of the scene, so B keeps the park but clears it</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px;">
+      <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px;"><img src="/images/nimra/p2-teaching-A-original.webp" alt="Teaching photo, original crop" style="width: 100%; height: 352px; object-fit: cover; border-radius: 20px; border: 1px solid #2B2640;"><figcaption style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">A · ORIGINAL</figcaption></figure>
+      <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px;"><img src="/images/nimra/p2-teaching-B-dark.webp" alt="Teaching photo with a cleared, softly blurred park" style="width: 100%; height: 352px; object-fit: cover; border-radius: 20px; border: 1px solid #2B2640;"><figcaption style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #B9A2FF;">B · CLEAN PARK · DARK</figcaption></figure>
+      <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px; padding: 12px; border-radius: 24px; background: #FAF7F2;"><img src="/images/nimra/p2-teaching-B-dark.webp" alt="Teaching photo with a cleared park, on the light theme" style="width: 100%; height: 328px; object-fit: cover; border-radius: 16px; border: 1px solid #E4DDD2;"><figcaption style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #1D7472;">B · CLEAN PARK · LIGHT</figcaption></figure>
+      <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px;"><img src="/images/nimra/p2-teaching-C-recommended.webp" alt="Teaching photo, natural edit" style="width: 100%; height: 352px; object-fit: cover; border-radius: 20px; border: 2px solid #7EE8DF;"><figcaption style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #7EE8DF;">★ C · RECOMMENDED</figcaption></figure>
+    </div>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; border-bottom: 1px solid #221E33;">
+      <span style="display: flex; align-items: baseline; gap: 16px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #B9A2FF;">P3</span><span style="font-family: 'Fraunces', serif; font-size: 32px;">Research · city steps</span></span>
+      <span style="font-size: 15px; color: #C9C3D8;">★ C on Contact · B pair for conference bios and programmes</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px;">
+      <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px;"><img src="/images/nimra/p3-research-A-original.webp" alt="Research photo, original crop" style="width: 100%; height: 352px; object-fit: cover; border-radius: 20px; border: 1px solid #2B2640;"><figcaption style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">A · ORIGINAL</figcaption></figure>
+      <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px;"><img src="/images/nimra/p3-research-B-dark.webp" alt="Head and shoulders on the dark circuit backdrop" style="width: 100%; height: 352px; object-fit: cover; border-radius: 20px; border: 1px solid #2B2640;"><figcaption style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #B9A2FF;">B · DARK BACKDROP</figcaption></figure>
+      <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px; padding: 12px; border-radius: 24px; background: #FAF7F2;"><img src="/images/nimra/p3-research-B-light.webp" alt="Head and shoulders on the light paper backdrop" style="width: 100%; height: 328px; object-fit: cover; border-radius: 16px; border: 1px solid #E4DDD2;"><figcaption style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #1D7472;">B · LIGHT BACKDROP</figcaption></figure>
+      <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px;"><img src="/images/nimra/p3-research-C-recommended.webp" alt="Research photo, natural edit" style="width: 100%; height: 352px; object-fit: cover; border-radius: 20px; border: 2px solid #7EE8DF;"><figcaption style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #7EE8DF;">★ C · RECOMMENDED</figcaption></figure>
+    </div>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; border-bottom: 1px solid #221E33;">
+      <span style="display: flex; align-items: baseline; gap: 16px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #F2A9C4;">P4 · NEW</span><span style="font-family: 'Fraunces', serif; font-size: 32px;">Warm smile · city steps</span></span>
+      <span style="font-size: 15px; color: #C9C3D8;">★ B pair for article author cards and the Writing page</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px;">
+      <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px;"><img src="/images/nimra/p4-smile-steps-A-original.webp" alt="Smiling photo, original crop" style="width: 100%; height: 352px; object-fit: cover; border-radius: 20px; border: 1px solid #2B2640;"><figcaption style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">A · ORIGINAL</figcaption></figure>
+      <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px;"><img src="/images/nimra/p4-smile-steps-B-dark.webp" alt="Smiling head and shoulders on the dark circuit backdrop" style="width: 100%; height: 352px; object-fit: cover; border-radius: 20px; border: 2px solid #B9A2FF;"><figcaption style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #B9A2FF;">★ B · DARK BACKDROP</figcaption></figure>
+      <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px; padding: 12px; border-radius: 24px; background: #FAF7F2; border: 2px solid #5A3990;"><img src="/images/nimra/p4-smile-steps-B-light.webp" alt="Smiling head and shoulders on the light paper backdrop" style="width: 100%; height: 324px; object-fit: cover; border-radius: 16px; border: 1px solid #E4DDD2;"><figcaption style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #5A3990;">★ B · LIGHT BACKDROP</figcaption></figure>
+      <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px;"><img src="/images/nimra/p4-smile-steps-C-recommended.webp" alt="Smiling photo, natural edit" style="width: 100%; height: 352px; object-fit: cover; border-radius: 20px; border: 1px solid #2B2640;"><figcaption style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #7EE8DF;">C · NATURAL EDIT</figcaption></figure>
+    </div>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; border-bottom: 1px solid #221E33;">
+      <span style="display: flex; align-items: baseline; gap: 16px;"><span style="font-family: 'Geist Mono', monospace; font-size: 13px; color: #F2A9C4;">P5 · NEW</span><span style="font-family: 'Fraunces', serif; font-size: 32px;">Journey · canal bridge</span></span>
+      <span style="font-size: 15px; color: #C9C3D8;">★ C in About’s “route so far” section · never as the main profile</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px;">
+      <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px;"><img src="/images/nimra/p5-bruges-bridge-A-original.webp" alt="Canal bridge photo, original crop" style="width: 100%; height: 352px; object-fit: cover; border-radius: 20px; border: 1px solid #2B2640;"><figcaption style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #8A83A0;">A · ORIGINAL</figcaption></figure>
+      <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px;"><img src="/images/nimra/p5-bruges-bridge-B-dark.webp" alt="Head and shoulders on the dark circuit backdrop" style="width: 100%; height: 352px; object-fit: cover; border-radius: 20px; border: 1px solid #2B2640;"><figcaption style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #B9A2FF;">B · DARK BACKDROP</figcaption></figure>
+      <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px; padding: 12px; border-radius: 24px; background: #FAF7F2;"><img src="/images/nimra/p5-bruges-bridge-B-light.webp" alt="Head and shoulders on the light paper backdrop" style="width: 100%; height: 328px; object-fit: cover; border-radius: 16px; border: 1px solid #E4DDD2;"><figcaption style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #1D7472;">B · LIGHT BACKDROP</figcaption></figure>
+      <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px;"><img src="/images/nimra/p5-bruges-bridge-C-recommended.webp" alt="Canal bridge photo, natural edit with softened houses" style="width: 100%; height: 352px; object-fit: cover; border-radius: 20px; border: 2px solid #7EE8DF;"><figcaption style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #7EE8DF;">★ C · RECOMMENDED</figcaption></figure>
+    </div>
+  </section>
+
+  <section style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px;">
+    <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 28px; align-items: center; padding: 32px; border-radius: 28px; border: 1px solid #2B2640; background: #13111D;">
+      <div style="position: relative; width: 200px; height: 250px; border-radius: 24px 24px 24px 72px; overflow: hidden; border: 1px solid #2B2640;"><img src="/images/nimra/p1-portrait-C-recommended.webp" alt="Nimra Zahid" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%;"></div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #B9A2FF;">IN THE DARK THEME</span>
+        <span style="font-family: 'Fraunces', serif; font-size: 28px; line-height: 1.15;">Natural photos, dark frames.</span>
+        <span style="font-size: 15px; line-height: 1.55; color: #C9C3D8;">C-versions everywhere a page is about her; B·D only where the photo stands alone, like link previews.</span>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 28px; align-items: center; padding: 32px; border-radius: 28px; background: #FAF7F2; color: #1E1A2B;">
+      <div style="position: relative; width: 200px; height: 250px; border-radius: 24px 24px 24px 72px; overflow: hidden; border: 1px solid #E4DDD2;"><img src="/images/nimra/p4-smile-steps-B-light.webp" alt="Nimra Zahid" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%;"></div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-family: 'Geist Mono', monospace; font-size: 12px; letter-spacing: 0.14em; color: #5A3990;">IN THE LIGHT THEME</span>
+        <span style="font-family: 'Fraunces', serif; font-size: 28px; line-height: 1.15;">Same photos, paper frames.</span>
+        <span style="font-size: 15px; line-height: 1.55; color: #5E5870;">C-versions work unchanged. Swap B·D for B·L so studio cut-outs sit on Paper, never on Ink.</span>
+      </div>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3700}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

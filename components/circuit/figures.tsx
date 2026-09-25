@@ -131,7 +131,7 @@ export function SignalTrace(){
   <path d="M170 254 H471 V218 H951 V254 H1008 V218 H1175" className="f-none s-live" strokeWidth="2" strokeLinejoin="round"/>
   <line x1="1072" y1="212" x2="1072" y2="224" className="s-hair" strokeWidth="3"/>
   <text x="711" y="241" textAnchor="middle" className="t-mono t-text">Beaconhouse · humanities</text>
-  <text x="1066" y="208" textAnchor="end" className="t-mono t-2">Abbeyfield</text><text x="1082" y="208" textAnchor="start" className="t-mono t-2">SEMH school</text>
+  <text x="1058" y="208" textAnchor="end" className="t-mono t-2">Abbeyfield</text><text x="1090" y="208" textAnchor="start" className="t-mono t-2">SEMH school</text>
   <polygon points="1175,230 1187,236 1175,242" className="f-live"/>
   <path d="M170 326 H612 V290 H624 V326 H769 V290 H781 V326 H1054 V290 H1066 V326 H1178" className="f-none s-gold" strokeWidth="2" strokeLinejoin="round"/>
   <text x="618" y="282" textAnchor="middle" className="t-mono t-2">MPhil thesis</text><text x="775" y="282" textAnchor="middle" className="t-mono t-2">Istanbul paper</text><text x="1060" y="282" textAnchor="middle" className="t-mono t-2">MA dissertation</text>

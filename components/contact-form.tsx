@@ -1,7 +1,7 @@
 'use client';
 import Script from 'next/script';
 import {startTransition,useActionState,useEffect,useRef,useState} from 'react';
-import {sendEnquiry} from '@/app/contact/actions';
+import {sendEnquiry} from '@/app/(site)/contact/actions';
 import {enquiryTypes,type ContactState} from '@/lib/contact';
 declare global{interface Window{turnstile?:{render:(el:HTMLElement,o:object)=>string;reset:(id:string)=>void;remove:(id:string)=>void}}}
 const siteKey=process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;

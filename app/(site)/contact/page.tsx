@@ -1,13 +1,16 @@
 import Link from 'next/link';
 import {ContactForm} from '@/components/contact-form';
 import {profile,profileLinks} from '@/content/profile';
-import {pageMetadata} from '@/lib/site';
+import {jsonLd,pageLd,pageMetadata,person} from '@/lib/site';
 import {Photo} from '@/components/photo';
-export const metadata=pageMetadata({title:'Contact',description:'Contact Nimra Zahid about doctoral opportunities, research collaboration or speaking on Afghanistan, regional security and inclusive education.',path:'/contact'});
+const description='Contact Nimra Zahid about doctoral opportunities, research collaboration or speaking on Afghanistan, regional security and inclusive education.';
+export const metadata=pageMetadata({title:'Contact',description,path:'/contact'});
+const ld=pageLd('ContactPage',{path:'/contact',name:`Contact | ${profile.name}`,description,mainEntity:person});
 
 export default function Contact(){
  const email=profileLinks.find(x=>x.label==='Email');const elsewhere=profileLinks.filter(x=>x.label!=='Email');
  return <>
+  <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(ld)}/>
   <section className="wrap page-hero">
    <span className="label">U7 · Contact</span>
    <h1 className="h-page">Complete the <em>circuit.</em></h1>

@@ -6,7 +6,7 @@ export const profile = {
  description:'Nimra Zahid is an International Relations researcher and educator in Northampton, UK, studying Afghanistan’s role in regional security in South and Central Asia.',
  languages:['English','Urdu','Punjabi'],
  // Public contact details. Environment variables override these defaults (see .env.example).
- email:process.env.NEXT_PUBLIC_CONTACT_EMAIL||'nimrazahidranjha@gmail.com',
+ email:process.env.NEXT_PUBLIC_CONTACT_EMAIL||'hello@nimrazahid.com',
  orcid:process.env.NEXT_PUBLIC_ORCID_URL||'',
  linkedin:process.env.NEXT_PUBLIC_LINKEDIN_URL||'https://www.linkedin.com/in/nimra-zahid-aa1a1520b/',
  // Portrait and photos are managed in Keystatic (Profile photos); see lib/profile-media.ts.
@@ -107,10 +107,10 @@ export const projects:Project[] = [
   related:['afghanistan-regional-security','russia-afghanistan-relations']},
 ];
 export const cvSections = [
- {id:'education',title:'Education',entries:education.map(x=>({title:x.title,subtitle:x.institution,dates:x.dates,detail:x.detail}))},
+ {id:'education',title:'Education',entries:education.map(x=>({title:x.title,subtitle:x.institution,dates:x.short,detail:x.detail}))},
  {id:'research',title:'Research',entries:projects.filter(x=>x.kind==='Thesis').map(x=>({title:x.title,subtitle:x.institution,dates:String(x.year),detail:x.summary}))},
  {id:'conferences',title:'Conference presentations',entries:[{title:'Istanbul International Social Science Conference',subtitle:'Istanbul Sabahattin Zaim University, Istanbul, Turkey',dates:'June 2020',detail:'Paper on the Global War on Terror and the roles of Afghanistan and Turkey in regional security.'}]},
- {id:'teaching',title:'Teaching experience',entries:teaching.map(x=>({title:x.title,subtitle:x.institution,dates:x.dates,detail:x.detail}))},
+ {id:'teaching',title:'Teaching experience',entries:teaching.map(x=>({title:x.title,subtitle:x.institution,dates:x.short.replace('now','present'),detail:x.detail}))},
  {id:'service',title:'Leadership & service',entries:[{title:'Student Affairs Sub-in-Charge',subtitle:'University of Gujrat, Mandi Bahauddin campus',dates:'2019 – 2022',detail:'Coordinated student welfare, departmental liaison and student-facing policy; recruited volunteers and organised events connecting students with the wider university community.'}]},
  {id:'training',title:'Training',entries:[{title:'Protecting Human Research Participants',subtitle:'US National Institutes of Health (NIH), Office of Extramural Research',dates:'',detail:'Research ethics training.'}]},
  {id:'skills',title:'Skills & languages',entries:[{title:'Research & teaching',subtitle:'',dates:'',detail:'Academic writing · research-methods teaching · SPSS · curriculum and resource design · Microsoft Office · Teams · Zoom'},{title:'Languages',subtitle:'',dates:'',detail:profile.languages.join(' · ')}]},

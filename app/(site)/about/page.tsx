@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import {education,profile} from '@/content/profile';
 import {PhotoGallery} from '@/components/portrait';
-import {Photo} from '@/components/photo';
 import {RouteTrace} from '@/components/circuit/figures';
 import {getProfileMedia,showPhotoHints} from '@/lib/profile-media';
-import {pageMetadata} from '@/lib/site';
-export const metadata=pageMetadata({title:'About',description:'About Nimra Zahid: an International Relations researcher and educator whose path runs from Lahore and Islamabad to an MA at the University of Northampton and teaching in England.',path:'/about'});
+import {jsonLd,pageLd,pageMetadata,person,siteUrl} from '@/lib/site';
+import {Photo,photoSrc} from '@/components/photo';
+const description='About Nimra Zahid: an International Relations researcher and educator whose path runs from Lahore and Islamabad to an MA at the University of Northampton and teaching in England.';
+export const metadata=pageMetadata({title:'About',description,path:'/about'});
+const ld=pageLd('AboutPage',{path:'/about',name:`About | ${profile.name}`,description,mainEntity:{...person,image:`${siteUrl}${photoSrc('portrait')}`}});
 
 // The route so far: five places, one line of inquiry.
 const route=[
@@ -25,6 +27,7 @@ const methods=['Qualitative case study','Theory-driven analysis (RSCT)','Practit
 export default async function About(){
  const {photos}=await getProfileMedia();
  return <>
+  <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(ld)}/>
   <section className="wrap about-hero">
    <div className="stack" style={{gap:14}}>
     <Photo name="portrait" corner="bl" className="about-portrait has-pins" tag="U2" label={{text:`Nimra Zahid · ${profile.location.replace(', UK','')}`}} sizes="(max-width: 760px) min(420px, 100vw), (max-width: 1180px) 360px, 480px" priority/>

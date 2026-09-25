@@ -31,3 +31,8 @@ export const person={'@type':'Person','@id':`${siteUrl}/#person`,name:profile.na
  alumniOf:[{'@type':'CollegeOrUniversity',name:'University of Northampton'},{'@type':'CollegeOrUniversity',name:'National Defence University, Islamabad'},{'@type':'CollegeOrUniversity',name:'Lahore College for Women University'}],
  address:{'@type':'PostalAddress',addressLocality:'Northampton',addressCountry:'GB'},
  ...(profile.email?{email:`mailto:${profile.email}`}:{}),sameAs:[profile.orcid,profile.linkedin].filter(Boolean)};
+// Page-level JSON-LD (AboutPage, CollectionPage, ContactPage…) tied to the Person above.
+export function pageLd(type:string,{path,name,description,...extra}:{path:string;name:string;description:string;[k:string]:unknown}){
+ return {'@context':'https://schema.org','@type':type,'@id':`${siteUrl}${path}#webpage`,url:`${siteUrl}${path}`,name,description,inLanguage:'en-GB',
+  isPartOf:{'@type':'WebSite',url:siteUrl,name:profile.name},...extra};
+}

@@ -10,7 +10,7 @@ const navLinks=(writing:boolean)=>[['About','/about'],['Research','/research'],[
 const isArticle=(path:string)=>/^\/writing\/[^/]+/.test(path);
 const themeColors={light:'#faf7f2',dark:'#0b0a12'};
 // Keep the browser UI colour (theme-color) in step with the chosen theme, not the OS setting.
-function applyTheme(theme:'light'|'dark'){document.documentElement.dataset.theme=theme;document.querySelector('meta[name="theme-color"]')?.setAttribute('content',themeColors[theme])}
+function applyTheme(theme:'light'|'dark'){document.documentElement.dataset.theme=theme;document.querySelectorAll('meta[name="theme-color"]').forEach(m=>m.setAttribute('content',themeColors[theme]))}
 
 // The mark: a small chip with "nz" on its die, pins above in trace, pins below live.
 export function ChipLogo({className='brand-chip'}:{className?:string}){

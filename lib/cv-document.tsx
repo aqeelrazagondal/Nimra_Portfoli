@@ -15,9 +15,10 @@ const styles=StyleSheet.create({
  role:{fontFamily:'Fraunces',fontStyle:'italic',fontSize:13,color:c.primary,marginTop:4,marginBottom:8},
  contact:{flexDirection:'row',flexWrap:'wrap',fontSize:8.5,lineHeight:1.45,color:c.muted},
  link:{color:c.muted,textDecoration:'none'},
- section:{fontSize:8,fontWeight:600,letterSpacing:1.6,textTransform:'uppercase',color:c.primary,marginTop:16,marginBottom:4},
+ // Plain headings (no letter spacing or forced capitals) so applicant-tracking systems read them as words.
+ section:{fontSize:10.5,fontWeight:600,color:c.primary,marginTop:16,marginBottom:4},
  entry:{flexDirection:'row',paddingTop:7},
- dates:{width:122,paddingRight:10,fontSize:8,lineHeight:1.45,color:c.muted,paddingTop:1.5},
+ dates:{width:100,paddingRight:10,fontSize:8,lineHeight:1.45,color:c.muted,paddingTop:1.5},
  body:{flex:1},
  title:{fontFamily:'Fraunces',fontWeight:600,fontSize:11,lineHeight:1.3,marginBottom:1},
  institution:{fontSize:8.5,lineHeight:1.45,fontWeight:500,color:c.accent,marginBottom:2},

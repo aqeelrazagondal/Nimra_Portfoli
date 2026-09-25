@@ -17,7 +17,7 @@ export const profileLinks=[
 ].filter(x=>x.href);
 export const education = [
  {code:'E3',title:'MA International Relations',institution:'University of Northampton',place:'United Kingdom',dates:'September 2023 – November 2024',short:'Sep 2023 – Nov 2024',result:'Merit',detail:'Awarded 27 November 2024. Dissertation: Deconstructing the Role of Afghanistan in Regional Security Complex Theory. 180 credits at Level 7, including a 60-credit Research Methods and Dissertation module.'},
- {code:'E2',title:'MPhil International Relations',institution:'National Defence University, Islamabad',place:'Pakistan',dates:'Spring 2016 – Fall 2017',short:'2016 – 2018',result:'CGPA 3.53 / 4.00',detail:'Conferred December 2018. Thesis on Russia–Afghanistan relations and their implications for regional stability (grade A, 86%). Coursework in advanced research methodology, international political economy and the foreign policies of great powers.'},
+ {code:'E2',title:'MPhil International Relations',institution:'National Defence University, Islamabad',place:'Pakistan',dates:'Spring 2016 – Fall 2017',short:'Spring 2016 – Fall 2017',result:'CGPA 3.53 / 4.00',detail:'Conferred December 2018. Thesis on Russia–Afghanistan relations and their implications for regional stability (grade A, 86%). Coursework in advanced research methodology, international political economy and the foreign policies of great powers.'},
  {code:'E1',title:'BS International Relations',institution:'Lahore College for Women University',place:'Lahore, Pakistan',dates:'2011 – 2015',short:'2011 – 2015',result:'CGPA 3.24 / 4.00',detail:'Four-year degree including research methodology, academic writing, conflict and conflict resolution, and international law; conferred May 2016.'},
 ];
 // Only confirmed module titles are listed; add the remaining three here when supplied.
@@ -71,7 +71,8 @@ export const projects:Project[] = [
   status:'Completed · MPhil conferred December 2018 · thesis grade A',
   question:'How do Russia–Afghanistan relations influence regional stability?',
   argument:'Russia’s relationship with Afghanistan cannot be separated from the security of the wider region, particularly Central Asia.',
-  method:'Analysis of Russia–Afghanistan relations within the wider regional security context.',
+  // Approach is hidden until Nimra supplies a concrete sentence on sources, period and method (LAUNCH.md).
+  method:'',
   abstract:[
    'Russia’s relationship with Afghanistan carries a long history, from the Soviet intervention of 1979–89 to Moscow’s renewed diplomatic engagement in the 2010s. For Russia, Afghanistan has been closely tied to the security of Central Asia and to concerns about militancy and narcotics crossing into the post-Soviet space.',
    'My MPhil thesis examines Russia–Afghanistan relations and considers their implications for regional stability. It treats the relationship not as a purely bilateral matter but as part of the security of the surrounding region.',
@@ -88,7 +89,7 @@ export const projects:Project[] = [
   status:'Presented June 2020 · Istanbul Sabahattin Zaim University',
   question:'How have Afghanistan and Turkey shaped regional security in the context of the Global War on Terror?',
   argument:'The Global War on Terror connected Afghanistan’s security to states well beyond its immediate neighbours, including Turkey.',
-  method:'Conference paper drawing on regional security analysis.',
+  method:'',
   abstract:[
    'The Global War on Terror placed Afghanistan at the centre of international security after 2001. Turkey, a NATO member with long-standing ties to Afghanistan, played a distinctive part in the international presence there.',
    'This paper, presented at the Istanbul International Social Science Conference in June 2020, considers the roles of Afghanistan and Turkey in regional security in the context of the Global War on Terror.',

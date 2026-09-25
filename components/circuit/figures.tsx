@@ -131,7 +131,7 @@ export function SignalTrace(){
   <path d="M170 254 H471 V218 H951 V254 H1008 V218 H1175" className="f-none s-live" strokeWidth="2" strokeLinejoin="round"/>
   <line x1="1072" y1="212" x2="1072" y2="224" className="s-hair" strokeWidth="3"/>
   <text x="711" y="241" textAnchor="middle" className="t-mono t-text">Beaconhouse · humanities</text>
-  <text x="1040" y="208" textAnchor="middle" className="t-mono t-2">Abbeyfield</text><text x="1126" y="208" textAnchor="middle" className="t-mono t-2">SEMH school</text>
+  <text x="1066" y="208" textAnchor="end" className="t-mono t-2">Abbeyfield</text><text x="1082" y="208" textAnchor="start" className="t-mono t-2">SEMH school</text>
   <polygon points="1175,230 1187,236 1175,242" className="f-live"/>
   <path d="M170 326 H612 V290 H624 V326 H769 V290 H781 V326 H1054 V290 H1066 V326 H1178" className="f-none s-gold" strokeWidth="2" strokeLinejoin="round"/>
   <text x="618" y="282" textAnchor="middle" className="t-mono t-2">MPhil thesis</text><text x="775" y="282" textAnchor="middle" className="t-mono t-2">Istanbul paper</text><text x="1060" y="282" textAnchor="middle" className="t-mono t-2">MA dissertation</text>
@@ -159,4 +159,27 @@ export function ChipGlyph(){
 }
 export function BranchGlyph(){
  return <svg viewBox="0 0 36 36" aria-hidden="true" className="s-live"><path d="M4 18h6M26 18h6M10 10v16M26 10v16M10 10h16M10 26h16"/><circle cx="18" cy="18" r="3"/></svg>;
+}
+
+// CV, phones: the same four lanes as a vertical timeline, newest first.
+const lanes={study:['Study','var(--lilac)'],university:['University teaching','var(--rose)'],schools:['School teaching','var(--current)'],research:['Research output','var(--gold)']} as const;
+const events:{when:string;lane:keyof typeof lanes;text:string}[]=[
+ {when:'Feb 2025 – now',lane:'schools',text:'Specialist SEMH school, Northamptonshire'},
+ {when:'Feb 2024 – Feb 2025',lane:'schools',text:'Abbeyfield School, Northampton'},
+ {when:'2024',lane:'research',text:'MA dissertation'},
+ {when:'Sep 2023 – Nov 2024',lane:'study',text:'MA International Relations, University of Northampton'},
+ {when:'June 2020',lane:'research',text:'Istanbul conference paper'},
+ {when:'Sep 2019 – Mar 2022',lane:'university',text:'Visiting faculty, University of Gujrat'},
+ {when:'2018',lane:'research',text:'MPhil thesis'},
+ {when:'Spring 2016 – Fall 2017',lane:'study',text:'MPhil International Relations, NDU Islamabad'},
+ {when:'Sep 2015 – Mar 2023',lane:'schools',text:'Beaconhouse School System'},
+ {when:'2011 – 2015',lane:'study',text:'BS International Relations, LCWU'},
+];
+export function SignalList(){
+ return <ol className="signal-list">{events.map(e=><li key={e.when+e.text}>
+  <i aria-hidden style={{background:lanes[e.lane][1]}}/>
+  <span className="mono">{e.when.toUpperCase()}</span>
+  <span className="sl-text">{e.text}</span>
+  <span className="sl-lane" style={{color:lanes[e.lane][1]}}>{lanes[e.lane][0]}</span>
+ </li>)}</ol>;
 }

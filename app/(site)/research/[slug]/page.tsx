@@ -41,12 +41,12 @@ export default async function Project({params}:{params:Promise<{slug:string}>}){
    <aside className="detail-aside" aria-label="About this project">
     <CvNav sections={sections} label="On this page" title="On this page" className="toc"/>
     <CitePanel citations={projectCitations(p)}/>
-    <dl className="spec"><span className="label label-muted">Specification</span>
+    <div className="spec"><span className="label label-muted">Specification</span><dl>
      <div><dt>Type</dt><dd>{p.type}</dd></div>
      {result[p.type]&&<div><dt>Result</dt><dd>{result[p.type]}</dd></div>}
      <div><dt>Institution</dt><dd>{p.institution}</dd></div>
      <div><dt>Year</dt><dd>{p.year}</dd></div>
-    </dl>
+    </dl></div>
    </aside>
   </div>
 

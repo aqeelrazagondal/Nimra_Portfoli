@@ -20,7 +20,7 @@ type Label={text:string;dot?:string;at?:'top-left'|'bottom-left'};
 export function Photo({name,corner,label,tag,ratio='4 / 5',sizes='(max-width: 760px) 100vw, 480px',priority=false,className=''}:
  {name:PhotoName;corner:keyof typeof corners;label?:Label;tag?:string;ratio?:string;sizes?:string;priority?:boolean;className?:string}){
  const p=photos[name];
- const img=(src:string,cls?:string)=><Image key={src} className={cls} src={src} alt={p.alt} fill sizes={sizes} priority={priority} style={{objectFit:'cover',objectPosition:p.position}}/>;
+ const img=(src:string,cls?:string)=><Image key={src} className={cls} src={src} alt={p.alt} fill sizes={sizes} {...(priority?{loading:'eager' as const,fetchPriority:'high' as const}:{})} style={{objectFit:'cover',objectPosition:p.position}}/>;
  return <div className={`photo-frame ${className}`} style={{aspectRatio:ratio,borderRadius:corners[corner]}}>
   {'pair' in p?<>{img(photoSrc(name,'dark'),'photo-dark')}{img(photoSrc(name,'light'),'photo-light')}</>:img(photoSrc(name))}
   {label?.at!=='top-left'&&label&&<span className="photo-fade" aria-hidden/>}

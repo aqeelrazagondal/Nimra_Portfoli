@@ -7,8 +7,8 @@ import {siteUrl,indexable,pageMetadata,homeDescription,defaultTitle} from '@/lib
 const display=Fraunces({subsets:['latin'],variable:'--font-display',display:'swap',style:['normal','italic']});
 const body=Geist({subsets:['latin'],variable:'--font-body',display:'swap'});
 const mono=Geist_Mono({subsets:['latin'],variable:'--font-mono',display:'swap'});
-// Long-form only (About, research, articles): not preloaded, so it never competes with the hero.
-const reading=Newsreader({subsets:['latin'],variable:'--font-reading',display:'swap',style:['normal','italic'],preload:false});
+// Long-form only (About, research, articles): one static weight (the only one used), not preloaded, so it never competes with the hero.
+const reading=Newsreader({subsets:['latin'],weight:'400',variable:'--font-reading',display:'swap',style:['normal','italic'],preload:false});
 export const metadata:Metadata={...pageMetadata({description:homeDescription,path:'/'}),metadataBase:new URL(siteUrl),title:{default:defaultTitle,template:`%s | ${profile.name}`},authors:[{name:profile.name}],creator:profile.name,robots:indexable?{index:true,follow:true}:{index:false,follow:false}};
 // Light is the default whatever the OS setting; components/shell.tsx updates this when the reader switches theme.
 export const viewport:Viewport={themeColor:'#faf7f2'};

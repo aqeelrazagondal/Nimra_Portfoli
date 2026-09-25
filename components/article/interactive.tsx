@@ -21,7 +21,7 @@ export function ZoomImage({src,alt,width,height,sizes,priority}:{src:string;alt:
  const dialog=useRef<HTMLDialogElement>(null);
  return <>
   <button type="button" className="zoom" onClick={()=>dialog.current?.showModal()} aria-label={`Enlarge image: ${alt}`}>
-   <Image src={src} alt={alt} width={width} height={height} sizes={sizes} priority={priority}/><span className="zoom-hint" aria-hidden><Maximize2 size={16}/></span>
+   <Image src={src} alt={alt} width={width} height={height} sizes={sizes} {...(priority?{loading:'eager' as const,fetchPriority:'high' as const}:{})}/><span className="zoom-hint" aria-hidden><Maximize2 size={16}/></span>
   </button>
   <dialog ref={dialog} className="lightbox" onClick={()=>dialog.current?.close()} aria-label={alt}>
    <Image src={src} alt={alt} width={width} height={height} sizes="100vw"/>

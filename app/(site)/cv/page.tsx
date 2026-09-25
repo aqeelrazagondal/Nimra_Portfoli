@@ -1,8 +1,10 @@
 import {cvSections,education,profile,projects,teaching} from '@/content/profile';
 import {SignalTrace,SignalList} from '@/components/circuit/figures';
-import {pageMetadata} from '@/lib/site';
+import {jsonLd,pageLd,pageMetadata,person} from '@/lib/site';
 import {CvNav} from '@/components/cv-nav';
-export const metadata=pageMetadata({title:'Academic CV',description:'Academic CV of Nimra Zahid: MA and MPhil in International Relations, research on Afghanistan and regional security, and over ten years of teaching in Pakistan and England.',path:'/cv'});
+const description='Academic CV of Nimra Zahid: MA and MPhil in International Relations, research on Afghanistan and regional security, and over ten years of teaching in Pakistan and England.';
+export const metadata=pageMetadata({title:'Academic CV',description,path:'/cv'});
+const ld=pageLd('ProfilePage',{path:'/cv',name:`Academic CV | ${profile.name}`,description,mainEntity:person});
 
 const updated=new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(profile.updated));
 const entries=(id:string)=>cvSections.find(s=>s.id===id)?.entries??[];
@@ -14,6 +16,7 @@ const sections=[['education','Education','E'],['research','Research & presentati
 export default function CV(){
  const service=entries('service')[0],training=entries('training')[0],skills=entries('skills');
  return <>
+  <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(ld)}/>
   <section className="wrap cv-head">
    <div className="stack">
     <span className="label">U5 · Curriculum vitae · wiring diagram</span>

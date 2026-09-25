@@ -1,9 +1,11 @@
 import Link from 'next/link';
-import {futureDirections,projects,researchInterests,testimonials} from '@/content/profile';
+import {futureDirections,projects,researchInterests,testimonials,profile} from '@/content/profile';
 import {Testimonial} from '@/components/testimonial';
 import {ReadingsFigure} from '@/components/circuit/figures';
-import {pageMetadata} from '@/lib/site';
-export const metadata=pageMetadata({title:'Research',description:'Research by Nimra Zahid on Afghanistan and Regional Security Complex Theory: an MA dissertation, an MPhil thesis on Russia–Afghanistan relations and a conference paper on Turkey and the Global War on Terror.',path:'/research'});
+import {jsonLd,pageLd,pageMetadata,person,siteUrl} from '@/lib/site';
+const description='Research by Nimra Zahid on Afghanistan and Regional Security Complex Theory: an MA dissertation, an MPhil thesis on Russia–Afghanistan relations and a conference paper on Turkey and the Global War on Terror.';
+export const metadata=pageMetadata({title:'Research',description,path:'/research'});
+const ld=pageLd('CollectionPage',{path:'/research',name:`Research | ${profile.name}`,description,about:person,mainEntity:{'@type':'ItemList',itemListElement:[...projects].sort((a,b)=>b.year-a.year).map((p,i)=>({'@type':'ListItem',position:i+1,item:{'@type':p.kind,'@id':`${siteUrl}/research/${p.slug}`,url:`${siteUrl}/research/${p.slug}`,name:p.title,dateCreated:String(p.year),author:{'@id':person['@id']}}}))}});
 
 // Output rows as in the research design (no grades).
 const outputMeta:Record<string,{kind:string;chip?:string;line:string;title?:string;text:string;accent?:boolean}>={
@@ -15,6 +17,7 @@ const outputMeta:Record<string,{kind:string;chip?:string;line:string;title?:stri
 export default function Research(){
  const outputs=[...projects].sort((a,b)=>b.year-a.year);
  return <>
+  <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(ld)}/>
   <section className="wrap page-hero">
    <span className="label">U3 · Research · Regional security</span>
    <h1 className="h-page">Rethinking Afghanistan’s <em>regional role.</em></h1>

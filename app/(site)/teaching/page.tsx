@@ -1,15 +1,18 @@
 import Link from 'next/link';
-import {teaching,testimonials,universityModules} from '@/content/profile';
+import {teaching,testimonials,universityModules,profile} from '@/content/profile';
 import {Testimonial} from '@/components/testimonial';
 import {ParallelCircuit} from '@/components/circuit/figures';
-import {pageMetadata} from '@/lib/site';
+import {jsonLd,pageLd,pageMetadata,person} from '@/lib/site';
 import {Photo} from '@/components/photo';
-export const metadata=pageMetadata({title:'Teaching',description:'Nimra Zahid’s teaching: over ten years across Pakistan and England, from undergraduate International Relations at the University of Gujrat to specialist SEMH provision in Northamptonshire.',path:'/teaching'});
+const description='Nimra Zahid’s teaching: over ten years across Pakistan and England, from undergraduate International Relations at the University of Gujrat to specialist SEMH provision in Northamptonshire.';
+export const metadata=pageMetadata({title:'Teaching',description,path:'/teaching'});
+const ld=pageLd('WebPage',{path:'/teaching',name:`Teaching | ${profile.name}`,description,about:person});
 
 const specialisms=['KS3–4 Geography & History','Adapting learning for SEMH needs','Curriculum & resource design','Exam preparation','Progress monitoring','Parent communication','Work with SENCO & pastoral teams','Research-methods teaching'];
 
 export default function Teaching(){
  return <>
+  <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(ld)}/>
   <section className="wrap teach-hero">
    <div className="stack" style={{gap:28}}>
     <span className="label label-live">U4 · Teaching · Inclusion &amp; practice</span>

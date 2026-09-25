@@ -7,8 +7,8 @@ Editorial notes live here, never in rendered pages.
 - [x] MPhil dates: 2016 – 2018 everywhere (web and PDF).
 - [ ] Confirm the About methods list (now: qualitative case study, theory-driven analysis (RSCT), practitioner reflection, SPSS, research ethics · NIH training).
 - [x] Research page “Future directions” rewritten from her research proposal (concepts and questions only; criteria, evidence and design stay unpublished).
-- [x] Email: the Gmail address stays for now (decision, Sep 2026).
-- [ ] ORCID iD.
+- [x] Email: the site shows hello@nimrazahid.com (Cloudflare Email Routing; hello@ and contact@ forward to her inbox). If `NEXT_PUBLIC_CONTACT_EMAIL` is set in Vercel, it must be hello@nimrazahid.com or empty. To reply from hello@, set up Gmail “Send mail as”.
+- [ ] ORCID iD (none yet; it appears on Contact, the footer, the CV and the Person data once `NEXT_PUBLIC_ORCID_URL` is set). No X/Twitter account, so no twitter:site tags.
 
 - [ ] Confirmed formal MPhil thesis title ("Counter" vs "Contours" in the transcript). The site uses the descriptive title *Russia–Afghanistan relations and regional stability*.
 - [ ] Exact Istanbul conference paper title and original abstract (from proceedings or certificate). The site uses a descriptive title.
@@ -29,6 +29,10 @@ Editorial notes live here, never in rendered pages.
 - [ ] One concrete “Approach” sentence (sources, period, method) for the MPhil thesis and the Istanbul paper (`method` in `content/profile.ts`). The section is hidden on those pages until then.
 
 ## Configuration
+
+- [ ] Enable **Web Analytics** and **Speed Insights** for the project in the Vercel dashboard (the code is in `app/(site)/layout.tsx`).
+- [x] Security headers (CSP, HSTS, X-Frame-Options, Referrer-Policy, Permissions-Policy) are set in `next.config.ts`. If a new third-party service is added (analytics, embeds, forms), add its domain to the CSP there.
+- [x] First-time visitors get the theme matching their device setting; a saved choice wins.
 
 - [ ] Set `SITE_URL` to the custom domain once it is connected (canonical URLs, OG URLs, sitemap, robots.txt, JSON-LD and the CV PDF all follow it).
 - [ ] Verify the sending domain in Resend and set `RESEND_API_KEY`, `CONTACT_TO_EMAIL` and `CONTACT_FROM_EMAIL`.

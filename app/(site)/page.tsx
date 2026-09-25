@@ -83,7 +83,7 @@ export default async function Home(){
      <span className="mono muted">DOCTORAL RESEARCH · PLANNED</span>
      <h3 className="h-item">Testing the instigator thesis</h3>
      <p>Taking the argument into a doctoral project on Afghanistan and regional security.</p>
-     <Link href="/contact" className="project-link">Discuss supervision →</Link>
+     <Link href="/contact" className="project-link">Discuss doctoral opportunities →</Link>
     </div>
    </div>
   </section>

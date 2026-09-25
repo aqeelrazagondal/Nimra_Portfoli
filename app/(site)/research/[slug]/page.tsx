@@ -7,7 +7,10 @@ import {CvNav} from '@/components/cv-nav';
 import {projectCitations} from '@/lib/cite';
 import {pageMetadata,jsonLd,person,siteUrl} from '@/lib/site';
 export function generateStaticParams(){return projects.map(p=>({slug:p.slug}))}
-export async function generateMetadata({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const p=projects.find(x=>x.slug===slug);if(!p)notFound();const meta=pageMetadata({title:p.shortTitle,description:p.description,path:`/research/${p.slug}`,siteImage:false});return {...meta,openGraph:{...meta.openGraph,type:'article'}}}
+export async function generateMetadata({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const p=projects.find(x=>x.slug===slug);if(!p)notFound();const meta=pageMetadata({title:p.shortTitle,description:p.description,path:`/research/${p.slug}`,siteImage:false});// Google Scholar reads these citation_* tags (Highwire Press format).
+ const scholar:Record<string,string>={citation_title:p.title,citation_author:'Zahid, Nimra',citation_publication_date:String(p.year),
+  ...(p.kind==='Thesis'?{citation_dissertation_institution:p.institution}:{citation_conference_title:p.institution})};
+ return {...meta,openGraph:{...meta.openGraph,type:'article'},other:scholar}}
 
 const result:Record<string,string>={'Conference paper':'Presented'};
 

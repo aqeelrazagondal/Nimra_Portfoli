@@ -4,7 +4,7 @@ import {Portrait,PhotoGallery} from '@/components/portrait';
 import {RouteTrace} from '@/components/circuit/figures';
 import {getProfileMedia,showPhotoHints} from '@/lib/profile-media';
 import {pageMetadata} from '@/lib/site';
-export const metadata=pageMetadata({title:'About',description:'About Nimra Zahid: an International Relations researcher and educator whose path runs from Lahore and Islamabad to an MA with Merit at the University of Northampton and teaching in England.',path:'/about'});
+export const metadata=pageMetadata({title:'About',description:'About Nimra Zahid: an International Relations researcher and educator whose path runs from Lahore and Islamabad to an MA at the University of Northampton and teaching in England.',path:'/about'});
 
 // The route so far: five places, one line of inquiry.
 const route=[
@@ -12,7 +12,7 @@ const route=[
  {when:'2015 – 2023',place:'Mandi Bahauddin',text:'Secondary teaching at Beaconhouse; visiting faculty in IR at the University of Gujrat, 2019–22.'},
  {when:'2016 – 2017',place:'Islamabad',text:'MPhil International Relations, National Defence University (conferred 2018).'},
  {when:'June 2020',place:'Istanbul',text:'Conference paper on Afghanistan, Turkey and the Global War on Terror.'},
- {when:'2023 – now',place:'Northampton',text:'MA International Relations (Merit); teaching in Northamptonshire schools.',now:true},
+ {when:'2023 – now',place:'Northampton',text:'MA International Relations; teaching in Northamptonshire schools.',now:true},
 ];
 const principles=[
  ['P1','Accessible knowledge','I aim to connect rigorous ideas with clear explanation, in research and in the classroom.'],
@@ -34,7 +34,7 @@ export default async function About(){
     <h1 className="h-page">A researcher’s curiosity. <em>An educator’s perspective.</em></h1>
     <div className="reading">
      <p>My academic and teaching journey connects Lahore, Mandi Bahauddin, Islamabad and Northampton. Across those places, International Relations has given me a way to examine how regions connect, while teaching has kept my attention on how people learn to understand those connections.</p>
-     <p>I studied International Relations at Lahore College for Women University and the National Defence University in Islamabad, before completing an MA with Merit at the University of Northampton in 2024.</p>
+     <p>I studied International Relations at Lahore College for Women University and the National Defence University in Islamabad, before completing an MA at the University of Northampton in 2024.</p>
      <p>Alongside that research, I have taught Humanities and Social Studies in Pakistan, lectured in undergraduate International Relations, and taught Geography, History and Science in England. I now teach in specialist SEMH education in Northamptonshire.</p>
      <p>My research and teaching share a concern with context: how relationships shape what we see, what we learn and what becomes possible.</p>
     </div>
@@ -52,7 +52,7 @@ export default async function About(){
   <section className="wrap section split" aria-labelledby="record-title">
    <div className="split-head"><span className="label">J2 · Academic record</span><h2 id="record-title" className="h-section" style={{fontSize:'clamp(1.9rem,3vw,2.75rem)'}}>Three degrees in International Relations.</h2><Link href="/cv" className="link-arrow">Full CV <span aria-hidden>→</span></Link></div>
    <div className="rule-list">
-    {education.map(e=><div key={e.title} className="record-row"><span className="mono muted">{e.short}</span><span className="stack" style={{gap:6}}><span className="h-item">{e.title}</span><span className="text-2" style={{fontSize:15}}>{e.institution}</span></span><span className="chip-result">{e.result.toUpperCase()}</span></div>)}
+    {education.map(e=><div key={e.title} className="record-row"><span className="mono muted">{e.short}</span><span className="stack" style={{gap:6}}><span className="h-item">{e.title}</span><span className="text-2" style={{fontSize:15}}>{e.institution}</span></span></div>)}
    </div>
   </section>
 

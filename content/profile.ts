@@ -17,9 +17,9 @@ export const profileLinks=[
  {label:'LinkedIn',href:profile.linkedin,text:'LinkedIn'},
 ].filter(x=>x.href);
 export const education = [
- {code:'E3',title:'MA International Relations',institution:'University of Northampton',place:'United Kingdom',dates:'September 2023 – November 2024',short:'Sep 2023 – Nov 2024',result:'Merit',detail:'Awarded 27 November 2024. Dissertation: Deconstructing the Role of Afghanistan in Regional Security Complex Theory. 180 credits at Level 7, including a 60-credit Research Methods and Dissertation module.'},
- {code:'E2',title:'MPhil International Relations',institution:'National Defence University, Islamabad',place:'Pakistan',dates:'Spring 2016 – Fall 2017',short:'Spring 2016 – Fall 2017',result:'CGPA 3.53 / 4.00',detail:'Conferred December 2018. Thesis on Russia–Afghanistan relations and their implications for regional stability (grade A, 86%). Coursework in advanced research methodology, international political economy and the foreign policies of great powers.'},
- {code:'E1',title:'BS International Relations',institution:'Lahore College for Women University',place:'Lahore, Pakistan',dates:'2011 – 2015',short:'2011 – 2015',result:'CGPA 3.24 / 4.00',detail:'Four-year degree including research methodology, academic writing, conflict and conflict resolution, and international law; conferred May 2016.'},
+ {code:'E3',title:'MA International Relations',institution:'University of Northampton',place:'United Kingdom',dates:'September 2023 – November 2024',short:'Sep 2023 – Nov 2024',detail:'Awarded 27 November 2024. Dissertation: Deconstructing the Role of Afghanistan in Regional Security Complex Theory. 180 credits at Level 7, including a 60-credit Research Methods and Dissertation module.'},
+ {code:'E2',title:'MPhil International Relations',institution:'National Defence University, Islamabad',place:'Pakistan',dates:'Spring 2016 – Fall 2017',short:'Spring 2016 – Fall 2017',detail:'Conferred December 2018. Thesis on Russia–Afghanistan relations and their implications for regional stability. Coursework in advanced research methodology, international political economy and the foreign policies of great powers.'},
+ {code:'E1',title:'BS International Relations',institution:'Lahore College for Women University',place:'Lahore, Pakistan',dates:'2011 – 2015',short:'2011 – 2015',detail:'Four-year degree including research methodology, academic writing, conflict and conflict resolution, and international law; conferred May 2016.'},
 ];
 // Only confirmed module titles are listed; add the remaining three here when supplied.
 export const universityModules=['International Relations','Foreign Policy Analysis','Research Methodology'];
@@ -47,7 +47,7 @@ export const projects:Project[] = [
   teaser:'Why Afghanistan drives regional security rather than buffering it.',
   summary:'I examine Afghanistan as a driver of regional security dynamics, rather than a buffer between neighbouring security complexes.',
   description:'MA dissertation (Northampton, 2024) re-examining Afghanistan’s classification as an “insulator” in Regional Security Complex Theory and arguing for its role as an “instigator”.',
-  status:'Completed 2024 · MA awarded with Merit',
+  status:'Completed 2024',
   question:'How does Afghanistan shape the security relationships of the regions around it?',
   argument:'Regional Security Complex Theory classifies Afghanistan as an “insulator”. I argue that it is better understood as an “instigator” of regional security dynamics.',
   method:'Theory-driven analysis, testing the categories of Regional Security Complex Theory (RSCT) against Afghanistan’s place in the security of South Asia, Central Asia and the Gulf.',
@@ -69,7 +69,7 @@ export const projects:Project[] = [
   teaser:'How a great power’s relationship with Afghanistan affects regional stability.',
   summary:'I explore Russia–Afghanistan relations and their implications for regional stability, establishing the foundation for my continuing regional security research.',
   description:'MPhil thesis (National Defence University, Islamabad, 2018) on Russia–Afghanistan relations and their implications for regional stability in South and Central Asia.',
-  status:'Completed · MPhil conferred December 2018 · thesis grade A',
+  status:'Completed · MPhil conferred December 2018',
   question:'How do Russia–Afghanistan relations influence regional stability?',
   argument:'Russia’s relationship with Afghanistan cannot be separated from the security of the wider region, particularly Central Asia.',
   // Approach is hidden until Nimra supplies a concrete sentence on sources, period and method (LAUNCH.md).
@@ -102,7 +102,7 @@ export const projects:Project[] = [
   related:['afghanistan-regional-security','russia-afghanistan-relations']},
 ];
 export const cvSections = [
- {id:'education',title:'Education',entries:education.map(x=>({title:x.title,subtitle:x.institution,dates:x.dates,detail:`${x.result}. ${x.detail}`}))},
+ {id:'education',title:'Education',entries:education.map(x=>({title:x.title,subtitle:x.institution,dates:x.dates,detail:x.detail}))},
  {id:'research',title:'Research',entries:projects.filter(x=>x.kind==='Thesis').map(x=>({title:x.title,subtitle:x.institution,dates:String(x.year),detail:x.summary}))},
  {id:'conferences',title:'Conference presentations',entries:[{title:'Istanbul International Social Science Conference',subtitle:'Istanbul Sabahattin Zaim University, Istanbul, Turkey',dates:'June 2020',detail:'Paper on the Global War on Terror and the roles of Afghanistan and Turkey in regional security.'}]},
  {id:'teaching',title:'Teaching experience',entries:teaching.map(x=>({title:x.title,subtitle:x.institution,dates:x.dates,detail:x.detail}))},

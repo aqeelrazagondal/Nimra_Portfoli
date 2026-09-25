@@ -20,7 +20,7 @@ export default function CV(){
     <p className="lead">International Relations researcher &amp; educator</p>
     <p className="meta">{[profile.location.toUpperCase(),profile.email,`LAST UPDATED ${updated.toUpperCase()}`].filter(Boolean).join(' · ')}</p>
    </div>
-   <a href="/cv.pdf" className="btn no-print" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Download PDF CV</a>
+   <a href="/cv.pdf" className="btn no-print" download target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Download PDF CV</a>
   </section>
 
   <section className="wrap section-tight" aria-labelledby="trace-title">
@@ -39,7 +39,7 @@ export default function CV(){
    <div>
     <section id="education" className="cv-section"><h2><span className="mono">E</span>Education</h2>
      {education.map(e=><article key={e.title} className="cv-entry"><div className="cv-when"><span className="mono">{e.short.toUpperCase()}</span><span className="mono muted">{e.code}</span></div>
-      <div className="cv-body"><h3 className="cv-title">{e.title} <span className="chip-result">{e.result.replace(' / 4.00','').toUpperCase()}</span></h3><span className="inst">{e.institution}, {e.place}</span><p>{e.detail}</p></div></article>)}
+      <div className="cv-body"><h3 className="cv-title">{e.title}</h3><span className="inst">{e.institution}, {e.place}</span><p>{e.detail}</p></div></article>)}
     </section>
     <section id="research" className="cv-section"><h2><span className="mono">R</span>Research &amp; presentations</h2>
      {researchRows.map(r=><article key={r.title} className="cv-entry"><div className="cv-when"><span className="mono">{r.when.toUpperCase()}</span><span className="mono muted">{r.code.toUpperCase()}</span></div><div className="cv-body"><h3 className="cv-title">{r.title}</h3><span className="inst">{r.sub}</span></div></article>)}

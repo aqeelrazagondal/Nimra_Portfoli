@@ -25,10 +25,10 @@ export function HeroBoard({children}:{children:React.ReactNode}){
    <div className="reading-switch">
     <span className="label label-muted" id="read-as">Read Afghanistan as</span>
     <div className="segmented" role="group" aria-labelledby="read-as">
-     <button type="button" aria-pressed={!inst} onClick={()=>setMode('insulator')}><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 8h4M11 8h4M6 3v10M10 3v10"/></svg>Insulator</button>
-     <button type="button" aria-pressed={inst} onClick={()=>setMode('instigator')}><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 8h14M11 4l4 4-4 4"/></svg>Instigator</button>
+     <button type="button" aria-pressed={!inst} aria-controls="reading-caption" onClick={()=>setMode('insulator')}><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 8h4M11 8h4M6 3v10M10 3v10"/></svg>Insulator</button>
+     <button type="button" aria-pressed={inst} aria-controls="reading-caption" onClick={()=>setMode('instigator')}><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 8h14M11 4l4 4-4 4"/></svg>Instigator</button>
     </div>
-    <p className="switch-caption" aria-live="polite">{caption[mode]}</p>
+    <p id="reading-caption" className="switch-caption" aria-live="polite">{caption[mode]}</p>
    </div>
   </div>
   <figure className="board-fig" style={{margin:0}}>

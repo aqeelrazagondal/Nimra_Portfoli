@@ -37,7 +37,7 @@ export function Embed({url,title}:{url:string;title:string}){
  const host=(()=>{try{return new URL(url).hostname.replace(/^www\./,'')}catch{return url}})();
  if(yt)return <figure className="embed wide">{on?<iframe src={`https://www.youtube-nocookie.com/embed/${encodeURIComponent(yt)}?autoplay=1`} title={title} allow="autoplay; encrypted-media; picture-in-picture" allowFullScreen/>:
   <button type="button" className="embed-placeholder" onClick={()=>setOn(true)}><Play size={28}/><span>{title}</span><small>Play video. This loads content from YouTube.</small></button>}<figcaption>{title}</figcaption></figure>;
- return <a className="embed-link" href={url} target="_blank" rel="noopener"><span className="mono">{host}</span><strong>{title}</strong><span>View on {host} ↗</span></a>;
+ return <a className="embed-link" href={url} target="_blank" rel="noopener noreferrer"><span className="mono">{host}</span><strong>{title}</strong><span>View on {host} ↗</span></a>;
 }
 
 // Thin progress bar plus an auto-hiding header while reading.
@@ -82,12 +82,12 @@ export function ShareBar({url,title,citations,variant}:{url:string;title:string;
   {copyLink}{cite}<span role="status" className="sr-only">{copied&&'Link copied'}</span></div>;
  if(variant==='compact')return <div className="share-row" role="group" aria-label="Share this article">
   {canShare?<button type="button" className="share-button" aria-label="Share" onClick={()=>navigator.share({title,url}).catch(()=>{})}><Share2 size={16}/></button>
-   :<a className="share-button" aria-label="Share on LinkedIn" href={links[0][1]} target="_blank" rel="noopener"><Share2 size={16}/></a>}
+   :<a className="share-button" aria-label="Share on LinkedIn" href={links[0][1]} target="_blank" rel="noopener noreferrer"><Share2 size={16}/></a>}
   <button type="button" className="share-button" aria-label={copied?'Link copied':'Copy link'} onClick={async()=>{if(await copy(url))setCopied('link')}}>{copied?<Check size={16}/>:<Link2 size={16}/>}</button>
   {citations&&<CiteButton citations={citations} className="share-button text-mono" compact/>}
   <span role="status" className="sr-only">{copied&&'Link copied'}</span></div>;
  return <div className="share-row" role="group" aria-label="Share this article">
-  {links.map(([label,href])=><a key={label} className="share-button" href={href} target="_blank" rel="noopener">{label==='WhatsApp'?<MessageCircle size={16}/>:<Share2 size={16}/>}<span>{label}</span></a>)}
+  {links.map(([label,href])=><a key={label} className="share-button" href={href} target="_blank" rel="noopener noreferrer">{label==='WhatsApp'?<MessageCircle size={16}/>:<Share2 size={16}/>}<span>{label}</span></a>)}
   <a className="share-button" href={`mailto:?subject=${e(title)}&body=${e(url)}`}><Mail size={16}/><span>Email</span></a>
   {copyLink}{cite}<span role="status" className="sr-only">{copied&&'Link copied'}</span></div>;
 }

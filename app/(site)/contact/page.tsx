@@ -17,7 +17,7 @@ export default function Contact(){
     <div className="contact-facts">
      {email&&<div><span className="label label-muted">Email</span><a href={email.href}>{email.text}</a></div>}
      <div><span className="label label-muted">Based in</span><span style={{fontSize:18}}>{profile.location.replace('UK','United Kingdom')}</span></div>
-     {elsewhere.length>0&&<div><span className="label label-muted">Elsewhere</span><div className="profile-links">{elsewhere.map(x=><a key={x.label} href={x.href} rel="me noopener" target="_blank"><i aria-hidden/>{x.text}</a>)}</div></div>}
+     {elsewhere.length>0&&<div><span className="label label-muted">Elsewhere</span><div className="profile-links">{elsewhere.map(x=><a key={x.label} href={x.href} rel="me noopener noreferrer" target="_blank"><i aria-hidden/>{x.text}</a>)}</div></div>}
     </div>
     <Link href="/cv" className="link-arrow">Prefer to read first? View my CV <span aria-hidden>→</span></Link>
    </div>

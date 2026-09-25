@@ -10,7 +10,7 @@ import {jsonLd,person,siteUrl} from '@/lib/site';
 const Arrow=()=><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>;
 const byYear=[...projects].sort((a,b)=>a.year-b.year);
 const signal=[...byYear.map((p,i)=>({x:141+i*306,label:String(p.year),done:true})),{x:141+byYear.length*306,label:'NEXT',done:false}];
-const cardLabel:Record<string,string>={'MA dissertation':'MA dissertation · Merit','MPhil thesis':'MPhil thesis · NDU Islamabad','Conference paper':'Conference paper · Istanbul'};
+const cardLabel:Record<string,string>={'MA dissertation':'MA dissertation · Northampton','MPhil thesis':'MPhil thesis · NDU Islamabad','Conference paper':'Conference paper · Istanbul'};
 
 export default async function Home(){
  const [{portrait},articles]=await Promise.all([getProfileMedia(),getArticles()]);
@@ -18,21 +18,22 @@ export default async function Home(){
  const latest=articles.slice(0,3);
  return <>
   <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(profilePage)}/>
-  <div className="home-spine" aria-hidden="true"/>
 
   <HeroBoard>
    <div className="hero-kicker"><span className="node-dot pulse" aria-hidden/><span className="label">U1 · International Relations × Education</span></div>
-   <h1 className="display">They called it an insulator.<br/> <em>I{"\u00a0"}study the current.</em></h1>
-   <p className="hero-intro">I’m <strong>Nimra Zahid</strong>, an International Relations researcher and educator. My research asks what changes when Afghanistan is read not as a buffer between regions, but as a driver of their security.</p>
-   <p className="meta">MA IR (Merit) · MPhil IR · Educator since 2015 · {profile.location}</p>
-   <div className="btn-row"><Link href="/research" className="btn">Follow the current <Arrow/></Link><a href="/cv.pdf" className="btn-ghost">Download CV</a></div>
+   <h1 className="hero-identity">Nimra Zahid - International Relations Researcher &amp; Educator</h1>
+   <h2 className="display">They called it an insulator.<br/> <em>I{"\u00a0"}study the current.</em></h2>
+   <p className="hero-intro">My research asks what changes when Afghanistan is read not as a buffer between regions, but as a driver of their security.</p>
+   <p className="meta">MA IR · MPhil IR · Educator since 2015 · {profile.location}</p>
+   <div className="btn-row"><Link href="/research" className="btn">Follow the current <Arrow/></Link><a href="/cv.pdf" className="btn-ghost" target="_blank" rel="noopener noreferrer">Download CV</a></div>
   </HeroBoard>
+  <div className="home-spine" aria-hidden="true"/>
 
   <section className="wrap" aria-label="At a glance">
-   <div className="readouts">
+   <dl className="readouts">
     {[['10+','years in education'],['2','countries taught in'],['3','degrees in International Relations'],['6','undergraduate modules taught']].map(([n,l],i)=>
-     <div key={l} className="readout"><span className="label label-muted">Readout {String(i+1).padStart(2,'0')}</span><strong>{n}</strong><span>{l}</span></div>)}
-   </div>
+     <div key={l} className="readout"><dt className="label label-muted">Readout {String(i+1).padStart(2,'0')}</dt><dd><strong>{n}</strong><span>{l}</span></dd></div>)}
+   </dl>
   </section>
 
   <section className="wrap section" aria-labelledby="strands-title">

@@ -180,3 +180,11 @@ html[data-reading][data-header-hidden] .header{transform:translateY(-100%)}
 .photo-grid img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:12px}
 .gallery-slot{border-radius:16px;padding:40px 28px;text-align:center;color:var(--secondary);font-size:15px;max-width:640px}
 @media(max-width:760px){.hero-person{gap:14px}.hero-avatar{width:72px;height:72px;font-size:28px}}
+/* ── Web Interface Guidelines pass ── */
+h1,h2,h3{text-wrap:balance}
+p,li,dd{text-wrap:pretty}
+a,button,input,select,textarea,summary,label{touch-action:manipulation}
+.nav.open,.lightbox,.cite-dialog{overscroll-behavior:contain}
+.tag-filter button:hover{border-color:var(--primary);color:var(--text)}
+.tag-filter button[aria-pressed=true]:hover{color:var(--button-text)}
+@media(max-width:760px){html:has(.share-dock){scroll-padding-bottom:96px}}

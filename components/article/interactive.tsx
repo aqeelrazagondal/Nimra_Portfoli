@@ -58,11 +58,11 @@ function useCopied(){const [copied,setCopied]=useState('');useEffect(()=>{if(!co
 async function copy(text:string){try{await navigator.clipboard.writeText(text);return true}catch{return false}}
 
 export function CiteButton({citations,className='share-button'}:{citations:{style:string;text:string}[];className?:string}){
- const dialog=useRef<HTMLDialogElement>(null);const [copied,setCopied]=useCopied();
+ const dialog=useRef<HTMLDialogElement>(null);const titleId=useId();const [copied,setCopied]=useCopied();
  return <>
   <button type="button" className={className} onClick={()=>dialog.current?.showModal()}><Quote size={16}/><span>Cite</span></button>
-  <dialog ref={dialog} className="cite-dialog" aria-labelledby="cite-title" onClick={e=>{if(e.target===dialog.current)dialog.current.close()}}>
-   <div className="cite-head"><h2 id="cite-title">Cite this article</h2><button type="button" className="icon-button" aria-label="Close" onClick={()=>dialog.current?.close()}><X/></button></div>
+  <dialog ref={dialog} className="cite-dialog" aria-labelledby={titleId} onClick={e=>{if(e.target===dialog.current)dialog.current.close()}}>
+   <div className="cite-head"><h2 id={titleId}>Cite this article</h2><button type="button" className="icon-button" aria-label="Close" onClick={()=>dialog.current?.close()}><X/></button></div>
    {citations.map(c=><div key={c.style} className="cite-row"><p className="mono">{c.style}</p><p className="cite-text">{c.text}</p><button type="button" className="text-link" onClick={async()=>{if(await copy(c.text))setCopied(c.style)}}>{copied===c.style?<><Check size={16}/> Copied</>:'Copy'}</button></div>)}
    <p role="status" className="sr-only">{copied&&`${copied} citation copied`}</p>
   </dialog>

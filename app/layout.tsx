@@ -6,7 +6,8 @@ const display=Fraunces({subsets:['latin'],variable:'--font-display',display:'swa
 const body=Inter({subsets:['latin'],variable:'--font-body',display:'swap'});
 const reading=Newsreader({subsets:['latin'],variable:'--font-reading',display:'swap'});
 export const metadata:Metadata={...pageMetadata({description:profile.description,path:'/'}),metadataBase:new URL(siteUrl),title:{default:`${profile.name} | Researcher & Educator`,template:`%s | ${profile.name}`},authors:[{name:profile.name}],creator:profile.name,robots:indexable?{index:true,follow:true}:{index:false,follow:false}};
-export const viewport:Viewport={themeColor:[{media:'(prefers-color-scheme: dark)',color:'#0e0a18'},{media:'(prefers-color-scheme: light)',color:'#faf7f2'}]};
+// Dark is the default whatever the OS setting; components/shell.tsx updates this when the reader switches theme.
+export const viewport:Viewport={themeColor:'#0e0a18'};
 // Dark is the brand default; an explicit choice is remembered and applied on every page.
 const themeScript=`try{document.documentElement.dataset.theme=localStorage.getItem('theme')==='light'?'light':'dark'}catch{document.documentElement.dataset.theme='dark'}`;
 // Site chrome and styles live in app/(site)/layout.tsx so the /keystatic admin is unstyled by them.

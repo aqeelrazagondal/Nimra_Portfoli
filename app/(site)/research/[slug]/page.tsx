@@ -3,7 +3,7 @@ import Link from 'next/link';
 import {projects} from '@/content/profile';
 import {pageMetadata,jsonLd,person,siteUrl} from '@/lib/site';
 export function generateStaticParams(){return projects.map(p=>({slug:p.slug}))}
-export async function generateMetadata({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const p=projects.find(x=>x.slug===slug);if(!p)notFound();const meta=pageMetadata({title:p.shortTitle,description:p.description,path:`/research/${p.slug}`});return {...meta,openGraph:{...meta.openGraph,type:'article'}}}
+export async function generateMetadata({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const p=projects.find(x=>x.slug===slug);if(!p)notFound();const meta=pageMetadata({title:p.shortTitle,description:p.description,path:`/research/${p.slug}`,siteImage:false});return {...meta,openGraph:{...meta.openGraph,type:'article'}}}
 export default async function Project({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const p=projects.find(x=>x.slug===slug);if(!p)notFound();
 const url=`${siteUrl}/research/${p.slug}`;
 const json={'@context':'https://schema.org','@type':p.kind,'@id':url,url,name:p.title,alternateName:p.shortTitle,author:person,dateCreated:String(p.year),inLanguage:'en-GB',abstract:p.abstract.join(' '),description:p.description,about:['Afghanistan','Regional security','International Relations'],

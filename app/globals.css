@@ -303,7 +303,7 @@ a.project:hover{border-color:var(--lilac-line)}
 .avatar.ring{border:2px solid var(--current)}
 .avatar{border:1px solid var(--trace)}
 .about-copy{display:flex;flex-direction:column;gap:28px;padding-top:12px}
-.about-copy .reading p:last-child{font-style:italic;color:var(--text)}
+.about-copy .reading p:last-child,.reading-close p:last-child{font-style:italic;color:var(--text)}
 .route-svg{width:100%;height:auto}
 .route-head{align-items:center}
 .route-photo{width:clamp(140px,14vw,200px);flex:none}
@@ -406,11 +406,25 @@ a.project:hover{border-color:var(--lilac-line)}
 .role-rail i::after{content:'';width:6px;height:6px;border-radius:50%;background:var(--current)}
 .role-body{display:flex;flex-direction:column;gap:8px}
 .role-body ul{margin:10px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
-.role-body li{position:relative;padding-left:22px;font-size:16px;line-height:1.6;color:var(--text-2)}
+.role-body li{position:relative;padding-left:22px;font-size:17px;line-height:1.6}
 .role-body li::before{content:'';position:absolute;left:0;top:.72em;width:10px;height:1.5px;background:var(--trace-strong)}
 .modules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .modules span{display:flex;align-items:center;gap:12px;min-height:52px;padding:0 18px;border-radius:16px;border:1px solid var(--trace);font-size:15px}
-.modules b{font-family:var(--font-mono),monospace;font-weight:400;font-size:12px;color:var(--current)}
+.modules b{font-family:var(--font-mono),monospace;font-weight:400;font-size:12px;color:var(--rose)}
+.label-live{color:var(--current)}
+.em-live em{color:var(--current)}
+.btn-teach{background:var(--current);border-color:var(--current);color:var(--bg)}
+.btn-teach:hover{background:color-mix(in srgb,var(--current) 85%,var(--text));border-color:transparent;color:var(--bg)}
+.teach-photo{margin:16px 0 0;display:flex;flex-direction:column;gap:12px;max-width:400px}
+.teach-photo figcaption{font-size:14px;line-height:1.5;color:var(--muted);text-align:left;font-style:normal}
+.role-inst{font-size:16px;color:var(--muted)}
+.role-body li{color:var(--body)}
+.role-t4 .role-rail::before{background:linear-gradient(180deg,var(--current),var(--trace))}
+.role-rail i{border-width:2px;border-color:var(--trace-strong)}
+.role-rail i::after{display:none}
+.role-t4 .role-rail i{border-color:var(--current)}
+.role-t2 .role-rail i{border-color:var(--rose)}
+.role-t4 .role-when .mono:first-child{color:var(--current)}
 
 /* ── 12. CV ────────────────────────────────────────────────────────── */
 .cv-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;padding-top:clamp(48px,6vw,88px)}

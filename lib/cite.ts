@@ -13,3 +13,20 @@ export function citations({title,publishedAt,url,accessed}:{title:string;publish
   {style:'Chicago',text:`${last}, ${first}. “${end(title)}” ${profile.name} (blog), ${us}. ${url}.`},
  ];
 }
+
+// Citations for a research output (dissertation, thesis or conference paper), without a URL:
+// the full text isn't published here, so the citation points to the original.
+export function projectCitations(p:{title:string;year:number;type:string;institution:string}){
+ const [first,...rest]=profile.name.split(' ');const last=rest.join(' ');const t=end(p.title);
+ if(p.type==='Conference paper')return [
+  {style:'APA',text:`${last}, ${first[0]}. (${p.year}, June). ${p.title} [Paper presentation]. ${p.institution}, Istanbul, Turkey.`},
+  {style:'Harvard',text:`${last}, ${first[0]}. (${p.year}) ‘${p.title}’, paper presented at the ${p.institution}, Istanbul, June.`},
+  {style:'Chicago',text:`${last}, ${first}. “${t}” Paper presented at the ${p.institution}, Istanbul, June ${p.year}.`},
+ ];
+ const kind=p.type==='MA dissertation'?{apa:'Master’s dissertation',short:'MA dissertation',chicago:'MA diss.'}:{apa:'MPhil thesis',short:'MPhil thesis',chicago:'MPhil thesis'};
+ return [
+  {style:'APA',text:`${last}, ${first[0]}. (${p.year}). ${p.title} [${kind.apa}, ${p.institution}].`},
+  {style:'Harvard',text:`${last}, ${first[0]}. (${p.year}) ${p.title}. ${kind.short}. ${p.institution}.`},
+  {style:'Chicago',text:`${last}, ${first}. “${t}” ${kind.chicago}, ${p.institution}, ${p.year}.`},
+ ];
+}

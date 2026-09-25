@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import {teaching,universityModules} from '@/content/profile';
+import {teaching,testimonials,universityModules} from '@/content/profile';
+import {Testimonial} from '@/components/testimonial';
 import {ParallelCircuit} from '@/components/circuit/figures';
 import {pageMetadata} from '@/lib/site';
 import {Photo} from '@/components/photo';
@@ -63,6 +64,10 @@ export default function Teaching(){
     <h2 className="h-card">Inclusive, pastoral, planned.</h2>
     <div className="pills">{specialisms.map(s=><span key={s} className="pill pill-lg">{s}</span>)}</div>
    </div>
+  </section>
+
+  <section className="wrap section" aria-label="Reference">
+   <Testimonial label="From a reference" {...testimonials.teaching}/>
   </section>
 
   <section className="wrap section" aria-labelledby="teach-cta">

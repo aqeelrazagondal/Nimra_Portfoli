@@ -21,6 +21,11 @@ export const education = [
  {code:'E2',title:'MPhil International Relations',institution:'National Defence University, Islamabad',place:'Pakistan',dates:'2016 – 2018',short:'2016 – 2018',years:'2016 – 2018',detail:'Thesis on Russia–Afghanistan relations and their implications for regional stability. Coursework in advanced research methodology, international political economy and the foreign policies of great powers.'},
  {code:'E1',title:'BS International Relations',institution:'Lahore College for Women University',place:'Lahore, Pakistan',dates:'2011 – 2015',short:'2011 – 2015',years:'2011 – 2015',detail:'Four-year degree including research methodology, academic writing, conflict and conflict resolution, and international law.'},
 ];
+// Short verbatim quotes from Nimra's reference letters (Sep 2026). Never the school name, contact details or grades.
+export const testimonials={
+ teaching:{quote:'She demonstrates independent critical thinking, regularly reflecting on her teaching practice and considering how evidence, research and professional experience can inform educational decision-making.',name:'Anna Jordan',role:'Deputy Head Teacher, specialist SEMH school, Northamptonshire'},
+ research:{quote:'Her written work demonstrated excellent analytical and critical thinking skills, and she showed a clear ability to engage deeply with academic literature to formulate sophisticated, evidence-based arguments.',name:'Dr Edgar B. A. Tembo',role:'Module tutor, MA International Relations, University of Northampton'},
+};
 // Only confirmed module titles are listed; add the remaining three here when supplied.
 export const universityModules=['International Relations','Foreign Policy Analysis','Research Methodology'];
 export const teaching = [
@@ -29,14 +34,14 @@ export const teaching = [
  {code:'T2',short:'Sep 2019 – Mar 2022',place:'Mandi Bahauddin',points:['Taught six undergraduate modules through lectures and seminars.','Student Affairs Sub-in-Charge: student welfare, departmental liaison and student-facing policy.','Led the Blood Donation Society, connecting students with the wider university community.'],title:'Visiting Faculty · International Relations',institution:'University of Gujrat, Mandi Bahauddin campus',dates:'September 2019 – March 2022',detail:'Six undergraduate modules, including International Relations, Foreign Policy Analysis and Research Methodology; course materials, examinations and coursework feedback.'},
  {code:'T1',short:'Sep 2015 – Mar 2023',place:'Mandi Bahauddin',points:['Delivered secondary humanities and social studies across multiple campuses.','Prepared student reports and contributed to curriculum planning.'],title:'Secondary Teacher · Humanities & Social Studies',institution:'Beaconhouse School System, Mandi Bahauddin, Pakistan',teachingInstitution:'Beaconhouse School System, Pakistan · held alongside the university role, 2019–22',dates:'September 2015 – March 2023',detail:'Secondary humanities and social studies across multiple campuses; lesson and assessment planning, student reports and curriculum planning.'},
 ];
-// Drawn from Nimra's doctoral research proposal. Kept to themes and questions: the detailed
-// framework (criteria, case comparison, design) stays unpublished until her paper is out.
+// Drawn from Nimra's doctoral research proposal: concepts and questions only. The criteria,
+// evidence and research design stay unpublished.
 export const researchInterests=['Regional Security Complex Theory','Securitization theory','Afghanistan and its neighbourhood','Non-traditional security threats','Transnational terrorism, narcotics and refugee movements','Security governance and state fragility','Regional security cooperation (SCO, Moscow Format, CSTO)','China and Russia in Central and South Asia'];
 export const futureDirections=[
- {title:'The instigator state',detail:'Developing the idea that a state’s security governance failure can generate and connect security threats across neighbouring regions, rather than keeping those regions apart.'},
- {title:'A new security region?',detail:'Asking whether shared threats from Afghanistan are drawing Pakistan, Iran, China, Russia and the Central Asian republics into a nascent security region, and what might stop it maturing.'},
- {title:'Great powers and regional cooperation',detail:'Examining how China and Russia shape inter-regional security cooperation through platforms such as the SCO and the Moscow Format.'},
- {title:'Beyond Afghanistan',detail:'Testing whether other states that sit between regions could follow a similar path, and under what conditions.'},
+ {title:'From insulator to instigator',detail:'Asking whether Afghanistan has moved from an insulator to an “instigator”: a state whose security governance failure generates, amplifies and exports non-traditional security threats, such as terrorism, narcotics and refugee movements, into the neighbouring regional security complexes.'},
+ {title:'A nascent security complex?',detail:'Asking whether shared threats from Afghanistan are drawing Pakistan, Iran, China, Russia and the Central Asian republics into a nascent regional security complex, whether it could mature into a full one, and what might stand in the way.'},
+ {title:'Great powers and inter-regional cooperation',detail:'Examining whether China and Russia act as socialising agents, and whether cooperation through the SCO’s Regional Anti-Terrorist Structure, the Moscow Format, the QCCM and the CSTO indicates a new security complex.'},
+ {title:'Beyond Afghanistan',detail:'Testing whether the same criteria distinguish Afghanistan from other insulator states, such as Turkey and Myanmar, and under what circumstances an insulator crosses that threshold.'},
 ];
 export type Project={slug:string;title:string;shortTitle:string;year:number;type:string;institution:string;kind:'Thesis'|'CreativeWork';
  teaser:string;summary:string;description:string;status:string;question:string;argument:string;method:string;

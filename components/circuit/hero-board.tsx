@@ -20,21 +20,19 @@ export function HeroBoard({children}:{children:React.ReactNode}){
  const [mode,setMode]=useState<Mode>('instigator');const inst=mode==='instigator';
  const chip=inst?'s-live':'s-faint';
  return <section className="wrap hero" aria-label="Introduction">
-  <div className="hero-copy">
-   {children}
-   <div className="reading-switch">
-    <span className="label label-muted" id="read-as">Read Afghanistan as</span>
-    <div className="segmented" role="group" aria-labelledby="read-as">
-     <button type="button" aria-pressed={!inst} aria-controls="reading-caption" onClick={()=>setMode('insulator')}><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 8h4M11 8h4M6 3v10M10 3v10"/></svg>Insulator</button>
-     <button type="button" aria-pressed={inst} aria-controls="reading-caption" onClick={()=>setMode('instigator')}><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 8h14M11 4l4 4-4 4"/></svg>Instigator</button>
-    </div>
-    <p id="reading-caption" className="switch-caption" aria-live="polite">{caption[mode]}</p>
-   </div>
-  </div>
+  <div className="hero-copy">{children}</div>
   <figure className="board-fig" style={{margin:0}}>
    <div className="board dotgrid">
-    <span className="board-state label label-muted"><i className="pulse" style={{background:inst?'var(--current)':'var(--rose)'}}/>State · {inst?'Instigator':'Insulator'}</span>
-    <span className="board-fig-no label label-muted">Fig. 1</span>
+    <div className="board-toolbar">
+     <div className="reading-switch">
+      <span className="label label-muted" id="read-as">Read Afghanistan as</span>
+      <div className="segmented" role="group" aria-labelledby="read-as">
+       <button type="button" aria-pressed={!inst} aria-controls="reading-caption" onClick={()=>setMode('insulator')}><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 8h4M11 8h4M6 3v10M10 3v10"/></svg>Insulator</button>
+       <button type="button" aria-pressed={inst} aria-controls="reading-caption" onClick={()=>setMode('instigator')}><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 8h14M11 4l4 4-4 4"/></svg>Instigator</button>
+      </div>
+     </div>
+     <span className="board-fig-no label label-muted">Fig. 1</span>
+    </div>
     <svg viewBox="0 0 640 640" role="img" aria-label={`Abstract circuit diagram. Afghanistan is a chip at the centre, connected to Russia, Central Asia, South Asia and the Gulf. ${inst?'Current flows outward from Afghanistan into each region.':'Barriers stop the current at Afghanistan’s borders.'} Positions are not geographic boundaries.`}>
      <defs><radialGradient id="halo" cx=".5" cy=".5" r=".5"><stop offset="0" stopColor="var(--current)" stopOpacity=".22"/><stop offset=".55" stopColor="var(--lilac)" stopOpacity=".08"/><stop offset="1" stopColor="var(--board)" stopOpacity="0"/></radialGradient></defs>
      <circle cx="320" cy="320" r="220" fill="url(#halo)" className="fade" style={{opacity:inst?1:0}}/>
@@ -61,7 +59,7 @@ export function HeroBoard({children}:{children:React.ReactNode}){
      </g>)}
     </svg>
    </div>
-   <figcaption className="board-caption meta" style={{fontStyle:'normal',textAlign:'left',marginTop:0}}><span>{inst?'Current flowing outward from U1':'Current stopped at the border of U1'}</span><span>Abstract diagram · not geographic boundaries</span></figcaption>
+   <figcaption className="board-caption meta" style={{fontStyle:'normal',textAlign:'left',marginTop:0}}><span id="reading-caption" aria-live="polite">{caption[mode]}</span><span>Abstract diagram · not geographic boundaries</span></figcaption>
   </figure>
  </section>;
 }

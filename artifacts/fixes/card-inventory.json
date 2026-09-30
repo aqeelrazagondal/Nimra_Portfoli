@@ -1,0 +1,308 @@
+[
+  {
+    "width": 1280,
+    "route": "/about",
+    "cards": [
+      {
+        "variant": "card principle",
+        "padding": "32px"
+      },
+      {
+        "variant": "card principle",
+        "padding": "32px"
+      },
+      {
+        "variant": "card principle",
+        "padding": "32px"
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "route": "/phd",
+    "cards": [
+      {
+        "variant": "phd-summary card",
+        "padding": "32px"
+      },
+      {
+        "variant": "question-card card",
+        "padding": "32px"
+      },
+      {
+        "variant": "question-card card",
+        "padding": "32px"
+      },
+      {
+        "variant": "question-card card",
+        "padding": "32px"
+      },
+      {
+        "variant": "question-card card",
+        "padding": "32px"
+      },
+      {
+        "variant": "card",
+        "padding": "32px"
+      },
+      {
+        "variant": "card driver-panel",
+        "padding": "32px"
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "route": "/research",
+    "cards": [
+      {
+        "variant": "card phd-teaser",
+        "padding": "32px"
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "route": "/teaching",
+    "cards": [
+      {
+        "variant": "card",
+        "padding": "32px"
+      },
+      {
+        "variant": "card",
+        "padding": "32px"
+      },
+      {
+        "variant": "card",
+        "padding": "32px"
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "route": "/research/afghanistan-regional-security",
+    "cards": [
+      {
+        "variant": "cite-panel card",
+        "padding": "32px"
+      },
+      {
+        "variant": "card",
+        "padding": "32px"
+      },
+      {
+        "variant": "card",
+        "padding": "32px"
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "route": "/research/istanbul-conference-2020",
+    "cards": [
+      {
+        "variant": "cite-panel card",
+        "padding": "32px"
+      },
+      {
+        "variant": "card",
+        "padding": "32px"
+      },
+      {
+        "variant": "card",
+        "padding": "32px"
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "route": "/research/russia-afghanistan-relations",
+    "cards": [
+      {
+        "variant": "cite-panel card",
+        "padding": "32px"
+      },
+      {
+        "variant": "card",
+        "padding": "32px"
+      },
+      {
+        "variant": "card",
+        "padding": "32px"
+      }
+    ]
+  },
+  {
+    "width": 1280,
+    "route": "/writing",
+    "cards": []
+  },
+  {
+    "width": 1280,
+    "route": "/writing/why-afghanistan-is-not-a-buffer",
+    "cards": [
+      {
+        "variant": "cite-panel card",
+        "padding": "32px"
+      },
+      {
+        "variant": "author-card card",
+        "padding": "32px"
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "route": "/about",
+    "cards": [
+      {
+        "variant": "card principle",
+        "padding": "24px"
+      },
+      {
+        "variant": "card principle",
+        "padding": "24px"
+      },
+      {
+        "variant": "card principle",
+        "padding": "24px"
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "route": "/phd",
+    "cards": [
+      {
+        "variant": "phd-summary card",
+        "padding": "24px"
+      },
+      {
+        "variant": "question-card card",
+        "padding": "24px"
+      },
+      {
+        "variant": "question-card card",
+        "padding": "24px"
+      },
+      {
+        "variant": "question-card card",
+        "padding": "24px"
+      },
+      {
+        "variant": "question-card card",
+        "padding": "24px"
+      },
+      {
+        "variant": "card",
+        "padding": "24px"
+      },
+      {
+        "variant": "card driver-panel",
+        "padding": "24px"
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "route": "/research",
+    "cards": [
+      {
+        "variant": "card phd-teaser",
+        "padding": "24px"
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "route": "/teaching",
+    "cards": [
+      {
+        "variant": "card",
+        "padding": "24px"
+      },
+      {
+        "variant": "card",
+        "padding": "24px"
+      },
+      {
+        "variant": "card",
+        "padding": "24px"
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "route": "/research/afghanistan-regional-security",
+    "cards": [
+      {
+        "variant": "cite-panel card",
+        "padding": "24px"
+      },
+      {
+        "variant": "card",
+        "padding": "24px"
+      },
+      {
+        "variant": "card",
+        "padding": "24px"
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "route": "/research/istanbul-conference-2020",
+    "cards": [
+      {
+        "variant": "cite-panel card",
+        "padding": "24px"
+      },
+      {
+        "variant": "card",
+        "padding": "24px"
+      },
+      {
+        "variant": "card",
+        "padding": "24px"
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "route": "/research/russia-afghanistan-relations",
+    "cards": [
+      {
+        "variant": "cite-panel card",
+        "padding": "24px"
+      },
+      {
+        "variant": "card",
+        "padding": "24px"
+      },
+      {
+        "variant": "card",
+        "padding": "24px"
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "route": "/writing",
+    "cards": []
+  },
+  {
+    "width": 375,
+    "route": "/writing/why-afghanistan-is-not-a-buffer",
+    "cards": [
+      {
+        "variant": "cite-panel card",
+        "padding": "24px"
+      },
+      {
+        "variant": "author-card card",
+        "padding": "24px"
+      }
+    ]
+  }
+]

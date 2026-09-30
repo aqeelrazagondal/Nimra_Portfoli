@@ -22,16 +22,18 @@ export function ArticleRow({a}:{a:ArticleSummary}){
 // Tag filter kept in the URL (?tag=…) so filtered views can be shared. Without JS every article is listed.
 // The featured article is left out of the unfiltered list (it sits above it) but included when filtering.
 export function ArticleFeed({articles,tags,featured}:{articles:ArticleSummary[];tags:string[];featured:string}){
+ const showFilters=articles.length>=6;
  const [tag,setTag]=useState<string|null>(null);const [shown,setShown]=useState(PAGE);
  useEffect(()=>{const read=()=>{const t=new URLSearchParams(location.search).get('tag');setTag(t&&tags.includes(t)?t:null)};read();addEventListener('popstate',read);return ()=>removeEventListener('popstate',read)},[tags]);
  function choose(t:string|null){setTag(t);setShown(PAGE);const url=new URL(location.href);if(t)url.searchParams.set('tag',t);else url.searchParams.delete('tag');history.pushState(null,'',url)}
  const list=tag?articles.filter(a=>a.tags.includes(tag)):articles.filter(a=>a.slug!==featured);
+ if(!list.length&&!showFilters&&!tag)return null;
  return <section aria-labelledby="all-articles">
   <h2 id="all-articles" className="label label-muted" style={{marginBottom:0}}>{tag?`Tagged ${tag}`:'Latest'}</h2>
-  <div className="tag-filter" role="group" aria-label="Filter by topic">
+  {(showFilters||tag)&&<div className="tag-filter" role="group" aria-label="Filter by topic">
    <button type="button" aria-pressed={!tag} onClick={()=>choose(null)}>All</button>
    {tags.map(t=><button key={t} type="button" aria-pressed={tag===t} onClick={()=>choose(t)}>{t}</button>)}
-  </div>
+  </div>}
   <p className="sr-only" role="status">{tag?`${list.length} articles tagged ${tag}`:''}</p>
   <div className="article-list">{list.slice(0,shown).map(a=><ArticleRow key={a.slug} a={a}/>)}</div>
   {list.length>shown&&<button type="button" className="btn-outline load-more" onClick={()=>setShown(shown+PAGE)}>Load more</button>}

@@ -802,3 +802,24 @@ html[data-reading] .nav-bar{position:sticky}
 @media(max-width:760px){.article.wrap{padding-inline:24px}.author-card{padding:20px;gap:14px}.author-card h2{font-size:20px!important}}
 
 .article-body a,.footer-min a{min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+
+/* Portfolio audit: clearer actions and reusable academic information. */
+.hero-identity{display:flex;align-items:center;gap:22px;font-size:24px;font-family:var(--font-display)}
+.home-portrait{width:160px;flex:none;border-radius:24px!important}
+.readouts{grid-template-columns:repeat(3,minmax(0,1fr))}
+.readout dt{font-size:15px;color:var(--text-2);line-height:1.5}
+.readout dd{order:-1}
+.research-abstract{margin-top:20px;line-height:1.7}
+.research-abstract summary{cursor:pointer;color:var(--lilac);padding:10px 0;width:fit-content}
+.copy-control{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:12px 0 24px;font-size:14px}
+.topic-hint{color:var(--text-2);font-size:15px;line-height:1.6;margin-top:14px}
+.media-headshot{max-width:320px;margin:24px 0}
+.strands + .testimonial{margin-top:32px}
+@media(max-width:760px){
+ .home-portrait{width:64px;border-radius:50%!important;aspect-ratio:1!important}
+ .hero-identity{font-size:20px;gap:14px}
+ .hero-copy>.btn-row{display:grid;grid-template-columns:1fr;width:100%}
+ .hero-copy>.btn-row>a{width:100%;justify-content:center;text-align:center}
+ .readouts{grid-template-columns:1fr}
+ .nav-links.open .nav-link[data-mobile-only]{font-size:17px;flex-shrink:0;overflow-wrap:anywhere}
+}

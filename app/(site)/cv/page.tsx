@@ -9,7 +9,7 @@ const ld=pageLd('ProfilePage',{path:'/cv',name:`Academic CV | ${profile.name}`,d
 const updated=new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(profile.updated));
 const entries=(id:string)=>cvSections.find(s=>s.id===id)?.entries??[];
 const researchRows=[
- ...[...projects].sort((a,b)=>b.year-a.year).map(p=>({when:p.type==='Conference paper'?`June ${p.year}`:String(p.year),code:p.type==='MA dissertation'?'R2 · Dissertation':p.type==='MPhil thesis'?'R1 · Thesis':'P1 · Conference',title:p.kind==='Thesis'?p.title:p.shortTitle,sub:p.type==='Conference paper'?`${p.institution}, Istanbul Sabahattin Zaim University, Turkey`:p.institution})),
+ ...[...projects].sort((a,b)=>b.year-a.year).map(p=>({when:p.type==='Conference paper'?`June ${p.year}`:String(p.year),code:p.type==='MA dissertation'?'Dissertation':p.type==='MPhil thesis'?'Thesis':'Conference',title:p.title,sub:p.type==='Conference paper'?`${p.institution}, Istanbul Sabahattin Zaim University, Turkey`:p.institution})),
 ];
 const sections=[['education','Education','E'],['research','Research & presentations','R'],['teaching','Teaching experience','T'],['leadership','Leadership & service','L'],['skills','Training, skills & languages','S']];
 
@@ -19,7 +19,7 @@ export default function CV(){
   <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(ld)}/>
   <section className="wrap cv-head">
    <div className="stack">
-    <span className="label">U5 · Curriculum vitae · wiring diagram</span>
+    <span className="label">Curriculum vitae · wiring diagram</span>
     <h1 className="h-page">Nimra Zahid</h1>
     <p className="lead">International Relations researcher &amp; educator</p>
     <p className="meta">{[profile.location.toUpperCase(),profile.email,`LAST UPDATED ${updated.toUpperCase()}`].filter(Boolean).join(' · ')}</p>
@@ -57,8 +57,8 @@ export default function CV(){
     <section id="skills" className="cv-section"><h2><span className="mono">S</span>Training, skills &amp; languages</h2>
      <div className="cv-extra" style={{paddingTop:24}}>
       {training&&<div><span className="label label-muted">C1 · Training</span><span className="h-item" style={{fontSize:20}}>{training.title}</span><p>{training.subtitle}</p></div>}
-      {skills[0]&&<div><span className="label label-muted">S1 · Skills</span><p>{skills[0].detail}</p></div>}
-      <div><span className="label label-muted">S2 · Languages</span><span className="h-item" style={{fontSize:20}}>{profile.languages.join(' · ')}</span><p>Degree verification available on request.</p></div>
+      {skills[0]&&<div><span className="label label-muted">Skills</span><p>{skills[0].detail}</p></div>}
+      <div><span className="label label-muted">Languages</span><span className="h-item" style={{fontSize:20}}>{profile.languages.join(' · ')}</span><p>Degree verification available on request.</p></div>
      </div>
     </section>
    </div>

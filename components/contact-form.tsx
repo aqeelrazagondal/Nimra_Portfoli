@@ -1,4 +1,6 @@
 'use client';
+import {profile} from '@/content/profile';
+import Link from 'next/link';
 import Script from 'next/script';
 import {startTransition,useActionState,useEffect,useRef,useState} from 'react';
 import {sendEnquiry} from '@/app/(site)/contact/actions';
@@ -34,20 +36,24 @@ export function ContactForm(){
  return <div className={`contact-panel${sent?' closed':''}`}>
   <div className="switch-strip">
    <ContactSwitch closed={sent}/>
-   <div><span className="label label-muted">S1 · {sent?'Closed':'Open'}</span><span className="label label-muted">Your message closes the loop</span></div>
+   <div><span className="label label-muted">{sent?'Message sent':'Contact form'}</span><span className="label label-muted">Research, teaching and speaking</span></div>
   </div>
   {sent?<div className="sent" role="status">
    <span className="badge" aria-hidden><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-   <h2 className="h-card">Circuit complete.</h2>
+   <h2 className="h-card">Message sent.</h2>
    <p className="text-2">{state.message??'Thank you. Your message has reached me, and I’ll reply by email.'}</p>
    <button type="button" className="btn-outline" onClick={()=>setAgain(true)}>Send another message</button>
   </div>
-  :<form ref={form} className="contact-form" onSubmit={e=>{e.preventDefault();const data=new FormData(e.currentTarget);startTransition(()=>action(data))}}>
+  :<form method="post" ref={form} className="contact-form" onSubmit={e=>{e.preventDefault();const data=new FormData(e.currentTarget);startTransition(()=>action(data))}}>
+   <noscript><p>Please email <a href={`mailto:${profile.email}`}>{profile.email}</a> directly. The spam check requires JavaScript.</p></noscript>
    {siteKey&&<Script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" strategy="afterInteractive" onReady={renderTurnstile}/>}
    <fieldset>
     <legend>What is this about?</legend>
     <div className="type-chips">{enquiryTypes.map(t=><button key={t} type="button" aria-pressed={t===type} onClick={()=>setType(t)}>{t}</button>)}</div>
     <input type="hidden" name="type" value={type}/>
+    <p className="topic-hint" aria-live="polite">{hints[type]}</p>
+    {type==='Speaking'&&<Link href="/media" className="link-arrow">Talk topics and biography →</Link>}
+    {profile.booking&&(type==='Doctoral opportunities'||type==='Research & collaboration')&&<a href={profile.booking} className="link-arrow" target="_blank" rel="noopener noreferrer">Book a 20-minute conversation →</a>}
     {error('type')}
    </fieldset>
    <div className="form-row">
@@ -65,7 +71,7 @@ export function ContactForm(){
     <small>Your details are used only to reply to you.{siteKey?' Protected by an invisible spam check.':''}</small>
     <button type="submit" className="btn btn-send" disabled={pending}>
      <svg viewBox="0 0 22 14" aria-hidden="true" style={{width:22,height:14}}><path d="M1 10h5M16 10h5M6 10 L15 3"/></svg>
-     {pending?'Sending…':'Close the circuit · Send'}
+     {pending?'Sending…':'Send message'}
     </button>
    </div>
   </form>}

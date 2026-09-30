@@ -30,4 +30,4 @@ The revised plan supplied by the user is the source, not independently inspected
 
 All outstanding content, configuration and go-live steps are tracked in [LAUNCH.md](LAUNCH.md). Editorial notes belong there or in the content source, never in rendered pages.
 
-The application is not deployed. No external accounts, messages or domain registrations have been created.
+Production is hosted on Vercel at https://nimrazahid.com. See [the audit follow-up](docs/portfolio-audit-follow-up.md) for the September 2026 changes and remaining requirements.

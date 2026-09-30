@@ -5,7 +5,7 @@ import {useEffect,useState} from 'react';
 import {profile,profileLinks} from '@/content/profile';
 
 // Primary navigation: numbered like pins on a board. Writing joins once an article is visible (lib/articles.ts).
-const navLinks=(writing:boolean)=>[['About','/about'],['Research','/research'],['Teaching','/teaching'],['CV','/cv'],...(writing?[['Writing','/writing']]:[])];
+const navLinks=(writing:boolean)=>[['About','/about'],['Research','/research'],['Teaching','/teaching'],['CV','/cv'],['Talks','/media'],...(writing?[['Writing','/writing']]:[])];
 // Article pages use the calm reading header and footer; the metaphor steps back while reading.
 const isArticle=(path:string)=>/^\/writing\/[^/]+/.test(path);
 const themeColors={light:'#faf7f2',dark:'#0b0a12'};
@@ -51,6 +51,8 @@ export function Header({writing}:{writing:boolean}){
   <nav aria-label="Primary" id="site-nav" className={open?'nav-links open':'nav-links'}>
    {links.map(([label,href],i)=><Link key={href} href={href} className="nav-link" aria-current={path===href||path.startsWith(`${href}/`)?'page':undefined}><span className="nav-index" aria-hidden>{String(i+1).padStart(2,'0')}</span>{label}</Link>)}
    <Link href="/contact" className="nav-link" aria-current={path==='/contact'?'page':undefined} data-mobile-only><span className="nav-index" aria-hidden>{String(links.length+1).padStart(2,'0')}</span>Contact</Link>
+   <a href="/cv.pdf" className="nav-link" data-mobile-only download>Download CV (PDF)</a>
+   <a href={`mailto:${profile.email}`} className="nav-link" data-mobile-only>{profile.email}</a>
   </nav>
   <div className="nav-actions">
    <ThemeToggle/>
@@ -82,8 +84,8 @@ export function Footer({writing,year}:{writing:boolean;year:number}){
     {profileLinks.length?profileLinks.map(x=><a key={x.label} href={x.href} {...(x.label==='Email'?{}:{rel:'me noopener noreferrer',target:'_blank'})}>{x.label==='Email'?x.text:x.text}</a>)
      :<Link href="/contact">Send a message</Link>}
    </div>
-   <div className="footer-col"><span className="label label-muted">Documents</span><a href="/cv.pdf" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a><Link href="/cv">CV online</Link><a href="/rss.xml">Writing RSS</a><span className="f-item">Degree verification on request</span></div>
+   <div className="footer-col"><span className="label label-muted">Documents</span><a href="/cv.pdf" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a><Link href="/cv">CV online</Link><a href="/rss.xml">Writing RSS</a></div>
   </div>
-  <div className="footer-bottom"><span>© {year} <span translate="no">Nimra Zahid</span></span><span>Last updated <time dateTime={profile.updated}>{updated}</time></span><span className="footer-status"><i aria-hidden/>Circuit closed</span></div>
+  <div className="footer-bottom"><span>© {year} <span translate="no">Nimra Zahid</span></span><span>Last updated <time dateTime={profile.updated}>{updated}</time></span></div>
  </footer>;
 }

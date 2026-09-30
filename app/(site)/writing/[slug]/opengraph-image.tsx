@@ -17,7 +17,7 @@ export default async function ArticleImage({params}:{params:Promise<{slug:string
  ]);
  return new ImageResponse(<div style={{display:'flex',width:'100%',height:'100%',background:'#0B0A12',color:'#EEEAF6',padding:60,gap:40}}>
   <div style={{display:'flex',flexDirection:'column',justifyContent:'space-between',width:600}}>
-   <div style={{display:'flex',alignItems:'center',gap:16,color:'#7EE8DF',fontSize:20,letterSpacing:3}}><span style={{width:12,height:12,border:'2px solid #7EE8DF',borderRadius:20}}/>U6 · WRITING</div>
+   <div style={{display:'flex',alignItems:'center',gap:16,color:'#7EE8DF',fontSize:20,letterSpacing:3}}><span style={{width:12,height:12,border:'2px solid #7EE8DF',borderRadius:20}}/>WRITING</div>
    <div style={{display:'flex',fontFamily:'Fraunces',fontSize:a.title.length>75?46:58,lineHeight:1.12}}>{a.title}</div>
    <div style={{display:'flex',borderTop:'2px solid #2B2640',paddingTop:24,color:'#B9A2FF',fontFamily:'Fraunces',fontSize:32}}>Nimra Zahid</div>
   </div>

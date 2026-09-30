@@ -18,7 +18,7 @@ export default async function Writing(){
  const series=[...new Set(all.map(a=>a.series).filter(Boolean))].map(name=>({name,parts:all.filter(a=>a.series===name).sort((a,b)=>(a.seriesPart??0)-(b.seriesPart??0))}));
  return <>
   <section className="wrap writing-hero">
-   <span className="label">U6 · Writing · Notes &amp; perspectives</span>
+   <span className="label">Writing · Notes &amp; perspectives</span>
    <h1 className="h-page">Notes from <em>the circuit.</em></h1>
    <p className="lead">Accessible essays on regional security, Afghanistan and inclusive education.</p>
   </section>

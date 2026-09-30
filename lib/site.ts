@@ -1,5 +1,5 @@
 import type {Metadata} from 'next';
-import {profile} from '@/content/profile';
+import {profile,education} from '@/content/profile';
 const productionHost=process.env.VERCEL_PROJECT_PRODUCTION_URL;
 const productionUrl=productionHost?`https://${productionHost}`:'';
 // Preview deployments must not publish a branch host as the canonical origin.
@@ -28,9 +28,10 @@ export function pageMetadata({title,description,path,siteImage=true}:{title?:str
 export function jsonLd(data:object){return {__html:JSON.stringify(data).replace(/</g,'\\u003c')}}
 export const person={'@type':'Person','@id':`${siteUrl}/#person`,name:profile.name,url:siteUrl,jobTitle:profile.role,description:profile.description,
  knowsLanguage:profile.languages,knowsAbout:['International Relations','Regional Security Complex Theory','Securitization theory','Afghanistan','Regional security','Non-traditional security threats','Inclusive education'],
+ hasCredential:education.map(e=>({'@type':'EducationalOccupationalCredential',name:e.title,recognizedBy:{'@type':'CollegeOrUniversity',name:e.institution}})),
  alumniOf:[{'@type':'CollegeOrUniversity',name:'University of Northampton'},{'@type':'CollegeOrUniversity',name:'National Defence University, Islamabad'},{'@type':'CollegeOrUniversity',name:'Lahore College for Women University'}],
  address:{'@type':'PostalAddress',addressLocality:'Northampton',addressCountry:'GB'},
- ...(profile.email?{email:`mailto:${profile.email}`}:{}),sameAs:[profile.orcid,profile.linkedin].filter(Boolean)};
+ ...(profile.email?{email:`mailto:${profile.email}`}:{}),sameAs:[profile.orcid,profile.scholar,profile.linkedin].filter(Boolean)};
 // Page-level JSON-LD (AboutPage, CollectionPage, ContactPage…) tied to the Person above.
 export function pageLd(type:string,{path,name,description,...extra}:{path:string;name:string;description:string;[k:string]:unknown}){
  return {'@context':'https://schema.org','@type':type,'@id':`${siteUrl}${path}#webpage`,url:`${siteUrl}${path}`,name,description,inLanguage:'en-GB',

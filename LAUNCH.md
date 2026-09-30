@@ -2,9 +2,11 @@
 
 Editorial notes live here, never in rendered pages.
 
+The current audit status and prioritised future requirements are in [Portfolio audit follow-up](docs/portfolio-audit-follow-up.md). That list supersedes conflicting historical notes below.
+
 ## Content needed from Nimra
 
-- [ ] **Two sample articles are published (Sep 2026, owner's decision) so Writing shows on the live site.** Replace them from `/keystatic`. “Afghanistan’s neighbours, re-wired” is lorem ipsum with a “Placeholder text.” summary; replace it or set it back to Draft. “Why Afghanistan is not a buffer” uses the design’s sample text and a generated gradient cover.
+- [x] Placeholder neighbours article returned to Draft after the September audit; public listings, RSS and sitemap exclude it. The remaining essay has a typographic cover and no promised follow-up.
 
 - [x] MPhil dates: 2016 – 2018 everywhere (web and PDF).
 - [ ] Confirm the About methods list (now: qualitative case study, theory-driven analysis (RSCT), practitioner reflection, SPSS, research ethics · NIH training).
@@ -15,7 +17,7 @@ Editorial notes live here, never in rendered pages.
 - [ ] Confirmed formal MPhil thesis title ("Counter" vs "Contours" in the transcript). The site uses the descriptive title *Russia–Afghanistan relations and regional stability*.
 - [ ] Exact Istanbul conference paper title and original abstract (from proceedings or certificate). The site uses a descriptive title.
 - [x] Host university of the Istanbul International Social Science Conference: Istanbul Sabahattin Zaim University (from The Circuit design).
-- [ ] Check the expanded teaching entries in `content/profile.ts` (form tutor pastoral work, SENCO collaboration and parent liaison under the SEMH school; progress records under Abbeyfield) against her own CV. Grades are never shown on the site (decision, Sep 2026).
+- [ ] Check the expanded teaching entries in `content/profile.ts` (form tutor pastoral work, SENCO collaboration and parent liaison under the SEMH school; progress records under Abbeyfield) against her own CV. The MA Merit classification is now shown, as requested in the September audit.
 - [ ] Review and approve the drafted research copy in `content/profile.ts`: each project's `abstract`, `significance`, `phd` and `method`, plus the MA "argument in brief" list.
 - [ ] Key findings for the MPhil thesis and the conference paper (`findings: []`). The section stays hidden until they are filled in.
 - [ ] Names of the remaining three University of Gujrat modules (`universityModules`). The Teaching page shows the three confirmed ones until then.

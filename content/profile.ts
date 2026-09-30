@@ -7,6 +7,9 @@ export const profile = {
  languages:['English','Urdu','Punjabi'],
  // Public contact details. Environment variables override these defaults (see .env.example).
  email:process.env.NEXT_PUBLIC_CONTACT_EMAIL||'hello@nimrazahid.com',
+ scholar:process.env.NEXT_PUBLIC_SCHOLAR_URL||'',
+ booking:process.env.NEXT_PUBLIC_BOOKING_URL||'',
+ replyWindow:process.env.NEXT_PUBLIC_REPLY_WINDOW||'',
  orcid:process.env.NEXT_PUBLIC_ORCID_URL||'',
  linkedin:process.env.NEXT_PUBLIC_LINKEDIN_URL||'https://www.linkedin.com/in/nimra-zahid-aa1a1520b/',
  // Portrait and photos are managed in Keystatic (Profile photos); see lib/profile-media.ts.
@@ -14,10 +17,11 @@ export const profile = {
 export const profileLinks=[
  {label:'Email',href:profile.email?`mailto:${profile.email}`:'',text:profile.email},
  {label:'ORCID',href:profile.orcid,text:'ORCID'},
+ {label:'Google Scholar',href:profile.scholar,text:'Google Scholar'},
  {label:'LinkedIn',href:profile.linkedin,text:'LinkedIn'},
 ].filter(x=>x.href);
 export const education = [
- {code:'E3',title:'MA International Relations',institution:'University of Northampton',place:'United Kingdom',dates:'September 2023 – November 2024',short:'Sep 2023 – Nov 2024',years:'2023 – 2024',detail:'Dissertation: Deconstructing the Role of Afghanistan in Regional Security Complex Theory. 180 credits at Level 7, including a 60-credit Research Methods and Dissertation module.'},
+ {code:'E3',title:'MA International Relations with Merit',institution:'University of Northampton',place:'United Kingdom',dates:'September 2023 – November 2024',short:'Sep 2023 – Nov 2024',years:'2023 – 2024',detail:'Dissertation: Deconstructing the Role of Afghanistan in Regional Security Complex Theory. 180 credits at Level 7, including a 60-credit Research Methods and Dissertation module.'},
  {code:'E2',title:'MPhil International Relations',institution:'National Defence University, Islamabad',place:'Pakistan',dates:'2016 – 2018',short:'2016 – 2018',years:'2016 – 2018',detail:'Thesis on Russia–Afghanistan relations and their implications for regional stability. Coursework in advanced research methodology, international political economy and the foreign policies of great powers.'},
  {code:'E1',title:'BS International Relations',institution:'Lahore College for Women University',place:'Lahore, Pakistan',dates:'2011 – 2015',short:'2011 – 2015',years:'2011 – 2015',detail:'Four-year degree including research methodology, academic writing, conflict and conflict resolution, and international law.'},
 ];
@@ -109,9 +113,14 @@ export const projects:Project[] = [
 export const cvSections = [
  {id:'education',title:'Education',entries:education.map(x=>({title:x.title,subtitle:x.institution,dates:x.short,detail:x.detail}))},
  {id:'research',title:'Research',entries:projects.filter(x=>x.kind==='Thesis').map(x=>({title:x.title,subtitle:x.institution,dates:String(x.year),detail:x.summary}))},
- {id:'conferences',title:'Conference presentations',entries:[{title:'Istanbul International Social Science Conference',subtitle:'Istanbul Sabahattin Zaim University, Istanbul, Turkey',dates:'June 2020',detail:'Paper on the Global War on Terror and the roles of Afghanistan and Turkey in regional security.'}]},
+ {id:'conferences',title:'Conference presentations',entries:[{title:'Istanbul International Social Science Conference',subtitle:'Istanbul Sabahattin Zaim University, Istanbul, Turkey',dates:'June 2020',detail:'The Global War on Terror, Afghanistan and Turkey.'}]},
  {id:'teaching',title:'Teaching experience',entries:teaching.map(x=>({title:x.title,subtitle:x.institution,dates:x.short.replace('now','present'),detail:x.detail}))},
  {id:'service',title:'Leadership & service',entries:[{title:'Student Affairs Sub-in-Charge',subtitle:'University of Gujrat, Mandi Bahauddin campus',dates:'2019 – 2022',detail:'Coordinated student welfare, departmental liaison and student-facing policy; recruited volunteers and organised events connecting students with the wider university community.'}]},
  {id:'training',title:'Training',entries:[{title:'Protecting Human Research Participants',subtitle:'US National Institutes of Health (NIH), Office of Extramural Research',dates:'',detail:'Research ethics training.'}]},
  {id:'skills',title:'Skills & languages',entries:[{title:'Research & teaching',subtitle:'',dates:'',detail:'Academic writing · research-methods teaching · SPSS · curriculum and resource design · Microsoft Office · Teams · Zoom'},{title:'Languages',subtitle:'',dates:'',detail:profile.languages.join(' · ')}]},
 ];
+
+export const shortBio='Nimra Zahid is an International Relations researcher and educator whose work challenges Regional Security Complex Theory’s classification of Afghanistan as an “insulator”.';
+export const authorLine='IR researcher and educator arguing that Afghanistan drives, rather than buffers, regional security.';
+export const longBio='Nimra Zahid is an International Relations researcher and educator based in Northampton, UK. Her research re-reads Afghanistan’s place in Regional Security Complex Theory, arguing that it acts as an instigator of regional insecurity rather than a buffer between South Asia, Central Asia and the Gulf. She holds an MA in International Relations with Merit from the University of Northampton and an MPhil from the National Defence University, Islamabad, and has taught for over ten years, from undergraduate IR to specialist SEMH education.';
+export const fullTextRequest=(title:string)=>`mailto:${profile.email}?subject=${encodeURIComponent(`Full text request: ${title}`)}`;

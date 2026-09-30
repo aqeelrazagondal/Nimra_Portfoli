@@ -6,8 +6,8 @@ import {ReadingChrome,ShareBar,ZoomImage} from '@/components/article/interactive
 import {CitePanel} from '@/components/circuit/cite-panel';
 import {formatDate,getArticle,getArticles,related,seriesNeighbours} from '@/lib/articles';
 import {citations} from '@/lib/cite';
-import {profile} from '@/content/profile';
-import {pageMetadata,siteUrl,jsonLd} from '@/lib/site';
+import {authorLine,profile} from '@/content/profile';
+import {pageMetadata,siteUrl,jsonLd,person} from '@/lib/site';
 import {AuthorPhoto} from '@/components/article/author-photo';
 
 export const dynamic='force-static';
@@ -37,7 +37,7 @@ export default async function ArticlePage({params}:{params:Promise<{slug:string}
   <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd({
    '@context':'https://schema.org','@type':'BlogPosting',headline:a.title,description:a.subtitle,
    image:`${siteUrl}${a.cover.src}`,datePublished:a.publishedAt,dateModified:a.updatedAt??a.publishedAt,
-   author:{'@type':'Person',name:'Nimra Zahid',url:'https://www.nimrazahid.com/about'},
+   author:person,
    mainEntityOfPage:url,url,
   })}/>
 
@@ -66,7 +66,7 @@ export default async function ArticlePage({params}:{params:Promise<{slug:string}
    <ShareBar url={url} title={a.title} citations={null} variant="row"/>
    <section className="author-card card" aria-label="About the author">
     <AuthorPhoto card/>
-    <div><h2>Written by {profile.name}</h2><p>International Relations researcher and educator. I study how Afghanistan shapes the security of the regions around it.</p><Link href="/about" className="link-arrow">About me <span aria-hidden>→</span></Link></div>
+    <div><h2>Written by {profile.name}</h2><p>{authorLine}</p><Link href="/about" className="link-arrow">About me <span aria-hidden>→</span></Link></div>
    </section>
   </div>
   {(next||more.length>0)&&<section className="more-from" aria-labelledby="more-title">

@@ -26,8 +26,8 @@ const styles=StyleSheet.create({
  footer:{position:'absolute',bottom:26,left:52,right:52,fontSize:7.5,color:c.muted,flexDirection:'row',justifyContent:'space-between',borderTopWidth:.5,borderTopColor:c.border,paddingTop:7},
 });
 const website=siteUrl.includes('127.0.0.1')?'':siteUrl;
-export function CVDocument(){const contact=[profile.location,profile.email,website.replace(/^https?:\/\//,''),profile.orcid&&'ORCID',profile.linkedin&&'LinkedIn'].filter(Boolean) as string[];
-const hrefs:Record<string,string>={[profile.email]:`mailto:${profile.email}`,[website.replace(/^https?:\/\//,'')]:website,ORCID:profile.orcid,LinkedIn:profile.linkedin};
+export function CVDocument(){const contact=[profile.location,profile.email,website.replace(/^https?:\/\//,''),profile.orcid&&'ORCID',profile.scholar&&'Google Scholar',profile.linkedin&&'LinkedIn'].filter(Boolean) as string[];
+const hrefs:Record<string,string>={[profile.email]:`mailto:${profile.email}`,[website.replace(/^https?:\/\//,'')]:website,ORCID:profile.orcid,'Google Scholar':profile.scholar,LinkedIn:profile.linkedin};
 return <Document title={`${profile.name} – Academic CV`} author={profile.name} subject={profile.role} language="en-GB"><Page size="A4" style={styles.page}>
  <View style={styles.footer} fixed><Text>{profile.name} · Academic CV · Updated {new Date(profile.updated).toLocaleDateString('en-GB',{month:'long',year:'numeric'})}</Text><Text render={({pageNumber,totalPages})=>`${pageNumber} / ${totalPages}`}/></View>
  <View style={styles.header}><Text style={styles.name}>{profile.name}</Text><Text style={styles.role}>{profile.role}</Text><View style={styles.contact}>{contact.map((x,i)=><Text key={x}>{i>0?'\u00a0\u00a0·\u00a0\u00a0':''}{hrefs[x]?<Link src={hrefs[x]} style={styles.link}>{x}</Link>:x}</Text>)}</View></View>

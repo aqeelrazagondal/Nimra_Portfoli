@@ -3,7 +3,9 @@ import {CriteriaMatrix} from '@/components/criteria-matrix';
 import {ListChecks,Network,Handshake,Globe,ShieldCheck,Radio,GraduationCap,Presentation,School,BadgeCheck,Languages} from 'lucide-react';
 import Link from 'next/link';
 import {futureDirections,profile} from '@/content/profile';
-import {phdApproach,phdLead,phdLookingFor,phdPreparation,phdQuestion,phdStatus,phdTopics,phdWhy,phdWorkingTitle,supervisionMailto} from '@/content/phd';
+import {phdApproach,phdLead,phdLookingFor,phdPreparation,phdQuestion,phdStatus,phdTopics,phdWhy,phdWorkingTitle,proposalSummaryPath,supervisionMailto} from '@/content/phd';
+import {keyLiterature} from '@/content/phd-literature';
+import {publicFileExists} from '@/lib/public-file';
 import {jsonLd,pageLd,pageMetadata,person} from '@/lib/site';
 
 const title='PhD research proposal: Afghanistan as an instigator state';
@@ -29,7 +31,7 @@ export default function Phd(){
    <p className="lead">{phdLead}</p>
   </section>
 
-  <div className="wrap phd-layout"><PhdSummary/><div className="phd-main">
+  <div className="wrap phd-layout"><PhdSummary proposalHref={publicFileExists(proposalSummaryPath)?proposalSummaryPath:undefined}/><div className="phd-main">
   {phdWorkingTitle&&<section className="section-tight stack" style={{gap:16}} aria-labelledby="working-title">
    <span id="working-title" className="label">Working title</span>
    <p className="lead">{phdWorkingTitle}</p>
@@ -49,6 +51,11 @@ export default function Phd(){
    <h2 id="approach-title" className="h-card">Approach</h2>
    <div className="reading" style={{marginTop:16}}>{phdApproach.map(paragraph=><p key={paragraph}>{paragraph}</p>)}</div>
   </section>
+
+  {keyLiterature.length>0&&<section className="section-tight" aria-labelledby="literature-title">
+   <h2 id="literature-title" className="h-card">Key literature</h2>
+   <ul className="literature-list">{keyLiterature.map(l=><li key={`${l.author}-${l.year}-${l.title}`}><span className="mono muted">{l.year}</span><span><span className="literature-author">{l.author}</span> <cite>{l.title}</cite><span className="literature-venue">{l.venue}</span></span></li>)}</ul>
+  </section>}
 
   <CriteriaMatrix/>
   <section className="section-tight" aria-labelledby="matters-title">

@@ -1,3 +1,4 @@
+import {publications} from '@/content/publications';
 // Editorial status lives in LAUNCH.md, never in rendered copy.
 // Empty contact/profile fields are hidden everywhere until they are filled in.
 export const profile = {
@@ -47,7 +48,7 @@ export const futureDirections=[
  {title:'Great powers and inter-regional cooperation',detail:'Examining whether China and Russia act as socialising agents, and whether cooperation through the SCO’s Regional Anti-Terrorist Structure, the Moscow Format, the QCCM and the CSTO indicates a new security complex.'},
  {title:'Beyond Afghanistan',detail:'Testing whether the same criteria distinguish Afghanistan from other insulator states, such as Turkey and Myanmar, and under what circumstances an insulator crosses that threshold.'},
 ];
-export type Project={slug:string;title:string;shortTitle:string;year:number;type:string;institution:string;kind:'Thesis'|'CreativeWork';
+export type Project={slug:string;title:string;shortTitle:string;year:number;type:string;institution:string;kind:'Thesis'|'ScholarlyArticle';conference?:{host:string;date:string};
  teaser:string;summary:string;description:string;status:string;question:string;argument:string;method:string;
  abstract:string[];findingsTitle:string;findings:string[];significance:string;phd:string;related:string[]};
 // Draft long-form copy below needs Nimra's approval (see LAUNCH.md). Findings stay empty until she supplies them.
@@ -92,7 +93,7 @@ export const projects:Project[] = [
   significance:'Great-power engagement with Afghanistan shapes the security choices of its neighbours. Understanding Russia’s approach helps to explain the regional dynamics that Afghanistan is part of.',
   phd:'The thesis showed me how an external power’s relationship with Afghanistan reaches its neighbours. My proposed doctoral research takes that regional lens further.',
   related:['afghanistan-regional-security','istanbul-conference-2020']},
- {slug:'istanbul-conference-2020',title:'The Global War on Terror, Afghanistan and Turkey',shortTitle:'Afghanistan, Turkey & the Global War on Terror',year:2020,type:'Conference paper',institution:'Istanbul International Social Science Conference',kind:'CreativeWork',
+ {slug:'istanbul-conference-2020',title:'The Global War on Terror, Afghanistan and Turkey',shortTitle:'Afghanistan, Turkey & the Global War on Terror',year:2020,type:'Conference paper',institution:'Istanbul International Social Science Conference',kind:'ScholarlyArticle',conference:{host:'Istanbul Sabahattin Zaim University',date:'2020-06'},
   teaser:'Afghanistan and Turkey in the security politics of the Global War on Terror.',
   summary:'I presented research on the Global War on Terror and the roles of Afghanistan and Turkey in regional security at an international conference in Istanbul in June 2020.',
   description:'Conference paper presented at the Istanbul International Social Science Conference (June 2020) on the Global War on Terror and the roles of Afghanistan and Turkey in regional security.',
@@ -112,6 +113,7 @@ export const projects:Project[] = [
 ];
 export const cvSections = [
  {id:'education',title:'Education',entries:education.map(x=>({title:x.title,subtitle:x.institution,dates:x.short,detail:x.detail}))},
+ ...(publications.length?[{id:'publications',title:'Publications',entries:[...publications].sort((a,b)=>b.year-a.year).map(x=>({title:x.title,subtitle:x.journal,dates:`${x.year} · ${x.status}`,detail:''}))}]:[]),
  {id:'research',title:'Research',entries:projects.filter(x=>x.kind==='Thesis').map(x=>({title:x.title,subtitle:x.institution,dates:String(x.year),detail:x.summary}))},
  {id:'conferences',title:'Conference presentations',entries:[{title:'Istanbul International Social Science Conference',subtitle:'Istanbul Sabahattin Zaim University, Istanbul, Turkey',dates:'June 2020',detail:'The Global War on Terror, Afghanistan and Turkey.'}]},
  {id:'teaching',title:'Teaching experience',entries:teaching.map(x=>({title:x.title,subtitle:x.institution,dates:x.short.replace('now','present'),detail:x.detail}))},

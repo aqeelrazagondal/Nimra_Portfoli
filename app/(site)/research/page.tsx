@@ -2,6 +2,7 @@ import Link from 'next/link';
 import {CaretRight,Path} from '@phosphor-icons/react/ssr';
 import {projects,researchInterests,testimonials,profile,fullTextRequest} from '@/content/profile';
 import {Testimonial} from '@/components/testimonial';
+import {Publications} from '@/components/publications';
 import {InteractiveReadings} from '@/components/circuit/interactive-figures';
 import {jsonLd,pageLd,pageMetadata,person,siteUrl} from '@/lib/site';
 const description='Research by Nimra Zahid on Afghanistan and Regional Security Complex Theory: an MA dissertation, an MPhil thesis on Russia–Afghanistan relations and a conference paper on Turkey and the Global War on Terror. Seeking PhD supervision for 2027 entry.';
@@ -59,6 +60,8 @@ export default function Research(){
     </article>})}
    </div>
   </section>
+
+  <Publications variant="research"/>
 
   <section className="wrap section directions" aria-labelledby="directions-title">
    <div className="section-head"><div className="stack"><span className="label">Proposed PhD project · 2027 entry</span><h2 id="directions-title" className="h-section">Where the questions <em>lead next.</em></h2></div></div>

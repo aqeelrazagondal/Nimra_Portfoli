@@ -17,9 +17,14 @@ const result:Record<string,string>={'Conference paper':'Presented','MA dissertat
 export default async function Project({params}:{params:Promise<{slug:string}>}){
  const {slug}=await params;const p=projects.find(x=>x.slug===slug);if(!p)notFound();
  const url=`${siteUrl}/research/${p.slug}`;
+ // Theses: schema.org Thesis. The conference paper: a ScholarlyArticle presented at the conference (an Event).
  const json={'@context':'https://schema.org','@type':p.kind,'@id':url,url,name:p.title,alternateName:p.shortTitle,author:person,dateCreated:String(p.year),inLanguage:'en-GB',abstract:p.abstract.join(' '),description:p.description,about:['Afghanistan','Regional security','International Relations'],
-  ...(p.kind==='Thesis'?{inSupportOf:p.type==='MA dissertation'?'MA International Relations':'MPhil International Relations',sourceOrganization:{'@type':'CollegeOrUniversity',name:p.institution}}:{publisher:{'@type':'Organization',name:p.institution}})};
- const related=p.related.map(s=>projects.find(x=>x.slug===s)).filter(x=>x!==undefined);
+  ...(p.kind==='Thesis'?{inSupportOf:p.type==='MA dissertation'?'MA International Relations':'MPhil International Relations',sourceOrganization:{'@type':'CollegeOrUniversity',name:p.institution}}
+   :{headline:p.title,datePublished:p.conference?.date??String(p.year),recordedAt:p.conference&&{'@type':'Event',name:p.institution,startDate:p.conference.date,endDate:p.conference.date,
+    location:{'@type':'Place',name:p.conference.host,address:{'@type':'PostalAddress',addressLocality:'Istanbul',addressCountry:'TR'}},organizer:{'@type':'CollegeOrUniversity',name:p.conference.host}}})};
+ // One chronological thread: 2018 MPhil → 2020 conference paper → 2024 MA.
+ const chronological=[...projects].sort((a,b)=>a.year-b.year),at=chronological.indexOf(p);
+ const previous=chronological[at-1],next=chronological[at+1];
  const sections=[['abstract','Abstract'],['question','The question'],['argument','The argument'],...(p.method?[['approach','Approach']]:[]),...(p.findings.length?[['findings',p.findingsTitle]]:[]),['next','Why it matters & what comes next']] as const;
  return <article>
   <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(json)}/>
@@ -53,10 +58,10 @@ export default async function Project({params}:{params:Promise<{slug:string}>}){
    </aside>
   </div>
 
-  {related.length>0&&<section className="wrap section" aria-labelledby="connected-title">
-   <span id="connected-title" className="label" style={{display:'block',marginBottom:28}}>Connected work</span>
-   <div className="connected">{related.map(r=><Link key={r.slug} href={`/research/${r.slug}`} className="card"><span className="mono muted">{(r.year<p.year?'← Earlier · ':'Later · ')+r.type.toUpperCase()+' · '+r.year}</span><span className="h-item" style={{fontSize:28}}>{r.title}</span><span className="text-2" style={{fontSize:16}}>{r.teaser}</span></Link>)}</div>
-  </section>}
+  {(previous||next)&&<nav className="wrap section research-pager" aria-label="Research, in chronological order">
+   {previous?<Link href={`/research/${previous.slug}`} className="card pager-prev" rel="prev"><span className="mono muted"><span aria-hidden>← </span>{`Previous · ${previous.year} · ${previous.type}`.toUpperCase()}</span><span className="h-item">{previous.title}</span></Link>:<span aria-hidden/>}
+   {next&&<Link href={`/research/${next.slug}`} className="card pager-next" rel="next"><span className="mono muted">{`Next · ${next.year} · ${next.type}`.toUpperCase()}<span aria-hidden> →</span></span><span className="h-item">{next.title}</span></Link>}
+  </nav>}
 
   <section className="wrap section" aria-labelledby="detail-cta">
    <div className="panel cta-strip"><h2 id="detail-cta" className="h-card">Questions about this research?</h2><Link href="/contact" className="btn">Discuss this research</Link></div>

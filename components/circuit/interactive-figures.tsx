@@ -5,7 +5,7 @@ import {education,teaching,projects} from '@/content/profile';
 const regions=['Central Asia','Middle East','South Asia'];
 export function InteractiveReadings({inst}:{inst:boolean}){
  const [selected,setSelected]=useState<number|null>(null);
- return <div onPointerLeave={()=>setSelected(null)}><ReadingsFigure inst={inst} selected={selected}/><div className="figure-controls" role="group" aria-label="Highlight a regional complex">{regions.map((label,i)=><button type="button" key={label} aria-pressed={selected===i} onFocus={()=>setSelected(i)} onBlur={()=>setSelected(null)} onPointerEnter={e=>{if(e.pointerType==='mouse')setSelected(i)}} onClick={()=>setSelected(selected===i?null:i)}>{label}</button>)}</div></div>;
+ return <div onPointerLeave={()=>setSelected(null)}><ReadingsFigure inst={inst} selected={selected} onSelect={setSelected}/><div className="figure-controls" role="group" aria-label="Highlight a regional complex">{regions.map((label,i)=><button type="button" key={label} aria-pressed={selected===i} onFocus={()=>setSelected(i)} onBlur={()=>setSelected(null)} onPointerEnter={e=>{if(e.pointerType==='mouse')setSelected(i)}} onClick={()=>setSelected(selected===i?null:i)}>{label}</button>)}</div></div>;
 }
 const lanes=[
  {title:'Study',detail:education.map(e=>`${e.title}, ${e.years}, ${e.institution}`).join('; ')},

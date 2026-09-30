@@ -28,6 +28,12 @@ The current audit status and prioritised future requirements are in [Portfolio a
 - [ ] Review all first-person copy, including the Circuit hero line "They called it an insulator. I study the current."
 
 
+- [ ] PhD proposal summary PDF: add it as `public/nimra-zahid-phd-proposal-summary.pdf`. The “Proposal summary (PDF)” button on /phd appears on the next build.
+- [ ] Key literature for /phd (author, year, title, venue) in `content/phd-literature.ts`. Hidden until the list has an entry.
+- [ ] Manuscript under review (title, journal, status, year) in `content/publications.ts`. It then appears on /research, /cv and the CV PDF.
+- [ ] Google Scholar profile (`NEXT_PUBLIC_SCHOLAR_URL`). Like ORCID, it appears in the footer, the CV header and the Person `sameAs` once set.
+- [ ] Writing: Writing joins the header and mobile menu, and the home page shows “Recent perspectives”, once three posts are published. Until then the footer links to Writing and the home page shows one “From the writing” row.
+
 - [ ] One concrete “Approach” sentence (sources, period, method) for the MPhil thesis and the Istanbul paper (`method` in `content/profile.ts`). The section is hidden on those pages until then.
 
 ## Configuration
@@ -48,7 +54,7 @@ The current audit status and prioritised future requirements are in [Portfolio a
 - [ ] Check `/robots.txt` (allow plus sitemap link), `/sitemap.xml`, the canonical URLs and `<meta name="robots">` on the production domain.
 - [ ] Test link previews with the LinkedIn Post Inspector and a WhatsApp or email paste.
 - [ ] Validate JSON-LD (ProfilePage/Person on home, Thesis on the research pages) with the Rich Results Test.
-- [ ] Run Lighthouse on mobile against the production domain. Local runs (Sep 2026, simulated slow 4G): accessibility 100, best practices 100, CLS 0, performance 89–94, LCP 3.0–3.7 s (fonts dominate). axe (WCAG 2.1 AA plus best practice) passes on every page in both themes at 375px and 1440px.
+- [ ] Run Lighthouse on mobile against the production domain. CI (`lighthouserc.json`) fails the build below 95 in any category on /, /phd, /research and /cv; scores are in the CI job summary. axe (WCAG 2.2 AA plus best practice) runs in CI on every route at 1280px and 375px in both themes (`tests/a11y.spec.ts`).
 - [ ] Open `/cv.pdf` and proofread it.
 - [ ] Submit the sitemap in Google Search Console.
 

@@ -1,9 +1,8 @@
-import {CopyButton} from '@/components/copy-button';
 import Link from 'next/link';
-import {education,profile,shortBio,longBio,projects} from '@/content/profile';
+import {education,profile} from '@/content/profile';
 import {PhotoGallery} from '@/components/portrait';
 import {JourneyTimeline} from '@/components/journey-timeline';
-import {Lightbulb,HeartHandshake,Users,GraduationCap,Presentation} from 'lucide-react';
+import {Lightbulb,HeartHandshake,Users,GraduationCap} from 'lucide-react';
 import {getProfileMedia,showPhotoHints} from '@/lib/profile-media';
 import {jsonLd,pageLd,pageMetadata,person,siteUrl} from '@/lib/site';
 import {Photo,photoSrc} from '@/components/photo';
@@ -21,7 +20,7 @@ const route=[
 ];
 const principles=[
  ['P1','Accessible knowledge','I aim to connect rigorous ideas with clear explanation, in research and in the classroom.'],
- ['P2','Inclusion & mentorship','My teaching is attentive to different learning needs, with wellbeing as a foundation for participation.'],
+ ['P2','Inclusion & wellbeing','My teaching is attentive to different learning needs, with wellbeing as a foundation for participation.'],
  ['P3','Community engagement','At the University of Gujrat, I coordinated student welfare as Student Affairs Sub-in-Charge and led the Blood Donation Society.'],
 ];
 const methods=['Qualitative case study','Theory-driven analysis (RSCT)','Practitioner reflection','SPSS','Research ethics · NIH training'];
@@ -69,12 +68,6 @@ export default async function About(){
    </div>
   </section>
 
-  <section id="talks" className="wrap section" aria-labelledby="talks-title">
-   <div className="section-head"><div className="stack"><span className="label"><Presentation aria-hidden/>Talks &amp; media</span><h2 id="talks-title" className="h-section">Ideas for <em>conversation.</em></h2></div></div>
-   <div className="pills"><span className="pill pill-lg">Afghanistan and Regional Security Complex Theory</span><span className="pill pill-lg">Russia–Afghanistan relations</span><span className="pill pill-lg">Research-informed teaching and inclusive SEMH education</span></div>
-   <article className="card" style={{marginTop:24}}><span className="label">June 2020 · Istanbul</span><h3 className="h-card"><Link href="/research/istanbul-conference-2020">{projects.find(p=>p.slug==='istanbul-conference-2020')!.title}</Link></h3><p>Istanbul International Social Science Conference · Istanbul Sabahattin Zaim University</p><Link href="/research/istanbul-conference-2020" className="link-arrow">Read the presentation overview →</Link></article>
-   <div className="duo" style={{marginTop:32,alignItems:'start'}}><div className="reading"><h3>Short biography</h3><p>{shortBio}</p><CopyButton text={shortBio} label="Copy short bio"/><h3>Full biography</h3><p>{longBio}</p><CopyButton text={longBio} label="Copy biography"/></div><div className="stack"><h3 className="h-card">For organisers</h3><Photo name="portrait" corner="tr" className="media-headshot" sizes="320px"/><a className="link-arrow" href={photoSrc('portrait')} download="Nimra-Zahid-headshot.webp">Download headshot (WebP) →</a><a className="link-arrow" href="/images/nimra/nimra-zahid-headshot.jpg" download>Download headshot (JPEG) →</a><Link href="/contact?topic=speaking" className="btn">Enquire about a talk</Link></div></div>
-  </section>
   <PhotoGallery photos={photos} hint={showPhotoHints}/>
  </>;
 }

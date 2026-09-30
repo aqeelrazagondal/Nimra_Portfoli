@@ -1,0 +1,447 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "redirect": null,
+    "hits": [
+      {
+        "location": "JSON-LD $.mainEntity.description",
+        "text": "Nimra Zahid is an International Relations researcher and educator in Northampton, UK, studying Afghanistan’s role in regional security in South and Central Asia. Seeking PhD supervision for 2027 entry."
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "Seeking PhD supervision for 2027 entry. Read the proposed research"
+      },
+      {
+        "location": "HTML span.label",
+        "text": "Seeking PhD supervision · 2027 entry"
+      },
+      {
+        "location": "HTML span.mono.muted",
+        "text": "PHD PROJECT · SEEKING SUPERVISION · 2027 ENTRY"
+      },
+      {
+        "location": "HTML a.footer-status",
+        "text": "Seeking PhD supervision · 2027 entry"
+      }
+    ],
+    "technical": {
+      "ariaPressed": 2,
+      "hydration": 5
+    }
+  },
+  {
+    "path": "/about",
+    "status": 200,
+    "redirect": null,
+    "hits": [
+      {
+        "location": "JSON-LD $.mainEntity.description",
+        "text": "Nimra Zahid is an International Relations researcher and educator in Northampton, UK, studying Afghanistan’s role in regional security in South and Central Asia. Seeking PhD supervision for 2027 entry."
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML a.footer-status",
+        "text": "Seeking PhD supervision · 2027 entry"
+      }
+    ],
+    "technical": {
+      "ariaPressed": 5,
+      "hydration": 2
+    }
+  },
+  {
+    "path": "/research",
+    "status": 200,
+    "redirect": null,
+    "hits": [
+      {
+        "location": "meta description",
+        "text": "Research by Nimra Zahid on Afghanistan and Regional Security Complex Theory: an MA dissertation, an MPhil thesis on Russia–Afghanistan relations and a conference paper on Turkey and the Global War on Terror. Seeking PhD supervision for 2027 entry."
+      },
+      {
+        "location": "meta og:description",
+        "text": "Research by Nimra Zahid on Afghanistan and Regional Security Complex Theory: an MA dissertation, an MPhil thesis on Russia–Afghanistan relations and a conference paper on Turkey and the Global War on Terror. Seeking PhD supervision for 2027 entry."
+      },
+      {
+        "location": "meta twitter:description",
+        "text": "Research by Nimra Zahid on Afghanistan and Regional Security Complex Theory: an MA dissertation, an MPhil thesis on Russia–Afghanistan relations and a conference paper on Turkey and the Global War on Terror. Seeking PhD supervision for 2027 entry."
+      },
+      {
+        "location": "JSON-LD $.description",
+        "text": "Research by Nimra Zahid on Afghanistan and Regional Security Complex Theory: an MA dissertation, an MPhil thesis on Russia–Afghanistan relations and a conference paper on Turkey and the Global War on Terror. Seeking PhD supervision for 2027 entry."
+      },
+      {
+        "location": "JSON-LD $.about.description",
+        "text": "Nimra Zahid is an International Relations researcher and educator in Northampton, UK, studying Afghanistan’s role in regional security in South and Central Asia. Seeking PhD supervision for 2027 entry."
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML a.footer-status",
+        "text": "Seeking PhD supervision · 2027 entry"
+      }
+    ],
+    "technical": {
+      "ariaPressed": 6,
+      "hydration": 6
+    }
+  },
+  {
+    "path": "/cv",
+    "status": 200,
+    "redirect": null,
+    "hits": [
+      {
+        "location": "JSON-LD $.mainEntity.description",
+        "text": "Nimra Zahid is an International Relations researcher and educator in Northampton, UK, studying Afghanistan’s role in regional security in South and Central Asia. Seeking PhD supervision for 2027 entry."
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML p",
+        "text": "I’m seeking PhD supervision in International Relations, Security Studies or Politics, for full-time study from 2027. My project asks whether Afghanistan should be reclassified from an “insulator” to an “instigator” in Regional Security Complex Theory."
+      },
+      {
+        "location": "HTML a.footer-status",
+        "text": "Seeking PhD supervision · 2027 entry"
+      }
+    ],
+    "technical": {
+      "ariaPressed": 0,
+      "hydration": 3
+    }
+  },
+  {
+    "path": "/teaching",
+    "status": 200,
+    "redirect": null,
+    "hits": [
+      {
+        "location": "JSON-LD $.about.description",
+        "text": "Nimra Zahid is an International Relations researcher and educator in Northampton, UK, studying Afghanistan’s role in regional security in South and Central Asia. Seeking PhD supervision for 2027 entry."
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML p.text-2",
+        "text": "I’m now seeking PhD supervision in International Relations for 2027 entry."
+      },
+      {
+        "location": "HTML a.footer-status",
+        "text": "Seeking PhD supervision · 2027 entry"
+      }
+    ],
+    "technical": {
+      "ariaPressed": 0,
+      "hydration": 3
+    }
+  },
+  {
+    "path": "/contact",
+    "status": 200,
+    "redirect": null,
+    "hits": [
+      {
+        "location": "JSON-LD $.mainEntity.description",
+        "text": "Nimra Zahid is an International Relations researcher and educator in Northampton, UK, studying Afghanistan’s role in regional security in South and Central Asia. Seeking PhD supervision for 2027 entry."
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML span.photo-plate.photo-label.at-bottom",
+        "text": "Seeking PhD supervision · 2027 entry"
+      },
+      {
+        "location": "HTML p.contact-intro",
+        "text": "Could my project fit your supervision? Email me, or first."
+      },
+      {
+        "location": "HTML a.footer-status",
+        "text": "Seeking PhD supervision · 2027 entry"
+      }
+    ],
+    "technical": {
+      "ariaPressed": 0,
+      "hydration": 4
+    }
+  },
+  {
+    "path": "/research/afghanistan-regional-security",
+    "status": 200,
+    "redirect": null,
+    "hits": [
+      {
+        "location": "JSON-LD $.author.description",
+        "text": "Nimra Zahid is an International Relations researcher and educator in Northampton, UK, studying Afghanistan’s role in regional security in South and Central Asia. Seeking PhD supervision for 2027 entry."
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML p",
+        "text": "How Afghanistan is classified shapes how its neighbours, and the analysts who study them, understand risk in the wider region. If Afghanistan is treated as a buffer, instability there looks containable; if it is a driver, regional security cannot be analysed without it. The question has become more pressing since 2021."
+      },
+      {
+        "location": "HTML a.footer-status",
+        "text": "Seeking PhD supervision · 2027 entry"
+      }
+    ],
+    "technical": {
+      "ariaPressed": 3,
+      "hydration": 3
+    }
+  },
+  {
+    "path": "/research/russia-afghanistan-relations",
+    "status": 200,
+    "redirect": null,
+    "hits": [
+      {
+        "location": "JSON-LD $.author.description",
+        "text": "Nimra Zahid is an International Relations researcher and educator in Northampton, UK, studying Afghanistan’s role in regional security in South and Central Asia. Seeking PhD supervision for 2027 entry."
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML a.footer-status",
+        "text": "Seeking PhD supervision · 2027 entry"
+      }
+    ],
+    "technical": {
+      "ariaPressed": 3,
+      "hydration": 2
+    }
+  },
+  {
+    "path": "/research/istanbul-conference-2020",
+    "status": 200,
+    "redirect": null,
+    "hits": [
+      {
+        "location": "JSON-LD $.author.description",
+        "text": "Nimra Zahid is an International Relations researcher and educator in Northampton, UK, studying Afghanistan’s role in regional security in South and Central Asia. Seeking PhD supervision for 2027 entry."
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML a.footer-status",
+        "text": "Seeking PhD supervision · 2027 entry"
+      }
+    ],
+    "technical": {
+      "ariaPressed": 3,
+      "hydration": 2
+    }
+  },
+  {
+    "path": "/phd",
+    "status": 200,
+    "redirect": null,
+    "hits": [
+      {
+        "location": "meta description",
+        "text": "Nimra Zahid is seeking PhD supervision in International Relations, Security Studies or Politics for 2027 entry. Proposed research: Afghanistan’s role in Regional Security Complex Theory."
+      },
+      {
+        "location": "meta og:description",
+        "text": "Nimra Zahid is seeking PhD supervision in International Relations, Security Studies or Politics for 2027 entry. Proposed research: Afghanistan’s role in Regional Security Complex Theory."
+      },
+      {
+        "location": "meta og:image:alt",
+        "text": "Proposed PhD research: from insulator to instigator. Nimra Zahid is seeking PhD supervision for 2027 entry."
+      },
+      {
+        "location": "meta twitter:description",
+        "text": "Nimra Zahid is seeking PhD supervision in International Relations, Security Studies or Politics for 2027 entry. Proposed research: Afghanistan’s role in Regional Security Complex Theory."
+      },
+      {
+        "location": "meta twitter:image:alt",
+        "text": "Proposed PhD research: from insulator to instigator. Nimra Zahid is seeking PhD supervision for 2027 entry."
+      },
+      {
+        "location": "JSON-LD $.description",
+        "text": "Nimra Zahid is seeking PhD supervision in International Relations, Security Studies or Politics for 2027 entry. Proposed research: Afghanistan’s role in Regional Security Complex Theory."
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML span.label",
+        "text": "Seeking PhD supervision · 2027 entry"
+      },
+      {
+        "location": "HTML p.lead",
+        "text": "I’m seeking PhD supervision in International Relations, Security Studies or Politics, for full-time study from 2027. My project asks whether Afghanistan should be reclassified from an “insulator” to an “instigator” in Regional Security Complex Theory."
+      },
+      {
+        "location": "HTML dt",
+        "text": "Supervision"
+      },
+      {
+        "location": "HTML section @aria-labelledby",
+        "text": "supervision-cta"
+      },
+      {
+        "location": "HTML h2 @id",
+        "text": "supervision-cta"
+      },
+      {
+        "location": "HTML a.footer-status",
+        "text": "Seeking PhD supervision · 2027 entry"
+      }
+    ],
+    "technical": {
+      "ariaPressed": 0,
+      "hydration": 11
+    }
+  },
+  {
+    "path": "/writing",
+    "status": 200,
+    "redirect": null,
+    "hits": [
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML a.footer-status",
+        "text": "Seeking PhD supervision · 2027 entry"
+      }
+    ],
+    "technical": {
+      "ariaPressed": 0,
+      "hydration": 1
+    }
+  },
+  {
+    "path": "/writing/why-afghanistan-is-not-a-buffer",
+    "status": 200,
+    "redirect": null,
+    "hits": [
+      {
+        "location": "JSON-LD $.author.description",
+        "text": "Nimra Zahid is an International Relations researcher and educator in Northampton, UK, studying Afghanistan’s role in regional security in South and Central Asia. Seeking PhD supervision for 2027 entry."
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML li#fn-1",
+        "text": "Barry Buzan and Ole Wæver, Regions and Powers: The Structure of International Security (Cambridge: Cambridge University Press, 2003)."
+      },
+      {
+        "location": "HTML a.footer-status",
+        "text": "Seeking PhD supervision · 2027 entry"
+      }
+    ],
+    "technical": {
+      "ariaPressed": 3,
+      "hydration": 4
+    }
+  },
+  {
+    "path": "/media",
+    "status": 307,
+    "redirect": "/about",
+    "hits": [],
+    "technical": {
+      "ariaPressed": 0,
+      "hydration": 1
+    }
+  },
+  {
+    "path": "/not-a-real-page",
+    "status": 404,
+    "redirect": null,
+    "hits": [
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML a @aria-label",
+        "text": "PhD (seeking supervision, 2027 entry)"
+      },
+      {
+        "location": "HTML a.footer-status",
+        "text": "Seeking PhD supervision · 2027 entry"
+      }
+    ],
+    "technical": {
+      "ariaPressed": 0,
+      "hydration": 1
+    }
+  }
+]

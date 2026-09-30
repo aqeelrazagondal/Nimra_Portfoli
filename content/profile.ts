@@ -40,7 +40,7 @@ export const teaching = [
 ];
 // Drawn from Nimra's doctoral research proposal: concepts and questions only. The criteria,
 // evidence and research design stay unpublished.
-export const researchInterests=['Regional Security Complex Theory','Securitization theory','Afghanistan and its neighbourhood','Non-traditional security threats','Transnational terrorism, narcotics and refugee movements','Security governance and state fragility','Regional security cooperation (SCO, Moscow Format, CSTO)','China and Russia in Central and South Asia'];
+export const researchInterests=['Regional Security Complex Theory','Securitisation theory','Afghanistan and its neighbourhood','Non-traditional security threats','Transnational terrorism, narcotics and refugee movements','Security governance and state fragility','Regional security cooperation (SCO, Moscow Format, CSTO)','China and Russia in Central and South Asia'];
 export const futureDirections=[
  {title:'Specifying the instigator',detail:'Asking what conditions mark an insulator’s transition to an instigator, and whether post-2014 Afghanistan meets all of them.'},
  {title:'A nascent security complex?',detail:'Asking whether shared threats from Afghanistan are drawing Pakistan, Iran, China, Russia and the Central Asian republics into a nascent regional security complex, whether it could mature into a full one, and what might stand in the way.'},

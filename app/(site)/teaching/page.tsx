@@ -70,14 +70,22 @@ export default function Teaching(){
    </div>
   </section>
 
+  <section className="wrap section" aria-labelledby="emerging-title">
+   <div className="card" style={{display:'flex',flexDirection:'column',gap:16,borderRadius:28}}>
+    <span className="label label-live">Emerging interests</span>
+    <h2 id="emerging-title" className="h-card">Research-informed, inclusive education.</h2>
+    <p className="text-2" style={{fontSize:17,lineHeight:1.65,margin:0}}>I am also interested in the relationship between research and practice in specialist social, emotional and mental health (SEMH) education, building on my experience in the classroom.</p>
+   </div>
+  </section>
+
   <section className="wrap section" aria-label="Testimonial">
    <Testimonial {...testimonials.teaching}/>
   </section>
 
   <section className="wrap section" aria-labelledby="teach-cta">
    <div className="panel cta-strip">
-    <div className="stack" style={{gap:10}}><h2 id="teach-cta" className="h-card">Research that starts in the classroom.</h2><p className="text-2">Interested in research-informed practice in SEMH education? Let’s talk.</p></div>
-    <Link href="/contact" className="btn btn-teach">Start a conversation</Link>
+    <div className="stack" style={{gap:10}}><h2 id="teach-cta" className="h-card">Teaching alongside research.</h2><p className="text-2">I’m now seeking PhD supervision in International Relations for 2027 entry.</p></div>
+    <Link href="/phd" className="btn btn-teach">See the PhD proposal</Link>
    </div>
   </section>
  </>;

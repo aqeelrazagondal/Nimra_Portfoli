@@ -75,7 +75,7 @@ export function Footer({year}:{year:number}){
   </svg>
   <div className="footer-grid">
    <div className="footer-col" style={{gap:14}}><span className="footer-name" translate="no">Nimra Zahid</span><p className="muted" style={{fontSize:15,lineHeight:1.6}}>International Relations researcher and educator. {profile.location}.</p><Link href="/phd" className="footer-status"><span className="node-dot" aria-hidden="true"/>Seeking PhD supervision · 2027 entry</Link></div>
-   <nav className="footer-col" aria-label="Explore"><span className="label label-muted">Explore</span>{navLinks().filter(([,h])=>h!=='/cv').map(([l,h])=><Link key={h} href={h}>{l}</Link>)}<Link href="/about#talks">Talks &amp; media</Link></nav>
+   <nav className="footer-col" aria-label="Explore"><span className="label label-muted">Explore</span>{navLinks().filter(([,h])=>h!=='/cv').map(([l,h])=><Link key={h} href={h}>{l}</Link>)}</nav>
    <div className="footer-col"><span className="label label-muted">Elsewhere</span>
     {profileLinks.length?profileLinks.map(x=><a key={x.label} href={x.href} {...(x.label==='Email'?{}:{rel:'me noopener noreferrer',target:'_blank'})}>{x.label==='Email'?x.text:x.text}</a>)
      :<Link href="/contact">Send a message</Link>}

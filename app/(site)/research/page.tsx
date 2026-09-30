@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import {CaretRight,Path} from '@phosphor-icons/react/ssr';
 import {projects,researchInterests,testimonials,profile,fullTextRequest} from '@/content/profile';
 import {Testimonial} from '@/components/testimonial';
 import {InteractiveReadings} from '@/components/circuit/interactive-figures';
@@ -8,10 +9,10 @@ export const metadata=pageMetadata({title:'Research',description,path:'/research
 const ld=pageLd('CollectionPage',{path:'/research',name:`Research | ${profile.name}`,description,about:person,mainEntity:{'@type':'ItemList',itemListElement:[...projects].sort((a,b)=>b.year-a.year).map((p,i)=>({'@type':'ListItem',position:i+1,item:{'@type':p.kind,'@id':`${siteUrl}/research/${p.slug}`,url:`${siteUrl}/research/${p.slug}`,name:p.title,dateCreated:String(p.year),author:{'@id':person['@id']}}}))}});
 
 // Output rows as in the research design (no grades).
-const outputMeta:Record<string,{kind:string;chip?:string;line:string;text:string;accent?:boolean}>={
- 'afghanistan-regional-security':{kind:'MA dissertation',accent:true,line:'University of Northampton · RSCT · Theory-driven analysis',text:'Challenges Afghanistan’s classification as an insulator and examines it as a driver of regional security dynamics.'},
- 'istanbul-conference-2020':{kind:'Conference paper',chip:'Presented',line:'Istanbul International Social Science Conference · Istanbul Sabahattin Zaim University · June 2020',text:'Research on the Global War on Terror and the roles of Afghanistan and Turkey in regional security.'},
- 'russia-afghanistan-relations':{kind:'MPhil thesis',line:'National Defence University, Islamabad',text:'Examines Russia–Afghanistan relations and their implications for regional stability: the foundation of my continuing work.'},
+const outputMeta:Record<string,{kind:string;line:string;tags?:string[];text:string;accent?:boolean}>={
+ 'afghanistan-regional-security':{kind:'MA dissertation',accent:true,line:'University of Northampton · Completed 2024 · Full text on request',tags:['RSCT','Theory-driven analysis'],text:'Challenges Afghanistan’s classification as an insulator and examines it as a driver of regional security dynamics.'},
+ 'istanbul-conference-2020':{kind:'Conference paper',line:'Istanbul Sabahattin Zaim University · Presented June 2020 · Full text on request',text:'Research on the Global War on Terror and the roles of Afghanistan and Turkey in regional security.'},
+ 'russia-afghanistan-relations':{kind:'MPhil thesis',line:'National Defence University, Islamabad · Conferred December 2018 · Full text on request',text:'Examines Russia–Afghanistan relations and their implications for regional stability: the foundation of my continuing work.'},
 };
 
 export default function Research(){
@@ -53,29 +54,20 @@ export default function Research(){
    <div className="rule-list">
     {outputs.map(p=>{const m=outputMeta[p.slug];return <article key={p.slug} className={`output${m?.accent?' accent':''}`}>
      <div className="stack" style={{gap:6}}><span className="year">{p.year}</span><span className="mono muted">{(m?.kind??p.type).toUpperCase()}</span></div>
-     <div className="body"><h3 className="h-item"><Link href={`/research/${p.slug}`}>{p.title}</Link></h3><p>{m?.text??p.summary}</p>{m&&<span className="meta">{m.line.toUpperCase()}</span>}<p className="meta">{p.status} · Full text on request</p><details className="research-abstract"><summary>Read abstract</summary>{p.abstract.map(text=><p key={text}>{text}</p>)}<a className="link-arrow" href={fullTextRequest(p.title)}>Request the full text →</a></details></div>
-     <div className="side">{m?.chip&&<span className="chip-neutral">{m.chip.toUpperCase()}</span>}<Link href={`/research/${p.slug}`} className="output-link" aria-label={`Read overview: ${p.title}`}>Read overview →</Link></div>
+     <div className="body"><h3 className="h-item"><Link href={`/research/${p.slug}`}>{p.title}</Link></h3><p>{m?.text??p.summary}</p>{m&&<span className="meta">{m.line.toUpperCase()}</span>}{m?.tags&&<div className="pills" style={{marginTop:8}}>{m.tags.map(tag=><span key={tag} className="pill">{tag.toUpperCase()}</span>)}</div>}<details className="research-abstract"><summary><CaretRight aria-hidden size={16}/>Read abstract</summary>{p.abstract.map(text=><p key={text}>{text}</p>)}<a className="link-arrow" href={fullTextRequest(p.title)}>Request the full text →</a></details></div>
+     <div className="side"><Link href={`/research/${p.slug}`} className="output-link" aria-label={`Read overview: ${p.title}`}>Read overview →</Link></div>
     </article>})}
    </div>
   </section>
 
   <section className="wrap section directions" aria-labelledby="directions-title">
    <div className="section-head"><div className="stack"><span className="label">Proposed PhD project · 2027 entry</span><h2 id="directions-title" className="h-section">Where the questions <em>lead next.</em></h2></div></div>
-   <div className="card"><p className="reading">The proposed doctoral project develops this research through a comparative study of Afghanistan, Turkey and Myanmar.</p><Link href="/phd" className="link-arrow">See the PhD proposal →</Link></div>
-   <div className="pills" style={{marginTop:28}} aria-label="Research interests">{researchInterests.map(r=><span key={r} className="pill pill-lg">{r}</span>)}</div>
-  </section>
-
-  <section className="wrap section interests" aria-label="Emerging interests and talks">
-   <div className="card">
-    <span className="label label-live">Emerging interests</span>
-    <h2 className="h-card">Research-informed, inclusive education.</h2>
-    <p className="text-2" style={{fontSize:17,lineHeight:1.65}}>I am also interested in the relationship between research and practice in specialist social, emotional and mental health (SEMH) education, building on my experience in the classroom.</p>
-    <Link href="/teaching" className="link-arrow" style={{marginTop:'auto'}}>Explore my teaching practice <span aria-hidden>→</span></Link>
-   </div>
-   <div className="card">
-    <span className="label">Talks</span>
-    <div className="talk"><span className="meta">JUNE 2020 · ISTANBUL, TURKEY</span><span className="h-item" style={{fontSize:22}}>Istanbul International Social Science Conference</span><span className="text-2" style={{fontSize:16}}>Paper presentation · Afghanistan, Turkey and regional security</span></div>
-   </div>
+   <Link href="/phd" className="card phd-teaser">
+    <div><Path aria-hidden size={24}/><p>The doctoral project tests the instigator category on post-2014 Afghanistan, using Turkey and Myanmar as contrast cases, and asks whether shared threats are forming a new regional security complex.</p></div>
+    <span className="btn">See the PhD proposal <span aria-hidden>→</span></span>
+   </Link>
+   <span className="label section-label">Research areas</span>
+   <ul className="area-list">{researchInterests.map(r=><li key={r}>{r}</li>)}</ul>
   </section>
 
   <section className="wrap section" aria-label="Testimonial">
@@ -84,8 +76,8 @@ export default function Research(){
 
   <section className="wrap section" aria-labelledby="research-cta">
    <div className="panel cta-strip">
-    <div className="stack" style={{gap:10}}><h2 id="research-cta" className="h-card">Working on regional security?</h2><p className="text-2">I welcome conversations about doctoral research, collaboration and speaking.</p></div>
-    <Link href="/contact" className="btn">Discuss this research</Link>
+    <div className="stack" style={{gap:10}}><h2 id="research-cta" className="h-card">Could you supervise this research?</h2><p className="text-2">The proposal sets out the questions, cases and method.</p></div>
+    <Link href="/phd" className="btn">See the PhD proposal</Link>
    </div>
   </section>
  </>;

@@ -3,7 +3,7 @@ import {CriteriaMatrix} from '@/components/criteria-matrix';
 import {ListChecks,Network,Handshake,Globe,ShieldCheck,Radio,GraduationCap,Presentation,School,BadgeCheck,Languages} from 'lucide-react';
 import Link from 'next/link';
 import {futureDirections,profile} from '@/content/profile';
-import {hasProposalSummary,phdApproach,phdLead,phdLookingFor,phdPreparation,phdQuestion,phdStatus,phdTitleFallback,phdTopics,phdWhy,phdWorkingTitle,proposalSummaryPath,supervisionMailto} from '@/content/phd';
+import {phdApproach,phdLead,phdLookingFor,phdPreparation,phdQuestion,phdStatus,phdTopics,phdWhy,phdWorkingTitle,supervisionMailto} from '@/content/phd';
 import {jsonLd,pageLd,pageMetadata,person} from '@/lib/site';
 
 const title='PhD research proposal: Afghanistan as an instigator state';
@@ -30,10 +30,10 @@ export default function Phd(){
   </section>
 
   <div className="wrap phd-layout"><PhdSummary/><div className="phd-main">
-  <section className="section-tight stack" style={{gap:16}} aria-labelledby="working-title">
+  {phdWorkingTitle&&<section className="section-tight stack" style={{gap:16}} aria-labelledby="working-title">
    <span id="working-title" className="label">Working title</span>
-   <p className="lead">{phdWorkingTitle||phdTitleFallback}</p>
-  </section>
+   <p className="lead">{phdWorkingTitle}</p>
+  </section>}
 
   <section className="section-tight" aria-labelledby="question-title">
    <h2 id="question-title" className="h-section">Central question</h2>
@@ -47,7 +47,7 @@ export default function Phd(){
 
   <section className="section-tight" aria-labelledby="approach-title">
    <h2 id="approach-title" className="h-card">Approach</h2>
-   <p className="reading" style={{marginTop:16}}>{phdApproach}</p>
+   <div className="reading" style={{marginTop:16}}>{phdApproach.map(paragraph=><p key={paragraph}>{paragraph}</p>)}</div>
   </section>
 
   <CriteriaMatrix/>
@@ -66,26 +66,17 @@ export default function Phd(){
    <p className="reading" style={{marginTop:16}}>{phdLookingFor}</p>
   </section>
 
-  <section className="section-tight" aria-labelledby="documents-title">
-   <h2 id="documents-title" className="h-card">Documents</h2>
-   <div className="btn-row" style={{marginTop:20}}>
-    <a href="/cv.pdf" className="btn" download>Download CV (PDF)</a>
-    {hasProposalSummary&&<a href={proposalSummaryPath} className="btn-ghost" download>Download proposal summary</a>}
-   </div>
-   <p className="text-2" style={{marginTop:16}}>Writing sample available on request.</p>
-  </section>
-
   </div></div>
 
   <section className="wrap section" aria-labelledby="supervision-cta">
    <div className="panel cta-strip">
     <div className="stack" style={{gap:10}}>
-     <h2 id="supervision-cta" className="h-card">Supervising in this area?</h2>
+     <h2 id="supervision-cta" className="h-card">Could you supervise this project?</h2>
      <p className="text-2">I’d value a conversation about fit, funding routes and timelines.</p>
     </div>
     <div className="stack" style={{gap:8,alignItems:'flex-start'}}>
-     <a href={supervisionMailto()} className="btn">Email me about supervision</a>
-     <Link href="/contact?topic=phd" className="link-arrow">Or use the contact form</Link>
+     <a href={supervisionMailto()} className="btn">Discuss supervising this project</a>
+     <Link href="/contact" className="link-arrow">Other ways to get in touch</Link>
     </div>
    </div>
   </section>

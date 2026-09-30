@@ -1,7 +1,6 @@
 'use client';
-import {Search,GraduationCap,Mic,MessageCircle} from 'lucide-react';
+import {GraduationCap,MessageCircle} from 'lucide-react';
 import {profile} from '@/content/profile';
-import Link from 'next/link';
 import Script from 'next/script';
 import {useSearchParams} from 'next/navigation';
 import {startTransition,useActionState,useEffect,useRef,useState} from 'react';
@@ -35,7 +34,7 @@ export function ContactForm(){
  return <div className={`contact-panel${sent?' closed':''}`}>
   <div className="switch-strip">
    <ContactSwitch closed={sent}/>
-   <div><span className="label label-muted">{sent?'Message sent':'Contact form'}</span><span className="label label-muted">Research, teaching and speaking</span></div>
+   <div><span className="label label-muted">{sent?'Message sent':'Enquiry'}</span></div>
   </div>
   {sent?<div className="sent" role="status">
    <span className="badge" aria-hidden><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
@@ -48,10 +47,9 @@ export function ContactForm(){
    {siteKey&&<Script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" strategy="afterInteractive" onReady={renderTurnstile}/>}
    <fieldset>
     <legend>What is this about?</legend>
-    <div className="topic-cards">{enquiryTypes.map((t,i)=>{const Icon=[Search,GraduationCap,Mic,MessageCircle][i];return <label className="topic-card" key={t}><input type="radio" name="type" value={t} checked={t===type} onChange={()=>setOverride(t)}/><Icon aria-hidden strokeWidth={1.5}/><span>{enquiryLabels[t]??t}</span></label>})}</div>
+    <div className="topic-cards">{enquiryTypes.map(t=>{const Icon=t==='Doctoral opportunities'?GraduationCap:MessageCircle;return <label className="topic-card" key={t}><input type="radio" name="type" value={t} checked={t===type} onChange={()=>setOverride(t)}/><Icon aria-hidden strokeWidth={1.5}/><span>{enquiryLabels[t]??t}</span></label>})}</div>
     <p className="topic-hint" aria-live="polite">{enquiryHints[type]}</p>
-    {type==='Speaking'&&<Link href="/about#talks" className="link-arrow">Talk topics and biography →</Link>}
-    {profile.booking&&(type==='Doctoral opportunities'||type==='Research & collaboration')&&<a href={profile.booking} className="link-arrow" target="_blank" rel="noopener noreferrer">Book a 20-minute conversation →</a>}
+    {profile.booking&&type==='Doctoral opportunities'&&<a href={profile.booking} className="link-arrow" target="_blank" rel="noopener noreferrer">Book a 20-minute conversation →</a>}
     {error('type')}
    </fieldset>
    <div className="form-row">
@@ -59,7 +57,6 @@ export function ContactForm(){
     <div className="field"><label htmlFor="c-email">Email address</label><input autoComplete="email" type="email" spellCheck={false} required maxLength={200} {...field('email')}/>{error('email')}</div>
    </div>
    <div className="field"><label htmlFor="c-organisation">Organisation <span>(optional)</span></label><input autoComplete="organization" maxLength={200} {...field('organisation')}/>{error('organisation')}</div>
-   {type==='Speaking'&&<div className="field"><label htmlFor="c-date">Event date <span>(optional)</span></label><input type="date" {...field('date')}/></div>}
    <div className="field"><label htmlFor="c-message">Message</label><textarea rows={6} required minLength={10} maxLength={5000} placeholder={enquiryHints[type]} {...field('message')}/>{error('message')}</div>
    <div className="hp" aria-hidden="true"><label>Website<input name="website" tabIndex={-1} autoComplete="off"/></label></div>
    <input type="hidden" name="started" value={started}/>

@@ -27,7 +27,7 @@ export function pageMetadata({title,description,path,siteImage=true}:{title?:str
 }
 export function jsonLd(data:object){return {__html:JSON.stringify(data).replace(/</g,'\\u003c')}}
 export const person={'@type':'Person','@id':`${siteUrl}/#person`,name:profile.name,url:siteUrl,jobTitle:profile.role,description:profile.description,
- knowsLanguage:profile.languages,knowsAbout:['International Relations','Regional Security Complex Theory','Securitization theory','Afghanistan','Regional security','Non-traditional security threats','Inclusive education'],
+ knowsLanguage:profile.languages,knowsAbout:['International Relations','Regional Security Complex Theory','Securitisation theory','Afghanistan','Regional security','Non-traditional security threats','Inclusive education'],
  hasCredential:education.map(e=>({'@type':'EducationalOccupationalCredential',name:e.title,recognizedBy:{'@type':'CollegeOrUniversity',name:e.institution}})),
  alumniOf:[{'@type':'CollegeOrUniversity',name:'University of Northampton'},{'@type':'CollegeOrUniversity',name:'National Defence University, Islamabad'},{'@type':'CollegeOrUniversity',name:'Lahore College for Women University'}],
  address:{'@type':'PostalAddress',addressLocality:'Northampton',addressCountry:'GB'},

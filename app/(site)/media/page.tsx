@@ -1,2 +1,2 @@
 import {redirect} from 'next/navigation';
-export default function Media(){redirect('/about#talks')}
+export default function Media(){redirect('/about')}

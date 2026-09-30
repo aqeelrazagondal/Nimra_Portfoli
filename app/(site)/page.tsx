@@ -29,12 +29,12 @@ export default async function Home(){
 
   <HeroBoard>
    <div className="hero-kicker"><Link href="/phd" className="status-chip" aria-label="Seeking PhD supervision for 2027 entry. Read the proposed research"><span className="node-dot pulse" aria-hidden="true"/><span className="label">Seeking PhD supervision · 2027 entry</span></Link></div>
-   <div className="hero-identity"><Photo name="portrait" corner="tr" className="home-portrait" sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1100px) 38vw, 480px" priority/><span>Nimra Zahid<br/><span className="meta">{profile.location}</span></span></div>
    <h1 className="display">They called Afghanistan an insulator.<br/> <em>I argue it’s an instigator.</em></h1>
    <p className="hero-intro">I’m Nimra Zahid, an International Relations researcher and educator in Northampton, UK. My research challenges Afghanistan’s classification as a buffer in Regional Security Complex Theory and asks how threats generated there shape neighbouring regions.</p>
    <p className="meta">MA International Relations (Merit), University of Northampton · MPhil IR, National Defence University · 10+ years teaching in Pakistan and England</p>
    <div className="btn-row"><Link href="/phd" className="btn">See the PhD proposal <Arrow/></Link><a href="/cv.pdf" className="btn-ghost" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a></div>
    <Link href="/research" className="link-arrow">Read the research →</Link>
+   <div className="hero-identity"><Photo name="portrait" corner="tr" className="home-portrait" sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1100px) 38vw, 480px" priority/><span>Nimra Zahid<br/><span className="meta">{profile.location}</span></span></div>
   </HeroBoard>
   <div className="home-spine" aria-hidden="true"/>
 
@@ -79,7 +79,7 @@ export default async function Home(){
      <span className="project-link">Project overview →</span>
     </Link>)}
     <div className="project">
-     <span className="mono muted">PhD project · seeking supervision · 2027 entry</span>
+     <span className="mono muted">PHD PROJECT · SEEKING SUPERVISION · 2027 ENTRY</span>
      <h3 className="h-item">Testing the instigator thesis</h3>
      <p>A doctoral project testing whether Afghanistan now generates, rather than absorbs, the security dynamics of the regions around it.</p>
      <Link href="/phd" className="project-link">Read the proposed research →</Link>
@@ -108,8 +108,8 @@ export default async function Home(){
    <div className="panel cta-band">
     <CtaSwitch label="LET’S TALK"/>
     <h2 id="cta-title" className="display" style={{fontSize:'clamp(2.4rem,4.8vw,4.25rem)'}}>Complete the <em>circuit.</em></h2>
-    <p className="lead">Seeking PhD supervision for 2027 entry, and open to collaboration and speaking.</p>
-    <div className="btn-row" style={{justifyContent:'center'}}><Link href="/contact" className="btn">Start a conversation</Link><Link href="/phd" className="btn-ghost">Proposed PhD research</Link><Link href="/cv" className="btn-ghost">View CV</Link></div>
+    <p className="lead">Seeking a PhD supervisor for 2027 entry.</p>
+    <div className="btn-row" style={{justifyContent:'center'}}><Link href="/phd" className="btn">See the PhD proposal</Link><Link href="/cv" className="btn-ghost">View CV</Link></div>
    </div>
   </section>
  </>;

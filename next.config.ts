@@ -15,7 +15,7 @@ const csp=[
  `connect-src 'self' https://challenges.cloudflare.com${live}`,
  `frame-src https://challenges.cloudflare.com https://www.youtube-nocookie.com${live}`,
  "frame-ancestors 'none'",
- "form-action 'self'",
+ "form-action 'self' mailto:",
  "base-uri 'self'",
  "object-src 'none'",
  ...(dev?[]:['upgrade-insecure-requests']),

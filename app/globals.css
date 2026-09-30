@@ -266,11 +266,11 @@ a.project:hover{border-color:var(--lilac-line)}
 .project.planned{border-style:dashed;border-color:var(--trace-strong);background:transparent}
 .project p{font-size:15px;line-height:1.6;color:var(--text-2)}
 .project-link{margin-top:auto;display:inline-flex;align-items:center;min-height:44px;font-size:15px;color:var(--lilac)}
-.writing-row{display:grid;grid-template-columns:minmax(0,1fr) 176px;gap:48px;align-items:center;padding:32px 0;color:var(--text)}
+.writing-row{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:48px;align-items:center;padding:32px 0;color:var(--text)}
 .writing-row:hover .h-row{color:var(--lilac)}
 .h-row{font-family:var(--font-display),Georgia,serif;font-size:clamp(1.5rem,2.3vw,2rem);line-height:1.15;transition:color .2s var(--ease)}
 .writing-row p{font-size:17px;line-height:1.6;color:var(--text-2)}
-.writing-row img{width:176px;height:120px;object-fit:cover;border-radius:16px}
+.writing-row img{width:280px;height:175px;object-fit:cover;object-position:center 36%;border-radius:16px;background:#0b0a12}
 .cta-band{display:flex;flex-direction:column;align-items:center;gap:28px;padding:clamp(48px,6vw,72px) clamp(24px,6vw,72px) clamp(56px,6vw,80px);text-align:center}
 .cta-band .lead{text-align:center}
 .cta-switch{width:min(560px,100%);height:auto}
@@ -732,7 +732,7 @@ html[data-reading] .nav-bar{position:sticky}
   .projects{grid-template-columns:1fr}
   .project{min-height:0}
   .writing-row,.article-row{grid-template-columns:minmax(0,1fr) 88px;gap:18px;padding:22px 0}
-  .writing-row img,.row-thumb img{width:88px;height:88px;border-radius:12px}
+  .writing-row img,.row-thumb img{width:88px;height:88px;border-radius:12px;object-position:left center}
   .writing-row p{display:none}
   .row-excerpt{font-size:15px}
   .about-hero{grid-template-columns:1fr;gap:36px}

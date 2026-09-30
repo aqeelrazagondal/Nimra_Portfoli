@@ -11,7 +11,7 @@ test('audit publication, research identity and contact fallback',async({page,req
  for(const title of titles){await page.getByRole('link',{name:title,exact:true}).click();await expect(page.locator('h1')).toHaveText(title);await expect(page).toHaveTitle(`${title} | Nimra Zahid`);await expect(page.locator('meta[name="citation_title"]')).toHaveAttribute('content',title);await page.goto('/research')}
  await page.goto('/writing/why-afghanistan-is-not-a-buffer');
  const ld=JSON.parse(await page.locator('script[type="application/ld+json"]').innerText());expect(ld.author['@id']).toMatch(/\/#person$/);
- await page.goto('/contact');await expect(page.getByRole('link',{name:'Email Nimra',exact:true})).toHaveAttribute('href','mailto:hello@nimrazahid.com');
+ await page.goto('/contact');await expect(page.getByRole('link',{name:'Email Nimra',exact:true})).toHaveAttribute('href',/^mailto:hello@nimrazahid.com/);
  await page.goto('/writing');await expect(page.getByRole('group',{name:'Filter by topic'})).toHaveCount(0);
 });
 test('all public layouts are accessible in both themes',async({page})=>{

@@ -45,7 +45,7 @@ export default function Contact(){
       <li><span>Speaking</span>The event, audience, date and topic.</li>
       <li><span>Press</span>The outlet, deadline and the question.</li>
      </ul>
-     <a href={`mailto:${profile.email}`} className="btn">Email Nimra</a>
+     <a href={`mailto:${profile.email}?subject=${encodeURIComponent('Enquiry for Nimra Zahid')}`} className="btn">Email Nimra</a>
     </div>
    </div>}
   </section>

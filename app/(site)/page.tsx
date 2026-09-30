@@ -39,7 +39,7 @@ export default async function Home(){
 
   <section className="wrap" aria-label="At a glance">
    <dl className="readouts">
-    {[['10+','years teaching, Pakistan & England'],['6','undergraduate IR modules taught'],['Merit','MA International Relations']].map(([n,l])=>
+    {[['10+','years teaching, Pakistan & England'],['6','undergraduate IR modules taught']].map(([n,l])=>
      <div key={l} className="readout"><dt>{l}</dt><dd><strong>{n}</strong></dd></div>)}
    </dl>
   </section>

@@ -6,7 +6,7 @@ export const articleTags=['International Relations','Security Studies','Conflict
 const local=process.env.NODE_ENV==='development'&&process.env.NEXT_PUBLIC_KEYSTATIC_GITHUB_SETUP!=='true';
 export default config({
  storage:local?{kind:'local'}:{kind:'github',repo:'aqeelrazagondal/Nimra_Portfoli'},
- ui:{brand:{name:'Nimra Zahid — Writing'}},
+ ui:{brand:{name:'Nimra Zahid: Writing'}},
  collections:{
   articles:collection({
    label:'Articles',slugField:'title',path:'content/articles/*',

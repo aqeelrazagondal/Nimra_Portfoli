@@ -3,7 +3,7 @@
 export const profile = {
  name:'Nimra Zahid', updated:process.env.NEXT_PUBLIC_BUILD_DATE||new Date().toISOString().slice(0,10), location:'Northampton, UK',
  role:'International Relations researcher & educator',
- description:'Nimra Zahid is an International Relations researcher and educator in Northampton, UK, studying Afghanistan’s role in regional security in South and Central Asia.',
+ description:'Nimra Zahid is an International Relations researcher and educator in Northampton, UK, studying Afghanistan’s role in regional security in South and Central Asia. Seeking PhD supervision for 2027 entry.',
  languages:['English','Urdu','Punjabi'],
  // Public contact details. Environment variables override these defaults (see .env.example).
  email:process.env.NEXT_PUBLIC_CONTACT_EMAIL||'hello@nimrazahid.com',

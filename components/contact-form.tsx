@@ -2,23 +2,21 @@
 import {profile} from '@/content/profile';
 import Link from 'next/link';
 import Script from 'next/script';
+import {useSearchParams} from 'next/navigation';
 import {startTransition,useActionState,useEffect,useRef,useState} from 'react';
 import {sendEnquiry} from '@/app/(site)/contact/actions';
-import {enquiryTypes,type ContactState} from '@/lib/contact';
+import {enquiryFromTopic,enquiryHints,enquiryLabels,enquiryTypes,type ContactState} from '@/lib/contact';
 import {ContactSwitch} from '@/components/circuit/figures';
 declare global{interface Window{turnstile?:{render:(el:HTMLElement,o:object)=>string;reset:(id:string)=>void;remove:(id:string)=>void}}}
 const siteKey=process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
-const hints:Record<string,string>={
- 'Research & collaboration':'Tell me about the project and where our interests meet…',
- 'Doctoral opportunities':'Your institution, the project or supervision area, and any deadlines…',
- 'Speaking':'The event, audience, date and topic you have in mind…',
- 'Other':'How can I help?',
-};
 
 // The contact panel is a switch: open while you write, closed when your message arrives.
 export function ContactForm(){
  const [state,action,pending]=useActionState<ContactState,FormData>(sendEnquiry,{status:'idle'});
- const [type,setType]=useState(enquiryTypes[0]);const [started,setStarted]=useState('');const [again,setAgain]=useState(false);
+ const preset=enquiryFromTopic(useSearchParams().get('topic'));
+ const [override,setOverride]=useState<string|null>(null);
+ const type=override??preset??enquiryTypes[0];
+ const [started,setStarted]=useState('');const [again,setAgain]=useState(false);
  const form=useRef<HTMLFormElement>(null);const widget=useRef<HTMLDivElement>(null);const widgetId=useRef<string|null>(null);
  function renderTurnstile(){if(!siteKey||!window.turnstile||!widget.current||widgetId.current)return;widgetId.current=window.turnstile.render(widget.current,{sitekey:siteKey,theme:document.documentElement.dataset.theme==='dark'?'dark':'light'})}
  // eslint-disable-next-line react-hooks/set-state-in-effect -- Initialize the browser-side spam timing field and Turnstile on mount.
@@ -26,7 +24,7 @@ export function ContactForm(){
  // Turnstile tokens are single-use, so refresh the widget after every attempt.
  // eslint-disable-next-line react-hooks/set-state-in-effect -- Synchronize the server action result with the form and Turnstile widget.
  useEffect(()=>{if(state.status==='idle')return;if(widgetId.current)window.turnstile?.reset(widgetId.current);setAgain(false);
-  if(state.status==='success'){form.current?.reset();setType(enquiryTypes[0])}
+  if(state.status==='success'){form.current?.reset();setOverride(null)}
   // Move focus to the first invalid field so the error is announced and easy to fix.
   const first=Object.keys(state.errors??{})[0];if(first)form.current?.querySelector<HTMLElement>(`[name="${first}"]`)?.focus()},[state]);
  const sent=state.status==='success'&&!again;
@@ -49,9 +47,9 @@ export function ContactForm(){
    {siteKey&&<Script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" strategy="afterInteractive" onReady={renderTurnstile}/>}
    <fieldset>
     <legend>What is this about?</legend>
-    <div className="type-chips">{enquiryTypes.map(t=><button key={t} type="button" aria-pressed={t===type} onClick={()=>setType(t)}>{t}</button>)}</div>
+    <div className="type-chips">{enquiryTypes.map(t=><button key={t} type="button" aria-pressed={t===type} onClick={()=>setOverride(t)}>{enquiryLabels[t]??t}</button>)}</div>
     <input type="hidden" name="type" value={type}/>
-    <p className="topic-hint" aria-live="polite">{hints[type]}</p>
+    <p className="topic-hint" aria-live="polite">{enquiryHints[type]}</p>
     {type==='Speaking'&&<Link href="/media" className="link-arrow">Talk topics and biography →</Link>}
     {profile.booking&&(type==='Doctoral opportunities'||type==='Research & collaboration')&&<a href={profile.booking} className="link-arrow" target="_blank" rel="noopener noreferrer">Book a 20-minute conversation →</a>}
     {error('type')}
@@ -62,7 +60,7 @@ export function ContactForm(){
    </div>
    <div className="field"><label htmlFor="c-organisation">Organisation <span>(optional)</span></label><input autoComplete="organization" maxLength={200} {...field('organisation')}/>{error('organisation')}</div>
    {type==='Speaking'&&<div className="field"><label htmlFor="c-date">Event date <span>(optional)</span></label><input type="date" {...field('date')}/></div>}
-   <div className="field"><label htmlFor="c-message">Message</label><textarea rows={6} required minLength={10} maxLength={5000} placeholder={hints[type]} {...field('message')}/>{error('message')}</div>
+   <div className="field"><label htmlFor="c-message">Message</label><textarea rows={6} required minLength={10} maxLength={5000} placeholder={enquiryHints[type]} {...field('message')}/>{error('message')}</div>
    <div className="hp" aria-hidden="true"><label>Website<input name="website" tabIndex={-1} autoComplete="off"/></label></div>
    <input type="hidden" name="started" value={started}/>
    <div ref={widget} className="turnstile"/>

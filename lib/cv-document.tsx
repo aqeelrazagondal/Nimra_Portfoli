@@ -1,5 +1,6 @@
 import {join} from 'node:path';
 import {Document,Page,Text,View,Link,Font,StyleSheet} from '@react-pdf/renderer';
+import {phdLead} from '@/content/phd';
 import {cvSections,profile} from '@/content/profile';
 import {siteUrl} from '@/lib/site';
 const font=(file:string)=>join(process.cwd(),'assets/fonts',file);
@@ -31,6 +32,7 @@ const hrefs:Record<string,string>={[profile.email]:`mailto:${profile.email}`,[we
 return <Document title={`${profile.name} – Academic CV`} author={profile.name} subject={profile.role} language="en-GB"><Page size="A4" style={styles.page}>
  <View style={styles.footer} fixed><Text>{profile.name} · Academic CV · Updated {new Date(profile.updated).toLocaleDateString('en-GB',{month:'long',year:'numeric'})}</Text><Text render={({pageNumber,totalPages})=>`${pageNumber} / ${totalPages}`}/></View>
  <View style={styles.header}><Text style={styles.name}>{profile.name}</Text><Text style={styles.role}>{profile.role}</Text><View style={styles.contact}>{contact.map((x,i)=><Text key={x}>{i>0?'\u00a0\u00a0·\u00a0\u00a0':''}{hrefs[x]?<Link src={hrefs[x]} style={styles.link}>{x}</Link>:x}</Text>)}</View></View>
+ <View wrap={false}><Text style={styles.section}>Proposed doctoral research</Text><View style={styles.entry}><Text style={styles.dates}>2027 entry</Text><View style={styles.body}><Text style={styles.detail}>{phdLead}</Text><Link src={`${siteUrl}/phd`} style={styles.link}>{`${siteUrl}/phd`.replace(/^https?:\/\//,'')}</Link></View></View></View>
  {cvSections.map(section=><View key={section.id}>{section.entries.map((entry,i)=>{const item=<View key={entry.title} style={styles.entry} wrap={false}><Text style={styles.dates}>{entry.dates}</Text><View style={styles.body}><Text style={styles.title}>{entry.title}</Text>{entry.subtitle&&<Text style={styles.institution}>{entry.subtitle}</Text>}<Text style={styles.detail}>{entry.detail}</Text></View></View>;
   // Keep each heading on the same page as its first entry.
   return i?item:<View key={entry.title} wrap={false}><Text style={styles.section}>{section.title}</Text>{item}</View>})}</View>)}

@@ -18,7 +18,7 @@ test('all public layouts are accessible in both themes',async({page})=>{
  test.setTimeout(180000);
  for(const width of [375,800,1440]){
   await page.setViewportSize({width,height:900});
-  for(const path of ['/','/about','/research','/research/afghanistan-regional-security','/teaching','/cv','/writing','/contact','/media']){
+  for(const path of ['/','/about','/research','/research/afghanistan-regional-security','/phd','/teaching','/cv','/writing','/contact','/media']){
    await page.goto(path);
    for(const theme of ['light','dark']){
     await page.evaluate(t=>document.documentElement.dataset.theme=t,theme);
@@ -30,6 +30,14 @@ test('all public layouts are accessible in both themes',async({page})=>{
   }
  }
  await page.setViewportSize({width:375,height:812});await page.goto('/');
+ await expect(page.locator('#main')).not.toContainText(/planned/i);
  const buttons=page.locator('.hero-copy>.btn-row>a');expect(await buttons.nth(0).evaluate(el=>el.getBoundingClientRect().width)).toBe(await buttons.nth(1).evaluate(el=>el.getBoundingClientRect().width));
- await page.getByRole('button',{name:'Open menu'}).click();await expect(page.locator('#site-nav').getByRole('link',{name:'Download CV (PDF)'})).toBeVisible();await expect(page.locator('#site-nav').getByRole('link',{name:'hello@nimrazahid.com'})).toBeVisible();
+ await page.getByRole('button',{name:'Open menu'}).click();
+ await expect(page.locator('#site-nav').getByRole('link',{name:'PhD',exact:true})).toBeVisible();
+ await expect(page.locator('#site-nav').getByRole('link',{name:'Download CV (PDF)'})).toBeVisible();
+ await expect(page.locator('#site-nav').getByRole('link',{name:'hello@nimrazahid.com'})).toBeVisible();
+ await page.goto('/');
+ await page.getByRole('link',{name:'Seeking PhD supervision for 2027 entry. Read the proposed research'}).click();
+ await expect(page).toHaveURL(/\/phd$/);
+ await expect(page.locator('#site-nav a[href="/phd"]')).toHaveAttribute('aria-current','page');
 });

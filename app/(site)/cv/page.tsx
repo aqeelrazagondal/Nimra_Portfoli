@@ -1,6 +1,8 @@
+import Link from 'next/link';
+import {phdLead} from '@/content/phd';
 import {cvSections,education,profile,projects,teaching} from '@/content/profile';
 import {SignalTrace,SignalList} from '@/components/circuit/figures';
-import {jsonLd,pageLd,pageMetadata,person} from '@/lib/site';
+import {jsonLd,pageLd,pageMetadata,person,siteUrl} from '@/lib/site';
 import {CvNav} from '@/components/cv-nav';
 const description='Academic CV of Nimra Zahid: MA and MPhil in International Relations, research on Afghanistan and regional security, and over ten years of teaching in Pakistan and England.';
 export const metadata=pageMetadata({title:'Academic CV',description,path:'/cv'});
@@ -11,7 +13,9 @@ const entries=(id:string)=>cvSections.find(s=>s.id===id)?.entries??[];
 const researchRows=[
  ...[...projects].sort((a,b)=>b.year-a.year).map(p=>({when:p.type==='Conference paper'?`June ${p.year}`:String(p.year),code:p.type==='MA dissertation'?'Dissertation':p.type==='MPhil thesis'?'Thesis':'Conference',title:p.title,sub:p.type==='Conference paper'?`${p.institution}, Istanbul Sabahattin Zaim University, Turkey`:p.institution})),
 ];
-const sections=[['education','Education','E'],['research','Research & presentations','R'],['teaching','Teaching experience','T'],['leadership','Leadership & service','L'],['skills','Training, skills & languages','S']];
+const sections=[['doctoral','Proposed doctoral research','D'],['education','Education','E'],['research','Research & presentations','R'],['teaching','Teaching experience','T'],['leadership','Leadership & service','L'],['skills','Training, skills & languages','S']];
+const phdUrl=`${siteUrl}/phd`;
+const phdLabel=phdUrl.replace(/^https?:\/\//,'');
 
 export default function CV(){
  const service=entries('service')[0],training=entries('training')[0],skills=entries('skills');
@@ -41,6 +45,10 @@ export default function CV(){
   <section className="wrap section-tight cv-layout">
    <CvNav sections={sections}/>
    <div>
+    <section id="doctoral" className="cv-section"><h2><span className="mono">D</span>Proposed doctoral research</h2>
+     <article className="cv-entry"><div className="cv-when"><span className="mono">2027 ENTRY</span></div>
+      <div className="cv-body"><p>{phdLead}</p><Link href="/phd" className="link-arrow">{phdLabel}</Link></div></article>
+    </section>
     <section id="education" className="cv-section"><h2><span className="mono">E</span>Education</h2>
      {education.map(e=><article key={e.title} className="cv-entry"><div className="cv-when"><span className="mono">{e.short.toUpperCase()}</span><span className="mono muted">{e.code}</span></div>
       <div className="cv-body"><h3 className="cv-title">{e.title}</h3><span className="inst">{e.institution}, {e.place}</span><p>{e.detail}</p></div></article>)}

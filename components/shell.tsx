@@ -5,7 +5,7 @@ import {useEffect,useState} from 'react';
 import {profile,profileLinks} from '@/content/profile';
 
 // Primary navigation: numbered like pins on a board. Writing joins once an article is visible (lib/articles.ts).
-const navLinks=(writing:boolean)=>[['About','/about'],['Research','/research'],['Teaching','/teaching'],['CV','/cv'],['Talks','/media'],...(writing?[['Writing','/writing']]:[])];
+const navLinks=(writing:boolean)=>[['About','/about'],['Research','/research'],['PhD','/phd'],['Teaching','/teaching'],['CV','/cv'],['Talks','/media'],...(writing?[['Writing','/writing']]:[])];
 // Article pages use the calm reading header and footer; the metaphor steps back while reading.
 const isArticle=(path:string)=>/^\/writing\/[^/]+/.test(path);
 const themeColors={light:'#faf7f2',dark:'#0b0a12'};
@@ -78,7 +78,7 @@ export function Footer({writing,year}:{writing:boolean;year:number}){
    <circle cx="600" cy="8" r="5" className="f-bg s-live" strokeWidth="1.5" vectorEffect="non-scaling-stroke"/><circle cx="600" cy="8" r="2" className="f-live"/>
   </svg>
   <div className="footer-grid">
-   <div className="footer-col" style={{gap:14}}><span className="footer-name" translate="no">Nimra Zahid</span><p className="muted" style={{fontSize:15,lineHeight:1.6}}>International Relations researcher and educator. {profile.location}.</p></div>
+   <div className="footer-col" style={{gap:14}}><span className="footer-name" translate="no">Nimra Zahid</span><p className="muted" style={{fontSize:15,lineHeight:1.6}}>International Relations researcher and educator. {profile.location}.</p><Link href="/phd" className="footer-status"><span className="node-dot" aria-hidden="true"/>Seeking PhD supervision · 2027 entry</Link></div>
    <nav className="footer-col" aria-label="Explore"><span className="label label-muted">Explore</span>{navLinks(writing).filter(([,h])=>h!=='/cv').map(([l,h])=><Link key={h} href={h}>{l}</Link>)}</nav>
    <div className="footer-col"><span className="label label-muted">Elsewhere</span>
     {profileLinks.length?profileLinks.map(x=><a key={x.label} href={x.href} {...(x.label==='Email'?{}:{rel:'me noopener noreferrer',target:'_blank'})}>{x.label==='Email'?x.text:x.text}</a>)

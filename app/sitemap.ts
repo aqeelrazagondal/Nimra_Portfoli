@@ -9,6 +9,7 @@ export default async function sitemap():Promise<MetadataRoute.Sitemap>{
  const pages=['','/about','/research','/cv','/teaching','/contact','/media',...projects.map(p=>`/research/${p.slug}`)];
  return [
   ...pages.map(path=>({url:`${siteUrl}${path}`,lastModified:profile.updated,changeFrequency:'monthly' as const,priority:path===''?1:path.startsWith('/research')?.8:.6})),
+  {url:`${siteUrl}/phd`,lastModified:profile.updated,changeFrequency:'monthly' as const,priority:.9},
   ...(articles.length?[{url:`${siteUrl}/writing`,lastModified:articles[0].updatedAt??articles[0].publishedAt,changeFrequency:'weekly' as const,priority:.7}]:[]),
   ...articles.map(a=>({url:`${siteUrl}/writing/${a.slug}`,lastModified:a.updatedAt??a.publishedAt,changeFrequency:'monthly' as const,priority:.7})),
  ];

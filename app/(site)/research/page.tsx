@@ -3,7 +3,7 @@ import {futureDirections,projects,researchInterests,testimonials,profile,fullTex
 import {Testimonial} from '@/components/testimonial';
 import {ReadingsFigure} from '@/components/circuit/figures';
 import {jsonLd,pageLd,pageMetadata,person,siteUrl} from '@/lib/site';
-const description='Research by Nimra Zahid on Afghanistan and Regional Security Complex Theory: an MA dissertation, an MPhil thesis on Russia–Afghanistan relations and a conference paper on Turkey and the Global War on Terror.';
+const description='Research by Nimra Zahid on Afghanistan and Regional Security Complex Theory: an MA dissertation, an MPhil thesis on Russia–Afghanistan relations and a conference paper on Turkey and the Global War on Terror. Seeking PhD supervision for 2027 entry.';
 export const metadata=pageMetadata({title:'Research',description,path:'/research'});
 const ld=pageLd('CollectionPage',{path:'/research',name:`Research | ${profile.name}`,description,about:person,mainEntity:{'@type':'ItemList',itemListElement:[...projects].sort((a,b)=>b.year-a.year).map((p,i)=>({'@type':'ListItem',position:i+1,item:{'@type':p.kind,'@id':`${siteUrl}/research/${p.slug}`,url:`${siteUrl}/research/${p.slug}`,name:p.title,dateCreated:String(p.year),author:{'@id':person['@id']}}}))}});
 
@@ -60,8 +60,9 @@ export default function Research(){
   </section>
 
   <section className="wrap section directions" aria-labelledby="directions-title">
-   <div className="section-head"><div className="stack"><span className="label">Future directions · doctoral research</span><h2 id="directions-title" className="h-section">Where the questions <em>lead next.</em></h2></div></div>
+   <div className="section-head"><div className="stack"><span className="label">Proposed PhD project · 2027 entry</span><h2 id="directions-title" className="h-section">Where the questions <em>lead next.</em></h2></div></div>
    <dl>{futureDirections.map(d=><div key={d.title}><dt>{d.title}</dt><dd>{d.detail}</dd></div>)}</dl>
+   <Link href="/phd" className="link-arrow" style={{marginTop:8}}>Read the full PhD proposal summary <span aria-hidden>→</span></Link>
    <div className="pills" style={{marginTop:28}} aria-label="Research interests">{researchInterests.map(r=><span key={r} className="pill pill-lg">{r}</span>)}</div>
   </section>
 

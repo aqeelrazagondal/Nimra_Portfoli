@@ -18,6 +18,14 @@ Audit: 30 September 2026. Source: the supplied “nimrazahid.com — Portfolio A
 - Production currently lacks Resend and Turnstile configuration. Contact therefore shows a usable direct-email panel; the form appears only when all required credentials exist.
 - Linked BlogPosting authors to the shared Person identity. Added optional Scholar, booking and reply-window settings without inventing values. ORCID was already supported.
 
+## PhD supervision page: Nimra to supply
+
+- Add `public/phd-proposal-summary.pdf` (2 pages, reworded from the proposal) and set `hasProposalSummary` to `true` in `content/phd.ts`. No placeholder file is shipped.
+- Working title: `phdWorkingTitle` is an empty string until Nimra supplies it.
+- Replace the methods sentence in `content/phd.ts` with the proposal’s methods paragraph.
+- Confirm the reply window. The site currently says 3 working days (`phdReplyWindow` in `content/phd.ts`).
+- Referees, if still missing: permission plus approved names, roles and contact details, then add them to the CV and PDF.
+
 ## Future requirements
 
 | Priority | Requirement | Needed to complete it |

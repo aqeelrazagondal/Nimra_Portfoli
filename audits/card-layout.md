@@ -1,6 +1,6 @@
 # Card and responsive verification
 
-Checked 30 September 2026 at 1280 × 812 and 375 × 812, in light and dark themes. Every currently rendered `.card` has 32px padding on all sides at 1280px and 24px at 375px. The base class has no positioning; linked cards receive relative positioning for the gradient pseudo-element, and the PhD summary is sticky only above 900px.
+Checked 30 September 2026 at 1280 × 812 and 375 × 812, in light and dark themes. Every currently rendered `.card` has 32px padding on all sides at 1280px and 24px at 375px. The base class has no positioning; linked cards receive relative positioning for the gradient pseudo-element, and the PhD summary is sticky only above 900px and at viewport heights of at least 760px.
 
 ## Every `.card` usage
 
@@ -32,3 +32,7 @@ There are 25 rendered cards per viewport. Raw computed styles are saved in `arti
 ## Conflicting copy instructions
 
 The separate “Update PhD supervision copy” task explicitly superseded original items 5 and 6: it removed Talks & media, retained two email topics, and supplied a different contact lead. Those changes are preserved. Its push included the shared layout work up to commit `31a4d3e`. The final reduced-motion and full-CTA observation refinements were made afterwards.
+
+## Final compact-summary checks
+
+At 1280 × 800, the summary measures 352 × 581.84px in both themes. Its sticky bottom is at 677.84px, within the required 672px card-height allowance, with no internal scrollbar. The primary label fits on one line. At 759px viewport height it becomes static. At 375px the mobile primary label fits on one line alongside the icon-only CV link, whose accessible name is “Download CV (PDF)”. The timeline is hidden with two project columns and visible with four at 1440px. The contact card asks for the department and university.

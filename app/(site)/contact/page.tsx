@@ -39,7 +39,7 @@ export default async function Contact({searchParams}:{searchParams:Promise<{topi
     </div>
     <div className="email-fallback-body">
      <h2 className="h-card">Send an email</h2>
-     <p>Please email me directly with your enquiry, organisation and any relevant dates.</p>
+     <p>Please include your department and university.</p>
      <ul className="email-topics">
       {emailTopics.map(item=><li key={item.id} className={selected===item.id?'is-selected':undefined}><a href={topicMailto(profile.email,item.subject)} aria-current={selected===item.id?'true':undefined}><span>{item.label}</span>{item.detail}</a></li>)}
      </ul>

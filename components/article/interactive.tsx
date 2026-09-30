@@ -41,18 +41,7 @@ export function Embed({url,title}:{url:string;title:string}){
 }
 
 // Thin progress bar plus an auto-hiding header while reading.
-export function ReadingChrome(){
- const bar=useRef<HTMLDivElement>(null);
- useEffect(()=>{
-  const root=document.documentElement;root.dataset.reading='';let last=scrollY;let frame=0;
-  const update=()=>{frame=0;const article=document.querySelector('.article-body');if(article&&bar.current){const r=article.getBoundingClientRect();const p=Math.min(1,Math.max(0,(innerHeight-r.top)/(r.height+innerHeight*.2)));bar.current.style.transform=`scaleX(${p})`}
-   const y=scrollY;if(Math.abs(y-last)>6){if(y>last&&y>120&&!document.querySelector('.nav.open'))root.dataset.headerHidden='';else delete root.dataset.headerHidden;last=y}};
-  const onScroll=()=>{if(!frame)frame=requestAnimationFrame(update)};
-  update();addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);
-  return ()=>{removeEventListener('scroll',onScroll);removeEventListener('resize',onScroll);cancelAnimationFrame(frame);delete root.dataset.reading;delete root.dataset.headerHidden};
- },[]);
- return <div className="reading-progress" aria-hidden><div ref={bar}/></div>;
-}
+export function ReadingChrome(){return null;}
 
 function useCopied(){const [copied,setCopied]=useState('');useEffect(()=>{if(!copied)return;const t=setTimeout(()=>setCopied(''),2000);return ()=>clearTimeout(t)},[copied]);return [copied,setCopied] as const}
 async function copy(text:string){try{await navigator.clipboard.writeText(text);return true}catch{return false}}

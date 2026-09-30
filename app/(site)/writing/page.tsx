@@ -1,3 +1,4 @@
+import {ViewTransition} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
@@ -25,7 +26,7 @@ export default async function Writing(){
 
   <section className="wrap section-tight" aria-label="Featured essay">
    <Link href={`/writing/${featured.slug}`} className="featured-card">
-    <Image src={featured.cover.src} alt={featured.cover.alt} width={featured.cover.width} height={featured.cover.height} sizes="(max-width: 760px) 100vw, 640px" placeholder="blur" blurDataURL={featured.cover.blurDataURL} priority/>
+    <ViewTransition name={`cover-${featured.slug}`}><Image src={featured.cover.src} alt={featured.cover.alt} width={featured.cover.width} height={featured.cover.height} sizes="(max-width: 760px) 100vw, 640px" placeholder="blur" blurDataURL={featured.cover.blurDataURL} priority/></ViewTransition>
     <div className="stack">
      <span className="label">Featured{featured.tags[0]?` · ${featured.tags[0]}`:''}{featured.seriesPart?` · Series part ${featured.seriesPart}`:''}{featured.draft?' · Draft':''}</span>
      <h2 className="h-card" style={{fontSize:'clamp(1.9rem,3.2vw,2.75rem)'}}>{featured.title}</h2>

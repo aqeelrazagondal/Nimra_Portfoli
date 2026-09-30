@@ -55,7 +55,7 @@ export default async function Project({params}:{params:Promise<{slug:string}>}){
 
   {related.length>0&&<section className="wrap section" aria-labelledby="connected-title">
    <span id="connected-title" className="label" style={{display:'block',marginBottom:28}}>Connected work</span>
-   <div className="connected">{related.map(r=><Link key={r.slug} href={`/research/${r.slug}`} className="card"><span className="mono muted">{(r.year<p.year?'← Earlier · ':'Later · ')+r.type.toUpperCase()+' · '+r.year}</span><span className="h-item" style={{fontSize:28}}>{r.title}</span><span className="text-2" style={{fontSize:15}}>{r.teaser}</span></Link>)}</div>
+   <div className="connected">{related.map(r=><Link key={r.slug} href={`/research/${r.slug}`} className="card"><span className="mono muted">{(r.year<p.year?'← Earlier · ':'Later · ')+r.type.toUpperCase()+' · '+r.year}</span><span className="h-item" style={{fontSize:28}}>{r.title}</span><span className="text-2" style={{fontSize:16}}>{r.teaser}</span></Link>)}</div>
   </section>}
 
   <section className="wrap section" aria-labelledby="detail-cta">

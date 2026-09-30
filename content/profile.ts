@@ -42,7 +42,7 @@ export const teaching = [
 // evidence and research design stay unpublished.
 export const researchInterests=['Regional Security Complex Theory','Securitization theory','Afghanistan and its neighbourhood','Non-traditional security threats','Transnational terrorism, narcotics and refugee movements','Security governance and state fragility','Regional security cooperation (SCO, Moscow Format, CSTO)','China and Russia in Central and South Asia'];
 export const futureDirections=[
- {title:'From insulator to instigator',detail:'Asking whether Afghanistan has moved from an insulator to an “instigator”: a state whose security governance failure generates, amplifies and exports non-traditional security threats, such as terrorism, narcotics and refugee movements, into the neighbouring regional security complexes.'},
+ {title:'Specifying the instigator',detail:'Asking what conditions mark an insulator’s transition to an instigator, and whether post-2014 Afghanistan meets all of them.'},
  {title:'A nascent security complex?',detail:'Asking whether shared threats from Afghanistan are drawing Pakistan, Iran, China, Russia and the Central Asian republics into a nascent regional security complex, whether it could mature into a full one, and what might stand in the way.'},
  {title:'Great powers and inter-regional cooperation',detail:'Examining whether China and Russia act as socialising agents, and whether cooperation through the SCO’s Regional Anti-Terrorist Structure, the Moscow Format, the QCCM and the CSTO indicates a new security complex.'},
  {title:'Beyond Afghanistan',detail:'Testing whether the same criteria distinguish Afghanistan from other insulator states, such as Turkey and Myanmar, and under what circumstances an insulator crosses that threshold.'},

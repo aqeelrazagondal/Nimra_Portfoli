@@ -1,8 +1,9 @@
 import {CopyButton} from '@/components/copy-button';
 import Link from 'next/link';
-import {education,profile,shortBio,longBio} from '@/content/profile';
+import {education,profile,shortBio,longBio,projects} from '@/content/profile';
 import {PhotoGallery} from '@/components/portrait';
-import {RouteTrace} from '@/components/circuit/figures';
+import {JourneyTimeline} from '@/components/journey-timeline';
+import {Lightbulb,HeartHandshake,Users,GraduationCap,Presentation} from 'lucide-react';
 import {getProfileMedia,showPhotoHints} from '@/lib/profile-media';
 import {jsonLd,pageLd,pageMetadata,person,siteUrl} from '@/lib/site';
 import {Photo,photoSrc} from '@/components/photo';
@@ -49,29 +50,31 @@ export default async function About(){
   <section className="wrap section" aria-labelledby="route-title">
    <div className="section-head route-head"><div className="stack"><span className="label designator live">The route so far</span><h2 id="route-title" className="h-section">Five places, one line of inquiry.</h2></div>
     <Photo name="journey" corner="tr" className="route-photo" sizes="200px"/></div>
-   <RouteTrace/>
-   <ol className="route" style={{listStyle:'none',margin:'24px 0 0',padding:0}}>
-    {route.map(r=><li key={r.place}><div><span className="mono" style={r.now?{color:'var(--lilac)'}:undefined}>{r.when.toUpperCase()}</span><span className="place">{r.place}</span><p>{r.text}</p></div></li>)}
-   </ol>
+   <JourneyTimeline stops={route}/>
   </section>
 
   <section className="wrap section split" aria-labelledby="record-title">
    <div className="split-head"><span className="label">Academic record</span><h2 id="record-title" className="h-section" style={{fontSize:'clamp(1.9rem,3vw,2.75rem)'}}>Three degrees in International Relations.</h2><Link href="/cv" className="link-arrow">Full CV <span aria-hidden>→</span></Link></div>
    <div className="rule-list">
-    {education.map(e=><div key={e.title} className="record-row"><span className="mono muted">{e.years}</span><span className="stack" style={{gap:6}}><span className="h-item">{e.title}</span><span className="text-2" style={{fontSize:15}}>{e.institution}</span></span></div>)}
+    {education.map(e=><div key={e.title} className="record-row"><span className="mono muted">{e.years}</span><span className="stack" style={{gap:6}}><span className="h-item"><GraduationCap aria-hidden/>{e.title}</span><span className="text-2" style={{fontSize:16}}>{e.institution}</span></span></div>)}
    </div>
   </section>
 
   <section className="wrap section" aria-labelledby="principles-title">
-   <div className="section-head"><div className="stack"><span className="label designator">Principles</span><h2 id="principles-title" className="h-section">Knowledge should <em>conduct.</em></h2></div></div>
-   <div className="principles">{principles.map(([code,title,text])=><div key={code} className="card principle"><h3 className="h-item" style={{fontSize:28}}>{title}</h3><p>{text}</p></div>)}</div>
+   <div className="section-head"><div className="stack"><span className="label designator">Principles</span><h2 id="principles-title" className="h-section">Knowledge should <em>connect us.</em></h2></div></div>
+   <div className="principles">{principles.map(([code,title,text],i)=><div key={code} className="card principle">{[<Lightbulb key="light" aria-hidden/>,<HeartHandshake key="heart" aria-hidden/>,<Users key="users" aria-hidden/>][i]}<h3 className="h-item" style={{fontSize:28}}>{title}</h3><p>{text}</p></div>)}</div>
    <div className="duo" style={{marginTop:24}}>
     <div><span className="label label-muted">Methods &amp; tools</span><div className="pills">{methods.map(m=><span key={m} className="pill pill-lg">{m}</span>)}</div></div>
     <div><span className="label label-muted">Languages</span><div className="langs">{profile.languages.map(l=><span key={l}>{l}</span>)}</div></div>
    </div>
   </section>
 
-  <section className="wrap section" aria-labelledby="bio-title"><h2 id="bio-title" className="h-section">Biography for introductions</h2><div className="reading"><h3>One line</h3><p>{shortBio}</p><CopyButton text={shortBio} label="Copy short bio"/><h3>Full biography</h3><p>{longBio}</p><CopyButton text={longBio} label="Copy biography"/></div><Link className="link-arrow" href="/media">Talks, topics and headshots →</Link></section>
+  <section id="talks" className="wrap section" aria-labelledby="talks-title">
+   <div className="section-head"><div className="stack"><span className="label"><Presentation aria-hidden/>Talks &amp; media</span><h2 id="talks-title" className="h-section">Ideas for <em>conversation.</em></h2></div></div>
+   <div className="pills"><span className="pill pill-lg">Afghanistan and Regional Security Complex Theory</span><span className="pill pill-lg">Russia–Afghanistan relations</span><span className="pill pill-lg">Research-informed teaching and inclusive SEMH education</span></div>
+   <article className="card" style={{marginTop:24}}><span className="label">June 2020 · Istanbul</span><h3 className="h-card"><Link href="/research/istanbul-conference-2020">{projects.find(p=>p.slug==='istanbul-conference-2020')!.title}</Link></h3><p>Istanbul International Social Science Conference · Istanbul Sabahattin Zaim University</p><Link href="/research/istanbul-conference-2020" className="link-arrow">Read the presentation overview →</Link></article>
+   <div className="duo" style={{marginTop:32,alignItems:'start'}}><div className="reading"><h3>Short biography</h3><p>{shortBio}</p><CopyButton text={shortBio} label="Copy short bio"/><h3>Full biography</h3><p>{longBio}</p><CopyButton text={longBio} label="Copy biography"/></div><div className="stack"><h3 className="h-card">For organisers</h3><Photo name="portrait" corner="tr" className="media-headshot" sizes="320px"/><a className="link-arrow" href={photoSrc('portrait')} download="Nimra-Zahid-headshot.webp">Download headshot (WebP) →</a><a className="link-arrow" href="/images/nimra/nimra-zahid-headshot.jpg" download>Download headshot (JPEG) →</a><Link href="/contact?topic=speaking" className="btn">Enquire about a talk</Link></div></div>
+  </section>
   <PhotoGallery photos={photos} hint={showPhotoHints}/>
  </>;
 }

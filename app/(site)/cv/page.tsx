@@ -1,7 +1,8 @@
+import {InteractiveSignalTrace} from '@/components/circuit/interactive-figures';
 import Link from 'next/link';
 import {phdLead} from '@/content/phd';
 import {cvSections,education,profile,projects,teaching} from '@/content/profile';
-import {SignalTrace,SignalList} from '@/components/circuit/figures';
+import {SignalList} from '@/components/circuit/figures';
 import {jsonLd,pageLd,pageMetadata,person,siteUrl} from '@/lib/site';
 import {CvNav} from '@/components/cv-nav';
 const description='Academic CV of Nimra Zahid: MA and MPhil in International Relations, research on Afghanistan and regional security, and over ten years of teaching in Pakistan and England.';
@@ -23,7 +24,7 @@ export default function CV(){
   <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(ld)}/>
   <section className="wrap cv-head">
    <div className="stack">
-    <span className="label">Curriculum vitae · wiring diagram</span>
+    <span className="label">Curriculum vitae</span>
     <h1 className="h-page">Nimra Zahid</h1>
     <p className="lead">International Relations researcher &amp; educator</p>
     <p className="meta">{[profile.location.toUpperCase(),profile.email,`LAST UPDATED ${updated.toUpperCase()}`].filter(Boolean).join(' · ')}</p>
@@ -36,7 +37,7 @@ export default function CV(){
     <div className="fig-head" style={{marginBottom:8}}><span id="trace-title" className="label label-muted">Fig. 4 · Signal trace · 2011 – {new Date(profile.updated).getUTCFullYear()}</span>
      <div className="signal-legend" aria-hidden><span><i style={{background:'var(--lilac)'}}/>Study</span><span><i style={{background:'var(--rose)'}}/>University teaching</span><span><i style={{background:'var(--current)'}}/>School teaching</span><span><i style={{background:'var(--gold)'}}/>Research outputs</span></div>
     </div>
-    <div className="signal-scroll" tabIndex={0} role="region" aria-label="Signal trace, scrollable"><SignalTrace/></div>
+    <div className="signal-scroll" tabIndex={0} role="region" aria-label="Signal trace, scrollable"><InteractiveSignalTrace/></div>
     <SignalList/>
     <figcaption style={{textAlign:'left',fontStyle:'normal'}}>Each lane is a signal, high while active. The overlaps are real: school and university teaching ran in parallel from 2019 to 2022.</figcaption>
    </figure>
@@ -45,26 +46,26 @@ export default function CV(){
   <section className="wrap section-tight cv-layout">
    <CvNav sections={sections}/>
    <div>
-    <section id="doctoral" className="cv-section"><h2><span className="mono">D</span>Proposed doctoral research</h2>
+    <section id="doctoral" className="cv-section"><h2>Proposed doctoral research</h2>
      <article className="cv-entry"><div className="cv-when"><span className="mono">2027 ENTRY</span></div>
       <div className="cv-body"><p>{phdLead}</p><Link href="/phd" className="link-arrow">{phdLabel}</Link></div></article>
     </section>
-    <section id="education" className="cv-section"><h2><span className="mono">E</span>Education</h2>
-     {education.map(e=><article key={e.title} className="cv-entry"><div className="cv-when"><span className="mono">{e.short.toUpperCase()}</span><span className="mono muted">{e.code}</span></div>
+    <section id="education" className="cv-section"><h2>Education</h2>
+     {education.map(e=><article key={e.title} className="cv-entry"><div className="cv-when"><span className="mono">{e.short.toUpperCase()}</span></div>
       <div className="cv-body"><h3 className="cv-title">{e.title}</h3><span className="inst">{e.institution}, {e.place}</span><p>{e.detail}</p></div></article>)}
     </section>
-    <section id="research" className="cv-section"><h2><span className="mono" style={{color:'var(--gold)'}}>R</span>Research &amp; presentations</h2>
+    <section id="research" className="cv-section"><h2>Research &amp; presentations</h2>
      {researchRows.map(r=><article key={r.title} className="cv-entry"><div className="cv-when"><span className="mono">{r.when.toUpperCase()}</span><span className="mono muted">{r.code.toUpperCase()}</span></div><div className="cv-body"><h3 className="cv-title">{r.title}</h3><span className="inst">{r.sub}</span></div></article>)}
     </section>
-    <section id="teaching" className="cv-section"><h2><span className="mono" style={{color:'var(--current)'}}>T</span>Teaching experience</h2>
-     {teaching.map(t=><article key={t.title} className="cv-entry"><div className="cv-when"><span className="mono" style={t.code==='T4'?{color:'var(--current)'}:undefined}>{t.short.toUpperCase()}</span><span className="mono muted">{t.code}</span></div><div className="cv-body"><h3 className="cv-title">{t.title}</h3><span className="inst">{t.institution}</span><p>{t.detail}</p></div></article>)}
+    <section id="teaching" className="cv-section"><h2>Teaching experience</h2>
+     {teaching.map(t=><article key={t.title} className="cv-entry"><div className="cv-when"><span className="mono" style={t.code==='T4'?{color:'var(--current)'}:undefined}>{t.short.toUpperCase()}</span></div><div className="cv-body"><h3 className="cv-title">{t.title}</h3><span className="inst">{t.institution}</span><p>{t.detail}</p></div></article>)}
     </section>
-    {service&&<section id="leadership" className="cv-section"><h2><span className="mono" style={{color:'var(--rose)'}}>L</span>Leadership &amp; service</h2>
-     <article className="cv-entry"><div className="cv-when"><span className="mono">{service.dates}</span><span className="mono muted">L1 · L2</span></div><div className="cv-body"><h3 className="cv-title">Student Affairs Sub-in-Charge · Lead, Blood Donation Society</h3><span className="inst">{service.subtitle}</span><p>{service.detail}</p></div></article>
+    {service&&<section id="leadership" className="cv-section"><h2>Leadership &amp; service</h2>
+     <article className="cv-entry"><div className="cv-when"><span className="mono">{service.dates}</span></div><div className="cv-body"><h3 className="cv-title">Student Affairs Sub-in-Charge · Lead, Blood Donation Society</h3><span className="inst">{service.subtitle}</span><p>{service.detail}</p></div></article>
     </section>}
-    <section id="skills" className="cv-section"><h2><span className="mono">S</span>Training, skills &amp; languages</h2>
+    <section id="skills" className="cv-section"><h2>Training, skills &amp; languages</h2>
      <div className="cv-extra" style={{paddingTop:24}}>
-      {training&&<div><span className="label label-muted">C1 · Training</span><span className="h-item" style={{fontSize:20}}>{training.title}</span><p>{training.subtitle}</p></div>}
+      {training&&<div><span className="label label-muted">Training</span><span className="h-item" style={{fontSize:20}}>{training.title}</span><p>{training.subtitle}</p></div>}
       {skills[0]&&<div><span className="label label-muted">Skills</span><p>{skills[0].detail}</p></div>}
       <div><span className="label label-muted">Languages</span><span className="h-item" style={{fontSize:20}}>{profile.languages.join(' · ')}</span><p>Degree verification available on request.</p></div>
      </div>

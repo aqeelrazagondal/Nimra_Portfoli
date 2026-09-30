@@ -58,16 +58,16 @@ function Complex({x,y,h,label,short,inst}:{x:number;y:number;h:number;label:stri
   <circle cx={cx-60} cy={yy} r="5" className="f-lilac"/><circle cx={cx} cy={yy+6} r="5" className="f-lilac"/><circle cx={cx+60} cy={yy} r="5" className="f-lilac"/>
  </g>;
 }
-export function ReadingsFigure({inst}:{inst:boolean}){
+export function ReadingsFigure({inst,selected=null}:{inst:boolean;selected?:number|null}){
  const traces=inst?['M294 158 V100','M244 206 H200 L170 236 V262','M344 206 H388 L418 236 V262']:['M294 158 V108','M244 206 H200 L170 236 V252','M344 206 H388 L418 236 V252'];
  return <svg viewBox="0 0 588 380" role="img" aria-label={inst?'Instigator reading: current flows outward from Afghanistan into the three neighbouring complexes.':'Insulator reading: three regional complexes with Afghanistan between them; connections into Afghanistan are blocked.'}>
-  <Complex x={184} y={24} h={84} label="CENTRAL ASIA · POST-SOVIET" short="CENTRAL ASIA" inst={inst}/>
-  <Complex x={24} y={252} h={100} label="MIDDLE EAST · GULF" short="MIDDLE EAST" inst={inst}/>
-  <Complex x={344} y={252} h={100} label="SOUTH ASIA" short="SOUTH ASIA" inst={inst}/>
+  <g className={`figure-complex ${selected!==null&&selected!==0?'figure-dim':''}`}><Complex x={184} y={24} h={84} label="CENTRAL ASIA · POST-SOVIET" short="CENTRAL ASIA" inst={inst}/></g>
+  <g className={`figure-complex ${selected!==null&&selected!==1?'figure-dim':''}`}><Complex x={24} y={252} h={100} label="MIDDLE EAST · GULF" short="MIDDLE EAST" inst={inst}/></g>
+  <g className={`figure-complex ${selected!==null&&selected!==2?'figure-dim':''}`}><Complex x={344} y={252} h={100} label="SOUTH ASIA" short="SOUTH ASIA" inst={inst}/></g>
   {inst&&<circle cx="294" cy="190" r="110" className="fill-live-soft"/>}
-  {traces.map(d=><path key={d} d={d} className="f-none s-idle" strokeWidth="2"/>)}
+  {traces.map((d,i)=><path key={d} d={d} opacity={selected!==null&&selected!==i?.3:1} className="f-none s-idle figure-connection" strokeWidth="2"/>)}
   {inst?<>
-   {traces.map(d=><path key={'l'+d} d={d} className="f-none s-live flow" strokeWidth="2"/>)}
+   {traces.map((d,i)=><path key={'l'+d} d={d} opacity={selected!==null&&selected!==i?.3:1} className="f-none s-live flow figure-connection" strokeWidth="2"/>)}
    <polygon points="287,114 294,102 301,114" className="f-live"/><circle cx="170" cy="266" r="6" className="f-live"/><circle cx="418" cy="266" r="6" className="f-live"/>
   </>:<>
    <rect x="282" y="127" width="24" height="12" className="f-board"/><line x1="282" y1="128" x2="306" y2="128" className="s-rose" strokeWidth="2"/><line x1="282" y1="138" x2="306" y2="138" className="s-rose" strokeWidth="2"/>

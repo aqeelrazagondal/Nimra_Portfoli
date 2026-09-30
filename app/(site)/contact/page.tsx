@@ -1,9 +1,9 @@
+import {Mail,MapPin,ExternalLink} from 'lucide-react';
 import {Suspense} from 'react';
 import {CopyButton} from '@/components/copy-button';
 import Link from 'next/link';
 import {ContactForm} from '@/components/contact-form';
 import {ContactSwitch} from '@/components/circuit/figures';
-import {phdReplyWindow} from '@/content/phd';
 import {profile,profileLinks} from '@/content/profile';
 import {jsonLd,pageLd,pageMetadata,person} from '@/lib/site';
 import {Photo} from '@/components/photo';
@@ -15,9 +15,9 @@ export default function Contact(){
  const formReady=Boolean(process.env.RESEND_API_KEY&&process.env.CONTACT_TO_EMAIL&&process.env.CONTACT_FROM_EMAIL&&process.env.TURNSTILE_SECRET_KEY&&process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY);
  const email=profileLinks.find(x=>x.label==='Email');const elsewhere=profileLinks.filter(x=>x.label!=='Email');
  const facts=<div className="contact-facts">
-  {email&&<div><span className="label label-muted">Email</span><a href={email.href}>{email.text}</a><CopyButton text={email.text} label="Copy email"/><p>I reply within {phdReplyWindow}.</p></div>}
-  <div><span className="label label-muted">Based in</span><span style={{fontSize:18}}>{profile.location.replace('UK','United Kingdom')}</span></div>
-  {elsewhere.length>0&&<div><span className="label label-muted">Elsewhere</span><div className="profile-links">{elsewhere.map(x=><a key={x.label} href={x.href} rel="me noopener noreferrer" target="_blank" aria-label={`${x.text} profile`}><i aria-hidden className={x.label==='LinkedIn'?'lilac':undefined}/>{x.text}</a>)}</div></div>}
+  {email&&<div><span className="label label-muted"><Mail aria-hidden/>Email</span><a href={email.href}>{email.text}</a><CopyButton text={email.text} label="Copy email"/></div>}
+  <div><span className="label label-muted"><MapPin aria-hidden/>Based in</span><span style={{fontSize:18}}>{profile.location.replace('UK','United Kingdom')}</span></div>
+  {elsewhere.length>0&&<div><span className="label label-muted">Elsewhere</span><div className="profile-links">{elsewhere.map(x=><a key={x.label} href={x.href} rel="me noopener noreferrer" target="_blank" aria-label={`${x.text} profile`}><ExternalLink aria-hidden/>{x.text}</a>)}</div></div>}
  </div>;
  return <>
   <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(ld)}/>
@@ -30,7 +30,7 @@ export default function Contact(){
     <Photo name="contact" corner="tr" ratio="21 / 22" className="contact-photo" label={{text:profile.replyWindow?`Replies within ${profile.replyWindow}`:'Research & teaching enquiries'}} sizes="(max-width: 900px) min(420px, 100vw), 420px"/>
     <p className="contact-intro">Supervising in regional security, RSCT or South and Central Asia? Choose PhD supervision, or <Link href="/phd" className="link-arrow">read the proposed research</Link> first.</p>
     <p>The quickest way to reach me is email. I welcome enquiries about doctoral supervision and research collaboration on Afghanistan, RSCT and regional security, guest lectures on regional security or inclusive education, and press comment on Afghanistan and its neighbours.</p>
-    <Link href="/media" className="link-arrow">Talks, biography and headshots →</Link>
+    <Link href="/about#talks" className="link-arrow">Talks, biography and headshots →</Link>
     {formReady&&<>{facts}<Link href="/cv" className="link-arrow">Prefer to read first? View my CV <span aria-hidden>→</span></Link></>}
    </div>
    {formReady?<Suspense fallback={<p className="contact-intro">Loading the form…</p>}><ContactForm/></Suspense>:<div className="contact-panel email-fallback">

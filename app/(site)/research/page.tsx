@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import {futureDirections,projects,researchInterests,testimonials,profile,fullTextRequest} from '@/content/profile';
+import {projects,researchInterests,testimonials,profile,fullTextRequest} from '@/content/profile';
 import {Testimonial} from '@/components/testimonial';
-import {ReadingsFigure} from '@/components/circuit/figures';
+import {InteractiveReadings} from '@/components/circuit/interactive-figures';
 import {jsonLd,pageLd,pageMetadata,person,siteUrl} from '@/lib/site';
 const description='Research by Nimra Zahid on Afghanistan and Regional Security Complex Theory: an MA dissertation, an MPhil thesis on Russia–Afghanistan relations and a conference paper on Turkey and the Global War on Terror. Seeking PhD supervision for 2027 entry.';
 export const metadata=pageMetadata({title:'Research',description,path:'/research'});
@@ -33,23 +33,23 @@ export default function Research(){
   </section>
 
   <section className="wrap section-tight" aria-labelledby="fig2-title">
-   <div className="fig-head"><span id="fig2-title" className="label">Fig. 2 · Two readings of the same board</span><span className="meta">After Buzan &amp; Wæver, Regions and Powers (2003) · abstract diagram, not a map</span></div>
+   <div className="fig-head"><span id="fig2-title" className="label">Fig. 2 · Two readings of regional security</span><span className="meta">After Buzan &amp; Wæver, Regions and Powers (2003) · abstract diagram, not a map</span></div>
    <div className="readings">
     <figure className="reading-card dotgrid" style={{margin:0}}>
      <div className="top"><span className="label" style={{color:'var(--rose)'}}>Reading A · Insulator</span><span className="meta">RSCT, 2003</span></div>
-     <ReadingsFigure inst={false}/>
+     <InteractiveReadings inst={false}/>
      <figcaption style={{textAlign:'left',fontStyle:'normal',fontSize:16,color:'var(--text-2)'}}>Afghanistan sits between the post-Soviet, Middle Eastern and South Asian complexes, absorbing rather than transmitting their security dynamics.</figcaption>
     </figure>
     <figure className="reading-card dotgrid" style={{margin:0,borderColor:'var(--current-line)'}}>
      <div className="top"><span className="label" style={{color:'var(--current)'}}>Reading B · Instigator</span><span className="meta">My argument</span></div>
-     <ReadingsFigure inst/>
+     <InteractiveReadings inst/>
      <figcaption style={{textAlign:'left',fontStyle:'normal',fontSize:16,color:'var(--text-2)'}}>Dynamics generated in and around Afghanistan travel outward and shape security inside the neighbouring complexes.</figcaption>
     </figure>
    </div>
   </section>
 
   <section className="wrap section" aria-labelledby="outputs-title">
-   <div className="section-head"><div className="stack"><span className="label designator live">Outputs</span><h2 id="outputs-title" className="h-section">Three projects on one trace.</h2></div></div>
+   <div className="section-head"><div className="stack"><span className="label designator live">Outputs</span><h2 id="outputs-title" className="h-section">Three projects, one developing question.</h2></div></div>
    <div className="rule-list">
     {outputs.map(p=>{const m=outputMeta[p.slug];return <article key={p.slug} className={`output${m?.accent?' accent':''}`}>
      <div className="stack" style={{gap:6}}><span className="year">{p.year}</span><span className="mono muted">{(m?.kind??p.type).toUpperCase()}</span></div>
@@ -61,8 +61,7 @@ export default function Research(){
 
   <section className="wrap section directions" aria-labelledby="directions-title">
    <div className="section-head"><div className="stack"><span className="label">Proposed PhD project · 2027 entry</span><h2 id="directions-title" className="h-section">Where the questions <em>lead next.</em></h2></div></div>
-   <dl>{futureDirections.map(d=><div key={d.title}><dt>{d.title}</dt><dd>{d.detail}</dd></div>)}</dl>
-   <Link href="/phd" className="link-arrow" style={{marginTop:8}}>Read the full PhD proposal summary <span aria-hidden>→</span></Link>
+   <div className="card"><p className="reading">The proposed doctoral project develops this research through a comparative study of Afghanistan, Turkey and Myanmar.</p><Link href="/phd" className="link-arrow">See the PhD proposal →</Link></div>
    <div className="pills" style={{marginTop:28}} aria-label="Research interests">{researchInterests.map(r=><span key={r} className="pill pill-lg">{r}</span>)}</div>
   </section>
 
@@ -75,7 +74,7 @@ export default function Research(){
    </div>
    <div className="card">
     <span className="label">Talks</span>
-    <div className="talk"><span className="meta">JUNE 2020 · ISTANBUL, TURKEY</span><span className="h-item" style={{fontSize:22}}>Istanbul International Social Science Conference</span><span className="text-2" style={{fontSize:15}}>Paper presentation · Afghanistan, Turkey and regional security</span></div>
+    <div className="talk"><span className="meta">JUNE 2020 · ISTANBUL, TURKEY</span><span className="h-item" style={{fontSize:22}}>Istanbul International Social Science Conference</span><span className="text-2" style={{fontSize:16}}>Paper presentation · Afghanistan, Turkey and regional security</span></div>
    </div>
   </section>
 

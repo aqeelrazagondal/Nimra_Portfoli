@@ -18,5 +18,6 @@ export function CvNav({sections,label='CV sections',title='Sections',className='
  },[sections]);
  return <nav aria-label={label} className={className}><span className="label label-muted" style={{paddingBottom:10,width:'100%'}}>{title}</span>
   {sections.map(([id,label])=><a key={id} href={`#${id}`} aria-current={active===id?'location':undefined}><i aria-hidden/>{label}</a>)}
+ {className==='cv-nav no-print'&&<a href="/cv.pdf" className="btn-ghost" download>Download PDF</a>}
  </nav>;
 }

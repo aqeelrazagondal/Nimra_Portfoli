@@ -21,9 +21,8 @@ Audit: 30 September 2026. Source: the supplied “nimrazahid.com — Portfolio A
 ## PhD supervision page: Nimra to supply
 
 - Add `public/phd-proposal-summary.pdf` (2 pages, reworded from the proposal) and set `hasProposalSummary` to `true` in `content/phd.ts`. No placeholder file is shipped.
-- Working title: `phdWorkingTitle` is an empty string until Nimra supplies it.
-- Replace the methods sentence in `content/phd.ts` with the proposal’s methods paragraph.
-- Confirm the reply window. The site currently says 3 working days (`phdReplyWindow` in `content/phd.ts`).
+- Working title: `phdWorkingTitle` is an empty string until Nimra supplies it. The public methods paragraph is in `phdApproach`.
+- Reply timing is not shown. Do not set `NEXT_PUBLIC_REPLY_WINDOW` until Nimra chooses a window she can keep.
 - Referees, if still missing: permission plus approved names, roles and contact details, then add them to the CV and PDF.
 
 ## Future requirements
@@ -36,7 +35,7 @@ Audit: 30 September 2026. Source: the supplied “nimrazahid.com — Portfolio A
 | High | Confirm formal titles and research copy | Original MPhil and conference titles/abstracts; approve existing research summaries, concrete methods, findings and exact supervisor names/roles before adding them. Dr Tembo is currently identified as module tutor, not assumed to be a supervisor. |
 | High | Name the remaining modules | Supply the other three University of Gujrat module names. The documented total remains six; only the three supplied names are listed. Explicitly deferred by the user. |
 | High | Activate the contact form | Verify Resend sender; set `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`, `TURNSTILE_SECRET_KEY` and `NEXT_PUBLIC_TURNSTILE_SITE_KEY`; redeploy and perform an authorised delivery test. Direct email is live meanwhile. |
-| Medium | Reply-time promise | Nimra chooses a realistic window; set `NEXT_PUBLIC_REPLY_WINDOW` and redeploy. The audit's three days was a suggestion, not a confirmed commitment. |
+| Medium | Reply-time promise | Removed from the public site. Nimra chooses a realistic window only after hello@ forwarding is confirmed; then set `NEXT_PUBLIC_REPLY_WINDOW` and redeploy. |
 | Medium | Confirmation emails | After delivery setup and reply-window agreement, implement an automatic acknowledgement with that promise and verify delivery/abuse handling. No unsolicited test email was sent. |
 | Medium | Optional booking | Supply a 20-minute booking URL and availability policy; set `NEXT_PUBLIC_BOOKING_URL`. It is shown only for doctoral/research enquiries once the form is configured. Explicitly deferred by the user. |
 | Medium | Google Scholar link | Supply the profile URL once available; set `NEXT_PUBLIC_SCHOLAR_URL` and redeploy. Explicitly deferred by the user. |

@@ -1,4 +1,5 @@
 'use client';
+import {Search,GraduationCap,Mic,MessageCircle} from 'lucide-react';
 import {profile} from '@/content/profile';
 import Link from 'next/link';
 import Script from 'next/script';
@@ -38,7 +39,7 @@ export function ContactForm(){
   </div>
   {sent?<div className="sent" role="status">
    <span className="badge" aria-hidden><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
-   <h2 className="h-card">Message sent.</h2>
+   <h2 className="h-card">Message sent. Thank you.</h2>
    <p className="text-2">{state.message??'Thank you. Your message has reached me, and I’ll reply by email.'}</p>
    <button type="button" className="btn-outline" onClick={()=>setAgain(true)}>Send another message</button>
   </div>
@@ -47,10 +48,9 @@ export function ContactForm(){
    {siteKey&&<Script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" strategy="afterInteractive" onReady={renderTurnstile}/>}
    <fieldset>
     <legend>What is this about?</legend>
-    <div className="type-chips">{enquiryTypes.map(t=><button key={t} type="button" aria-pressed={t===type} onClick={()=>setOverride(t)}>{enquiryLabels[t]??t}</button>)}</div>
-    <input type="hidden" name="type" value={type}/>
+    <div className="topic-cards">{enquiryTypes.map((t,i)=>{const Icon=[Search,GraduationCap,Mic,MessageCircle][i];return <label className="topic-card" key={t}><input type="radio" name="type" value={t} checked={t===type} onChange={()=>setOverride(t)}/><Icon aria-hidden strokeWidth={1.5}/><span>{enquiryLabels[t]??t}</span></label>})}</div>
     <p className="topic-hint" aria-live="polite">{enquiryHints[type]}</p>
-    {type==='Speaking'&&<Link href="/media" className="link-arrow">Talk topics and biography →</Link>}
+    {type==='Speaking'&&<Link href="/about#talks" className="link-arrow">Talk topics and biography →</Link>}
     {profile.booking&&(type==='Doctoral opportunities'||type==='Research & collaboration')&&<a href={profile.booking} className="link-arrow" target="_blank" rel="noopener noreferrer">Book a 20-minute conversation →</a>}
     {error('type')}
    </fieldset>

@@ -1,3 +1,4 @@
+import {School,Building2} from 'lucide-react';
 import Link from 'next/link';
 import {teaching,testimonials,universityModules,profile} from '@/content/profile';
 import {Testimonial} from '@/components/testimonial';
@@ -25,7 +26,7 @@ export default function Teaching(){
      <div className="fig-head"><span className="label label-muted">Fig. 3 · Parallel circuit</span><span className="meta">5 branches · all lit</span></div>
      <ParallelCircuit/>
     </div>
-    <figcaption style={{textAlign:'left',fontStyle:'normal'}}>Parallel, not series: every learner has their own path to the current, so one branch dimming never switches off the rest.</figcaption>
+    <figcaption style={{textAlign:'left',fontStyle:'normal'}}>Each learner has an individual path, with support adapted to their needs.</figcaption>
    </figure>
   </section>
 
@@ -50,7 +51,7 @@ export default function Teaching(){
     {teaching.map(t=><li key={t.title} className={`role role-${t.code.toLowerCase()}`}>
      <div className="role-when"><span className="mono">{t.short.toUpperCase()}</span><span className="mono muted">{t.place.toUpperCase()}</span></div>
      <div className="role-rail" aria-hidden><i/></div>
-     <div className="role-body"><h3 className="h-item">{t.title}</h3><span className="role-inst">{'teachingInstitution' in t?t.teachingInstitution:t.institution}</span><ul>{t.points.map(x=><li key={x.slice(0,30)}>{x}</li>)}</ul></div>
+     <div className="role-body"><h3 className="h-item">{t.institution.includes('Gujrat')?<Building2 aria-hidden/>:<School aria-hidden/>}{t.title}</h3><span className="role-inst">{'teachingInstitution' in t?t.teachingInstitution:t.institution}</span><ul>{t.points.map(x=><li key={x.slice(0,30)}>{x}</li>)}</ul></div>
     </li>)}
    </ol>
   </section>
@@ -60,7 +61,7 @@ export default function Teaching(){
     <span className="label" style={{color:'var(--rose)'}}>University teaching · University of Gujrat</span>
     <h2 className="h-card">Six undergraduate modules.</h2>
     <div className="modules">{universityModules.map(m=><span key={m}>{m}</span>)}</div>
-    {universityModules.length<6&&<p className="muted" style={{fontSize:14}}>Including the modules above, taught through lectures and seminars between 2019 and 2022.</p>}
+    {universityModules.length<6&&<p className="muted" style={{fontSize:16}}>Including the modules above, taught through lectures and seminars between 2019 and 2022.</p>}
    </div>
    <div className="card" style={{borderRadius:28}}>
     <span className="label label-live">Specialisms</span>

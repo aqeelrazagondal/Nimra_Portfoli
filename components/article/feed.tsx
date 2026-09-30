@@ -1,4 +1,5 @@
 'use client';
+import {ViewTransition} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {useEffect,useState} from 'react';
@@ -15,7 +16,7 @@ export function ArticleRow({a}:{a:ArticleSummary}){
    <h3><Link href={`/writing/${a.slug}`}>{a.title}</Link></h3>
    <p className="row-excerpt">{a.subtitle||a.excerpt}</p>
   </div>
-  <Link href={`/writing/${a.slug}`} className="row-thumb" tabIndex={-1} aria-hidden><Image src={a.cover.src} alt="" width={a.cover.width} height={a.cover.height} sizes="(max-width: 760px) 88px, 176px" placeholder="blur" blurDataURL={a.cover.blurDataURL}/></Link>
+  <Link href={`/writing/${a.slug}`} className="row-thumb" tabIndex={-1} aria-hidden><ViewTransition name={`cover-${a.slug}`}><Image src={a.cover.src} alt="" width={a.cover.width} height={a.cover.height} sizes="(max-width: 760px) 88px, 176px" placeholder="blur" blurDataURL={a.cover.blurDataURL}/></ViewTransition></Link>
  </article>;
 }
 

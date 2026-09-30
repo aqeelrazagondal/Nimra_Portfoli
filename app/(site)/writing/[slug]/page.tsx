@@ -1,3 +1,4 @@
+import {ViewTransition} from 'react';
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
 import type {Metadata} from 'next';
@@ -50,7 +51,7 @@ export default async function ArticlePage({params}:{params:Promise<{slug:string}
    {byline}
   </header>
   <figure className="figure cover">
-   <ZoomImage src={a.cover.src} alt={a.cover.alt} width={a.cover.width} height={a.cover.height} sizes="(max-width: 1060px) 100vw, 1000px" blurDataURL={a.cover.blurDataURL} priority/>
+   <ViewTransition name={`cover-${a.slug}`}><ZoomImage src={a.cover.src} alt={a.cover.alt} width={a.cover.width} height={a.cover.height} sizes="(max-width: 1060px) 100vw, 1000px" blurDataURL={a.cover.blurDataURL} priority/></ViewTransition>
    {(a.coverCaption||a.coverCredit)&&<figcaption>{a.coverCaption}{a.coverCredit&&<span className="credit"> {a.coverCaption?'· ':''}{a.coverCredit}</span>}</figcaption>}
   </figure>
   <div className="article-body"><ArticleBody content={a.content}/></div>

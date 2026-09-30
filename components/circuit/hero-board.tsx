@@ -1,5 +1,6 @@
 'use client';
 import {useState} from 'react';
+import {Stats} from '@/components/site-motion';
 
 type Mode='instigator'|'insulator';
 const caption={
@@ -21,7 +22,7 @@ export function HeroBoard({children}:{children:React.ReactNode}){
  const chip=inst?'s-live':'s-faint';
  return <section className="wrap hero" aria-label="Introduction">
   <div className="hero-copy">{children}</div>
-  <figure className="board-fig" style={{margin:0}}>
+  <div className="hero-figure-row"><figure className="board-fig" style={{margin:0}}>
    <div className="board dotgrid">
     <div className="board-toolbar">
      <div className="reading-switch">
@@ -49,7 +50,6 @@ export function HeroBoard({children}:{children:React.ReactNode}){
      <rect x="240" y="264" width="160" height="112" rx="12" className={`f-chip chip-outline ${chip}`} strokeWidth="1.5"/>
      <rect x="252" y="276" width="136" height="88" rx="6" className="f-none s-idle" strokeWidth="1"/>
      <circle cx="262" cy="286" r="3" className="f-strong"/>
-     <text x="240" y="246" className="t-mono t-faint lbl">U1</text>
      <text x="320" y="318" textAnchor="middle" className="t-mono t-text lbl-long" style={{fontSize:13,letterSpacing:2.4}}>AFGHANISTAN</text><text x="320" y="318" textAnchor="middle" className="t-mono t-text lbl-short lbl-center" style={{fontSize:13,letterSpacing:2.4}}>AFG</text>
      <text x="320" y="342" textAnchor="middle" className={`t-mono lbl-state ${inst?'t-live':'t-rose'}`} style={{letterSpacing:1.6}}>{inst?'INSTIGATOR':'INSULATOR'}</text>
      {pads.map(p=><g key={p.label}>
@@ -60,6 +60,6 @@ export function HeroBoard({children}:{children:React.ReactNode}){
     </svg>
    </div>
    <figcaption className="board-caption meta" style={{fontStyle:'normal',textAlign:'left',marginTop:0}}><span id="reading-caption" aria-live="polite">{caption[mode]}</span><span>Abstract diagram · not geographic boundaries</span></figcaption>
-  </figure>
+  </figure><div className="hero-stats" aria-label="At a glance"><Stats/></div></div>
  </section>;
 }

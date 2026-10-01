@@ -1044,3 +1044,14 @@ svg.lucide{width:24px;height:24px;flex-shrink:0;stroke-width:1.5}
 .nav-links .nav-active{view-transition-name:nav-active}
 .mobile-sheet[open] .sheet-item{animation:sheet-item .2s var(--ease) both;animation-delay:calc(var(--i,0) * 50ms)}
 @keyframes sheet-item{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+/* Research detail: the full-text request sits in one row with its note. */
+.lock-note p{margin:0;flex:1}
+.lock-note .btn-outline{flex:none}
+@media(max-width:479px){.lock-note{flex-wrap:wrap}.lock-note .btn-outline{width:100%}}
+/* Contact: the address itself, plus webmail buttons for visitors without an email app. */
+.email-address{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;padding:16px 20px;border-radius:var(--r-card);border:1px solid var(--current-line);background:var(--current-soft)}
+.email-address a{font-family:var(--font-display),Georgia,serif;font-size:clamp(1.25rem,2.2vw,1.6rem);color:var(--text);overflow-wrap:anywhere}
+.email-address a:hover{color:var(--lilac)}
+.email-actions{display:flex;flex-wrap:wrap;gap:12px}
+.email-fallback .email-actions .btn{align-self:auto}
+@media(max-width:479px){.email-actions>a{width:100%;justify-content:center}}

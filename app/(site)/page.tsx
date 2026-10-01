@@ -5,7 +5,8 @@ import {projects,profile,testimonials} from '@/content/profile';
 import {Testimonial} from '@/components/testimonial';
 import {HeroBoard} from '@/components/circuit/hero-board';
 import {SignalPath,StrandWire,CtaSwitch} from '@/components/circuit/figures';
-import {getArticles,formatDate} from '@/lib/articles';
+import {ViewTransition} from 'react';
+import {getArticles,formatDate,WRITING_NAV_MIN} from '@/lib/articles';
 import {Photo,photoSrc} from '@/components/photo';
 import {jsonLd,person,siteUrl} from '@/lib/site';
 
@@ -34,7 +35,7 @@ export default async function Home(){
    <p className="meta">MA International Relations, University of Northampton · MPhil IR, National Defence University · 10+ years teaching in Pakistan and England</p>
    <div className="btn-row"><Link href="/phd" className="btn">See the PhD proposal <Arrow/></Link><a href="/cv.pdf" className="btn-ghost" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a></div>
    <Link href="/research" className="link-arrow">Read the research →</Link>
-   <div className="hero-identity"><Photo name="portrait" corner="tr" className="home-portrait" sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1100px) 38vw, 480px" priority/><span>Nimra Zahid<br/><span className="meta">{profile.location}</span></span></div>
+   <div className="hero-identity"><Photo name="portrait" className="home-portrait" sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1100px) 38vw, 480px" priority/><span>Nimra Zahid<br/><span className="meta">{profile.location}</span></span></div>
   </HeroBoard>
   <div className="home-spine" aria-hidden="true"/>
 
@@ -87,7 +88,7 @@ export default async function Home(){
    </div>
   </section>
 
-  {latest.length>0&&<section className="wrap section" aria-labelledby="latest-title">
+  {latest.length>=WRITING_NAV_MIN?<section className="wrap section" aria-labelledby="latest-title">
    <div className="section-head">
     <div className="stack"><span className="label designator">Latest writing</span><h2 id="latest-title" className="h-section">Recent perspectives.</h2></div>
     <Link href="/writing" className="link-arrow">All writing <span aria-hidden>→</span></Link>
@@ -99,14 +100,23 @@ export default async function Home(){
       <h3 className="h-row">{a.title}</h3>
       <p>{a.subtitle||a.excerpt}</p>
      </div>
-     <Image src={a.cover.src} alt="" width={a.cover.width} height={a.cover.height} sizes="280px" placeholder="blur" blurDataURL={a.cover.blurDataURL}/>
+     <ViewTransition name={`cover-${a.slug}`}><Image src={a.cover.src} alt="" width={a.cover.width} height={a.cover.height} sizes="280px" placeholder="blur" blurDataURL={a.cover.blurDataURL}/></ViewTransition>
     </Link>)}
    </div>
+  </section>
+  // Fewer than three posts: one slim row, so the page never looks like an empty blog.
+  :latest[0]&&<section className="wrap section-tight writing-slim" aria-labelledby="latest-title">
+   <h2 id="latest-title" className="label designator">From the writing</h2>
+   <Link href={`/writing/${latest[0].slug}`} className="writing-slim-row">
+    <span className="meta">{[latest[0].tags[0],`${latest[0].readingTime} min read`,formatDate(latest[0].publishedAt)].filter(Boolean).join(' · ').toUpperCase()}</span>
+    <span className="h-row">{latest[0].title}</span>
+    <span className="writing-slim-arrow" aria-hidden>→</span>
+   </Link>
   </section>}
 
   <section className="wrap section" aria-labelledby="cta-title">
    <div className="panel cta-band">
-    <CtaSwitch label="LET’S TALK"/>
+    <CtaSwitch label="PHD SUPERVISION"/>
     <h2 id="cta-title" className="display" style={{fontSize:'clamp(2.4rem,4.8vw,4.25rem)'}}>Complete the <em>circuit.</em></h2>
     <p className="lead">Seeking a PhD supervisor for 2027 entry.</p>
     <div className="btn-row" style={{justifyContent:'center'}}><Link href="/phd" className="btn">See the PhD proposal</Link><Link href="/cv" className="btn-ghost">View CV</Link></div>

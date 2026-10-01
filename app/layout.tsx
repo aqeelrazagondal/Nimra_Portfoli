@@ -6,7 +6,8 @@ import {siteUrl,indexable,pageMetadata,homeDescription,defaultTitle} from '@/lib
 // No optical-size axis: it roughly doubles the font files for little visible gain at these sizes.
 const display=Fraunces({subsets:['latin'],variable:'--font-display',display:'swap',style:['normal','italic']});
 const body=Geist({subsets:['latin'],variable:'--font-body',display:'swap'});
-const mono=Geist_Mono({subsets:['latin'],variable:'--font-mono',display:'swap'});
+// Only the display serif and body sans are preloaded (above the fold); the mono and long-form faces load on demand.
+const mono=Geist_Mono({subsets:['latin'],variable:'--font-mono',display:'swap',preload:false});
 // Long-form only (About, research, articles): one static weight (the only one used), not preloaded, so it never competes with the hero.
 const reading=Newsreader({subsets:['latin'],weight:'400',variable:'--font-reading',display:'swap',style:['normal','italic'],preload:false});
 export const metadata:Metadata={...pageMetadata({description:homeDescription,path:'/'}),metadataBase:new URL(siteUrl),title:{default:defaultTitle,template:`%s | ${profile.name}`},authors:[{name:profile.name}],creator:profile.name,robots:indexable?{index:true,follow:true}:{index:false,follow:false}};

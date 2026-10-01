@@ -2,12 +2,12 @@
 import Link from 'next/link';
 import {usePathname} from 'next/navigation';
 import {useEffect,useState,useRef} from 'react';
-import {motion,useReducedMotion} from 'motion/react';
 import {Sun,Moon,Menu,X,Download,Mail} from 'lucide-react';
 import {profile,profileLinks} from '@/content/profile';
 
-// Primary navigation: numbered like pins on a board. Writing joins once an article is visible (lib/articles.ts).
-const navLinks=()=>[['Research','/research'],['PhD','/phd'],['Teaching','/teaching'],['Writing','/writing'],['About','/about']];
+// Primary navigation. Writing joins the header and mobile menu once enough posts are published
+// (showWriting, from lib/articles.ts); the footer always links to it.
+const navLinks=(showWriting=true)=>[['Research','/research'],['PhD','/phd'],['Teaching','/teaching'],...(showWriting?[['Writing','/writing']]:[]),['About','/about']];
 // Article pages use the calm reading header and footer; the metaphor steps back while reading.
 const isArticle=(path:string)=>/^\/writing\/[^/]+/.test(path);
 const themeColors={light:'#faf7f2',dark:'#0b0a12'};
@@ -37,15 +37,16 @@ function ThemeToggle(){
  </button>;
 }
 
-export function Header(){
- const path=usePathname(),reduce=useReducedMotion();
+export function Header({showWriting}:{showWriting:boolean}){
+ const path=usePathname();
  const [open,setOpen]=useState(false),[scrolled,setScrolled]=useState(false),[hidden,setHidden]=useState(false),[progress,setProgress]=useState(0);
  const sheet=useRef<HTMLDialogElement>(null),trigger=useRef<HTMLButtonElement>(null);
  useEffect(()=>{let last=scrollY,frame=0;const update=()=>{frame=0;const y=scrollY;setScrolled(y>24);setHidden(y>400&&y>last);last=y;setProgress(y/Math.max(1,document.documentElement.scrollHeight-innerHeight))};const scroll=()=>{if(!frame)frame=requestAnimationFrame(update)};update();addEventListener('scroll',scroll,{passive:true});return()=>{removeEventListener('scroll',scroll);cancelAnimationFrame(frame)}},[]);
  useEffect(()=>{if(!open)return;const dialog=sheet.current!,button=trigger.current;dialog.showModal();const old=document.body.style.overflow;document.body.style.overflow='hidden';return()=>{dialog.close();document.body.style.overflow=old;button?.focus()}},[open]);
- const links=navLinks();
+ const links=navLinks(showWriting);
  const link=(label:string,href:string,mobile=false)=><Link key={href} href={href} onClick={()=>setOpen(false)} className="nav-link" aria-label={href==='/phd'?'PhD (seeking supervision, 2027 entry)':undefined} aria-current={path===href||path.startsWith(`${href}/`)?'page':undefined}>
-  {!mobile&&(path===href||path.startsWith(`${href}/`))&&<motion.span className="nav-active" layoutId="nav-active" transition={{duration:reduce?0:.25,ease:'easeOut'}}/>}<span>{label}</span>{href==='/phd'&&<span className="node-dot pulse" aria-hidden="true"/>}
+  {/* The pill slides between links during the route's view transition (view-transition-name in globals.css). */}
+  {!mobile&&(path===href||path.startsWith(`${href}/`))&&<span className="nav-active" aria-hidden/>}<span>{label}</span>{href==='/phd'&&<span className="node-dot pulse" aria-hidden="true"/>}
  </Link>;
  return <header className={`nav-bar${scrolled?' frosted':''}${hidden&&!open?' header-hidden':''}`}>
   <div className="wrap nav-inner"><Link href="/" className="brand" aria-label="Nimra Zahid, home"><ChipLogo/><span className="brand-name" translate="no">Nimra Zahid</span></Link>
@@ -55,7 +56,7 @@ export function Header(){
   {(path==='/phd'||isArticle(path))&&<div className="header-progress" aria-hidden="true" style={{transform:`scaleX(${progress})`}}/>}
   <dialog ref={sheet} className="mobile-sheet" aria-label="Navigation menu" onCancel={()=>setOpen(false)} onKeyDown={e=>{if(e.key!=='Tab')return;const items=Array.from(e.currentTarget.querySelectorAll<HTMLElement>('a[href],button'));const first=items[0],last=items[items.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}}>
    <div className="sheet-top"><Link href="/" className="brand" onClick={()=>setOpen(false)}><ChipLogo/><span className="brand-name">Nimra Zahid</span></Link><button className="icon-btn" aria-label="Close menu" onClick={()=>setOpen(false)}><X aria-hidden strokeWidth={1.5}/></button></div>
-   <nav id="site-nav" aria-label="Mobile primary">{links.map(([label,href],i)=><motion.div key={href} initial={{opacity:0,y:reduce?0:12}} animate={open?{opacity:1,y:0}:{opacity:0}} transition={{duration:reduce?0:.2,delay:reduce?0:i*.05}}>{link(label,href,true)}</motion.div>)}</nav>
+   <nav id="site-nav" aria-label="Mobile primary">{links.map(([label,href],i)=><div key={href} className="sheet-item" style={{'--i':i} as React.CSSProperties}>{link(label,href,true)}</div>)}</nav>
    <div className="sheet-bottom"><a href="/cv.pdf" download><Download aria-hidden/>Download CV (PDF)</a><a href={`mailto:${profile.email}`}><Mail aria-hidden/>{profile.email}</a><ThemeToggle/></div>
   </dialog>
  </header>;

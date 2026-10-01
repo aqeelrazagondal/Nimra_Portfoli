@@ -5,6 +5,8 @@ import {cvSections,education,profile,projects,teaching} from '@/content/profile'
 import {SignalList} from '@/components/circuit/figures';
 import {jsonLd,pageLd,pageMetadata,person,siteUrl} from '@/lib/site';
 import {CvNav} from '@/components/cv-nav';
+import {Publications} from '@/components/publications';
+import {publications} from '@/content/publications';
 const description='Academic CV of Nimra Zahid: MA and MPhil in International Relations, research on Afghanistan and regional security, and over ten years of teaching in Pakistan and England.';
 export const metadata=pageMetadata({title:'Academic CV',description,path:'/cv'});
 const ld=pageLd('ProfilePage',{path:'/cv',name:`Academic CV | ${profile.name}`,description,mainEntity:person});
@@ -14,7 +16,9 @@ const entries=(id:string)=>cvSections.find(s=>s.id===id)?.entries??[];
 const researchRows=[
  ...[...projects].sort((a,b)=>b.year-a.year).map(p=>({when:p.type==='Conference paper'?`June ${p.year}`:String(p.year),code:p.type==='MA dissertation'?'Dissertation':p.type==='MPhil thesis'?'Thesis':'Conference',title:p.title,sub:p.type==='Conference paper'?`${p.institution}, Istanbul Sabahattin Zaim University, Turkey`:p.institution})),
 ];
-const sections=[['doctoral','Proposed doctoral research','D'],['education','Education','E'],['research','Research & presentations','R'],['teaching','Teaching experience','T'],['leadership','Leadership & service','L'],['skills','Training, skills & languages','S']];
+const sections=[['doctoral','Proposed doctoral research','D'],['education','Education','E'],...(publications.length?[['publications','Publications','P']]:[]),['research','Research & presentations','R'],['teaching','Teaching experience','T'],['leadership','Leadership & service','L'],['skills','Training, skills & languages','S']];
+// ORCID and Google Scholar appear in the header once their URLs are set (content/profile.ts).
+const scholarly=[{label:'ORCID',href:profile.orcid},{label:'Google Scholar',href:profile.scholar}].filter(x=>x.href);
 const phdUrl=`${siteUrl}/phd`;
 const phdLabel=phdUrl.replace(/^https?:\/\//,'');
 
@@ -28,6 +32,7 @@ export default function CV(){
     <h1 className="h-page">Nimra Zahid</h1>
     <p className="lead">International Relations researcher &amp; educator</p>
     <p className="meta">{[profile.location.toUpperCase(),profile.email,`LAST UPDATED ${updated.toUpperCase()}`].filter(Boolean).join(' · ')}</p>
+    {scholarly.length>0&&<p className="cv-ids meta">{scholarly.map(x=><a key={x.label} href={x.href} rel="me noopener noreferrer" target="_blank">{x.label.toUpperCase()}</a>)}</p>}
    </div>
    <a href="/cv.pdf" className="btn no-print" download target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Download PDF CV</a>
   </section>
@@ -54,6 +59,7 @@ export default function CV(){
      {education.map(e=><article key={e.title} className="cv-entry"><div className="cv-when"><span className="mono">{e.short.toUpperCase()}</span></div>
       <div className="cv-body"><h3 className="cv-title">{e.title}</h3><span className="inst">{e.institution}, {e.place}</span><p>{e.detail}</p></div></article>)}
     </section>
+    <Publications variant="cv"/>
     <section id="research" className="cv-section"><h2>Research &amp; presentations</h2>
      {researchRows.map(r=><article key={r.title} className="cv-entry"><div className="cv-when"><span className="mono">{r.when.toUpperCase()}</span><span className="mono muted">{r.code.toUpperCase()}</span></div><div className="cv-body"><h3 className="cv-title">{r.title}</h3><span className="inst">{r.sub}</span></div></article>)}
     </section>
@@ -69,6 +75,7 @@ export default function CV(){
       {skills[0]&&<div><span className="label label-muted">Skills</span><p>{skills[0].detail}</p></div>}
       <div><span className="label label-muted">Languages</span><span className="h-item" style={{fontSize:20}}>{profile.languages.join(' · ')}</span><p>Degree verification available on request.</p></div>
      </div>
+     <p className="cv-references">Academic references available on request.</p>
     </section>
    </div>
   </section>

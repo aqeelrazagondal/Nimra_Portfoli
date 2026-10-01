@@ -83,6 +83,9 @@ export const getArticles=cache(async():Promise<Article[]>=>{
 export const getArticle=cache(async(slug:string)=>(await getArticles()).find(a=>a.slug===slug)??null);
 // One publication policy for pages, navigation, sitemap and feeds in every environment.
 export const getPublishedArticles=getArticles;
+// Below this many published posts, Writing leaves the header and the home page shows a single slim row.
+export const WRITING_NAV_MIN=3;
+export const hasWritingSection=async()=>(await getPublishedArticles()).length>=WRITING_NAV_MIN;
 
 export function summary(a:Article):ArticleSummary{
  const {slug,title,subtitle,excerpt,publishedAt,updatedAt,cover,tags,series,seriesPart,featured,wordCount,readingTime,draft,scheduled}=a;

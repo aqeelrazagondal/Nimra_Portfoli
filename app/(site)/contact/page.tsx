@@ -28,7 +28,7 @@ export default async function Contact({searchParams}:{searchParams:Promise<{topi
   </section>
   <section className="wrap contact-grid">
    <div className="contact-info">
-    <Photo name="contact" corner="tr" ratio="21 / 22" className="contact-photo" label={{text:'Seeking PhD supervision · 2027 entry'}} sizes="(max-width: 900px) min(420px, 100vw), 420px" priority/>
+    <Photo name="contact" ratio="21 / 22" className="contact-photo" label={{text:'Seeking PhD supervision · 2027 entry'}} sizes="(max-width: 900px) min(420px, 100vw), 420px" priority/>
     <p className="contact-intro">Could my project fit your supervision? Email me, or <Link href="/phd" className="link-arrow">read the proposed research</Link> first.</p>
     <p>I’m looking for a PhD supervisor for full-time study from 2027. The quickest way to reach me is email.</p>
    </div>

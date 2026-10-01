@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-Visit http://127.0.0.1:3000. Production check: `npm run build`. Type check: `npm run typecheck`.
+Visit http://127.0.0.1:3000. Production check: `npm run build`. Type check: `npm run typecheck`. Accessibility: `npm run build && CI=1 npm run test:a11y` (axe on every route, both themes, 1280px and 375px). Lighthouse: `npm run lhci` after a build (mobile budgets of 95 in every category). Both run in CI (`.github/workflows/ci.yml`).
 
 ## Implemented
 

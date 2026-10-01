@@ -60,6 +60,6 @@ export function HeroBoard({children}:{children:React.ReactNode}){
     </svg>
    </div>
    <figcaption className="board-caption meta" style={{fontStyle:'normal',textAlign:'left',marginTop:0}}><span id="reading-caption" aria-live="polite">{caption[mode]}</span><span>Abstract diagram · not geographic boundaries</span></figcaption>
-  </figure><div className="hero-stats" aria-label="At a glance"><Stats/></div></div>
+  </figure><div className="hero-stats" role="group" aria-label="At a glance"><Stats/></div></div>
  </section>;
 }

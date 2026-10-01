@@ -1,7 +1,7 @@
 'use client';
 import {useEffect,useRef,useState} from 'react';
 import {usePathname} from 'next/navigation';
-import {motion,useInView,useReducedMotion} from 'motion/react';
+import {Books,ChalkboardTeacher,GraduationCap} from '@phosphor-icons/react';
 
 // Progressive enhancement: content remains visible with JavaScript disabled.
 export function SiteMotion(){
@@ -23,9 +23,15 @@ export function SiteMotion(){
  return null;
 }
 function Count({value,suffix=''}:{value:number;suffix?:string}){
- const ref=useRef<HTMLElement>(null),seen=useInView(ref,{once:true}),reduce=useReducedMotion();
+ const ref=useRef<HTMLElement>(null);
  const [count,setCount]=useState(value);
- useEffect(()=>{if(!seen||reduce)return;let frame=0;const start=performance.now();const tick=(now:number)=>{const p=Math.min(1,(now-start)/400);setCount(Math.round(value*(1-(1-p)**3)));if(p<1)frame=requestAnimationFrame(tick)};frame=requestAnimationFrame(tick);return()=>cancelAnimationFrame(frame)},[seen,reduce,value]);
+ // Counts up once, when first scrolled into view; static under reduced motion.
+ useEffect(()=>{const el=ref.current;if(!el||matchMedia('(prefers-reduced-motion: reduce)').matches)return;let frame=0;
+  const observer=new IntersectionObserver(([entry])=>{if(!entry.isIntersecting)return;observer.disconnect();const start=performance.now();
+   const tick=(now:number)=>{const p=Math.min(1,(now-start)/400);setCount(Math.round(value*(1-(1-p)**3)));if(p<1)frame=requestAnimationFrame(tick)};frame=requestAnimationFrame(tick)});
+  observer.observe(el);return()=>{observer.disconnect();cancelAnimationFrame(frame)}},[value]);
  return <strong ref={ref}><span className="sr-only">{value}{suffix}</span><span aria-hidden>{count}{suffix}</span></strong>;
 }
-export function Stats(){return <dl className="readouts">{[[10,'+','years teaching, Pakistan & England'],[6,'','undergraduate IR modules taught'],[3,'','IR degrees']].map(([n,s,label])=><motion.div className="readout" key={label} initial={false}><dt>{label}</dt><dd><Count value={Number(n)} suffix={String(s)}/></dd></motion.div>)}</dl>}
+// Home, beside Fig. 1: three stacked stat cards (icon, number, label).
+const stats=[{icon:ChalkboardTeacher,value:10,suffix:'+',label:'years teaching, Pakistan & England'},{icon:Books,value:6,suffix:'',label:'undergraduate IR modules taught'},{icon:GraduationCap,value:3,suffix:'',label:'IR degrees'}];
+export function Stats(){return <ul className="readouts">{stats.map(({icon:Icon,value,suffix,label})=><li className="readout" key={label}><span className="readout-icon" aria-hidden><Icon size={20} weight="regular"/></span><Count value={value} suffix={suffix}/><span className="readout-label">{label}</span></li>)}</ul>}

@@ -9,8 +9,8 @@ export const phdApproach=[
  'The second strand traces securitising moves in the declarations of the SCO, CSTO, Moscow Format and QCCM, and assesses them against Amable’s criteria for a nascent regional security complex. Evidence comes from official documents, UNODC, UNHCR and Global Terrorism Index data, and the secondary literature.',
 ];
 
-export const hasProposalSummary=false;
-export const proposalSummaryPath='/phd-proposal-summary.pdf';
+// Drop the PDF into /public under this name; the At a glance button appears on the next build.
+export const proposalSummaryPath='/nimra-zahid-phd-proposal-summary.pdf';
 
 export const phdStatus='Seeking PhD supervision · 2027 entry';
 export const phdStatusAria='Seeking PhD supervision for 2027 entry. Read the proposed research';

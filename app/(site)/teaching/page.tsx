@@ -33,7 +33,7 @@ export default function Teaching(){
   <section className="wrap section split" aria-labelledby="philosophy-title">
    <div className="split-head"><span className="label label-live">Philosophy</span><h2 id="philosophy-title" className="h-section" style={{fontSize:'clamp(1.9rem,3vw,2.75rem)'}}>My approach to the classroom.</h2>
     <figure className="teach-photo">
-     <Photo name="teaching" corner="br" label={{text:'Inclusive education',dot:'var(--gold)',at:'top-left'}} sizes="(max-width: 900px) min(400px, 100vw), 400px"/>
+     <Photo name="teaching" label={{text:'Inclusive education',dot:'var(--gold)',at:'top-left'}} sizes="(max-width: 900px) min(400px, 100vw), 400px"/>
      <figcaption>Teaching since 2015, across Pakistan and England.</figcaption>
     </figure>
    </div>

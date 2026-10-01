@@ -31,7 +31,7 @@ export default async function About(){
   <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(ld)}/>
   <section className="wrap about-hero">
    <div className="stack" style={{gap:14}}>
-    <Photo name="portrait" corner="bl" className="about-portrait has-pins" label={{text:`Nimra Zahid · ${profile.location.replace(', UK','')}`}} sizes="(max-width: 760px) min(420px, 100vw), (max-width: 1180px) 360px, 480px" priority/>
+    <Photo name="portrait" className="about-portrait has-pins" label={{text:`Nimra Zahid · ${profile.location.replace(', UK','')}`}} sizes="(max-width: 760px) min(420px, 100vw), (max-width: 1180px) 360px, 480px" priority/>
     <span className="meta">PAKISTAN → ENGLAND · {profile.languages.join(' · ').toUpperCase()}</span>
    </div>
    <div className="about-copy">
@@ -48,7 +48,7 @@ export default async function About(){
 
   <section className="wrap section" aria-labelledby="route-title">
    <div className="section-head route-head"><div className="stack"><span className="label designator live">The route so far</span><h2 id="route-title" className="h-section">Five places, one line of inquiry.</h2></div>
-    <Photo name="journey" corner="tr" className="route-photo" sizes="200px"/></div>
+    <Photo name="journey" className="route-photo" sizes="200px"/></div>
    <JourneyTimeline stops={route}/>
   </section>
 

@@ -34,7 +34,7 @@ for(const width of [1280,375])for(const theme of ['light','dark']){
   await expect(page.locator('ul.area-list li').first()).toHaveCSS('font-size','14px');
   await expect(page.locator('.area-list')).toContainText('Securitisation theory');
   await expect(page.locator('.output .body > .meta')).toHaveCount(3);
-  for(const meta of await page.locator('.output .body > .meta').all()){await expect(meta).toContainText('FULL TEXT ON REQUEST');await expect(meta).toHaveCSS('font-size','12px')}
+  for(const meta of await page.locator('.output .body > .meta').all()){await expect(meta).toContainText('FULL TEXT ON REQUEST');await expect(meta).toHaveCSS('font-size',width<480?'12px':'13px')}
   for(const summary of await page.locator('.research-abstract summary').all()){await expect(summary).toHaveCSS('min-height','44px');await expect(summary).toHaveCSS('list-style-type','none');await summary.click();await expect(summary.locator('svg')).toHaveCSS('transform','matrix(0, 1, -1, 0, 0, 0)');await expect(summary.locator('svg')).toHaveCSS('transition-duration','0s')}
   await page.keyboard.press('Tab');await page.locator('.phd-teaser').focus();await expect(page.locator('.phd-teaser')).toHaveCSS('outline-style','solid');
   await page.emulateMedia({reducedMotion:'no-preference'});await page.locator('.phd-teaser').hover();

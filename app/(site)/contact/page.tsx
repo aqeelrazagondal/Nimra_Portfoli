@@ -3,7 +3,9 @@ import {CopyButton} from '@/components/copy-button';
 import Link from 'next/link';
 import {ContactSwitch} from '@/components/circuit/figures';
 import {profile,profileLinks} from '@/content/profile';
-import {emailTopics,selectedTopicId,topicMailto} from '@/lib/contact';
+import {Suspense} from 'react';
+import {ContactForm} from '@/components/contact-form';
+import {contactFormReady,emailTopics,gmailCompose,outlookCompose,selectedTopicId,topicMailto} from '@/lib/contact';
 import {jsonLd,pageLd,pageMetadata,person} from '@/lib/site';
 import {Photo} from '@/components/photo';
 const description='Contact Nimra Zahid about supervising her proposed PhD research on Afghanistan and regional security, for 2027 entry.';
@@ -32,20 +34,26 @@ export default async function Contact({searchParams}:{searchParams:Promise<{topi
     <p className="contact-intro">Could my project fit your supervision? Email me, or <Link href="/phd" className="link-arrow">read the proposed research</Link> first.</p>
     <p>I’m looking for a PhD supervisor for full-time study from 2027. The quickest way to reach me is email.</p>
    </div>
-   <div className="contact-panel email-fallback">
+   {contactFormReady()?<Suspense><ContactForm/></Suspense>:<div className="contact-panel email-fallback">
     <div className="switch-strip">
      <ContactSwitch closed={false}/>
      <div><span className="label label-muted">Email</span></div>
     </div>
     <div className="email-fallback-body">
      <h2 className="h-card">Send an email</h2>
-     <p>Please include your department and university.</p>
+     <p>Write to me at the address below. Please include your department and university.</p>
+     {/* The address is always visible and copyable: a mailto: link does nothing without an email app. */}
+     <div className="email-address"><a href={topicMailto(profile.email,buttonSubject)}>{profile.email}</a><CopyButton text={profile.email} label="Copy address"/></div>
      <ul className="email-topics">
       {emailTopics.map(item=><li key={item.id} className={selected===item.id?'is-selected':undefined}><a href={topicMailto(profile.email,item.subject)} aria-current={selected===item.id?'true':undefined}><span>{item.label}</span>{item.detail}</a></li>)}
      </ul>
-     <a href={topicMailto(profile.email,buttonSubject)} className="btn">Email Nimra</a>
+     <div className="email-actions">
+      <a href={topicMailto(profile.email,buttonSubject)} className="btn">Email Nimra</a>
+      <a href={gmailCompose(profile.email,buttonSubject)} className="btn-ghost" target="_blank" rel="noopener noreferrer">Open in Gmail</a>
+      <a href={outlookCompose(profile.email,buttonSubject)} className="btn-ghost" target="_blank" rel="noopener noreferrer">Open in Outlook</a>
+     </div>
     </div>
-   </div>
+   </div>}
   </section>
   <section className="wrap contact-band">{facts}<Link href="/cv" className="link-arrow">Prefer to read first? View my CV <span aria-hidden>→</span></Link></section>
  </>;

@@ -24,7 +24,7 @@ export const phdWhy='How Afghanistan is classified shapes how its neighbours, an
 export const phdLookingFor='A supervisor for full-time doctoral study from 2027 in International Relations, Security Studies, Politics, or South and Central Asian studies. I’m applying for funded places, and I’m happy to work with a joint supervisory team.';
 
 export const phdPreparation=[
- 'MA International Relations (Merit), University of Northampton. Dissertation on this question',
+ 'MA International Relations , University of Northampton. Dissertation on this question',
  'MPhil International Relations, National Defence University, Islamabad',
  'Conference paper, Istanbul International Social Science Conference, 2020',
  'Taught undergraduate Research Methodology, University of Gujrat',

@@ -31,7 +31,7 @@ export default async function Home(){
    <div className="hero-kicker"><Link href="/phd" className="status-chip" aria-label="Seeking PhD supervision for 2027 entry. Read the proposed research"><span className="node-dot pulse" aria-hidden="true"/><span className="label">Seeking PhD supervision · 2027 entry</span></Link></div>
    <h1 className="display">They called Afghanistan an insulator.<br/> <em>I argue it’s an instigator.</em></h1>
    <p className="hero-intro">I’m Nimra Zahid, an International Relations researcher and educator in Northampton, UK. My research challenges Afghanistan’s classification as a buffer in Regional Security Complex Theory and asks how threats generated there shape neighbouring regions.</p>
-   <p className="meta">MA International Relations (Merit), University of Northampton · MPhil IR, National Defence University · 10+ years teaching in Pakistan and England</p>
+   <p className="meta">MA International Relations, University of Northampton · MPhil IR, National Defence University · 10+ years teaching in Pakistan and England</p>
    <div className="btn-row"><Link href="/phd" className="btn">See the PhD proposal <Arrow/></Link><a href="/cv.pdf" className="btn-ghost" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a></div>
    <Link href="/research" className="link-arrow">Read the research →</Link>
    <div className="hero-identity"><Photo name="portrait" corner="tr" className="home-portrait" sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1100px) 38vw, 480px" priority/><span>Nimra Zahid<br/><span className="meta">{profile.location}</span></span></div>

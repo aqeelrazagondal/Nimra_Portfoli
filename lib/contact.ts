@@ -22,4 +22,13 @@ export function selectedTopicId(topic:string|null|undefined){
 export function topicMailto(email:string,subject:string){
  return `mailto:${email}?subject=${encodeURIComponent(subject)}`;
 }
+// Webmail compose links: work for visitors who have no email app set up (mailto: then does nothing).
+export function gmailCompose(email:string,subject:string){
+ return `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}`;
+}
+export function outlookCompose(email:string,subject:string){
+ return `https://outlook.live.com/mail/0/deeplink/compose?to=${encodeURIComponent(email)}&subject=${encodeURIComponent(subject)}`;
+}
+// The on-site form appears only when delivery (Resend) and spam protection (Turnstile) are configured.
+export const contactFormReady=()=>Boolean(process.env.RESEND_API_KEY&&process.env.CONTACT_TO_EMAIL&&process.env.CONTACT_FROM_EMAIL&&process.env.TURNSTILE_SECRET_KEY&&process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY);
 export type ContactState={status:'idle'|'success'|'error';message?:string;errors?:Record<string,string>};

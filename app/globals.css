@@ -1044,3 +1044,7 @@ svg.lucide{width:24px;height:24px;flex-shrink:0;stroke-width:1.5}
 .nav-links .nav-active{view-transition-name:nav-active}
 .mobile-sheet[open] .sheet-item{animation:sheet-item .2s var(--ease) both;animation-delay:calc(var(--i,0) * 50ms)}
 @keyframes sheet-item{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+/* Research detail: the full-text request sits in one row with its note. */
+.lock-note p{margin:0;flex:1}
+.lock-note .btn-outline{flex:none}
+@media(max-width:479px){.lock-note{flex-wrap:wrap}.lock-note .btn-outline{width:100%}}

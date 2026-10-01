@@ -42,9 +42,9 @@ export default async function Project({params}:{params:Promise<{slug:string}>}){
     <section id="question" className="detail-block"><span className="label">The question</span><p className="detail-question">{p.question}</p></section>
     <section id="argument" className="detail-block"><span className="label">The argument</span><p className="reading">{p.argument}</p>{p.slug==='afghanistan-regional-security'&&<ContrastFigure/>}</section>
     {p.method&&<section id="approach" className="detail-block"><span className="label">Approach</span><p className="reading">{p.method}</p></section>}
-    {p.findings.length>0&&<section id="findings" className="detail-block"><span className="label">{p.findingsTitle}</span><div className="findings rule-list">{p.findings.map(f=><div key={f.slice(0,24)} className="finding"><span>{f}</span></div>)}</div></section>}
+    {p.findings.length>0&&<section id="findings" className="detail-block"><span className="label">{p.findingsTitle}</span><div className="findings rule-list">{p.findings.map((f,i)=><div key={f.slice(0,24)} className="finding"><span className="mono" aria-hidden>{String(i+1).padStart(2,'0')}</span><span>{f}</span></div>)}</div></section>}
     <section id="next" className="detail-block"><span className="label">Why it matters &amp; what comes next</span><div className="reading"><p>{p.significance}</p><p>{p.phd}</p></div></section>
-    <p className="lock-note"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Full text on request.</p><a className="btn-outline" href={fullTextRequest(p.title)}>Request the full text</a><p className="sr-only">This page contains a research overview.</p>
+    <div className="lock-note"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><p>Full text on request.</p><a className="btn-outline" href={fullTextRequest(p.title)}>Request the full text</a></div><p className="sr-only">This page contains a research overview.</p>
    </div>
    <aside className="detail-aside" aria-label="About this project">
     <CvNav sections={sections} label="On this page" title="On this page" className="toc"/>

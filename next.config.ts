@@ -1,18 +1,19 @@
 import type {NextConfig} from 'next';
 
 // Content-Security-Policy without nonces (Next.js "Without Nonces" guide), so pages stay static and
-// CDN-cached. 'unsafe-inline' scripts cover the theme script and the Next.js runtime; the only third
-// parties are Cloudflare Turnstile (contact form) and YouTube's no-cookie player (article embeds).
+// CDN-cached. 'unsafe-inline' scripts cover the theme script, the Google tag and the Next.js runtime; the only
+// third parties are Cloudflare Turnstile (contact form), YouTube's no-cookie player (article embeds) and
+// Google Analytics (domains from Google's CSP guide for the Google tag).
 const dev=process.env.NODE_ENV==='development';
 // Preview deployments load Vercel's toolbar and comments from vercel.live.
 const live=process.env.VERCEL_ENV==='preview'?' https://vercel.live':'';
 const csp=[
  "default-src 'self'",
- `script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com${live}${dev?" 'unsafe-eval'":''}`,
+ `script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://*.googletagmanager.com${live}${dev?" 'unsafe-eval'":''}`,
  "style-src 'self' 'unsafe-inline'",
- "img-src 'self' data: blob:",
+ "img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com",
  "font-src 'self'",
- `connect-src 'self' https://challenges.cloudflare.com${live}`,
+ `connect-src 'self' https://challenges.cloudflare.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com${live}`,
  `frame-src https://challenges.cloudflare.com https://www.youtube-nocookie.com${live}`,
  "frame-ancestors 'none'",
  "form-action 'self' mailto:",

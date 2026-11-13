@@ -23,7 +23,9 @@ const cardCopy:Record<string,string>={
 
 export default async function Home(){
  const articles=await getArticles();
- const profilePage={'@context':'https://schema.org','@type':'ProfilePage',url:siteUrl,dateModified:profile.updated,mainEntity:{...person,image:`${siteUrl}${photoSrc('portrait')}`}};
+ // WebSite gives Google the site name for brand searches ("nimra zahid"); ProfilePage ties the home page to the Person.
+ const website={'@type':'WebSite','@id':`${siteUrl}/#website`,url:siteUrl,name:profile.name,alternateName:[`${profile.name} - International Relations`,'Nimra Zahid Portfolio'],inLanguage:'en-GB',publisher:{'@id':person['@id']}};
+ const profilePage={'@context':'https://schema.org','@graph':[website,{'@type':'ProfilePage','@id':`${siteUrl}/#webpage`,url:siteUrl,name:`${profile.name} - International Relations Researcher & Educator`,isPartOf:{'@id':website['@id']},inLanguage:'en-GB',dateModified:profile.updated,mainEntity:{...person,image:`${siteUrl}${photoSrc('portrait')}`}}]};
  const latest=articles.slice(0,3);
  return <>
   <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(profilePage)}/>

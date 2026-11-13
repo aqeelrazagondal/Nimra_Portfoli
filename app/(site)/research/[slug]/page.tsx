@@ -20,8 +20,11 @@ export default async function Project({params}:{params:Promise<{slug:string}>}){
  // Theses: schema.org Thesis. The conference paper: a ScholarlyArticle presented at the conference (an Event).
  const json={'@context':'https://schema.org','@type':p.kind,'@id':url,url,name:p.title,alternateName:p.shortTitle,author:person,dateCreated:String(p.year),inLanguage:'en-GB',abstract:p.abstract.join(' '),description:p.description,about:['Afghanistan','Regional security','International Relations'],
   ...(p.kind==='Thesis'?{inSupportOf:p.type==='MA dissertation'?'MA International Relations':'MPhil International Relations',sourceOrganization:{'@type':'CollegeOrUniversity',name:p.institution}}
-   :{headline:p.title,datePublished:p.conference?.date??String(p.year),recordedAt:p.conference&&{'@type':'Event',name:p.institution,startDate:p.conference.date,endDate:p.conference.date,
-    location:{'@type':'Place',name:p.conference.host,address:{'@type':'PostalAddress',addressLocality:'Istanbul',addressCountry:'TR'}},organizer:{'@type':'CollegeOrUniversity',name:p.conference.host}}})};
+   :{headline:p.title,datePublished:p.conference?.date??String(p.year),recordedAt:p.conference&&{'@type':'Event',name:p.institution,description:`${p.institution}, hosted by ${p.conference.host}, where ${person.name} presented “${p.title}”.`,
+    startDate:p.conference.date,endDate:p.conference.date,eventStatus:'https://schema.org/EventScheduled',eventAttendanceMode:'https://schema.org/OfflineEventAttendanceMode',image:[`${siteUrl}/opengraph-image`],
+    location:{'@type':'Place',name:p.conference.host,address:{'@type':'PostalAddress',addressLocality:'Istanbul',addressCountry:'TR'}},
+    organizer:{'@type':'CollegeOrUniversity',name:p.conference.host,url:p.conference.hostUrl},performer:{'@type':'Person','@id':person['@id'],name:person.name,url:person.url},
+    offers:{'@type':'Offer',url,availability:'https://schema.org/SoldOut',validFrom:p.conference.date}}})};
  // One chronological thread: 2018 MPhil → 2020 conference paper → 2024 MA.
  const chronological=[...projects].sort((a,b)=>a.year-b.year),at=chronological.indexOf(p);
  const previous=chronological[at-1],next=chronological[at+1];

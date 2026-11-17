@@ -314,3 +314,5 @@ a:hover .link-icon.lucide-arrow-left{transform:translateX(-3px)}
 @media(prefers-reduced-motion:reduce){a:hover .link-icon{transform:none}}
 .signal{border-radius:var(--r-card);border-color:var(--trace)}
 .cta-band{border-radius:var(--r-card)}
+.btn .link-icon,.btn-ghost .link-icon{color:currentColor}
+.t-onink{fill:var(--surface)}

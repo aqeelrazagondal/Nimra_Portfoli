@@ -107,27 +107,21 @@ export function ParallelCircuit(){
 // CV, Fig. 4: a timing diagram. Each lane is a signal, high while active.
 export function SignalTrace(){
  const ticks=Array.from({length:16},(_,i)=>170+i*64);
+ // Atlas chart: each lane is a tinted band; active periods are filled spans, outputs are point markers.
+ const span=(x:number,w:number,y:number,ink:string,label?:string)=><g key={x+'-'+y}><rect x={x} y={y} width={w} height="36" rx="3" className={ink}/>{label&&<text x={x+w/2} y={y+23} textAnchor="middle" className="t-mono t-onink">{label}</text>}</g>;
  return <svg viewBox="0 0 1200 392" role="img" aria-label="Timing diagram of study, university teaching, school teaching and research outputs from 2011 to 2026. School and university teaching overlap from 2019 to 2022.">
   <g className="s-hair" strokeWidth="1">{ticks.map(x=><line key={x} x1={x} y1="40" x2={x} y2="350"/>)}</g>
-  {/* Lanes as atlas bands, one field tint per lane. */}
   <g opacity=".55"><rect x="150" y="62" width="1035" height="60" className="fill-lapis"/><rect x="150" y="134" width="1035" height="60" className="fill-rose"/><rect x="150" y="206" width="1035" height="60" className="fill-sage"/><rect x="150" y="278" width="1035" height="60" className="fill-ochre"/></g>
-  {[['STUDY',96],['UNIVERSITY',168],['SCHOOLS',240],['RESEARCH',312]].map(([l,y])=><text key={l} x="0" y={y} className="t-mono t-2" style={{letterSpacing:1.5}}>{l}</text>)}
-  <rect x="215" y="74" width="243" height="36" className="fill-lilac-soft"/><rect x="496" y="74" width="122" height="36" className="fill-lilac-soft"/><rect x="983" y="74" width="77" height="36" className="fill-lilac-soft"/>
-  <path d="M170 110 H215 V74 H458 V110 H496 V74 H618 V110 H983 V74 H1060 V110 H1178" className="f-none s-lilac" strokeWidth="2" strokeLinejoin="round"/>
-  <text x="336" y="97" textAnchor="middle" className="t-mono t-text">BS IR · LCWU</text><text x="557" y="97" textAnchor="middle" className="t-mono t-text">MPhil · NDU</text><text x="1021" y="97" textAnchor="middle" className="t-mono t-text">MA</text>
-  <rect x="727" y="146" width="160" height="36" style={{fill:'color-mix(in srgb, var(--rose) 14%, transparent)'}}/>
-  <path d="M170 182 H727 V146 H887 V182 H1178" className="f-none s-rose" strokeWidth="2" strokeLinejoin="round"/>
-  <text x="807" y="169" textAnchor="middle" className="t-mono t-text">Visiting faculty</text>
-  <rect x="471" y="218" width="480" height="36" className="fill-live-soft"/><rect x="1008" y="218" width="167" height="36" className="fill-live-soft"/>
-  <path d="M170 254 H471 V218 H951 V254 H1008 V218 H1175" className="f-none s-live" strokeWidth="2" strokeLinejoin="round"/>
-  <line x1="1072" y1="212" x2="1072" y2="224" className="s-hair" strokeWidth="3"/>
-  <text x="711" y="241" textAnchor="middle" className="t-mono t-text">Beaconhouse · humanities</text>
+  {[['Study',96],['University',168],['Schools',240],['Research',312]].map(([l,y])=><text key={l} x="0" y={y} className="t-mono t-2">{l}</text>)}
+  {span(215,243,74,'f-lilac','BS IR · LCWU')}{span(496,122,74,'f-lilac','MPhil · NDU')}{span(983,77,74,'f-lilac','MA')}
+  {span(727,160,146,'f-rose','Visiting faculty')}
+  {span(471,480,218,'f-live','Beaconhouse · humanities')}{span(1008,62,218,'f-live')}{span(1074,101,218,'f-live')}
   <text x="1058" y="208" textAnchor="end" className="t-mono t-2">Abbeyfield</text><text x="1090" y="208" textAnchor="start" className="t-mono t-2">SEMH school</text>
-  <polygon points="1175,230 1187,236 1175,242" className="f-live"/>
-  <path d="M170 326 H612 V290 H624 V326 H769 V290 H781 V326 H1054 V290 H1066 V326 H1178" className="f-none s-gold" strokeWidth="2" strokeLinejoin="round"/>
-  <text x="618" y="282" textAnchor="middle" className="t-mono t-2">MPhil thesis</text><text x="775" y="282" textAnchor="middle" className="t-mono t-2">Istanbul paper</text><text x="1060" y="282" textAnchor="middle" className="t-mono t-2">MA dissertation</text>
-  <line x1="1175" y1="40" x2="1175" y2="350" className="s-live" strokeWidth="1" strokeDasharray="3 4"/>
-  <text x="1175" y="30" textAnchor="middle" className="t-mono t-live">NOW</text>
+  <polygon points="1177,226 1189,236 1177,246" className="f-live"/>
+  {[618,775,1060].map(x=><path key={x} d={`M${x} 296 L${x+10} 308 L${x} 320 L${x-10} 308 Z`} className="f-gold"/>)}
+  <text x="618" y="288" textAnchor="middle" className="t-mono t-2">MPhil thesis</text><text x="775" y="288" textAnchor="middle" className="t-mono t-2">Istanbul paper</text><text x="1060" y="288" textAnchor="middle" className="t-mono t-2">MA dissertation</text>
+  <line x1="1175" y1="40" x2="1175" y2="350" className="s-lapis" strokeWidth="1.5" strokeDasharray="3 4"/>
+  <text x="1175" y="30" textAnchor="middle" className="t-mono t-lapis">Now</text>
   <g className="t-mono t-faint" textAnchor="middle">{[2011,2013,2015,2017,2019,2021,2023,2025].map((y,i)=><text key={y} x={170+i*128} y="378">{y}</text>)}</g>
  </svg>;
 }

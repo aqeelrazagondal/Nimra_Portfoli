@@ -25,7 +25,7 @@ The current audit status and prioritised future requirements are in [Portfolio a
 - [ ] Optional: photos from conferences, talks or teaching (never showing pupils) in Keystatic → **Profile photos** → In pictures, shown on About.
 - [x] Email and LinkedIn added (defaults in `content/profile.ts`). ORCID still to add.
 - [x] Referee quotes added from the Sep 2026 reference letters (Anna Jordan on Teaching; Dr Edgar B. A. Tembo on Research), short and verbatim, without the school name, contact details or grades. Worth letting both referees know their words appear on the site.
-- [ ] Review all first-person copy, including the Circuit hero line "They called it an insulator. I study the current."
+- [ ] Review all first-person copy, including the hero line "They called Afghanistan an insulator. I argue it’s an instigator." (also on the home share image).
 
 
 - [ ] PhD proposal summary PDF: add it as `public/nimra-zahid-phd-proposal-summary.pdf`. The “Proposal summary (PDF)” button on /phd appears on the next build.

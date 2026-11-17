@@ -36,7 +36,7 @@ export default async function Home(){
    <p className="meta">MA International Relations, University of Northampton · MPhil IR, National Defence University · 10+ years teaching in Pakistan and England</p>
    <div className="btn-row"><Link href="/phd" className="btn">See the PhD proposal <Arrow/></Link><a href="/cv.pdf" className="btn-ghost" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a></div>
    <Link href="/research" className="link-arrow">Read the research <Arrow/></Link>
-   <div className="hero-identity"><Photo name="portrait" className="home-portrait" sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1100px) 38vw, 480px" priority/><span>Nimra Zahid<br/><span className="meta">{profile.location}</span></span></div>
+   <div className="hero-identity"><Photo name="portrait" className="home-portrait" label={{text:`Nimra Zahid · ${profile.location.replace(', UK','')}`,dot:'var(--berry)'}} sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1100px) 38vw, 480px" priority/><span>Nimra Zahid<br/><span className="meta">{profile.location}</span></span></div>
   </HeroBoard>
   <div className="home-spine" aria-hidden="true"/>
 

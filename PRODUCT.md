@@ -42,6 +42,7 @@ Her research argues that Afghanistan should be reclassified from an "insulator" 
 - Name: Nimra Zahid. Status line: "Seeking PhD supervision · 2027 entry".
 - The insulator versus instigator contrast is the core idea and should stay demonstrable on the site.
 - Real photographs of Nimra (in `public/images/nimra/`) are the only imagery of her; no generated likenesses.
+- The site is Nimra's own and should feel personal to her as a woman researcher: warm and graceful, while staying a credible academic site for supervisors (owner direction, November 2026). Avoid gender clichés; express it through a warmer second ink, softer forms and an elegant reading serif.
 
 ## Evidence on Hand
 

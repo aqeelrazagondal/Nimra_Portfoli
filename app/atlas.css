@@ -318,3 +318,20 @@ a:hover .link-icon.lucide-arrow-left{transform:translateX(-3px)}
 .cta-band{border-radius:var(--r-card)}
 .btn .link-icon,.btn-ghost .link-icon{color:currentColor}
 .t-onink{fill:var(--surface)}
+
+/* ── Warmer atlas (owner direction): the site is Nimra's own, so it carries a personal, graceful voice.
+   A deep rose-berry joins lapis as the second ink; corners soften; big headings set their emphasised line
+   in Source Serif italic. Lapis still marks Afghanistan and every action, so the map keeps its meaning. ── */
+:root,:root[data-theme=light]{--berry:#8C2A55;--berry-soft:rgba(140,42,85,.10);--berry-line:rgba(140,42,85,.4)}
+:root[data-theme=dark]{--berry:#F0A9C6;--berry-soft:rgba(240,169,198,.12);--berry-line:rgba(240,169,198,.42)}
+:root,:root[data-theme=light],:root[data-theme=dark]{--r-card:12px;--r-panel:14px;--r-photo:14px}
+.display em,.h-page em,.h-section em,.h-card em{font-family:var(--font-reading),Georgia,serif;font-style:italic;font-weight:500;font-stretch:100%;letter-spacing:-.01em;color:var(--berry)}
+.btn,.btn-ghost,.btn-outline,.icon-btn,.contact-pill,.segmented{border-radius:10px}
+.segmented button{border-radius:7px}
+.pill,.area-list li,.chip-result,.chip-neutral,.article-tags a,.tag-filter button,.cite-tabs button,.figure-controls button{border-radius:8px}
+.photo-plate{border-radius:8px}
+.hero-status .node-dot,.footer-status .node-dot{background:var(--berry)}
+.testimonial svg{stroke:var(--berry)}
+.testimonial blockquote{color:var(--text)}
+.strand-teaching{background:color-mix(in srgb,var(--field-sage) 70%,var(--berry-soft))}
+::selection{background:var(--berry-soft)}

@@ -26,14 +26,14 @@ export default function Phd(){
  return <>
   <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(ld)}/>
   <section className="wrap page-hero">
-   <p className="status-chip"><span className="node-dot pulse" aria-hidden="true"/><span className="label">{phdStatus}</span></p>
    <h1 className="h-page">Proposed PhD research<br/><em>From insulator to instigator.</em></h1>
    <p className="lead">{phdLead}</p>
+   <p className="hero-status"><span className="node-dot pulse" aria-hidden="true"/>{phdStatus}</p>
   </section>
 
   <div className="wrap phd-layout"><PhdSummary proposalHref={publicFileExists(proposalSummaryPath)?proposalSummaryPath:undefined}/><div className="phd-main">
   {phdWorkingTitle&&<section className="section-tight stack" style={{gap:16}} aria-labelledby="working-title">
-   <span id="working-title" className="label">Working title</span>
+   <h2 id="working-title" className="h-card">Working title</h2>
    <p className="lead">{phdWorkingTitle}</p>
   </section>}
 

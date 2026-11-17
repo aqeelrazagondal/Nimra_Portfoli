@@ -7,6 +7,7 @@ import {Analytics} from '@vercel/analytics/next';
 import {SpeedInsights} from '@vercel/speed-insights/next';
 import {hasWritingSection} from '@/lib/articles';
 import '../globals.css';
+import '../atlas.css';
 export const metadata:Metadata={alternates:{types:{'application/rss+xml':'/rss.xml'}}};
 export const revalidate=false;
 const gaId='G-89PZWM9WLH';

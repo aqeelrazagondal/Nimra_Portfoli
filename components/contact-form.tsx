@@ -1,4 +1,5 @@
 'use client';
+import {Arrow} from '@/components/arrow';
 import {GraduationCap,MessageCircle} from 'lucide-react';
 import {profile} from '@/content/profile';
 import Script from 'next/script';
@@ -49,7 +50,7 @@ export function ContactForm(){
     <legend>What is this about?</legend>
     <div className="topic-cards">{enquiryTypes.map(t=>{const Icon=t==='Doctoral opportunities'?GraduationCap:MessageCircle;return <label className="topic-card" key={t}><input type="radio" name="type" value={t} checked={t===type} onChange={()=>setOverride(t)}/><Icon aria-hidden strokeWidth={1.5}/><span>{enquiryLabels[t]??t}</span></label>})}</div>
     <p className="topic-hint" aria-live="polite">{enquiryHints[type]}</p>
-    {profile.booking&&type==='Doctoral opportunities'&&<a href={profile.booking} className="link-arrow" target="_blank" rel="noopener noreferrer">Book a 20-minute conversation →</a>}
+    {profile.booking&&type==='Doctoral opportunities'&&<a href={profile.booking} className="link-arrow" target="_blank" rel="noopener noreferrer">Book a 20-minute conversation <Arrow/></a>}
     {error('type')}
    </fieldset>
    <div className="form-row">

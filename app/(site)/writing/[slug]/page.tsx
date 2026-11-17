@@ -1,3 +1,4 @@
+import {Arrow} from '@/components/arrow';
 import {ViewTransition} from 'react';
 import Link from 'next/link';
 import {notFound} from 'next/navigation';
@@ -67,13 +68,13 @@ export default async function ArticlePage({params}:{params:Promise<{slug:string}
    <ShareBar url={url} title={a.title} citations={null} variant="row"/>
    <section className="author-card card" aria-label="About the author">
     <AuthorPhoto card/>
-    <div><h2>Written by {profile.name}</h2><p>{authorLine}</p><Link href="/about" className="link-arrow">About me <span aria-hidden>→</span></Link></div>
+    <div><h2>Written by {profile.name}</h2><p>{authorLine}</p><Link href="/about" className="link-arrow">About me <Arrow/></Link></div>
    </section>
   </div>
   {(next||more.length>0)&&<section className="more-from" aria-labelledby="more-title">
-   <h2 id="more-title" className="label" style={{marginBottom:20}}>More from Nimra</h2>
+   <h2 id="more-title" className="h-card" style={{marginBottom:20}}>More from Nimra</h2>
    <div className="more-grid">
-    {next&&<Link href={`/writing/${next.slug}`} className="card"><span className="mono" style={{color:'var(--current)'}}>NEXT IN SERIES · PART {next.seriesPart??''}</span><span className="h-item">{next.title}</span><p>{next.subtitle||next.excerpt}</p></Link>}
+    {next&&<Link href={`/writing/${next.slug}`} className="card"><span className="mono" style={{color:'var(--lilac)'}}>NEXT IN SERIES · PART {next.seriesPart??''}</span><span className="h-item">{next.title}</span><p>{next.subtitle||next.excerpt}</p></Link>}
     {more.slice(0,next?1:2).map(m=><Link key={m.slug} href={`/writing/${m.slug}`} className="card"><span className="mono muted">{[m.tags[0],`${m.readingTime} min read`].filter(Boolean).join(' · ').toUpperCase()}</span><span className="h-item">{m.title}</span><p>{m.subtitle||m.excerpt}</p></Link>)}
    </div>
   </section>}

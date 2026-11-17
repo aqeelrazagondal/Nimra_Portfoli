@@ -1,16 +1,15 @@
+import {Arrow} from '@/components/arrow';
 import Image from 'next/image';
-import {Globe,School} from 'lucide-react';
 import Link from 'next/link';
 import {projects,profile,testimonials} from '@/content/profile';
 import {Testimonial} from '@/components/testimonial';
 import {HeroBoard} from '@/components/circuit/hero-board';
-import {SignalPath,StrandWire,CtaSwitch} from '@/components/circuit/figures';
+import {SignalPath} from '@/components/circuit/figures';
 import {ViewTransition} from 'react';
 import {getArticles,formatDate,WRITING_NAV_MIN} from '@/lib/articles';
 import {Photo,photoSrc} from '@/components/photo';
 import {jsonLd,person,siteUrl} from '@/lib/site';
 
-const Arrow=()=><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>;
 const byYear=[...projects].sort((a,b)=>a.year-b.year);
 const signal=[...byYear.map((p,i)=>({x:141+i*306,label:String(p.year),done:true})),{x:141+byYear.length*306,label:'NEXT',done:false}];
 const cardLabel:Record<string,string>={'MA dissertation':'MA dissertation · Northampton','MPhil thesis':'MPhil thesis · NDU Islamabad','Conference paper':'Conference paper · Istanbul'};
@@ -31,12 +30,12 @@ export default async function Home(){
   <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(profilePage)}/>
 
   <HeroBoard>
-   <div className="hero-kicker"><Link href="/phd" className="status-chip" aria-label="Seeking PhD supervision for 2027 entry. Read the proposed research"><span className="node-dot pulse" aria-hidden="true"/><span className="label">Seeking PhD supervision · 2027 entry</span></Link></div>
    <h1 className="display">They called Afghanistan an insulator.<br/> <em>I argue it’s an instigator.</em></h1>
    <p className="hero-intro">I’m Nimra Zahid, an International Relations researcher and educator in Northampton, UK. My research challenges Afghanistan’s classification as a buffer in Regional Security Complex Theory and asks how threats generated there shape neighbouring regions.</p>
+   <Link href="/phd" className="hero-status" aria-label="Seeking PhD supervision for 2027 entry. Read the proposed research"><span className="node-dot pulse" aria-hidden="true"/>Seeking PhD supervision · 2027 entry</Link>
    <p className="meta">MA International Relations, University of Northampton · MPhil IR, National Defence University · 10+ years teaching in Pakistan and England</p>
    <div className="btn-row"><Link href="/phd" className="btn">See the PhD proposal <Arrow/></Link><a href="/cv.pdf" className="btn-ghost" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a></div>
-   <Link href="/research" className="link-arrow">Read the research →</Link>
+   <Link href="/research" className="link-arrow">Read the research <Arrow/></Link>
    <div className="hero-identity"><Photo name="portrait" className="home-portrait" sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1100px) 38vw, 480px" priority/><span>Nimra Zahid<br/><span className="meta">{profile.location}</span></span></div>
   </HeroBoard>
   <div className="home-spine" aria-hidden="true"/>
@@ -44,56 +43,53 @@ export default async function Home(){
 
   <section className="wrap section" aria-labelledby="strands-title">
    <div className="section-head">
-    <div className="stack"><span className="label designator live">Research & education</span><h2 id="strands-title" className="h-section">Two strands of the same curiosity.</h2></div>
-    <Link href="/about" className="link-arrow">A little more about me <span aria-hidden>→</span></Link>
+    <div className="stack"><h2 id="strands-title" className="h-section">Two strands of the same curiosity.</h2></div>
+    <Link href="/about" className="link-arrow">A little more about me <Arrow/></Link>
    </div>
    <div className="strands">
-    <article className="strand">
-     <div className="strand-top"><Globe aria-hidden strokeWidth={1.5}/><span className="label label-muted">Research</span></div>
+    <article className="strand strand-research">
      <h3 className="h-card">Regional security &amp; Afghanistan</h3>
      <p>I ask why Afghanistan should be understood as an instigator, not simply an insulator, in its regional security complex.</p>
      <div className="pills"><span className="pill">RSCT</span><span className="pill">South &amp; Central Asia</span><span className="pill">Qualitative case study</span></div>
-     <Link href="/research" className="strand-link lilac">Explore the argument <span aria-hidden>→</span></Link>
+     <Link href="/research" className="strand-link lilac">Explore the argument <Arrow/></Link>
     </article>
-    <StrandWire/>
-    <article className="strand">
-     <div className="strand-top"><School aria-hidden strokeWidth={1.5}/><span className="label label-muted">Teaching</span></div>
+    <article className="strand strand-teaching">
      <h3 className="h-card">Teaching, inclusion &amp; possibility</h3>
      <p>Over ten years teaching across Pakistan and England, from undergraduate International Relations to specialist SEMH provision.</p>
      <div className="pills"><span className="pill">KS3–4 Geography &amp; History</span><span className="pill">SEMH</span><span className="pill">Undergraduate IR</span></div>
-     <Link href="/teaching" className="strand-link live">My approach to teaching <span aria-hidden>→</span></Link>
+     <Link href="/teaching" className="strand-link live">My approach to teaching <Arrow/></Link>
     </article>
    </div>
    <Testimonial {...testimonials.research}/>
-   <p className="terminal-note label label-muted">Both strands ask how relationships shape what we see and learn.</p>
+   <p className="terminal-note">Both strands ask how relationships shape what we see and learn.</p>
   </section>
 
   <section className="wrap section" aria-labelledby="signal-title">
    <div className="section-head">
-    <div className="stack"><span className="label designator">Research projects</span><h2 id="signal-title" className="h-section">Research <em>so far.</em></h2><p className="lead">Each project carries the same question a step further.</p></div>
-    <Link href="/research" className="link-arrow">View all research <span aria-hidden>→</span></Link>
+    <div className="stack"><h2 id="signal-title" className="h-section">Research <em>so far.</em></h2><p className="lead">Each project carries the same question a step further.</p></div>
+    <Link href="/research" className="link-arrow">View all research <Arrow/></Link>
    </div>
    <SignalPath points={signal}/>
    <div className="projects">
     {byYear.map(p=><Link key={p.slug} href={`/research/${p.slug}`} className={`project${p.type==='MA dissertation'?' current':''}`}>
-     <span className="mono muted">{(cardLabel[p.type]??p.type).toUpperCase()}</span>
      <h3 className="h-item">{p.title}</h3>
+     <span className="mono muted">{(cardLabel[p.type]??p.type).toUpperCase()}</span>
      <p>{cardCopy[p.slug]??p.teaser}</p>
-     <span className="project-link">Project overview →</span>
+     <span className="project-link">Project overview <Arrow/></span>
     </Link>)}
     <div className="project">
-     <span className="mono muted">PHD PROJECT · SEEKING SUPERVISION · 2027 ENTRY</span>
      <h3 className="h-item">Testing the instigator thesis</h3>
+     <span className="mono muted">PHD PROJECT · SEEKING SUPERVISION · 2027 ENTRY</span>
      <p>A doctoral project testing whether Afghanistan now generates, rather than absorbs, the security dynamics of the regions around it.</p>
-     <Link href="/phd" className="project-link">Read the proposed research →</Link>
+     <Link href="/phd" className="project-link">Read the proposed research <Arrow/></Link>
     </div>
    </div>
   </section>
 
   {latest.length>=WRITING_NAV_MIN?<section className="wrap section" aria-labelledby="latest-title">
    <div className="section-head">
-    <div className="stack"><span className="label designator">Latest writing</span><h2 id="latest-title" className="h-section">Recent perspectives.</h2></div>
-    <Link href="/writing" className="link-arrow">All writing <span aria-hidden>→</span></Link>
+    <div className="stack"><h2 id="latest-title" className="h-section">Recent perspectives.</h2></div>
+    <Link href="/writing" className="link-arrow">All writing <Arrow/></Link>
    </div>
    <div className="rule-list">
     {latest.map(a=><Link key={a.slug} href={`/writing/${a.slug}`} className="writing-row">
@@ -108,17 +104,16 @@ export default async function Home(){
   </section>
   // Fewer than three posts: one slim row, so the page never looks like an empty blog.
   :latest[0]&&<section className="wrap section-tight writing-slim" aria-labelledby="latest-title">
-   <h2 id="latest-title" className="label designator">From the writing</h2>
+   <h2 id="latest-title" className="h-card">From the writing</h2>
    <Link href={`/writing/${latest[0].slug}`} className="writing-slim-row">
     <span className="meta">{[latest[0].tags[0],`${latest[0].readingTime} min read`,formatDate(latest[0].publishedAt)].filter(Boolean).join(' · ').toUpperCase()}</span>
     <span className="h-row">{latest[0].title}</span>
-    <span className="writing-slim-arrow" aria-hidden>→</span>
+    <span className="writing-slim-arrow"><Arrow/></span>
    </Link>
   </section>}
 
   <section className="wrap section" aria-labelledby="cta-title">
    <div className="panel cta-band">
-    <CtaSwitch label="PHD SUPERVISION"/>
     <h2 id="cta-title" className="display" style={{fontSize:'clamp(2.4rem,4.8vw,4.25rem)'}}>Complete the <em>circuit.</em></h2>
     <p className="lead">Seeking a PhD supervisor for 2027 entry.</p>
     <div className="btn-row" style={{justifyContent:'center'}}><Link href="/phd" className="btn">See the PhD proposal</Link><Link href="/cv" className="btn-ghost">View CV</Link></div>

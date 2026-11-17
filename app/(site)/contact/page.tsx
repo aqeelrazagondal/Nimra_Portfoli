@@ -1,7 +1,7 @@
+import {Arrow} from '@/components/arrow';
 import {Mail,MapPin,ExternalLink} from 'lucide-react';
 import {CopyButton} from '@/components/copy-button';
 import Link from 'next/link';
-import {ContactSwitch} from '@/components/circuit/figures';
 import {profile,profileLinks} from '@/content/profile';
 import {Suspense} from 'react';
 import {ContactForm} from '@/components/contact-form';
@@ -25,7 +25,6 @@ export default async function Contact({searchParams}:{searchParams:Promise<{topi
  return <>
   <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(ld)}/>
   <section className="wrap page-hero">
-   <span className="label">Contact</span>
    <h1 className="h-page">Get in <em>touch.</em></h1>
   </section>
   <section className="wrap contact-grid">
@@ -35,10 +34,6 @@ export default async function Contact({searchParams}:{searchParams:Promise<{topi
     <p>I’m looking for a PhD supervisor for full-time study from 2027. The quickest way to reach me is email.</p>
    </div>
    {contactFormReady()?<Suspense><ContactForm/></Suspense>:<div className="contact-panel email-fallback">
-    <div className="switch-strip">
-     <ContactSwitch closed={false}/>
-     <div><span className="label label-muted">Email</span></div>
-    </div>
     <div className="email-fallback-body">
      <h2 className="h-card">Send an email</h2>
      <p>Write to me at the address below. Please include your department and university.</p>
@@ -55,6 +50,6 @@ export default async function Contact({searchParams}:{searchParams:Promise<{topi
     </div>
    </div>}
   </section>
-  <section className="wrap contact-band">{facts}<Link href="/cv" className="link-arrow">Prefer to read first? View my CV <span aria-hidden>→</span></Link></section>
+  <section className="wrap contact-band">{facts}<Link href="/cv" className="link-arrow">Prefer to read first? View my CV <Arrow/></Link></section>
  </>;
 }

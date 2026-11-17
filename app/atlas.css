@@ -1,0 +1,316 @@
+/* ════════════════════════════════════════════════════════════════════
+   Regional atlas: Nimra Zahid
+   The argument is drawn the way Regional Security Complex Theory is drawn:
+   as a map of complexes. Sea-blue ground with a graticule, land-white plates,
+   three regional field tints, lapis for Afghanistan and every action,
+   Archivo map lettering, Source Serif 4 for long reading.
+   Loaded after globals.css: these tokens and rules replace the old world.
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ── Tokens. Light is the daylight office where supervisors read. ── */
+:root,:root[data-theme=light]{
+  --bg:#E4ECF0;          /* sea */
+  --board:#DAE5EB;       /* figure sea */
+  --panel:#EDF2F5;
+  --surface:#FAFBF9;     /* land plate */
+  --chip:#FFFFFF;
+  --tooltip:#FFFFFF;
+  --hairline:#C6D3DB;
+  --trace:#ADBECA;       /* map rule */
+  --trace-strong:#8297A7;
+  --text:#0F1A2C;        /* navy ink */
+  --body:#1C283B;
+  --text-2:#334058;
+  --muted:#46546A;
+  --faint:#4F5D73;
+  --lilac:#23409E;       /* lapis: actions, links, Afghanistan */
+  --lilac-hover:#1A3283;
+  --on-lilac:#FFFFFF;
+  --current:#2A6849;     /* sage ink: live and progress */
+  --rose:#983A2A;        /* rose ink */
+  --gold:#7C5B0E;        /* ochre ink */
+  --lilac-soft:rgba(35,64,158,.10);
+  --lilac-line:rgba(35,64,158,.45);
+  --current-soft:rgba(42,104,73,.12);
+  --current-line:rgba(42,104,73,.45);
+  --gold-line:rgba(124,91,14,.45);
+  --gold-soft:rgba(124,91,14,.14);
+  --highlight:rgba(35,64,158,.18);
+  /* Regional fields: whole areas of colour, as on an atlas plate. */
+  --field-ochre:#EAD9A4;  /* Central Asia */
+  --field-sage:#CDE0CF;   /* South Asia */
+  --field-rose:#EDCDC3;   /* Middle East and Gulf */
+  --field-lapis:#CBD6F1;
+  --field-land:#D2DCE2;   /* Russia and the rest */
+  --graticule:rgba(35,64,158,.075);
+  --photo-border:#C6D3DB;
+  --photo-label-plate:rgba(250,251,249,.9);
+  --nav-bg:#E4ECF0;
+  --shadow:0 10px 28px -12px rgba(15,26,44,.28);
+  --r-card:6px;--r-panel:10px;--r-photo:6px;
+  --signature:var(--lilac);
+  color-scheme:light;
+}
+/* Night chart: the same plate printed on deep navy. */
+:root[data-theme=dark]{
+  --bg:#0A1525;
+  --board:#0D1A2C;
+  --panel:#0F1E32;
+  --surface:#122339;
+  --chip:#152840;
+  --tooltip:#192F48;
+  --hairline:#1E3450;
+  --trace:#2A4565;
+  --trace-strong:#405F82;
+  --text:#E8EEF5;
+  --body:#D3DDE8;
+  --text-2:#BBC8D7;
+  --muted:#9DAEC2;
+  --faint:#91A3B9;
+  --lilac:#A3B8FF;
+  --lilac-hover:#C2D0FF;
+  --on-lilac:#0A1525;
+  --current:#8AD3A9;
+  --rose:#F1AB9B;
+  --gold:#E3C47A;
+  --lilac-soft:rgba(163,184,255,.13);
+  --lilac-line:rgba(163,184,255,.45);
+  --current-soft:rgba(138,211,169,.10);
+  --current-line:rgba(138,211,169,.4);
+  --gold-line:rgba(227,196,122,.45);
+  --gold-soft:rgba(227,196,122,.13);
+  --highlight:rgba(163,184,255,.26);
+  --field-ochre:#3A3322;
+  --field-sage:#1E382D;
+  --field-rose:#3D2727;
+  --field-lapis:#1D2C57;
+  --field-land:#172A40;
+  --graticule:rgba(163,184,255,.06);
+  --photo-border:#2A4565;
+  --photo-label-plate:rgba(10,21,37,.82);
+  --nav-bg:#0A1525;
+  --shadow:0 12px 30px -12px rgba(0,0,0,.55);
+  color-scheme:dark;
+}
+
+/* ── Type: map lettering for headings and labels, a reading serif for long text. ── */
+body{--font-display:var(--font-sans),system-ui,sans-serif;--font-body:var(--font-sans),system-ui,sans-serif;--font-mono:var(--font-sans),system-ui,sans-serif;font-family:var(--font-sans),system-ui,sans-serif;font-size:17px}
+.display,.h-page,.h-section,.h-card,.h-item,.brand-name,.footer-name,.h-row,.article-row h3,.cv-section h2,.cv-title,.output .year,.readout strong,.organiser-card-title,.talk-title{font-family:var(--font-sans),system-ui,sans-serif}
+.display{font-weight:700;font-stretch:118%;font-size:clamp(2.5rem,4.6vw,4.4rem);line-height:1.02;letter-spacing:-.02em}
+.h-page{font-weight:700;font-stretch:116%;font-size:clamp(2.3rem,4.2vw,3.9rem);line-height:1.04;letter-spacing:-.02em}
+.h-section{font-weight:650;font-stretch:112%;font-size:clamp(1.8rem,3vw,2.75rem);line-height:1.08;letter-spacing:-.015em}
+.h-card{font-weight:650;font-stretch:108%;font-size:clamp(1.4rem,2vw,1.85rem);line-height:1.15;letter-spacing:-.01em}
+.h-item{font-weight:600;font-size:clamp(1.2rem,1.6vw,1.4rem);line-height:1.25;letter-spacing:-.005em}
+/* Emphasis in headings is ink, not italics. */
+.display em,.h-page em,.h-section em,.h-card em{font-style:normal;font-weight:inherit;color:var(--lilac)}
+.lead{color:var(--text-2)}
+/* Labels are map lettering: expanded capitals, used for figure captions and data only. */
+.label,.label-muted{font-family:var(--font-sans),system-ui,sans-serif;font-stretch:125%;font-weight:600;font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);text-wrap:balance}
+.label-live{color:var(--current)}
+.meta,.mono{font-family:var(--font-sans),system-ui,sans-serif;font-stretch:110%;font-size:13px;letter-spacing:.035em;font-variant-numeric:tabular-nums;color:var(--muted)}
+.mono{color:inherit}
+.muted.mono,.mono.muted{color:var(--muted)}
+@media(max-width:479px){.label,.label-muted{font-size:11.5px;letter-spacing:.06em}.meta,.mono{font-size:12.5px;letter-spacing:.02em}}
+.t-mono{font-family:var(--font-sans),system-ui,sans-serif;font-stretch:105%;font-weight:600;letter-spacing:.03em}
+.reading,.article-body,.cite-text,.detail-question,.testimonial blockquote,.pull-quote p,.article-body blockquote{font-family:var(--font-reading),Georgia,serif}
+.phd-main .reading{font-family:var(--font-reading),Georgia,serif}
+.testimonial blockquote,.detail-question,.pull-quote p,.article-body blockquote{font-weight:400}
+.designator::before,.designator::after{content:none}
+.designator{gap:0}
+
+/* ── Browser surfaces carry the palette. ── */
+::selection{background:var(--highlight);color:var(--text)}
+html{scrollbar-color:var(--trace-strong) var(--bg);accent-color:var(--lilac);caret-color:var(--lilac)}
+:focus-visible{outline:2px solid var(--lilac);outline-offset:3px;border-radius:4px}
+:is(p,li,dd,figcaption,.reading,.article-body) a:not([class]){text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.2em;text-decoration-color:var(--lilac-line)}
+:is(p,li,dd,figcaption,.reading,.article-body) a:not([class]):hover{text-decoration-color:var(--lilac)}
+:is(h1,h2,h3,h4) a:hover,.toc a:hover,.cv-nav a:hover{color:var(--lilac)}
+table,.cv-when,.output .year,.readout strong{font-variant-numeric:tabular-nums}
+
+/* ── The graticule: the map grid behind page openings and figures. ── */
+.hero,.page-hero,.cv-head,.article-head{position:relative}
+.hero::before,.page-hero::before,.cv-head::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+ background-image:linear-gradient(var(--graticule) 1px,transparent 1px),linear-gradient(90deg,var(--graticule) 1px,transparent 1px);background-size:96px 96px;background-position:center top;
+ -webkit-mask-image:linear-gradient(180deg,#000 55%,transparent);mask-image:linear-gradient(180deg,#000 55%,transparent)}
+.dotgrid{background-color:var(--board);background-image:linear-gradient(var(--graticule) 1px,transparent 1px),linear-gradient(90deg,var(--graticule) 1px,transparent 1px);background-size:48px 48px}
+
+/* ── Plates: rectilinear, 1px map rule, offset soft shadow only when lifted. ── */
+.card,.project,.strand,.readout,.reading-card,.principle,.testimonial,.toc,.spec,.cite-panel,.contact-panel,.route-detail,.cv-extra>div,.question-card,.phd-summary{border-radius:var(--r-card)}
+.card,.project,.strand,.testimonial,.principle{border-color:var(--trace);background:var(--surface)}
+.panel,.board{border-radius:var(--r-panel)}
+.panel{background:var(--panel);border-color:var(--trace)}
+.photo-frame{border-radius:var(--r-photo)}
+.photo-frame::after{background:none;box-shadow:none}
+.photo-frame img{filter:none}
+.card,.project,.strand{transition:transform .2s var(--ease),border-color .2s var(--ease),box-shadow .2s var(--ease)}
+@media(hover:hover) and (pointer:fine){
+ .card:is(a):hover,.project:hover,.strand:hover{transform:translateY(-2px);border-color:var(--lilac);background-image:none;box-shadow:var(--shadow)}
+ .card:is(a):hover::after,.project:hover::after,.strand:hover::after{content:none}
+}
+
+/* ── Controls ── */
+.btn,.btn-ghost,.btn-outline{border-radius:6px;font-family:var(--font-sans),system-ui,sans-serif;font-stretch:104%;font-weight:600;letter-spacing:.005em}
+.btn{min-height:50px}
+.btn-ghost{min-height:50px;border-color:var(--trace-strong);background:var(--surface)}
+.btn-ghost:hover,.btn-outline:hover{border-color:var(--lilac);color:var(--lilac)}
+.btn-outline{background:var(--surface)}
+.pill,.area-list li,.chip-result,.chip-neutral,.article-tags a,.tag-filter button,.cite-tabs button{border-radius:4px;font-family:var(--font-sans),system-ui,sans-serif;font-stretch:110%;font-size:13px;letter-spacing:.02em}
+.pill{border-color:var(--trace);background:var(--surface);color:var(--text-2)}
+.link-arrow span{color:var(--lilac)}
+.node-dot{border-radius:2px;background:var(--current)}
+
+/* ── Header: an atlas running head on the sea, ruled when scrolled. ── */
+.nav-bar,.nav-bar.frosted{background:var(--nav-bg);backdrop-filter:none;-webkit-backdrop-filter:none}
+.nav-bar.frosted{border-bottom:1px solid var(--trace)}
+.brand-name{font-weight:700;font-stretch:115%;font-size:19px;letter-spacing:-.01em}
+.brand-chip{width:34px;height:34px}
+.nav-link{border-radius:0;font-size:15px;color:var(--text-2);font-weight:500}
+.nav-link:hover{color:var(--lilac)}
+.nav-link[aria-current=page]{color:var(--text);background:transparent;border-color:transparent}
+.nav-active{inset:auto 12px 4px;height:2px;border:0;border-radius:0;background:var(--lilac)}
+.icon-btn,.contact-pill{border-radius:6px;border-color:var(--trace-strong);background:var(--surface)}
+.contact-pill{font-weight:600}
+.contact-pill:hover,.contact-pill[aria-current=page]{border-color:var(--lilac);background:var(--surface);color:var(--lilac)}
+.header-progress{background:var(--lilac)}
+.mobile-sheet .nav-link{font:700 30px/1.1 var(--font-sans),system-ui,sans-serif;font-stretch:112%}
+.mobile-sheet .nav-link[aria-current]{color:var(--lilac)}
+
+/* ── Home ── */
+.hero-copy .display{font-size:clamp(2.5rem,4.1vw,4.2rem)}
+.hero-copy .display em{animation:none}
+.hero-status{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-weight:600;font-size:15px;color:var(--text);width:fit-content;min-height:44px}
+.hero-status:hover{color:var(--lilac)}
+.hero .board{aspect-ratio:auto;border-color:var(--trace)}
+.hero .board>svg{aspect-ratio:640/520;flex:none;height:auto}
+.board-fig-no{color:var(--muted)}
+.segmented{border-radius:6px;background:var(--surface);border-color:var(--trace-strong);padding:4px;gap:4px}
+.segmented button{border-radius:4px;font-weight:600;color:var(--text-2)}
+.segmented button[aria-pressed=true]{background:var(--lilac);border-color:var(--lilac);color:var(--on-lilac)}
+.board-caption{font-family:var(--font-sans),system-ui,sans-serif}
+.hero-stats .readout{background:var(--surface);border-color:var(--trace);border-radius:var(--r-card)}
+.hero-stats .readout strong{color:var(--lilac);font-weight:700;font-stretch:115%}
+.hero-stats .readout-icon{border-radius:4px;border-color:var(--lilac-line);background:var(--lilac-soft);color:var(--lilac)}
+.strand-top{justify-content:flex-start}
+.strand-top svg{color:var(--lilac)}
+.strand-wire{display:none}
+.strands{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.strand-link.lilac,.strand-link.live{color:var(--lilac)}
+.project.current{border-color:var(--lilac-line)}
+.project.current .mono,.project.current .project-link{color:var(--lilac)}
+.project-link{color:var(--lilac);font-weight:600}
+.signal-svg .s-live,.route-svg .s-live{stroke:var(--lilac)}
+.signal-svg .f-live,.route-svg .f-live{fill:var(--lilac)}
+.cta-band{background:var(--lilac);border-color:var(--lilac);color:var(--on-lilac)}
+.cta-band .display,.cta-band .display em{color:var(--on-lilac)}
+.cta-band .lead{color:var(--on-lilac);opacity:.92}
+.cta-band .btn{background:var(--on-lilac);border-color:var(--on-lilac);color:var(--lilac)}
+.cta-band .btn:hover{background:var(--surface);color:var(--lilac-hover)}
+.cta-band .btn-ghost{background:transparent;border-color:rgba(255,255,255,.6);color:var(--on-lilac)}
+:root[data-theme=dark] .cta-band .btn-ghost{border-color:rgba(10,21,37,.55)}
+.cta-band .btn-ghost:hover{border-color:var(--on-lilac);color:var(--on-lilac)}
+.cta-switch .s-idle,.cta-switch .s-strong{stroke:currentColor;opacity:.45}
+.cta-switch .s-live,.cta-switch .s-text{stroke:currentColor}
+.cta-switch .f-bg{fill:var(--lilac)}
+.cta-switch .t-faint{fill:currentColor;opacity:.85}
+.testimonial svg{stroke:var(--lilac)}
+.testimonial figcaption{font-family:var(--font-sans),system-ui,sans-serif;font-stretch:115%}
+.writing-slim-row{border-color:var(--trace)}
+.writing-slim-arrow{color:var(--lilac)}
+
+/* ── Figures: atlas paint. Each complex keeps its regional field. ── */
+.fill-ochre{fill:var(--field-ochre)}.fill-sage{fill:var(--field-sage)}.fill-rose{fill:var(--field-rose)}.fill-lapis{fill:var(--field-lapis)}.fill-land{fill:var(--field-land)}.fill-sea{fill:var(--board)}
+.f-lapis{fill:var(--lilac)}.s-lapis{stroke:var(--lilac)}.t-onlapis{fill:var(--on-lilac)}.t-lapis{fill:var(--lilac)}.s-ink{stroke:var(--text)}.f-ink{fill:var(--text)}.s-sea{stroke:var(--board)}.s-surface{stroke:var(--surface)}
+.map-label{font-family:var(--font-sans),system-ui,sans-serif;font-stretch:125%;font-weight:650;letter-spacing:.14em;text-transform:uppercase;fill:var(--text-2)}
+.map-label.t-onlapis{fill:var(--on-lilac)}
+.map-flow .flow{stroke-dasharray:10 7}
+.map-graticule{stroke:var(--graticule);stroke-width:1;fill:none}
+.reading-card{border-color:var(--trace);border-radius:var(--r-card)}
+.figure-controls button{border-radius:4px;font-weight:600}
+.figure-controls button[aria-pressed=true]{border-color:var(--lilac);background:var(--lilac);color:var(--on-lilac)}
+.contrast-fig{border-radius:var(--r-card);border-color:var(--trace)}
+
+/* ── Inner pages ── */
+.output .year{font-weight:700;font-stretch:118%;color:var(--lilac)}
+.output.accent .year,.output.accent .output-link{color:var(--lilac)}
+.output-link{font-weight:600;color:var(--lilac)}
+.cv-section h2{font-weight:650;font-stretch:112%;border-bottom-color:var(--trace)}
+.cv-nav a[aria-current] i,.toc a[aria-current] i{background:var(--lilac);border-color:var(--lilac);border-radius:1px}
+.toc a i,.cv-nav a i{border-radius:1px}
+.detail-h{font-family:var(--font-sans),system-ui,sans-serif;font-weight:650;font-stretch:112%;font-size:clamp(1.3rem,1.8vw,1.6rem);line-height:1.2;letter-spacing:-.005em;color:var(--text)}
+.chip-result{border-color:var(--gold-line);color:var(--gold);background:var(--surface)}
+.role-rail i{border-radius:2px}
+.role-t4 .role-rail i,.role-t4 .role-when .mono:first-child{border-color:var(--lilac);color:var(--lilac)}
+.role-t4 .role-rail::before{background:linear-gradient(180deg,var(--lilac),var(--trace))}
+.route-stops:before{background:var(--lilac)}
+.route-stops .stop-dot{border-radius:2px;border-color:var(--lilac)}
+.route-stops button[aria-pressed=true] .stop-dot{background:var(--lilac);box-shadow:0 0 0 5px var(--lilac-soft)}
+.email-address{border-radius:var(--r-card);border-color:var(--lilac-line);background:var(--lilac-soft)}
+.email-topics li.is-selected a{background:var(--lilac-soft)}
+.topic-card{border-radius:var(--r-card)}
+.topic-card:has(input:checked){border-color:var(--lilac);background:var(--lilac-soft)}
+.phd-summary{backdrop-filter:none;background:var(--surface);border-color:var(--trace)}
+.phd-summary svg{color:var(--lilac)}
+.driver-panel{border-color:var(--lilac-line)}
+.question-grid svg,.prep-list svg{color:var(--lilac)}
+.matrix-node.lit{color:var(--lilac)}
+.lock-note{border-radius:var(--r-card);border:1px solid var(--trace)}
+.lock-note svg{stroke:var(--lilac)}
+.headshot-plain.photo-frame{border-radius:var(--r-photo)}
+.row-thumb img,.writing-row img,.photo-grid img{border-radius:4px}
+.site-footer{border-top:1px solid var(--trace);padding-top:8px}
+.site-footer a:not([class]){text-decoration:none}
+.site-footer a:not([class]):hover{color:var(--lilac)}
+.footer-trace{display:none}
+.footer-name{font-weight:700;font-stretch:115%;font-size:26px}
+.footer-bottom{font-family:var(--font-sans),system-ui,sans-serif;font-stretch:110%;border-top-color:var(--trace)}
+.article-tags a{color:var(--lilac)}
+.article-end h2{font-family:var(--font-sans),system-ui,sans-serif;font-stretch:125%}
+.footnote sup{font-family:var(--font-sans),system-ui,sans-serif}
+.cite-text.cite-code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.signal-legend i,.signal-list i{border-radius:1px}
+
+/* ── Motion: one authored moment (Fig. 1 redraws its borders); everything else is still. ── */
+.map-wall,.map-flow,.map-head{transition:opacity .45s cubic-bezier(.16,1,.3,1)}
+@media(prefers-reduced-motion:reduce){.map-wall,.map-flow,.map-head{transition:none}.card:is(a):hover,.project:hover,.strand:hover{transform:none}.card,.project,.strand{transition:none}}
+/* Only Fig. 1's flows move; every other loop is still. */
+.flow,.flow-slow,.glow,.pulse{animation:none}
+.hero .board .map-flow .flow{animation:flow 1.6s linear infinite}
+.has-entered .signal-svg .flow,.has-entered .route-stops:before{animation:none}
+.switch-strip{display:none}
+
+.btn-teach{background:var(--lilac);border-color:var(--lilac);color:var(--on-lilac)}
+.btn-teach:hover{background:var(--lilac-hover);border-color:var(--lilac-hover)}
+.site-footer li a:not([class]){text-decoration:none}
+.email-topics a,.article-tags a,.series-list a{text-decoration:none}
+.contact-intro a{color:var(--lilac);text-decoration-color:var(--lilac-line)}
+.article-body a{color:var(--lilac)}
+
+/* ── Finish-review fixes ── */
+:root,:root[data-theme=light],:root[data-theme=dark]{--r-panel:6px}
+/* Fig. 1 row: the map leads at full width, with its key beside it (under it on phones). */
+.hero-figure-row{grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);align-items:start;gap:40px;padding-top:40px}
+@media(max-width:900px){.hero-figure-row{grid-template-columns:1fr;gap:28px}}
+.map-legend{display:flex;flex-direction:column;gap:20px;padding-top:6px}
+.legend-title{font-weight:650;font-stretch:112%;font-size:15px;color:var(--text);padding-bottom:10px;border-bottom:1px solid var(--trace)}
+.legend-key{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.legend-key li{display:flex;align-items:center;gap:12px;font-size:15px;color:var(--text-2)}
+.legend-key svg{width:20px;height:14px;flex:none}
+.legend-key rect{stroke:var(--trace-strong);stroke-width:1}
+.map-legend .readouts{display:grid;grid-template-columns:1fr;gap:0;margin:0;padding:0;list-style:none;border-top:1px solid var(--trace)}
+.map-legend .readout{display:grid;grid-template-columns:72px minmax(0,1fr);align-items:baseline;gap:12px;padding:14px 0;border:0;border-bottom:1px solid var(--hairline);border-radius:0;background:none}
+.map-legend .readout strong{font-size:28px;font-weight:700;font-stretch:115%;color:var(--lilac);line-height:1}
+.map-legend .readout .readout-label{font-size:15px;line-height:1.45;color:var(--text-2)}
+/* Two strands: atlas plates keyed to a field tint, single column on phones. */
+.strand-research{background:var(--field-lapis)}
+.strand-teaching{background:var(--field-sage)}
+.strand .pill{background:var(--surface)}
+@media(max-width:767px){.strands{grid-template-columns:1fr}}
+/* Control and column labels: sentence case at normal width, not tracked capitals. */
+#read-as,.footer-col>.label-muted{text-transform:none;font-stretch:100%;letter-spacing:0;font-size:14px;font-weight:600;color:var(--text)}
+.link-icon{width:16px!important;height:16px!important;flex:none;color:var(--lilac);vertical-align:-3px;transition:transform .2s var(--ease)}
+a:hover .link-icon{transform:translateX(3px)}
+a:hover .link-icon.lucide-arrow-left{transform:translateX(-3px)}
+.link-arrow span .link-icon,.strand-link .link-icon{display:block}
+@media(prefers-reduced-motion:reduce){a:hover .link-icon{transform:none}}
+.signal{border-radius:var(--r-card);border-color:var(--trace)}
+.cta-band{border-radius:var(--r-card)}

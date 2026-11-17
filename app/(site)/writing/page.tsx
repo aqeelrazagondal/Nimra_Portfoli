@@ -1,3 +1,4 @@
+import {Arrow} from '@/components/arrow';
 import {ViewTransition} from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -19,7 +20,6 @@ export default async function Writing(){
  const series=[...new Set(all.map(a=>a.series).filter(Boolean))].map(name=>({name,parts:all.filter(a=>a.series===name).sort((a,b)=>(a.seriesPart??0)-(b.seriesPart??0))}));
  return <>
   <section className="wrap writing-hero">
-   <span className="label">Writing · Notes &amp; perspectives</span>
    <h1 className="h-page">Notes from <em>the circuit.</em></h1>
    <p className="lead">Accessible essays on regional security, Afghanistan and inclusive education.</p>
   </section>
@@ -28,8 +28,8 @@ export default async function Writing(){
    <Link href={`/writing/${featured.slug}`} className="featured-card">
     <ViewTransition name={`cover-${featured.slug}`}><Image src={featured.cover.src} alt={featured.cover.alt} width={featured.cover.width} height={featured.cover.height} sizes="(max-width: 760px) 100vw, 640px" placeholder="blur" blurDataURL={featured.cover.blurDataURL} priority/></ViewTransition>
     <div className="stack">
-     <span className="label">Featured{featured.tags[0]?` · ${featured.tags[0]}`:''}{featured.seriesPart?` · Series part ${featured.seriesPart}`:''}{featured.draft?' · Draft':''}</span>
      <h2 className="h-card" style={{fontSize:'clamp(1.9rem,3.2vw,2.75rem)'}}>{featured.title}</h2>
+     <p className="meta">{`Featured${featured.tags[0]?` · ${featured.tags[0]}`:''}${featured.seriesPart?` · Series part ${featured.seriesPart}`:''}${featured.draft?' · Draft':''}`.toUpperCase()}</p>
      <p>{featured.subtitle}</p>
      <span className="byline"><AuthorPhoto/><span className="meta">NIMRA ZAHID · {featured.readingTime} MIN READ · <time dateTime={featured.publishedAt}>{formatDate(featured.publishedAt).toUpperCase()}</time></span></span>
     </div>
@@ -40,14 +40,14 @@ export default async function Writing(){
    <ArticleFeed articles={all.map(summary)} tags={tags} featured={featured.slug}/>
    <aside className="writing-aside" aria-label="Series and author">
     {series.map(s=><div key={s.name} className="aside-box card">
-     <span className="label label-muted">Series</span>
      <h2 className="h-item">{s.name}</h2>
+     <p className="meta">SERIES</p>
      <div className="series-list">{s.parts.map(p=><Link key={p.slug} href={`/writing/${p.slug}`}><i aria-hidden/>Part {p.seriesPart??'·'} · {p.title}</Link>)}</div>
     </div>)}
     <div className="aside-box" style={{border:'1px solid var(--hairline)'}}>
-     <span className="label label-muted">About the author</span>
+     <h2 className="h-item">About the author</h2>
      <p className="text-2" style={{fontSize:16,lineHeight:1.6}}>Nimra Zahid is an International Relations researcher and educator in Northampton, UK.</p>
-     <Link href="/about" className="link-arrow">More about me <span aria-hidden>→</span></Link>
+     <Link href="/about" className="link-arrow">More about me <Arrow/></Link>
     </div>
    </aside>
   </section>

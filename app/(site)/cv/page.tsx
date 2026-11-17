@@ -28,7 +28,6 @@ export default function CV(){
   <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(ld)}/>
   <section className="wrap cv-head">
    <div className="stack">
-    <span className="label">Curriculum vitae</span>
     <h1 className="h-page">Nimra Zahid</h1>
     <p className="lead">International Relations researcher &amp; educator</p>
     <p className="meta">{[profile.location.toUpperCase(),profile.email,`LAST UPDATED ${updated.toUpperCase()}`].filter(Boolean).join(' · ')}</p>

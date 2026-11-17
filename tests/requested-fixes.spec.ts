@@ -31,19 +31,20 @@ for(const width of [1280,375])for(const theme of ['light','dark']){
   expect((await page.locator('.phd-teaser').evaluate(el=>getComputedStyle(el).gridTemplateColumns)).split(' ')).toHaveLength(width===1280?2:1);
   await expect(page.locator('.phd-teaser')).toHaveAttribute('href','/phd');
   await expect(page.locator('.phd-teaser > div > svg')).toHaveCSS('width','24px');
-  await expect(page.locator('ul.area-list li').first()).toHaveCSS('font-size','14px');
+  await expect(page.locator('ul.area-list li').first()).toHaveCSS('font-size','13px');
   await expect(page.locator('.area-list')).toContainText('Securitisation theory');
   await expect(page.locator('.output .body > .meta')).toHaveCount(3);
-  for(const meta of await page.locator('.output .body > .meta').all()){await expect(meta).toContainText('FULL TEXT ON REQUEST');await expect(meta).toHaveCSS('font-size',width<480?'12px':'13px')}
+  for(const meta of await page.locator('.output .body > .meta').all()){await expect(meta).toContainText('FULL TEXT ON REQUEST');await expect(meta).toHaveCSS('font-size',width<480?'12.5px':'13px')}
   for(const summary of await page.locator('.research-abstract summary').all()){await expect(summary).toHaveCSS('min-height','44px');await expect(summary).toHaveCSS('list-style-type','none');await summary.click();await expect(summary.locator('svg')).toHaveCSS('transform','matrix(0, 1, -1, 0, 0, 0)');await expect(summary.locator('svg')).toHaveCSS('transition-duration','0s')}
   await page.keyboard.press('Tab');await page.locator('.phd-teaser').focus();await expect(page.locator('.phd-teaser')).toHaveCSS('outline-style','solid');
   await page.emulateMedia({reducedMotion:'no-preference'});await page.locator('.phd-teaser').hover();
   await expect(page.locator('.phd-teaser')).toHaveCSS('transform','matrix(1, 0, 0, 1, 0, -2)');
-  expect(await page.locator('.phd-teaser').evaluate(el=>getComputedStyle(el,'::after').backgroundImage)).toContain('linear-gradient');
+  // Regional atlas hover: 2px lift, lapis border and an offset soft shadow (no glow).
+  expect(await page.locator('.phd-teaser').evaluate(el=>getComputedStyle(el).boxShadow)).not.toBe('none');
   await page.emulateMedia({reducedMotion:'reduce'});await expect(page.locator('.phd-teaser')).toHaveCSS('transform','none');
   await page.locator('.directions').screenshot({path:`artifacts/fixes/research-${width}-${theme}.png`});
   await visit('/about');await cards();
-  await visit('/contact');await expect(page.getByText('Please include your department and university.',{exact:true})).toBeVisible();
+  await visit('/contact');await expect(page.getByText(/Please include your department and university\./)).toBeVisible();
   const copy=page.getByRole('button',{name:'Copy email',exact:true});await copy.click();
   const copied=page.getByRole('button',{name:'Copied',exact:true});await expect(copied).toHaveAttribute('aria-live','polite');await expect(copied.locator('.lucide-check')).toBeVisible();await expect(copy).toBeVisible({timeout:2500});
   const sizes=await page.locator('.contact-intro').evaluate(el=>[getComputedStyle(el).fontSize,...Array.from(el.querySelectorAll('a'),a=>getComputedStyle(a).fontSize)]);expect(new Set(sizes).size).toBe(1);

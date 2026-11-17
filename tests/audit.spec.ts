@@ -24,7 +24,7 @@ test('all public layouts are accessible in both themes',async({page})=>{
    for(const theme of ['light','dark']){
     await page.evaluate(t=>document.documentElement.dataset.theme=t,theme);
     // Link colours transition for 200ms; check contrast after they settle.
-    await page.waitForFunction(t=>getComputedStyle(document.querySelector('.brand')??document.body).color===(t==='dark'?'rgb(238, 234, 246)':'rgb(30, 26, 43)'),theme);
+    await page.waitForFunction(t=>getComputedStyle(document.querySelector('.brand')??document.body).color===(t==='dark'?'rgb(232, 238, 245)':'rgb(15, 26, 44)'),theme);
     expect(await page.evaluate(()=>document.documentElement.scrollWidth),`${path} ${width} ${theme}`).toBe(width);
     const audit=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();expect(audit.violations,`${path} ${width} ${theme}`).toEqual([]);
    }

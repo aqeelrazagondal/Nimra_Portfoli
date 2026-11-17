@@ -1,8 +1,8 @@
 # Nimra Zahid — academic portfolio
 
-Design: **The Circuit** (a site drawn as a circuit board: RSCT calls Afghanistan an insulator; the research reads it as an instigator). Dark “Ink” and light “Paper” themes share one token set in `app/globals.css`; figures live in `components/circuit/`.
+Design: **Regional atlas** (the argument drawn the way Regional Security Complex Theory is drawn: as a map of complexes; Afghanistan in lapis between three regional fields). Light “daylight” and dark “night chart” themes share one token set in `app/atlas.css`, which loads after the older `app/globals.css`; figures live in `components/circuit/`. Product context is in `PRODUCT.md`, the visual system in `DESIGN.md`, and the direction contract in `.impeccable/surfaces/site.md`.
 
-First working local version of the revised educator–researcher plan. Built with Next.js App Router, TypeScript, React, semantic CSS tokens and self-hosted Fraunces, Inter and Newsreader through next/font. Intended deployment: Vercel.
+First working local version of the revised educator–researcher plan. Built with Next.js App Router, TypeScript, React, semantic CSS tokens and self-hosted Archivo and Source Serif 4 through next/font. Intended deployment: Vercel.
 
 ## Run
 
@@ -20,7 +20,7 @@ Visit http://127.0.0.1:3000. Production check: `npm run build`. Type check: `npm
 - Contact form backed by a Server Action (`app/contact/actions.ts`): validation, honeypot, timing check, per-instance rate limit, Cloudflare Turnstile and delivery through the Resend REST API. See `.env.example`.
 - SEO: per-page descriptions and canonical URLs, OpenGraph/Twitter cards with generated images (`/opengraph-image` and one per research page), `sitemap.xml`, ProfilePage/Person and Thesis JSON-LD, and a dedicated 404 title. Indexing is off unless `ENABLE_INDEXING=true` on production (`lib/site.ts`).
 - Dark theme by default; an explicit light/dark choice is remembered site-wide and synced across tabs.
-- `/cv.pdf` is rendered with @react-pdf using the brand fonts (static Fraunces and Inter TTFs in `assets/fonts`, under the OFL) from the same data as the web CV.
+- `/cv.pdf` is rendered with @react-pdf using the brand font (static Archivo woff files in `assets/fonts`, under the OFL) from the same data as the web CV.
 - Writing (`/writing`): Keystatic at `/keystatic` uses local files in development and GitHub in production. Only published articles appear publicly; publishing rebuilds static pages. Includes RSS, article OG images and build-time image sanitization. See [setup and author guide](docs/writing-keystatic.md).
 - Contact links (email, ORCID, LinkedIn) appear automatically once configured. Nimra's portrait and “In pictures” photos are uploaded in Keystatic → Profile photos (`content/profile/`, images in `public/images/profile/`); on local and preview builds the empty slots are outlined with a hint.
 

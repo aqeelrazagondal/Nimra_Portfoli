@@ -10,17 +10,16 @@ import {profile,profileLinks} from '@/content/profile';
 const navLinks=(showWriting=true)=>[['Research','/research'],['PhD','/phd'],['Teaching','/teaching'],...(showWriting?[['Writing','/writing']]:[]),['About','/about']];
 // Article pages use the calm reading header and footer; the metaphor steps back while reading.
 const isArticle=(path:string)=>/^\/writing\/[^/]+/.test(path);
-const themeColors={light:'#faf7f2',dark:'#0b0a12'};
+const themeColors={light:'#e4ecf0',dark:'#0a1525'};
 // Keep the browser UI colour (theme-color) in step with the chosen theme, not the OS setting.
 function applyTheme(theme:'light'|'dark'){document.documentElement.dataset.theme=theme;document.querySelectorAll('meta[name="theme-color"]').forEach(m=>m.setAttribute('content',themeColors[theme]))}
 
-// The mark: a small chip with "nz" on its die, pins above in trace, pins below live.
+// The mark: an atlas plate in lapis with the initials in map lettering.
 export function ChipLogo({className='brand-chip'}:{className?:string}){
  return <svg className={className} viewBox="0 0 40 40" aria-hidden="true">
-  <rect x="8" y="10" width="24" height="20" rx="4" className="f-chip s-lilac" strokeWidth="1.5"/>
-  <line x1="14" y1="4" x2="14" y2="10" className="s-strong" strokeWidth="1.5"/><line x1="26" y1="4" x2="26" y2="10" className="s-strong" strokeWidth="1.5"/>
-  <line x1="14" y1="30" x2="14" y2="36" className="s-live" strokeWidth="1.5"/><line x1="26" y1="30" x2="26" y2="36" className="s-live" strokeWidth="1.5"/>
-  <text x="20" y="24.5" textAnchor="middle" className="t-text" style={{fontFamily:'var(--font-display),Georgia,serif',fontSize:13,fontStyle:'italic'}}>nz</text>
+  <rect x="2" y="2" width="36" height="36" rx="5" className="f-lapis"/>
+  <path d="M2 27 H38" className="s-surface" strokeWidth="1" opacity=".55"/>
+  <text x="20" y="22" textAnchor="middle" className="t-onlapis" style={{fontFamily:'var(--font-sans),system-ui,sans-serif',fontSize:14,fontWeight:700,fontStretch:'125%',letterSpacing:.5}}>NZ</text>
  </svg>;
 }
 

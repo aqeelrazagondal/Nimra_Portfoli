@@ -1,3 +1,4 @@
+import {Arrow} from '@/components/arrow';
 import Link from 'next/link';
 import {PresentationChart} from '@phosphor-icons/react/ssr';
 import {projects} from '@/content/profile';
@@ -11,7 +12,7 @@ export function TalkFeature({compact=false}:{compact?:boolean}){
   <span className="meta">JUNE 2020 · ISTANBUL</span>
   <h3 className="talk-title">{paper.title}</h3>
   <span className="talk-venue">{paper.institution}{compact?'':' · Istanbul Sabahattin Zaim University'}</span>
-  <span className="talk-more">Read the presentation overview →</span>
+  <span className="talk-more">Read the presentation overview <Arrow/></span>
  </>;
  return <Link href={`/research/${paper.slug}`} className={compact?'talk-compact':'talk-feature card'}>{body}</Link>;
 }

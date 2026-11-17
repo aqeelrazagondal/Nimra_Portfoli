@@ -1,7 +1,6 @@
 'use client';
 import {useEffect,useRef,useState} from 'react';
 import {usePathname} from 'next/navigation';
-import {Books,ChalkboardTeacher,GraduationCap} from '@phosphor-icons/react';
 
 // Progressive enhancement: content remains visible with JavaScript disabled.
 export function SiteMotion(){
@@ -9,7 +8,7 @@ export function SiteMotion(){
  useEffect(()=>{
   const reduce=matchMedia('(prefers-reduced-motion: reduce)');
   const sections=document.querySelectorAll<HTMLElement>('main .section,main .role,main .question-card');
-  const reveal=new IntersectionObserver(entries=>entries.forEach(({target,isIntersecting})=>{if(!isIntersecting)return;target.classList.add('has-entered');if(!reduce.matches&&target.getBoundingClientRect().top>0)target.animate([{opacity:.3,transform:'translateY(12px)'},{opacity:1,transform:'none'}],{duration:300,easing:'ease-out'});reveal.unobserve(target)}),{threshold:.08});
+  const reveal=new IntersectionObserver(entries=>entries.forEach(({target,isIntersecting})=>{if(!isIntersecting)return;target.classList.add('has-entered');reveal.unobserve(target)}),{threshold:.08});
   sections.forEach(el=>reveal.observe(el));
   const loops=document.querySelectorAll<HTMLElement>('main .flow,main .flow-slow,main .glow,.pulse');
   const visible=new Set<Element>();
@@ -32,6 +31,6 @@ function Count({value,suffix=''}:{value:number;suffix?:string}){
   observer.observe(el);return()=>{observer.disconnect();cancelAnimationFrame(frame)}},[value]);
  return <strong ref={ref}><span className="sr-only">{value}{suffix}</span><span aria-hidden>{count}{suffix}</span></strong>;
 }
-// Home, beside Fig. 1: three stacked stat cards (icon, number, label).
-const stats=[{icon:ChalkboardTeacher,value:10,suffix:'+',label:'years teaching, Pakistan & England'},{icon:Books,value:6,suffix:'',label:'undergraduate IR modules taught'},{icon:GraduationCap,value:3,suffix:'',label:'IR degrees'}];
-export function Stats(){return <ul className="readouts">{stats.map(({icon:Icon,value,suffix,label})=><li className="readout" key={label}><span className="readout-icon" aria-hidden><Icon size={20} weight="regular"/></span><Count value={value} suffix={suffix}/><span className="readout-label">{label}</span></li>)}</ul>}
+// Home, in Fig. 1's map key: three figures as ruled legend rows (number, label).
+const stats=[{value:10,suffix:'+',label:'years teaching, Pakistan & England'},{value:6,suffix:'',label:'undergraduate IR modules taught'},{value:3,suffix:'',label:'IR degrees'}];
+export function Stats(){return <ul className="readouts">{stats.map(({value,suffix,label})=><li className="readout" key={label}><Count value={value} suffix={suffix}/><span className="readout-label">{label}</span></li>)}</ul>}

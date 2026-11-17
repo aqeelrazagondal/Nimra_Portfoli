@@ -16,7 +16,6 @@ export default function Teaching(){
   <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(ld)}/>
   <section className="wrap teach-hero">
    <div className="stack" style={{gap:28}}>
-    <span className="label label-live">Teaching · Inclusion &amp; practice</span>
     <h1 className="h-page em-live">Understanding begins <em>with belonging.</em></h1>
     <p className="lead">Over ten years of teaching across Pakistan and England, from university seminars to specialist secondary education.</p>
     <div className="btn-row"><a href="#experience" className="btn btn-teach">Teaching experience</a><Link href="/cv" className="btn-ghost">Full CV</Link></div>
@@ -31,7 +30,7 @@ export default function Teaching(){
   </section>
 
   <section className="wrap section split" aria-labelledby="philosophy-title">
-   <div className="split-head"><span className="label label-live">Philosophy</span><h2 id="philosophy-title" className="h-section" style={{fontSize:'clamp(1.9rem,3vw,2.75rem)'}}>My approach to the classroom.</h2>
+   <div className="split-head"><h2 id="philosophy-title" className="h-section" style={{fontSize:'clamp(1.9rem,3vw,2.75rem)'}}>My approach to the classroom.</h2>
     <figure className="teach-photo">
      <Photo name="teaching" label={{text:'Inclusive education',dot:'var(--gold)',at:'top-left'}} sizes="(max-width: 900px) min(400px, 100vw), 400px"/>
      <figcaption>Teaching since 2015, across Pakistan and England.</figcaption>
@@ -46,7 +45,7 @@ export default function Teaching(){
   </section>
 
   <section id="experience" className="wrap section" aria-labelledby="experience-title" style={{scrollMarginTop:104}}>
-   <div className="section-head"><div className="stack"><span className="label label-live designator live">Teaching experience</span><h2 id="experience-title" className="h-section">Four roles, two countries.</h2></div></div>
+   <div className="section-head"><div className="stack"><h2 id="experience-title" className="h-section">Four roles, two countries.</h2></div></div>
    <ol className="roles" style={{listStyle:'none',margin:0,padding:0}}>
     {teaching.map(t=><li key={t.title} className={`role role-${t.code.toLowerCase()}`}>
      <div className="role-when"><span className="mono">{t.short.toUpperCase()}</span><span className="mono muted">{t.place.toUpperCase()}</span></div>
@@ -58,22 +57,22 @@ export default function Teaching(){
 
   <section className="wrap section duo" aria-label="University teaching and specialisms" style={{alignItems:'start'}}>
    <div className="card" style={{borderRadius:28}}>
-    <span className="label" style={{color:'var(--rose)'}}>University teaching · University of Gujrat</span>
     <h2 className="h-card">Six undergraduate modules.</h2>
+    <p className="meta">University teaching · University of Gujrat</p>
     <div className="modules">{universityModules.map(m=><span key={m}>{m}</span>)}</div>
     {universityModules.length<6&&<p className="muted" style={{fontSize:16}}>Including the modules above, taught through lectures and seminars between 2019 and 2022.</p>}
    </div>
    <div className="card" style={{borderRadius:28}}>
-    <span className="label label-live">Specialisms</span>
     <h2 className="h-card">Inclusive, pastoral, planned.</h2>
+    <p className="meta">Specialisms</p>
     <div className="pills">{specialisms.map(s=><span key={s} className="pill pill-lg">{s}</span>)}</div>
    </div>
   </section>
 
   <section className="wrap section" aria-labelledby="emerging-title">
    <div className="card" style={{display:'flex',flexDirection:'column',gap:16,borderRadius:28}}>
-    <span className="label label-live">Emerging interests</span>
     <h2 id="emerging-title" className="h-card">Research-informed, inclusive education.</h2>
+    <p className="meta">Emerging interests</p>
     <p className="text-2" style={{fontSize:17,lineHeight:1.65,margin:0}}>I am also interested in the relationship between research and practice in specialist social, emotional and mental health (SEMH) education, building on my experience in the classroom.</p>
    </div>
   </section>

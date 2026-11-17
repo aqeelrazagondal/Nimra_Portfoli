@@ -1,3 +1,4 @@
+import {Arrow} from '@/components/arrow';
 import Link from 'next/link';
 import {education,profile} from '@/content/profile';
 import {PhotoGallery} from '@/components/portrait';
@@ -35,7 +36,6 @@ export default async function About(){
     <span className="meta">PAKISTAN → ENGLAND · {profile.languages.join(' · ').toUpperCase()}</span>
    </div>
    <div className="about-copy">
-    <span className="label">About</span>
     <h1 className="h-page">A researcher’s curiosity. <em>An educator’s perspective.</em></h1>
     <div className="reading">
      <p>My academic and teaching journey connects Lahore, Mandi Bahauddin, Islamabad and Northampton. Across those places, International Relations has given me a way to examine how regions connect, while teaching has kept my attention on how people learn to understand those connections.</p>
@@ -47,20 +47,20 @@ export default async function About(){
   </section>
 
   <section className="wrap section" aria-labelledby="route-title">
-   <div className="section-head route-head"><div className="stack"><span className="label designator live">The route so far</span><h2 id="route-title" className="h-section">Five places, one line of inquiry.</h2></div>
+   <div className="section-head route-head"><div className="stack"><h2 id="route-title" className="h-section">Five places, one line of inquiry.</h2></div>
     <Photo name="journey" className="route-photo" sizes="200px"/></div>
    <JourneyTimeline stops={route}/>
   </section>
 
   <section className="wrap section split" aria-labelledby="record-title">
-   <div className="split-head"><span className="label">Academic record</span><h2 id="record-title" className="h-section" style={{fontSize:'clamp(1.9rem,3vw,2.75rem)'}}>Three degrees in International Relations.</h2><Link href="/cv" className="link-arrow">Full CV <span aria-hidden>→</span></Link></div>
+   <div className="split-head"><h2 id="record-title" className="h-section" style={{fontSize:'clamp(1.9rem,3vw,2.75rem)'}}>Three degrees in International Relations.</h2><Link href="/cv" className="link-arrow">Full CV <Arrow/></Link></div>
    <div className="rule-list">
     {education.map(e=><div key={e.title} className="record-row"><span className="mono muted">{e.years}</span><span className="stack" style={{gap:6}}><span className="h-item"><GraduationCap aria-hidden/>{e.title}</span><span className="text-2" style={{fontSize:16}}>{e.institution}</span></span></div>)}
    </div>
   </section>
 
   <section className="wrap section" aria-labelledby="principles-title">
-   <div className="section-head"><div className="stack"><span className="label designator">Principles</span><h2 id="principles-title" className="h-section">Knowledge should <em>connect us.</em></h2></div></div>
+   <div className="section-head"><div className="stack"><h2 id="principles-title" className="h-section">Knowledge should <em>connect us.</em></h2></div></div>
    <div className="principles">{principles.map(([code,title,text],i)=><div key={code} className="card principle">{[<Lightbulb key="light" aria-hidden/>,<HeartHandshake key="heart" aria-hidden/>,<Users key="users" aria-hidden/>][i]}<h3 className="h-item" style={{fontSize:28}}>{title}</h3><p>{text}</p></div>)}</div>
    <div className="duo" style={{marginTop:24}}>
     <div><span className="label label-muted">Methods &amp; tools</span><div className="pills">{methods.map(m=><span key={m} className="pill pill-lg">{m}</span>)}</div></div>

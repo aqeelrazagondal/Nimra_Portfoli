@@ -1,3 +1,4 @@
+import {Arrow} from '@/components/arrow';
 import Link from 'next/link';
 import {CaretRight,Path} from '@phosphor-icons/react/ssr';
 import {projects,researchInterests,testimonials,profile,fullTextRequest} from '@/content/profile';
@@ -21,7 +22,6 @@ export default function Research(){
  return <>
   <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(ld)}/>
   <section className="wrap page-hero">
-   <span className="label">Research · Regional security</span>
    <h1 className="h-page">Rethinking Afghanistan’s <em>regional role.</em></h1>
    <p className="lead">I study how Afghanistan shapes the security of the regions around it: not only as a buffer, but as a driver.</p>
   </section>
@@ -38,12 +38,12 @@ export default function Research(){
    <div className="fig-head"><span id="fig2-title" className="label">Fig. 2 · Two readings of regional security</span><span className="meta">After Buzan &amp; Wæver, Regions and Powers (2003) · abstract diagram, not a map</span></div>
    <div className="readings">
     <figure className="reading-card dotgrid" style={{margin:0}}>
-     <div className="top"><span className="label" style={{color:'var(--rose)'}}>Reading A · Insulator</span><span className="meta">RSCT, 2003</span></div>
+     <div className="top"><span className="label" style={{color:'var(--text)'}}>Reading A · Insulator</span><span className="meta">RSCT, 2003</span></div>
      <InteractiveReadings inst={false}/>
      <figcaption style={{textAlign:'left',fontStyle:'normal',fontSize:16,color:'var(--text-2)'}}>Afghanistan sits between the post-Soviet, Middle Eastern and South Asian complexes, absorbing rather than transmitting their security dynamics.</figcaption>
     </figure>
     <figure className="reading-card dotgrid" style={{margin:0,borderColor:'var(--current-line)'}}>
-     <div className="top"><span className="label" style={{color:'var(--current)'}}>Reading B · Instigator</span><span className="meta">My argument</span></div>
+     <div className="top"><span className="label" style={{color:'var(--lilac)'}}>Reading B · Instigator</span><span className="meta">My argument</span></div>
      <InteractiveReadings inst/>
      <figcaption style={{textAlign:'left',fontStyle:'normal',fontSize:16,color:'var(--text-2)'}}>Dynamics generated in and around Afghanistan travel outward and shape security inside the neighbouring complexes.</figcaption>
     </figure>
@@ -51,12 +51,12 @@ export default function Research(){
   </section>
 
   <section className="wrap section" aria-labelledby="outputs-title">
-   <div className="section-head"><div className="stack"><span className="label designator live">Outputs</span><h2 id="outputs-title" className="h-section">Three projects, one developing question.</h2></div></div>
+   <div className="section-head"><div className="stack"><h2 id="outputs-title" className="h-section">Three projects, one developing question.</h2></div></div>
    <div className="rule-list">
     {outputs.map(p=>{const m=outputMeta[p.slug];return <article key={p.slug} className={`output${m?.accent?' accent':''}`}>
      <div className="stack" style={{gap:6}}><span className="year">{p.year}</span><span className="mono muted">{(m?.kind??p.type).toUpperCase()}</span></div>
-     <div className="body"><h3 className="h-item"><Link href={`/research/${p.slug}`}>{p.title}</Link></h3><p>{m?.text??p.summary}</p>{m&&<span className="meta">{m.line.toUpperCase()}</span>}{m?.tags&&<div className="pills" style={{marginTop:8}}>{m.tags.map(tag=><span key={tag} className="pill">{tag.toUpperCase()}</span>)}</div>}<details className="research-abstract"><summary><CaretRight aria-hidden size={16}/>Read abstract</summary>{p.abstract.map(text=><p key={text}>{text}</p>)}<a className="link-arrow" href={fullTextRequest(p.title)}>Request the full text →</a></details></div>
-     <div className="side"><Link href={`/research/${p.slug}`} className="output-link" aria-label={`Read overview: ${p.title}`}>Read overview →</Link></div>
+     <div className="body"><h3 className="h-item"><Link href={`/research/${p.slug}`}>{p.title}</Link></h3><p>{m?.text??p.summary}</p>{m&&<span className="meta">{m.line.toUpperCase()}</span>}{m?.tags&&<div className="pills" style={{marginTop:8}}>{m.tags.map(tag=><span key={tag} className="pill">{tag.toUpperCase()}</span>)}</div>}<details className="research-abstract"><summary><CaretRight aria-hidden size={16}/>Read abstract</summary>{p.abstract.map(text=><p key={text}>{text}</p>)}<a className="link-arrow" href={fullTextRequest(p.title)}>Request the full text <Arrow/></a></details></div>
+     <div className="side"><Link href={`/research/${p.slug}`} className="output-link" aria-label={`Read overview: ${p.title}`}>Read overview <Arrow/></Link></div>
     </article>})}
    </div>
   </section>
@@ -64,10 +64,10 @@ export default function Research(){
   <Publications variant="research"/>
 
   <section className="wrap section directions" aria-labelledby="directions-title">
-   <div className="section-head"><div className="stack"><span className="label">Proposed PhD project · 2027 entry</span><h2 id="directions-title" className="h-section">Where the questions <em>lead next.</em></h2></div></div>
+   <div className="section-head"><div className="stack"><h2 id="directions-title" className="h-section">Where the questions <em>lead next.</em></h2><p className="meta">Proposed PhD project · 2027 entry</p></div></div>
    <Link href="/phd" className="card phd-teaser">
     <div><Path aria-hidden size={24}/><p>The doctoral project tests the instigator category on post-2014 Afghanistan, using Turkey and Myanmar as contrast cases, and asks whether shared threats are forming a new regional security complex.</p></div>
-    <span className="btn">See the PhD proposal <span aria-hidden>→</span></span>
+    <span className="btn">See the PhD proposal <Arrow/></span>
    </Link>
    <span className="label section-label">Research areas</span>
    <ul className="area-list">{researchInterests.map(r=><li key={r}>{r}</li>)}</ul>

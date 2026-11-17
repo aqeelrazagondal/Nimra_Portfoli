@@ -4,24 +4,25 @@ import {phdLead} from '@/content/phd';
 import {cvSections,profile} from '@/content/profile';
 import {siteUrl} from '@/lib/site';
 const font=(file:string)=>join(process.cwd(),'assets/fonts',file);
-Font.register({family:'Fraunces',fonts:[{src:font('Fraunces-Regular.ttf')},{src:font('Fraunces-Italic.ttf'),fontStyle:'italic'},{src:font('Fraunces-SemiBold.ttf'),fontWeight:600}]});
-Font.register({family:'Geist',fonts:[{src:font('Geist-Regular.ttf')},{src:font('Geist-Medium.ttf'),fontWeight:500},{src:font('Geist-SemiBold.ttf'),fontWeight:600}]});
+Font.register({family:'Archivo',fonts:[{src:font('Archivo-Regular.woff')},{src:font('Archivo-Medium.woff'),fontWeight:500},{src:font('Archivo-Bold.woff'),fontWeight:700}]});
 Font.registerHyphenationCallback(word=>[word]);
-const c={text:'#1e1a2b',muted:'#5a5167',primary:'#5a3990',accent:'#1d7472',border:'#ded6e7'};
+// Regional-atlas ink: navy text, lapis primary, sage accent, map-rule borders.
+const c={text:'#0f1a2c',muted:'#46546a',primary:'#23409e',accent:'#2a6849',border:'#c6d3db'};
 // A page-level lineHeight hides the fixed footer in react-pdf, so set it per text style.
 const styles=StyleSheet.create({
- page:{paddingTop:44,paddingBottom:56,paddingHorizontal:52,fontFamily:'Geist',fontSize:9,color:c.text},
+ // No ligatures: an fi or fl ligature loses its letters when applicant-tracking systems extract the text.
+ page:{paddingTop:44,paddingBottom:56,paddingHorizontal:52,fontFamily:'Archivo',fontSize:9,color:c.text,fontFeatureSettings:{liga:false,clig:false}},
  header:{borderBottomWidth:1,borderBottomColor:c.border,paddingBottom:14,marginBottom:6},
- name:{fontFamily:'Fraunces',fontSize:30,lineHeight:1.1,letterSpacing:-.6,color:c.text},
- role:{fontFamily:'Fraunces',fontStyle:'italic',fontSize:13,color:c.primary,marginTop:4,marginBottom:8},
+ name:{fontFamily:'Archivo',fontWeight:700,fontSize:28,lineHeight:1.1,letterSpacing:-.5,color:c.text},
+ role:{fontFamily:'Archivo',fontWeight:500,fontSize:12,color:c.primary,marginTop:4,marginBottom:8},
  contact:{flexDirection:'row',flexWrap:'wrap',fontSize:8.5,lineHeight:1.45,color:c.muted},
  link:{color:c.muted,textDecoration:'none'},
  // Plain headings (no letter spacing or forced capitals) so applicant-tracking systems read them as words.
- section:{fontSize:10.5,fontWeight:600,color:c.primary,marginTop:16,marginBottom:4},
+ section:{fontSize:10.5,fontWeight:700,color:c.primary,marginTop:16,marginBottom:4},
  entry:{flexDirection:'row',paddingTop:7},
  dates:{width:100,paddingRight:10,fontSize:8,lineHeight:1.45,color:c.muted,paddingTop:1.5},
  body:{flex:1},
- title:{fontFamily:'Fraunces',fontWeight:600,fontSize:11,lineHeight:1.3,marginBottom:1},
+ title:{fontFamily:'Archivo',fontWeight:700,fontSize:10.5,lineHeight:1.3,marginBottom:1},
  institution:{fontSize:8.5,lineHeight:1.45,fontWeight:500,color:c.accent,marginBottom:2},
  detail:{fontSize:9,lineHeight:1.45,color:c.text},
  footer:{position:'absolute',bottom:26,left:52,right:52,fontSize:7.5,color:c.muted,flexDirection:'row',justifyContent:'space-between',borderTopWidth:.5,borderTopColor:c.border,paddingTop:7},

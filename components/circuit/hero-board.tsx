@@ -7,19 +7,23 @@ const caption={
  instigator:'My reading: Afghanistan generates security dynamics that travel outward into the complexes around it.',
  insulator:'The RSCT reading (Buzan & Wæver, 2003): Afghanistan sits between complexes and absorbs, rather than transmits, their dynamics.',
 };
-// Outward traces from the chip to each region pad, the region pads, and the chip's pins.
-const live=['M292 254 V170 L262 140 V92','M410 292 H468 L528 232 V160','M410 348 H480 L540 408 V486','M230 348 H166 L108 406 V478'];
-const pads=[{x:262,y:80,ly:50,label:'RUSSIA'},{x:528,y:148,ly:118,label:'CENTRAL ASIA'},{x:540,y:498,ly:538,label:'SOUTH ASIA'},{x:108,y:490,ly:530,label:'THE GULF'}];
-const pins=[[264,254,264,264],[292,254,292,264],[320,254,320,264],[348,254,348,264],[376,254,376,264],[264,376,264,386],[292,376,292,386],[320,376,320,386],[348,376,348,386],[376,376,376,386],[230,292,240,292],[230,320,240,320],[230,348,240,348],[400,292,410,292],[400,320,410,320],[400,348,410,348]];
-// Barrier symbols (the insulator) where each trace leaves the chip.
-const barriers=[{x:280,y:218,w:24,h:12,v:false},{x:434,y:280,w:12,h:24,v:true},{x:434,y:336,w:12,h:24,v:true},{x:194,y:336,w:12,h:24,v:true}];
+// Fig. 1 as a schematic atlas plate. Region shapes are abstract fields, not borders: the caption says so.
+// Russia to the north, Central Asia, the Gulf to the west, South Asia to the south-east, Afghanistan between them.
+const regions=[
+ {id:'russia',d:'M0 0 H640 V92 C560 104 520 84 456 96 C392 108 336 88 268 100 C200 112 120 94 0 104 Z',tone:'fill-land',label:'RUSSIA',lx:320,ly:52},
+ {id:'central',d:'M92 150 C150 120 236 128 300 116 C372 104 452 118 524 132 C560 168 548 214 498 236 C456 252 416 238 388 248 C360 222 316 214 286 226 C258 220 226 226 196 214 C146 198 104 190 92 150 Z',tone:'fill-ochre',label:'CENTRAL ASIA',lx:420,ly:168},
+ {id:'gulf',d:'M0 236 C60 226 128 228 186 242 C222 252 240 262 240 290 C236 320 244 344 226 366 C196 404 150 428 96 444 C60 454 24 452 0 446 Z',tone:'fill-rose',label:'THE GULF',lx:92,ly:392},
+ {id:'south',d:'M400 286 C432 262 488 256 548 270 C596 282 624 304 640 318 V520 H372 C356 486 340 452 318 420 C342 402 368 384 380 352 C390 330 392 306 400 286 Z',tone:'fill-sage',label:'SOUTH ASIA',lx:548,ly:476},
+];
+const afg='M286 226 C316 214 360 222 388 248 C402 270 396 300 380 352 C368 384 342 402 318 420 C296 404 270 392 252 366 C238 344 236 320 240 290 C244 262 262 238 286 226 Z';
+// Instigator: lapis flows leave Afghanistan for each complex. Insulator: a hatched wall closes the border.
+const flows=['M318 250 C312 196 314 150 320 110','M372 262 C404 232 432 206 452 186','M258 312 C222 306 186 300 150 296','M366 360 C410 384 446 400 482 410'];
+const heads=[[320,104,0],[457,181,45],[143,296,-90],[489,412,108]];
+const grid=[80,160,240,320,400,480,560];
+const legend=[['f-lapis','Afghanistan'],['fill-ochre','Central Asia'],['fill-sage','South Asia'],['fill-rose','The Gulf'],['fill-land','Russia']];
 
-// Fig. 1: the site's thesis as an interactive board. The two RSCT readings of Afghanistan are the
-// same chip, with current either stopped at its borders or flowing outward. The hero copy is
-// server-rendered and passed in; this component owns the shared reading state.
 export function HeroBoard({children}:{children:React.ReactNode}){
  const [mode,setMode]=useState<Mode>('instigator');const inst=mode==='instigator';
- const chip=inst?'s-live':'s-faint';
  return <section className="wrap hero" aria-label="Introduction">
   <div className="hero-copy">{children}</div>
   <div className="hero-figure-row"><figure className="board-fig" style={{margin:0}}>
@@ -34,32 +38,29 @@ export function HeroBoard({children}:{children:React.ReactNode}){
      </div>
      <span className="board-fig-no label label-muted">Fig. 1</span>
     </div>
-    <svg viewBox="0 0 640 640" role="img" aria-label={`Abstract circuit diagram. Afghanistan is a chip at the centre, connected to Russia, Central Asia, South Asia and the Gulf. ${inst?'Current flows outward from Afghanistan into each region.':'Barriers stop the current at Afghanistan’s borders.'} Positions are not geographic boundaries.`}>
-     <defs><radialGradient id="halo" cx=".5" cy=".5" r=".5"><stop offset="0" stopColor="var(--current)" stopOpacity=".22"/><stop offset=".55" stopColor="var(--lilac)" stopOpacity=".08"/><stop offset="1" stopColor="var(--board)" stopOpacity="0"/></radialGradient></defs>
-     <circle cx="320" cy="320" r="220" fill="url(#halo)" className="fade" style={{opacity:inst?1:0}}/>
-     <g className="f-none s-hair" strokeWidth="2"><path d="M348 254 V204 L376 176 V150"/><path d="M320 386 V448 L292 476 V548"/><path d="M230 292 H178 L150 264"/></g>
-     <g className="f-none s-idle" strokeWidth="1.5"><circle cx="376" cy="146" r="4"/><circle cx="292" cy="552" r="4"/><circle cx="147" cy="261" r="4"/></g>
-     <g className="f-none s-idle" strokeWidth="2">{live.map(d=><path key={d} d={d}/>)}</g>
-     <g className="f-none s-live fade" strokeWidth="2" strokeLinecap="round" style={{opacity:inst?1:0}}>{live.map(d=><path key={d} d={d} className="flow"/>)}</g>
-     <g className="fade" style={{opacity:inst?0:1}}>{barriers.map(b=><g key={b.x+'-'+b.y}>
-      <rect x={b.x} y={b.y} width={b.w} height={b.h} className="f-board"/>
-      {b.v?<><line x1={b.x+1} y1={b.y} x2={b.x+1} y2={b.y+b.h} className="s-rose" strokeWidth="2"/><line x1={b.x+11} y1={b.y} x2={b.x+11} y2={b.y+b.h} className="s-rose" strokeWidth="2"/></>
-       :<><line x1={b.x} y1={b.y+1} x2={b.x+b.w} y2={b.y+1} className="s-rose" strokeWidth="2"/><line x1={b.x} y1={b.y+11} x2={b.x+b.w} y2={b.y+11} className="s-rose" strokeWidth="2"/></>}
-     </g>)}</g>
-     <g className="s-strong" strokeWidth="2">{pins.map(([x1,y1,x2,y2])=><line key={`${x1}-${y1}-${x2}`} x1={x1} y1={y1} x2={x2} y2={y2}/>)}</g>
-     <rect x="240" y="264" width="160" height="112" rx="12" className={`f-chip chip-outline ${chip}`} strokeWidth="1.5"/>
-     <rect x="252" y="276" width="136" height="88" rx="6" className="f-none s-idle" strokeWidth="1"/>
-     <circle cx="262" cy="286" r="3" className="f-strong"/>
-     <text x="320" y="318" textAnchor="middle" className="t-mono t-text lbl-long" style={{fontSize:13,letterSpacing:2.4}}>AFGHANISTAN</text><text x="320" y="318" textAnchor="middle" className="t-mono t-text lbl-short lbl-center" style={{fontSize:13,letterSpacing:2.4}}>AFG</text>
-     <text x="320" y="342" textAnchor="middle" className={`t-mono lbl-state ${inst?'t-live':'t-rose'}`} style={{letterSpacing:1.6}}>{inst?'INSTIGATOR':'INSULATOR'}</text>
-     {pads.map(p=><g key={p.label}>
-      <circle cx={p.x} cy={p.y} r="12" className={`f-board ${inst?'s-live':'s-strong'}`} strokeWidth="1.5"/>
-      <circle cx={p.x} cy={p.y} r="5" className={inst?'f-live':'f-idle'}/>
-      <text x={p.x} y={p.ly} textAnchor="middle" className="t-mono t-2 lbl" style={{letterSpacing:2}}>{p.label}</text>
-     </g>)}
+    <svg viewBox="0 0 640 520" role="img" aria-label={`Schematic map. Afghanistan sits between the Central Asian, Gulf and South Asian security complexes, with Russia to the north. ${inst?'Flows run outward from Afghanistan into each region.':'A wall closes Afghanistan off from the regions around it.'} Shapes are schematic, not geographic boundaries.`}>
+     <rect width="640" height="520" className="fill-sea"/>
+     <g className="map-graticule">{grid.map(x=><line key={'v'+x} x1={x} y1="0" x2={x} y2="520"/>)}{grid.slice(0,6).map(y=><line key={'h'+y} x1="0" y1={y} x2="640" y2={y}/>)}</g>
+     {regions.map(r=><path key={r.id} d={r.d} className={`${r.tone} s-surface`} strokeWidth="2"/>)}
+     <path d={afg} className="f-lapis s-surface" strokeWidth="2"/>
+     <g className="map-wall" style={{opacity:inst?0:1}}>
+      <path d={afg} className="f-none s-ink" strokeWidth="9" strokeDasharray="2 5" strokeLinecap="butt"/>
+      <path d={afg} className="f-none s-ink" strokeWidth="1.5"/>
+     </g>
+     <g className="map-flow" style={{opacity:inst?1:0}}>
+      {flows.map(d=><path key={d} d={d} className="f-none s-lapis flow" strokeWidth="3" strokeLinecap="round"/>)}
+      {heads.map(([x,y,a])=><path key={`${x}-${y}`} d="M-7 6 L0 -6 L7 6 Z" className="f-lapis" transform={`translate(${x} ${y}) rotate(${a})`}/>)}
+     </g>
+     {regions.map(r=><text key={r.id} x={r.lx} y={r.ly} textAnchor="middle" className="map-label" style={{fontSize:13}}>{r.label}</text>)}
+     <text x="316" y="312" textAnchor="middle" className="map-label t-onlapis lbl-long" style={{fontSize:12,letterSpacing:2}}>AFGHANISTAN</text><text x="316" y="312" textAnchor="middle" className="map-label t-onlapis lbl-short lbl-center" style={{fontSize:13,letterSpacing:2}}>AFG</text>
+     <text x="316" y="334" textAnchor="middle" className="map-label t-onlapis lbl-state" style={{fontSize:11,letterSpacing:1.5,opacity:.9}}>{inst?'INSTIGATOR':'INSULATOR'}</text>
     </svg>
    </div>
    <figcaption className="board-caption meta" style={{fontStyle:'normal',textAlign:'left',marginTop:0}}><span id="reading-caption" aria-live="polite">{caption[mode]}</span><span>Abstract diagram · not geographic boundaries</span></figcaption>
-  </figure><div className="hero-stats" role="group" aria-label="At a glance"><Stats/></div></div>
+  </figure><aside className="map-legend" aria-label="Map key and figures">
+   <p className="legend-title">Key</p>
+   <ul className="legend-key">{legend.map(([tone,name])=><li key={name}><svg viewBox="0 0 20 14" aria-hidden="true"><rect width="20" height="14" rx="2" className={tone}/></svg>{name}</li>)}</ul>
+   <Stats/>
+  </aside></div>
  </section>;
 }

@@ -25,19 +25,6 @@ export function StrandWire(){
  </div>;
 }
 
-// "Complete the circuit": a switch left open, awaiting the visitor.
-export function CtaSwitch({closed=false,label}:{closed?:boolean;label?:string}){
- return <svg className="cta-switch" viewBox="0 0 560 72" aria-hidden="true">
-  <path d="M0 44 H220" className="f-none s-idle" strokeWidth="2"/><path d="M0 44 H220" className="f-none s-live flow" strokeWidth="2"/>
-  <circle cx="224" cy="44" r="5" className="f-bg s-live" strokeWidth="2"/>
-  <line x1="228" y1={closed?44:42} x2={closed?332:318} y2={closed?44:12} className="s-text lever" strokeWidth="2" strokeLinecap="round"/>
-  <circle cx="336" cy="44" r="5" className={`f-bg ${closed?'s-live':'s-strong'}`} strokeWidth="2"/>
-  <path d="M340 44 H560" className="f-none s-idle" strokeWidth="2"/>
-  {closed&&<path d="M340 44 H560" className="f-none s-live flow" strokeWidth="2"/>}
-  {label&&<text x="280" y="68" textAnchor="middle" className="t-mono t-faint lbl" style={{letterSpacing:2}}>{label}</text>}
- </svg>;
-}
-
 // About, J1: five places on one route, lit up to now.
 export function RouteTrace(){
  const nodes=[[120,48],[360,28],[600,48],[840,28]];
@@ -50,13 +37,13 @@ export function RouteTrace(){
 }
 
 // Research, Fig. 2: the same three complexes read two ways (after Buzan & Wæver 2003).
-function Complex({x,y,h,label,short,inst}:{x:number;y:number;h:number;label:string;short:string;inst:boolean}){
+function Complex({x,y,h,label,short,tone}:{x:number;y:number;h:number;label:string;short:string;tone:string}){
  const cx=x+110,yy=y+h-(h===84?28:62),ty=h===84?y+24:y+80;
  return <g>
-  <rect x={x} y={y} width="220" height={h} rx="16" className={inst?'fill-live-soft s-strong':'fill-lilac-soft s-strong'} strokeWidth="1"/>
-  <text x={cx} y={ty} textAnchor="middle" className="t-mono t-2 lbl-long" style={{letterSpacing:1.2}}>{label}</text><text x={cx} y={ty} textAnchor="middle" className="t-mono t-2 lbl-short" style={{letterSpacing:1.2}}>{short}</text>
-  <path d={`M${cx-60} ${yy} L${cx} ${yy+6} L${cx+60} ${yy}`} className="f-none s-lilac flow-slow" strokeWidth="1.5"/>
-  <circle cx={cx-60} cy={yy} r="5" className="f-lilac"/><circle cx={cx} cy={yy+6} r="5" className="f-lilac"/><circle cx={cx+60} cy={yy} r="5" className="f-lilac"/>
+  <rect x={x} y={y} width="220" height={h} rx="4" className={`${tone} s-surface`} strokeWidth="2"/>
+  <text x={cx} y={ty} textAnchor="middle" className="map-label lbl-long" style={{fontSize:11.5}}>{label}</text><text x={cx} y={ty} textAnchor="middle" className="map-label lbl-short" style={{fontSize:11.5}}>{short}</text>
+  <path d={`M${cx-60} ${yy} L${cx} ${yy+6} L${cx+60} ${yy}`} className="f-none s-ink" strokeWidth="1" strokeDasharray="2 3" opacity=".5"/>
+  <circle cx={cx-60} cy={yy} r="4" className="f-ink"/><circle cx={cx} cy={yy+6} r="4" className="f-ink"/><circle cx={cx+60} cy={yy} r="4" className="f-ink"/>
  </g>;
 }
 export function ReadingsFigure({inst,selected=null,onSelect}:{inst:boolean;selected?:number|null;onSelect?:(i:number|null)=>void}){
@@ -64,22 +51,21 @@ export function ReadingsFigure({inst,selected=null,onSelect}:{inst:boolean;selec
  const hover=(i:number)=>onSelect?{onPointerEnter:(e:React.PointerEvent)=>{if(e.pointerType==='mouse')onSelect(i)}}:{};
  const traces=inst?['M294 158 V100','M244 206 H200 L170 236 V262','M344 206 H388 L418 236 V262']:['M294 158 V108','M244 206 H200 L170 236 V252','M344 206 H388 L418 236 V252'];
  return <svg viewBox="0 0 588 380" role="img" aria-label={inst?'Instigator reading: current flows outward from Afghanistan into the three neighbouring complexes.':'Insulator reading: three regional complexes with Afghanistan between them; connections into Afghanistan are blocked.'}>
-  <g className={`figure-complex${state(0)}`} {...hover(0)}><Complex x={184} y={24} h={84} label="CENTRAL ASIA · POST-SOVIET" short="CENTRAL ASIA" inst={inst}/></g>
-  <g className={`figure-complex${state(1)}`} {...hover(1)}><Complex x={24} y={252} h={100} label="MIDDLE EAST · GULF" short="MIDDLE EAST" inst={inst}/></g>
-  <g className={`figure-complex${state(2)}`} {...hover(2)}><Complex x={344} y={252} h={100} label="SOUTH ASIA" short="SOUTH ASIA" inst={inst}/></g>
-  {inst&&<circle cx="294" cy="190" r="110" className="fill-live-soft"/>}
+  <g className={`figure-complex${state(0)}`} {...hover(0)}><Complex x={184} y={24} h={84} label="CENTRAL ASIA · POST-SOVIET" short="CENTRAL ASIA" tone="fill-ochre"/></g>
+  <g className={`figure-complex${state(1)}`} {...hover(1)}><Complex x={24} y={252} h={100} label="MIDDLE EAST · GULF" short="MIDDLE EAST" tone="fill-rose"/></g>
+  <g className={`figure-complex${state(2)}`} {...hover(2)}><Complex x={344} y={252} h={100} label="SOUTH ASIA" short="SOUTH ASIA" tone="fill-sage"/></g>
   {traces.map((d,i)=><path key={d} d={d} className={`f-none s-idle figure-connection${state(i)}`} strokeWidth="2"/>)}
   {inst?<>
-   {traces.map((d,i)=><path key={'l'+d} d={d} className={`f-none s-live flow figure-connection${state(i)}`} strokeWidth="2"/>)}
-   <polygon points="287,114 294,102 301,114" className={`f-live figure-connection${state(0)}`}/><circle cx="170" cy="266" r="6" className={`f-live figure-connection${state(1)}`}/><circle cx="418" cy="266" r="6" className={`f-live figure-connection${state(2)}`}/>
+   {traces.map((d,i)=><path key={'l'+d} d={d} className={`f-none s-lapis figure-connection${state(i)}`} strokeWidth="3" strokeLinecap="round"/>)}
+   <polygon points="287,114 294,102 301,114" className={`f-lapis figure-connection${state(0)}`}/><circle cx="170" cy="266" r="6" className={`f-lapis figure-connection${state(1)}`}/><circle cx="418" cy="266" r="6" className={`f-lapis figure-connection${state(2)}`}/>
   </>:<>
-   <g className={`figure-connection${state(0)}`}><rect x="282" y="127" width="24" height="12" className="f-board"/><line x1="282" y1="128" x2="306" y2="128" className="s-rose" strokeWidth="2"/><line x1="282" y1="138" x2="306" y2="138" className="s-rose" strokeWidth="2"/></g>
-   <g className={`figure-connection${state(1)}`}><rect x="216" y="194" width="12" height="24" className="f-board"/><line x1="217" y1="194" x2="217" y2="218" className="s-rose" strokeWidth="2"/><line x1="227" y1="194" x2="227" y2="218" className="s-rose" strokeWidth="2"/></g>
-   <g className={`figure-connection${state(2)}`}><rect x="360" y="194" width="12" height="24" className="f-board"/><line x1="361" y1="194" x2="361" y2="218" className="s-rose" strokeWidth="2"/><line x1="371" y1="194" x2="371" y2="218" className="s-rose" strokeWidth="2"/></g>
+   <g className={`figure-connection${state(0)}`}><rect x="282" y="127" width="24" height="12" className="f-board"/><line x1="282" y1="128" x2="306" y2="128" className="s-ink" strokeWidth="2"/><line x1="282" y1="138" x2="306" y2="138" className="s-ink" strokeWidth="2"/></g>
+   <g className={`figure-connection${state(1)}`}><rect x="216" y="194" width="12" height="24" className="f-board"/><line x1="217" y1="194" x2="217" y2="218" className="s-ink" strokeWidth="2"/><line x1="227" y1="194" x2="227" y2="218" className="s-ink" strokeWidth="2"/></g>
+   <g className={`figure-connection${state(2)}`}><rect x="360" y="194" width="12" height="24" className="f-board"/><line x1="361" y1="194" x2="361" y2="218" className="s-ink" strokeWidth="2"/><line x1="371" y1="194" x2="371" y2="218" className="s-ink" strokeWidth="2"/></g>
   </>}
-  <rect x="244" y="158" width="100" height="64" rx="10" className={`f-chip ${inst?'s-live':'s-faint'}`} strokeWidth="1.5"/>
-  <text x="294" y="188" textAnchor="middle" className="t-mono t-text lbl-center" style={{fontSize:13,letterSpacing:2}}>AFG</text>
-  <text x="294" y="208" textAnchor="middle" className={`t-mono lbl-state ${inst?'t-live':'t-rose'}`} style={{letterSpacing:1}}>{inst?'INSTIGATOR':'INSULATOR'}</text>
+  <rect x="244" y="158" width="100" height="64" rx="4" className="f-lapis s-surface" strokeWidth="2"/>
+  <text x="294" y="188" textAnchor="middle" className="map-label t-onlapis lbl-center" style={{fontSize:13}}>AFG</text>
+  <text x="294" y="208" textAnchor="middle" className="map-label t-onlapis lbl-state" style={{fontSize:10.5,letterSpacing:1}}>{inst?'INSTIGATOR':'INSULATOR'}</text>
  </svg>;
 }
 
@@ -87,13 +73,13 @@ export function ReadingsFigure({inst,selected=null,onSelect}:{inst:boolean;selec
 export function ContrastFigure(){
  return <div className="contrast-fig">
   <div>
-   <svg viewBox="0 0 220 96" role="img" aria-label="Insulator: barriers on both sides of Afghanistan stop the current."><path d="M0 48 H70 M150 48 H220" className="f-none s-idle" strokeWidth="2"/><line x1="74" y1="34" x2="74" y2="62" className="s-rose" strokeWidth="2"/><line x1="146" y1="34" x2="146" y2="62" className="s-rose" strokeWidth="2"/><rect x="84" y="28" width="52" height="40" rx="8" className="f-chip s-faint" strokeWidth="1.5"/><text x="110" y="52" textAnchor="middle" className="t-mono t-text">AFG</text></svg>
-   <span className="label" style={{color:'var(--rose)',letterSpacing:'.12em'}}>Insulator · blocks</span>
+   <svg viewBox="0 0 220 96" role="img" aria-label="Insulator: barriers on both sides of Afghanistan stop the current."><path d="M0 48 H70 M150 48 H220" className="f-none s-idle" strokeWidth="2"/><line x1="74" y1="34" x2="74" y2="62" className="s-ink" strokeWidth="2"/><line x1="146" y1="34" x2="146" y2="62" className="s-ink" strokeWidth="2"/><rect x="84" y="28" width="52" height="40" rx="4" className="f-lapis s-surface" strokeWidth="2"/><text x="110" y="52" textAnchor="middle" className="map-label t-onlapis" style={{fontSize:11}}>AFG</text></svg>
+   <span className="label" style={{color:'var(--text)'}}>Insulator · blocks</span>
   </div>
   <svg viewBox="0 0 64 24" aria-hidden="true" style={{width:64}}><path d="M8 12 H52 M44 5 L52 12 L44 19" className="f-none s-faint" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
   <div>
-   <svg viewBox="0 0 220 96" role="img" aria-label="Instigator: current flows outward from Afghanistan in both directions."><path d="M0 48 H84 M136 48 H220" className="f-none s-idle" strokeWidth="2"/><path d="M84 48 H0" className="f-none s-live flow" strokeWidth="2"/><path d="M136 48 H220" className="f-none s-live flow" strokeWidth="2"/><circle cx="110" cy="48" r="40" className="fill-live-soft"/><rect x="84" y="28" width="52" height="40" rx="8" className="f-chip s-live" strokeWidth="1.5"/><text x="110" y="52" textAnchor="middle" className="t-mono t-text">AFG</text></svg>
-   <span className="label" style={{color:'var(--current)',letterSpacing:'.12em'}}>Instigator · generates</span>
+   <svg viewBox="0 0 220 96" role="img" aria-label="Instigator: current flows outward from Afghanistan in both directions."><path d="M0 48 H84 M136 48 H220" className="f-none s-idle" strokeWidth="2"/><path d="M84 48 H0" className="f-none s-lapis" strokeWidth="3"/><path d="M136 48 H220" className="f-none s-lapis" strokeWidth="3"/><rect x="84" y="28" width="52" height="40" rx="4" className="f-lapis s-surface" strokeWidth="2"/><text x="110" y="52" textAnchor="middle" className="map-label t-onlapis" style={{fontSize:11}}>AFG</text></svg>
+   <span className="label" style={{color:'var(--lilac)'}}>Instigator · generates</span>
   </div>
  </div>;
 }
@@ -123,6 +109,8 @@ export function SignalTrace(){
  const ticks=Array.from({length:16},(_,i)=>170+i*64);
  return <svg viewBox="0 0 1200 392" role="img" aria-label="Timing diagram of study, university teaching, school teaching and research outputs from 2011 to 2026. School and university teaching overlap from 2019 to 2022.">
   <g className="s-hair" strokeWidth="1">{ticks.map(x=><line key={x} x1={x} y1="40" x2={x} y2="350"/>)}</g>
+  {/* Lanes as atlas bands, one field tint per lane. */}
+  <g opacity=".55"><rect x="150" y="62" width="1035" height="60" className="fill-lapis"/><rect x="150" y="134" width="1035" height="60" className="fill-rose"/><rect x="150" y="206" width="1035" height="60" className="fill-sage"/><rect x="150" y="278" width="1035" height="60" className="fill-ochre"/></g>
   {[['STUDY',96],['UNIVERSITY',168],['SCHOOLS',240],['RESEARCH',312]].map(([l,y])=><text key={l} x="0" y={y} className="t-mono t-2" style={{letterSpacing:1.5}}>{l}</text>)}
   <rect x="215" y="74" width="243" height="36" className="fill-lilac-soft"/><rect x="496" y="74" width="122" height="36" className="fill-lilac-soft"/><rect x="983" y="74" width="77" height="36" className="fill-lilac-soft"/>
   <path d="M170 110 H215 V74 H458 V110 H496 V74 H618 V110 H983 V74 H1060 V110 H1178" className="f-none s-lilac" strokeWidth="2" strokeLinejoin="round"/>

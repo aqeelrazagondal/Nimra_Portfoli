@@ -304,6 +304,8 @@ table,.cv-when,.output .year,.readout strong{font-variant-numeric:tabular-nums}
 .strand-research{background:var(--field-lapis)}
 .strand-teaching{background:var(--field-sage)}
 .strand .pill{background:var(--surface)}
+/* The circuit-era phone grid reserved a 64px middle row for the wire; the wire is gone, so rows size to content. */
+.strands{grid-template-rows:none}
 @media(max-width:767px){.strands{grid-template-columns:1fr}}
 /* Control and column labels: sentence case at normal width, not tracked capitals. */
 #read-as,.footer-col>.label-muted{text-transform:none;font-stretch:100%;letter-spacing:0;font-size:14px;font-weight:600;color:var(--text)}

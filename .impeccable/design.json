@@ -1,0 +1,396 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-17T05:10:14.020Z",
+  "title": "Design System: Nimra Zahid",
+  "extensions": {
+    "colorMeta": {
+      "lapis": {
+        "role": "primary",
+        "displayName": "Lapis",
+        "canonical": "#23409E",
+        "tonalRamp": [
+          "#142146",
+          "#192C63",
+          "#1E3681",
+          "#23409E",
+          "#586FB5",
+          "#8E9DCD",
+          "#B8C2DF",
+          "#DEE4F0"
+        ]
+      },
+      "berry": {
+        "role": "secondary",
+        "displayName": "Rose-Berry",
+        "canonical": "#8C2A55",
+        "tonalRamp": [
+          "#2E1C33",
+          "#4E213F",
+          "#6D254A",
+          "#8C2A55",
+          "#A75E7F",
+          "#C292A8",
+          "#D8BCC9",
+          "#EBE1E7"
+        ]
+      },
+      "sage-ink": {
+        "role": "tertiary",
+        "displayName": "Sage Ink",
+        "canonical": "#2A6849",
+        "tonalRamp": [
+          "#162B30",
+          "#1D4039",
+          "#235441",
+          "#2A6849",
+          "#5E8D76",
+          "#91B1A2",
+          "#BACEC6",
+          "#DFE8E6"
+        ]
+      },
+      "rose-ink": {
+        "role": "tertiary",
+        "displayName": "Rose Ink",
+        "canonical": "#983A2A",
+        "tonalRamp": [
+          "#312029",
+          "#542929",
+          "#76312A",
+          "#983A2A",
+          "#B06A5E",
+          "#C89A93",
+          "#DBC0BC",
+          "#ECE3E2"
+        ]
+      },
+      "ochre-ink": {
+        "role": "tertiary",
+        "displayName": "Ochre Ink",
+        "canonical": "#7C5B0E",
+        "tonalRamp": [
+          "#2A2822",
+          "#46391B",
+          "#614A15",
+          "#7C5B0E",
+          "#9B8349",
+          "#BAAB85",
+          "#D3CAB4",
+          "#E9E7DF"
+        ]
+      },
+      "sea": {
+        "role": "neutral",
+        "displayName": "Sea",
+        "canonical": "#E4ECF0",
+        "tonalRamp": [
+          "#444C5A",
+          "#7A828C",
+          "#AFB7BE",
+          "#E4ECF0",
+          "#E9F0F3",
+          "#EEF3F6",
+          "#F2F6F8",
+          "#F6F8FA"
+        ]
+      },
+      "land": {
+        "role": "neutral",
+        "displayName": "Land",
+        "canonical": "#FAFBF9",
+        "tonalRamp": [
+          "#4A505C",
+          "#858991",
+          "#BFC2C5",
+          "#FAFBF9",
+          "#FAFBFA",
+          "#F9FBFA",
+          "#F9FAFA",
+          "#F8FAFB"
+        ]
+      },
+      "navy-ink": {
+        "role": "neutral",
+        "displayName": "Navy Ink",
+        "canonical": "#0F1A2C",
+        "tonalRamp": [
+          "#0F1829",
+          "#0F192A",
+          "#0F192B",
+          "#0F1A2C",
+          "#495260",
+          "#848A94",
+          "#B2B7BD",
+          "#DCDFE2"
+        ]
+      },
+      "map-rule": {
+        "role": "neutral",
+        "displayName": "Map Rule",
+        "canonical": "#ADBECA",
+        "tonalRamp": [
+          "#374151",
+          "#5E6B79",
+          "#8694A2",
+          "#ADBECA",
+          "#C0CDD6",
+          "#D3DCE3",
+          "#E2E8EC",
+          "#EFF3F5"
+        ]
+      },
+      "field-ochre": {
+        "role": "tertiary",
+        "displayName": "Central Asia Field",
+        "canonical": "#EAD9A4",
+        "tonalRamp": [
+          "#464847",
+          "#7D7866",
+          "#B3A985",
+          "#EAD9A4",
+          "#EEE1BA",
+          "#F1EAD0",
+          "#F4F0E1",
+          "#F6F6F1"
+        ]
+      },
+      "field-sage": {
+        "role": "tertiary",
+        "displayName": "South Asia Field",
+        "canonical": "#CDE0CF",
+        "tonalRamp": [
+          "#3F4952",
+          "#6E7C7C",
+          "#9EAEA5",
+          "#CDE0CF",
+          "#D8E7DA",
+          "#E3EDE5",
+          "#EBF2EE",
+          "#F3F7F6"
+        ]
+      },
+      "field-rose": {
+        "role": "tertiary",
+        "displayName": "Middle East and Gulf Field",
+        "canonical": "#EDCDC3",
+        "tonalRamp": [
+          "#47454F",
+          "#7E7276",
+          "#B6A09C",
+          "#EDCDC3",
+          "#F0D8D1",
+          "#F3E4DF",
+          "#F5EDEA",
+          "#F7F5F4"
+        ]
+      },
+      "field-lapis": {
+        "role": "tertiary",
+        "displayName": "Lapis Field",
+        "canonical": "#CBD6F1",
+        "tonalRamp": [
+          "#3E475A",
+          "#6D778D",
+          "#9CA6BF",
+          "#CBD6F1",
+          "#D6DFF4",
+          "#E2E8F6",
+          "#EBEFF8",
+          "#F3F6FA"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page claims; the emphasised second line switches to display-emphasis."
+      },
+      "display-emphasis": {
+        "displayName": "Display emphasis",
+        "purpose": "Source Serif 4 italic in berry for the emphasised line of big headings."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Plate and item titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Interface copy."
+      },
+      "reading": {
+        "displayName": "Reading",
+        "purpose": "Abstracts, articles and long About text."
+      },
+      "label": {
+        "displayName": "Map lettering",
+        "purpose": "Figure captions and map labels only."
+      },
+      "meta": {
+        "displayName": "Meta",
+        "purpose": "Dates, institutions and statuses below headings."
+      }
+    },
+    "shadows": [
+      {
+        "name": "lift",
+        "value": "0 10px 28px -12px rgba(15,26,44,.28)",
+        "purpose": "Linked plate on hover (pointer devices), with a 2px rise and a lapis border."
+      },
+      {
+        "name": "lift-night",
+        "value": "0 12px 30px -12px rgba(0,0,0,.55)",
+        "purpose": "The same lift on the night chart."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-site",
+        "value": "cubic-bezier(.22,.61,.36,1)",
+        "purpose": "Colour, border and lift transitions (0.2s)."
+      },
+      {
+        "name": "ease-redraw",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "Fig. 1 walls and flows cross-fade (0.45s), the one authored motion moment."
+      },
+      {
+        "name": "flow",
+        "value": "stroke-dashoffset loop, 1.6s linear",
+        "purpose": "Lapis flows in Fig. 1, Instigator reading only; paused off-screen and static under reduced motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "small-phone",
+        "value": "479px"
+      },
+      {
+        "name": "phone",
+        "value": "767px"
+      },
+      {
+        "name": "tablet",
+        "value": "900px"
+      },
+      {
+        "name": "laptop",
+        "value": "1100px"
+      },
+      {
+        "name": "wide",
+        "value": "1440px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one action per view: see the proposal, email Nimra.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">See the PhD proposal <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg></a>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:12px;height:50px;padding:0 26px;border-radius:10px;border:1px solid #23409E;background:#23409E;color:#FAFBF9;font-family:Archivo,system-ui,sans-serif;font-weight:600;font-size:16px;text-decoration:none;transition:background .2s,border-color .2s}.ds-btn-primary:hover{background:#1A3283;border-color:#1A3283}.ds-btn-primary:hover svg{transform:translateX(3px)}.ds-btn-primary svg{transition:transform .2s}.ds-btn-primary:focus-visible{outline:2px solid #23409E;outline-offset:3px}"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action beside a primary one.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Download CV (PDF)</a>",
+      "css": ".ds-btn-ghost{display:inline-flex;align-items:center;height:50px;padding:0 24px;border-radius:10px;border:1px solid #8297A7;background:#FAFBF9;color:#0F1A2C;font-family:Archivo,system-ui,sans-serif;font-weight:600;font-size:16px;text-decoration:none;transition:border-color .2s,color .2s}.ds-btn-ghost:hover{border-color:#23409E;color:#23409E}.ds-btn-ghost:focus-visible{outline:2px solid #23409E;outline-offset:3px}"
+    },
+    {
+      "name": "Keyed Plate",
+      "kind": "card",
+      "refersTo": "plate",
+      "description": "A land plate, or one filled with a regional field to key its topic; linked plates lift on hover.",
+      "html": "<a class=\"ds-plate\" href=\"#\"><h3>Regional security &amp; Afghanistan</h3><p>I ask why Afghanistan should be understood as an instigator, not simply an insulator.</p><span class=\"ds-tag\">RSCT</span></a>",
+      "css": ".ds-plate{display:flex;flex-direction:column;gap:14px;max-width:420px;padding:32px;border-radius:12px;border:1px solid #ADBECA;background:#CBD6F1;color:#0F1A2C;font-family:Archivo,system-ui,sans-serif;text-decoration:none;transition:transform .2s,border-color .2s,box-shadow .2s}.ds-plate h3{margin:0;font-size:24px;font-weight:650}.ds-plate p{margin:0;font-size:16px;line-height:1.65;color:#334058}.ds-plate:hover{transform:translateY(-2px);border-color:#23409E;box-shadow:0 10px 28px -12px rgba(15,26,44,.28)}.ds-plate .ds-tag{align-self:flex-start;padding:6px 12px;border-radius:8px;border:1px solid #ADBECA;background:#FAFBF9;font-size:13px;color:#334058}"
+    },
+    {
+      "name": "Tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Topic and method tags.",
+      "html": "<span class=\"ds-tag\">Qualitative case study</span>",
+      "css": ".ds-tag{display:inline-flex;padding:6px 12px;border-radius:8px;border:1px solid #ADBECA;background:#FAFBF9;color:#334058;font-family:Archivo,system-ui,sans-serif;font-size:13px;letter-spacing:.02em}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "description": "Solid sea header; the current page carries a 2px lapis bar.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">Research</a><a href=\"#\">PhD</a><a href=\"#\">Teaching</a><a href=\"#\">About</a></nav>",
+      "css": ".ds-nav{display:flex;gap:4px;padding:12px;background:#E4ECF0;font-family:Archivo,system-ui,sans-serif;}.ds-nav a{position:relative;padding:10px 14px;font-size:15px;font-weight:500;color:#334058;text-decoration:none}.ds-nav a:hover{color:#23409E}.ds-nav a[aria-current=page]{color:#0F1A2C}.ds-nav a[aria-current=page]::after{content:'';position:absolute;left:14px;right:14px;bottom:4px;height:2px;background:#23409E}"
+    },
+    {
+      "name": "Reading Switch",
+      "kind": "custom",
+      "description": "Segmented control that redraws Fig. 1 between the Insulator and Instigator readings.",
+      "html": "<div class=\"ds-seg\" role=\"group\" aria-label=\"Read Afghanistan as\"><button aria-pressed=\"false\">Insulator</button><button aria-pressed=\"true\">Instigator</button></div>",
+      "css": ".ds-seg{display:inline-flex;gap:4px;padding:4px;border-radius:10px;border:1px solid #8297A7;background:#FAFBF9;font-family:Archivo,system-ui,sans-serif;}.ds-seg button{height:44px;padding:0 20px;border:0;border-radius:7px;background:transparent;color:#334058;font:inherit;font-weight:600;cursor:pointer}.ds-seg button[aria-pressed=true]{background:#23409E;color:#FAFBF9}.ds-seg button:focus-visible{outline:2px solid #23409E;outline-offset:2px}"
+    },
+    {
+      "name": "Cartouche Heading",
+      "kind": "custom",
+      "description": "Display claim with its emphasised line in Source Serif 4 italic, berry.",
+      "html": "<h1 class=\"ds-cartouche\">They called Afghanistan an insulator.<br><em>I argue it’s an instigator.</em></h1>",
+      "css": ".ds-cartouche{margin:0;font-family:Archivo,system-ui,sans-serif;font-weight:700;font-stretch:118%;font-size:48px;line-height:1.04;letter-spacing:-.02em;color:#0F1A2C}.ds-cartouche em{font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-weight:500;font-stretch:100%;color:#8C2A55}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Atlas Plate",
+    "overview": "Regional Security Complex Theory is drawn as a map of complexes, so the site speaks the language of strategic atlases. The ground is a pale sea with a faint graticule; content sits on land-white plates ruled with 1px map lines; the three regional complexes around Afghanistan are flat fields of colour (Central Asia ochre, South Asia sage, the Middle East and Gulf rose); and Afghanistan itself, with every action a visitor can take, is lapis, the stone the country is known for.\n\nIt is Nimra's own site, so the atlas carries a personal, graceful voice: a deep rose-berry second ink and an elegant reading serif set the emphasised line of each big heading, corners are soft, and her real photographs lead the pages about her. Density is calm and scannable for supervisors who give the site a few minutes; the one moving thing is Fig. 1 redrawing its borders when the reading switches. Dark mode is a night chart: the same plate printed on deep navy.\n\nIt rejects the academic-portfolio default of cream paper, italic display serif everywhere and tracked monospace labels, and it rejects gender clichés: warmth comes from the berry ink, soft forms and the serif voice, never from pink chrome.",
+    "keyCharacteristics": [
+      "Sea-blue ground with a 96px graticule behind page openings and figures.",
+      "Flat regional fields as whole areas of colour; lapis for Afghanistan and every action.",
+      "Archivo map lettering (expanded width) for headings and labels; Source Serif 4 for long reading and heading emphasis.",
+      "Land-white plates, 1px map rules, 12 to 14px corners.",
+      "One authored motion moment; everything else is still."
+    ],
+    "rules": [
+      {
+        "name": "The Lapis Means Afghanistan Rule",
+        "body": "Lapis marks Afghanistan in every figure and every action in the interface. Nothing decorative is lapis, so the map's meaning never blurs.",
+        "section": "colors"
+      },
+      {
+        "name": "The Whole Field Rule",
+        "body": "Regional tints fill whole regions or whole plates. They are never sprinkled as small accents.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Kicker Rule",
+        "body": "A heading carries its own weight. No label sits above a heading; information that used to live there goes below it as a meta row.",
+        "section": "typography"
+      },
+      {
+        "name": "The Data-Only Lettering Rule",
+        "body": "Expanded capitals are for figure captions and map labels. Monospace is not used as a style; code blocks alone use a system mono.",
+        "section": "typography"
+      },
+      {
+        "name": "The No Glow Rule",
+        "body": "No zero-offset halos, gradient borders or glass. Depth is an offset shadow on interaction, or nothing.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep lapis for Afghanistan and for actions only.",
+      "Do use regional fields as whole areas, in figures or as keyed plate fills.",
+      "Do set the emphasised line of big headings in Source Serif 4 italic, berry.",
+      "Do put dates, institutions and statuses below headings as meta rows.",
+      "Do theme the browser surfaces: selection, caret, scrollbars and focus rings from the palette."
+    ],
+    "donts": [
+      "Don't put a label or kicker above a heading.",
+      "Don't use monospace as decoration, glow halos, gradient text or glass.",
+      "Don't use text glyphs (→) as link icons.",
+      "Don't express Nimra's identity through gender clichés; use the berry ink, soft forms and her real photographs.",
+      "Don't add scattered entrance animations; Fig. 1's redraw is the one motion moment."
+    ]
+  }
+}
